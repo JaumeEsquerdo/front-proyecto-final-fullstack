@@ -6,10 +6,10 @@
   --btn-text-color: #fff;
   --btn-font: 'Poppins', sans-serif;
   --btn-padding: 12px 24px;
-  --btn-border-radius: 44px;
-  --btn-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  --btn-border-radius: 12px;
+  --btn-shadow: 0 0px 10px rgba(0, 0, 0, 0.7);
   --btn-hover-bg: linear-gradient(135deg, #feb47b, #ff7e5f);
-  --btn-hover-shadow: 0 6px 14px rgba(0,0,0, 0.2);
+  --btn-hover-shadow: 0 6px 14px rgba(0,0,0, 0.8);
   --btn-transition: all 0.3s ease-in-out;
 }
 
@@ -56,9 +56,8 @@ a {
   display: inline-block;
   color: var(--btn-text-color);
   padding: var(--btn-padding);
-  border: 1px solid black;
   border-radius: var(--btn-border-radius);
-  box-shadow: var(--btn-shadow);
+  /* box-shadow: var(--btn-shadow); */
   transition: background-color 0.4s ease-in-out, box-shadow 1s ease-in-out, transform 1s ease-in-out;
 }
 
