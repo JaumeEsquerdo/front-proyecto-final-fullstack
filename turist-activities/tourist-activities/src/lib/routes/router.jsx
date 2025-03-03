@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         children:
         [
             {
-                path: 'secciones',
+                path: '/secciones',
                 element: <Secciones/>,
             },
             // {
