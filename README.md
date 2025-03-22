@@ -10,3 +10,6 @@ Ejemplo: https://api.opentripmap.com/0.1/en/places/geoname?name=Paris&apikey=TU_
 
 - Buscar lugares cerca de la ciudad: Usa la ruta /radius para obtener lugares turísticos cerca de las coordenadas de la ciudad.
 Ejemplo: https://api.opentripmap.com/0.1/en/places/radius?radius=5000&lon=2.3522&lat=48.8566&apikey=TU_API_KEY
+
+### API para poner un mapa interactivo:
+Leaflet 
