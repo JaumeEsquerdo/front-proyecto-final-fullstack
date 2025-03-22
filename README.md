@@ -1,15 +1,65 @@
 # Proyecto final de backend
 
-La idea es hacer una web tipo itineraria de viajes. Una especie de todo list con una API donde te recomiendan sitios segun la ciudad.
+### Estructura de la App :
 
-La API encontrada es OpenTripMap API : API  KEY = 5ae2e3f221c38a28845f05b6814cb1a4aa355463bfa4cc59634112d0
+1. Landing Page (onboarding)
 
-### Funciona asi la API: 
-- Buscar una ciudad por nombre: Usa la ruta /geoname para obtener coordenadas de la ciudad.
-Ejemplo: https://api.opentripmap.com/0.1/en/places/geoname?name=Paris&apikey=TU_API_KEY
+- Breve presentación de la app.
 
-- Buscar lugares cerca de la ciudad: Usa la ruta /radius para obtener lugares turísticos cerca de las coordenadas de la ciudad.
-Ejemplo: https://api.opentripmap.com/0.1/en/places/radius?radius=5000&lon=2.3522&lat=48.8566&apikey=TU_API_KEY
+- Explicación de los packs de actividades y beneficios de organizar el viaje.
+
+- Llamado a la acción: "Regístrate para empezar".
+
+- Opción de Login para usuarios ya registrados.
+
+  2. Dashboard (Pantalla de inicio)
+
+- Bienvenida personalizada: Si es la primera vez, pequeña explicación de la app.
+
+- Packs de actividades recomendados (Ejemplo: "Ruta gastronómica", "Día de playa", "Tour histórico").
+
+- Resumen de su planificación: Si ya tiene actividades organizadas, se muestran aquí con vista rápida.
+
+- Mapa integrado con Leaflet para ver ubicación de actividades guardadas o recomendadas.
+
+3. Calendario (Organización de Actividades)
+
+- Vista diaria de actividades programadas con posibilidad de eliminarlas.
+
+- Botón ‘+ Añadir actividad’ que abre un formulario:
+
+- Búsqueda con autocompletado de actividades predefinidas (según dos letras introducidas).
+
+- Opción de crear actividad personalizada si no está en la base de datos (ejemplo: "Visitar a un amigo").
+
+- Asignación de hora y ubicación en el mapa.
+
+ 4. Mapa interactivo? (dudas de como lo voy a poder realizar... lo veré más adelante cuando esté ya más madura la web)
+
+- Ubicación de todas las actividades programadas en el día.
+
+- Posibilidad de filtrar por tipo de actividad.
+
+- Se accede desde el Dashboard o el Calendario.
+
+5. Perfil-Login / Register
+
+- Si no está logeado: Formulario de login/registro.
+
+- Si está logeado:
+
+Ver su información de usuario.
+
+Historial de actividades guardadas.
+
+Configuración.
+
+### Aspectos técnicos:
+
+Front: React + CSS
+Backend: Node.js con Express y MongoDB
+Mapa: Leaflet para mostrar ubicaciones
+
 
 ### API para poner un mapa interactivo:
 Leaflet 
