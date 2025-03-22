@@ -16,13 +16,14 @@
 
 - Bienvenida personalizada: Si es la primera vez, pequeña explicación de la app.
 
-- Packs de actividades recomendados (Ejemplo: "Ruta gastronómica", "Día de playa", "Tour histórico").
+- Packs de actividades recomendados (Ejemplo: "Ruta gastronómica", "Día de playa", "Tour histórico"). Con botón de me gusta para guardarlos en una lista de referencia.
 
 - Resumen de su planificación: Si ya tiene actividades organizadas, se muestran aquí con vista rápida.
 
 - Mapa integrado con Leaflet para ver ubicación de actividades guardadas o recomendadas.
 
 3. Calendario (Organización de Actividades)
+ (vista diaria y semanal)
 
 - Vista diaria de actividades programadas con posibilidad de eliminarlas.
 
@@ -32,7 +33,25 @@
 
 - Opción de crear actividad personalizada si no está en la base de datos (ejemplo: "Visitar a un amigo").
 
+- Campos de actividad: 
+    - Nombre
+
+    - Descripción
+
+    - Imagen (opcional)
+
+    - Precio (si aplica)
+
+    - Horario
+
+    - Recomendación de franja horaria (ej: "Mejor por la tarde").
+
+    - Ubicación (marcada en el mapa).
+
 - Asignación de hora y ubicación en el mapa.
+- Posibilidad de editar/eliminar actividades programadas.
+
+
 
  4. Mapa interactivo? (dudas de como lo voy a poder realizar... lo veré más adelante cuando esté ya más madura la web)
 
