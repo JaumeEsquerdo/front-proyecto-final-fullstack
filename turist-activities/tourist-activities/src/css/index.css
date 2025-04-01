@@ -3,6 +3,7 @@
   --btn-bg: linear-gradient(135deg, #d08a79, #f0d6c3);
   --btn-text-color: #fff;
   --btn-font: 'Poppins', sans-serif;
+  --color-bg: linear-gradient(0deg, #E6F0F1, #fff);
   --btn-padding: 12px 24px;
   --btn-border-radius: 12px;
   --btn-shadow: 0 0px 10px rgba(0, 0, 0, 0.7);
@@ -31,7 +32,7 @@ a {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: azure;
+  background-color: rgb(255, 192, 97);
 
 }
 
