@@ -1,0 +1,25 @@
+.WelcomePage{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    
+}
+
+.WelcomePage-content{
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 50px 50px 0 0 ;
+    background-color: white;
+}
+
+.foto{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
