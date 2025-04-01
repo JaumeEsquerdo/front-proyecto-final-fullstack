@@ -4,6 +4,7 @@ import {createBrowserRouter} from 'react-router'
 import Home from '@/pages/Home'
 import Secciones from '@/pages/Secciones'
 import ErrorPage from '@/pages/ErrorPage'
+import WelcomePage from '@/pages/WelcomePage'
 
 
 // importe de páginas especiales
@@ -13,14 +14,18 @@ import  Layout from '@/Layout'
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Home/>,
+        element: <WelcomePage/>,
         index: true,// página principal sin Layout, para q no comparta header y footer
     }
     ,
     {
         element: <Layout/>,
         children:
-        [
+        [   
+            {
+                path: '/home',
+                element: <Home/>
+            },
             {
                 path: '/secciones',
                 element: <Secciones/>,

@@ -2,7 +2,7 @@
 
 ### Estructura de la App :
 
-1. Landing Page (onboarding)
+1. Welcome Page
 
 - Breve presentación de la app.
 
