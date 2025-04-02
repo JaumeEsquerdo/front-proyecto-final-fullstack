@@ -1,8 +1,12 @@
 const Secciones = () => {
     return ( 
+        <>
+        
         <main className="Main">
             secciones
         </main>
+        </>
+        
     );
 }
 

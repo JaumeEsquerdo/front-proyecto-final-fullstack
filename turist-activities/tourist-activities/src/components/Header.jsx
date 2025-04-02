@@ -10,7 +10,7 @@ export const Header = () => {
     }
     return (
         <header className="Header">
-            <h2 className="Header-title">Header</h2>
+            <h2 className="Header-title">Turistea <hr style={{ border: "none" }} /> Villajoyosa</h2>
             <div className="Hamburger" onClick={toggleMenu}>
                 <span className="bar"></span>
                 <span className="bar"></span>
@@ -18,8 +18,7 @@ export const Header = () => {
             </div>
             <nav className={`Nav-menu ${isOpen ? 'Open' : ''}`}>
                 <NavLink className="Nav-link" to={"/"}>Seccion 1</NavLink>
-                <NavLink className="Nav-link" to={"/"}>sección 2</NavLink>
-                <NavLink className="Nav-link" to={"/"}>Seccion 3</NavLink>
+
             </nav>
 
 

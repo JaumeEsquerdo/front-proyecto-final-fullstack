@@ -1,10 +1,16 @@
 /* FOOTER */
 
 .Footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
     display: flex;
+    border-radius: 50px 50px 0 0;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    height: 15vh;
-    background-color: bisque;
+    height: 10vh;
+    background-color: rgb(255, 255, 255);
 }

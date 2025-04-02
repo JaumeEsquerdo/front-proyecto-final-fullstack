@@ -2,25 +2,24 @@
 
 .Header {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: space-around;
     align-items: center;
-    height: 18vh;
+    height: 10vh;
     position: sticky;
     top: 0;
     z-index: 20px;
     width: 100%;
-    background-color: rgb(39, 127, 203);
 }
 
-.Hamburger {
+/* .Hamburger {
     display: flex;
     flex-direction: column;
     width: 30px;
-    /* height: 35px; */
+    
     gap: 3px;
     cursor: pointer;
-}
+} */
 
 .bar {
     width: 100%;
@@ -32,16 +31,16 @@
     gap: 20px;
     display: flex;
     transition: transform 0.4s ease-out, opacity 0.3s ease-out;
-    transform: translateX(100%);
-    opacity: 0;
-}
-
-.Nav-menu.Open {
     transform: translateX(0);
     opacity: 1;
 }
 
-@media screen and (min-width: 768px) {
+/* .Nav-menu.Open {
+    transform: translateX(0);
+    opacity: 1;
+} */
+
+/* @media screen and (min-width: 768px) {
 
     .Nav-menu {
         gap: 20px;
@@ -64,4 +63,4 @@
 
     }
 
-}
+} */
