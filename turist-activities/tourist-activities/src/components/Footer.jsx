@@ -3,8 +3,13 @@ import { NavLink } from "react-router";
 export const Footer = () => {
     return (
         <footer className="Footer">
-            <h2 className="Footer-title">+</h2>
-            <NavLink className="Footer-link" to={"/secciones"}>Secciones</NavLink>
+            <nav className="Footer-nav">
+                <ul className="Footer-ul">
+                <NavLink className="Footer-link" to={"/secciones"}>Secciones</NavLink>
+                <NavLink className="Footer-link" to={"/secciones"}>Secciones</NavLink>
 
+                </ul>
+            </nav>
+            <div className="Footer-div">+</div>
         </footer>);
 }

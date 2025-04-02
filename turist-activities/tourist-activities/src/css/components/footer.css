@@ -1,6 +1,6 @@
 /* FOOTER */
 
-.Footer{
+.Footer {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -13,4 +13,33 @@
     flex-direction: column;
     height: 10vh;
     background-color: rgb(255, 255, 255);
+}
+
+.Footer-nav {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.Footer-ul {
+    display: flex;
+    gap: 20px;
+}
+
+.Footer-link {}
+
+.Footer-div {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
