@@ -26,7 +26,7 @@ export const Footer = () => {
 
                                 >
                                     
-                                    <p className="Footer-p">{item.name}</p>
+                                    {item.name}
                                     {({ isActive }) => isActive && (
                                         <motion.div
                                             layoutId="footer-indicador"
