@@ -22,23 +22,9 @@ export const Footer = () => {
                                 <NavLink
                                     className={({ isActive }) => `Footer-link ${isActive ? "active" : ""}`}
                                     to={item.path}
-
-
                                 >
-                                    
                                     {item.name}
-                                    {({ isActive }) => isActive && (
-                                        <motion.div
-                                            layoutId="footer-indicador"
-                                            className="Footer-motions"
-                                            transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                                        >
-                                            <div className="Footer-motion"></div>
-                                        </motion.div>
-                                    )}
-                                    
                                 </NavLink>
-
 
                             </li>
                         )
