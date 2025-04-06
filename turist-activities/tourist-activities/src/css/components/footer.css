@@ -25,16 +25,15 @@
 .Footer-ul {
     display: flex;
     gap: 20px;
+    width: 100%;
+    justify-content: space-around;
 }
 
 .Footer-link {
     text-decoration: none;
     color: black;
 }
-.Footer-li{
-    position: relative;
-    list-style: none;
-}
+
 
 .Footer-link.active{
     color: brown;
@@ -55,3 +54,26 @@
     align-items: center;
 }
 
+/* MOTION con los DOTS */
+
+.Footer-li{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Footer-dots{
+    position: absolute;
+    /* bottom -8px, se posiciona por debajo del relative a menos 8px */
+    bottom: -8px;
+    display: flex;
+    gap: 4px;
+}
+
+.dot{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgb(198, 76, 76);
+}

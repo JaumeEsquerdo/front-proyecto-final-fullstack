@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { motion } from 'framer-motion'
 // cuando un NavLink esta activo `isActive` se genera automáticamente 
 
@@ -8,6 +8,7 @@ const navItems = [
 ]
 
 export const Footer = () => {
+    const location = useLocation();
 
     return (
         <footer className="Footer">
@@ -15,7 +16,7 @@ export const Footer = () => {
                 <ul className="Footer-ul">
 
                     {navItems.map((item) => {
-
+                        const isActive = location.pathname === item.path;
                         return (
 
                             <li key={item.path} className="Footer-li">
@@ -26,6 +27,20 @@ export const Footer = () => {
                                     {item.name}
                                 </NavLink>
 
+                                {isActive && (
+                                    <motion.div
+                                    layoutId="dots"
+                                    className="Footer-dots"
+                                    transition={{type: "spring", stiffness: 140, damping: 15, bounce: 0.9}}
+                                    >
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+
+                                    
+                                    </motion.div>
+                                )}
+
                             </li>
                         )
                     })}
@@ -35,5 +50,14 @@ export const Footer = () => {
             <div className="Footer-div">+</div>
         </footer>);
 }
+
+/**
+ * Transición en Framer Motion para la animación en el  footer de muelle en los 3 puntos
+ * type "srping": que es elástico
+ * stiffness: que tan fuerte es el muelle (mas alto mas rapido)
+ * dampping: cuanto rebote tiene (cuanto mas alto menos rebote)
+ * bounce: nivel de rebote
+ * 
+ */
 
 
