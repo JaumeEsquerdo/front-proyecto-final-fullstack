@@ -31,7 +31,7 @@ export const Footer = () => {
                                     <motion.div
                                     layoutId="dots"
                                     className="Footer-dots"
-                                    transition={{type: "spring", stiffness: 140, damping: 15, bounce: 0.9}}
+                                    transition={{type: "spring", stiffness: 140, damping: 15}}
                                     >
                                     <span className="dot"></span>
                                     <span className="dot"></span>
@@ -56,7 +56,7 @@ export const Footer = () => {
  * type "srping": que es elástico
  * stiffness: que tan fuerte es el muelle (mas alto mas rapido)
  * dampping: cuanto rebote tiene (cuanto mas alto menos rebote)
- * bounce: nivel de rebote
+ * 
  * 
  */
 
