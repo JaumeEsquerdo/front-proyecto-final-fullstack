@@ -35,7 +35,7 @@
 }
 
 
-.Footer-link.active{
+.Footer-link.active {
     color: brown;
 }
 
@@ -56,24 +56,37 @@
 
 /* MOTION con los DOTS */
 
-.Footer-li{
+.Footer-li {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.Footer-dots{
+.Footer-dots {
     position: absolute;
     /* bottom -8px, se posiciona por debajo del relative a menos 8px */
-    bottom: -8px;
+    bottom: -10px;
     display: flex;
     gap: 4px;
 }
 
-.dot{
-    width: 6px;
-    height: 6px;
+.dot {
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background-color: rgb(198, 76, 76);
+    /* radial gradient define el gradient en circulos, circle que será un circulo, y 30 % 30% que empezará arriba la la izq */
+    background: radial-gradient(circle at 30% 30%, #edebea, #e81663);
+    animation: spin 3s linear infinite;
+}
+
+/* keyframe para darle css a las bolitas del nav del footer */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
