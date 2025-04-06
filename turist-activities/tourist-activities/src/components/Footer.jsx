@@ -7,6 +7,7 @@ const navItems = [
     { name: 'Calendar', path: '/secciones' }
 ]
 
+
 export const Footer = () => {
     const location = useLocation();
 
@@ -36,7 +37,6 @@ export const Footer = () => {
                                     <span className="dot"></span>
                                     <span className="dot"></span>
                                     <span className="dot"></span>
-
                                     
                                     </motion.div>
                                 )}
@@ -59,5 +59,6 @@ export const Footer = () => {
  * 
  * 
  */
+
 
 
