@@ -27,7 +27,18 @@
     gap: 20px;
 }
 
-.Footer-link {}
+.Footer-link {
+    text-decoration: none;
+    color: black;
+}
+.Footer-li{
+    position: relative;
+    list-style: none;
+}
+
+.Footer-link.active{
+    color: brown;
+}
 
 .Footer-div {
     position: absolute;
