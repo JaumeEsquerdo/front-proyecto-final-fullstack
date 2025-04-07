@@ -1,0 +1,44 @@
+.Home{
+    width: 100%;
+    max-width: 100vw;
+    /* overflow-x: auto ; */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Packs recomendadoss */
+
+.Act-section{
+    margin-bottom: 20px;
+
+}
+
+.Act-cardScroll{
+    display: flex;
+    overflow-x: auto;
+    /* -webkit-overflow-scrolling: touch; para safari y iOS smooth scroll */
+    gap: 20px;
+    padding-left: 1rem;
+    scroll-behavior: smooth; /*suavidad al scroll */
+    scrollbar-width: none;
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
+.Act-card{
+    min-width: 300px;
+    height: 140px;
+    padding: 1rem;
+    background-color: aquamarine;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+
+
+
+
+
+
+
+
+/* Act pendientes */

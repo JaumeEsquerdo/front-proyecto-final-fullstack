@@ -17,7 +17,7 @@ export const Header = () => {
                 <span className="bar"></span>
             </div>
             <nav className={`Nav-menu ${isOpen ? 'Open' : ''}`}>
-                <NavLink className="Nav-link" to={"/"}>Seccion 1</NavLink>
+                <NavLink className="Nav-link" to={"/"}>Perfil</NavLink>
 
             </nav>
 
