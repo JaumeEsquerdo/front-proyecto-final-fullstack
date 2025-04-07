@@ -76,7 +76,7 @@ a {
 }
 
 .OutletWrapper{
-  max-height: 100vh;
+  min-height: 100vh;
   flex: 1;
   background: var(--color-bg);
   display: flex;

@@ -33,6 +33,7 @@ const Home = () => {
                             <p>un total de 3 actividades</p>
                             <div className="Act-icons">3</div>
                         </div>
+                        
 
                     </div>
                 </section>
@@ -51,12 +52,38 @@ const Home = () => {
                             <p className="ActPending-time">11:00-12:30</p>
                             <div>
                                 <Link>Actividad</Link>
-                                <Link>Calendario</Link>
+                                <Link to='/secciones'>Calendario</Link>
                                 
                             </div>
                         </div>
                     </div>
 
+                    <div className="Pending-act">
+                        <div className="Pending-icon">Icon</div>
+                        <div className="ActPending">
+                            <h3 className="ActPending-h3">Restaurante El Pòsit</h3>
+                            <p className="ActPending-p">Comida familiar en la playa centro</p>
+                            <p className="ActPending-time">14:00</p>
+                            <div>
+                                <Link>Actividad</Link>
+                                <Link>Calendario</Link>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div className="Pending-act">
+                        <div className="Pending-icon">Icon</div>
+                        <div className="ActPending">
+                            <h3 className="ActPending-h3">Restaurante El Pòsit</h3>
+                            <p className="ActPending-p">Comida familiar en la playa centro</p>
+                            <p className="ActPending-time">14:00</p>
+                            <div>
+                                <Link>Actividad</Link>
+                                <Link>Calendario</Link>
+                                
+                            </div>
+                        </div>
+                    </div>
                     <div className="Pending-act">
                         <div className="Pending-icon">Icon</div>
                         <div className="ActPending">

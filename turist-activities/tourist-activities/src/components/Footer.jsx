@@ -38,6 +38,7 @@ export const Footer = () => {
                                     <span className="dot"></span>
                                     <span className="dot"></span>
                                     
+                                    
                                     </motion.div>
                                 )}
 
