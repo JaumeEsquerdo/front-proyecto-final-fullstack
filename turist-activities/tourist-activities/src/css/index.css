@@ -12,6 +12,7 @@
   --btn-transition: all 0.3s ease-in-out;
 }
 
+
 .Root {
   display: flex;
   flex-direction: column;
@@ -32,6 +33,16 @@ a {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow: auto;
+  scrollbar-width: none; /* ocultar en firefox */
+}
+.Body::-webkit-scrollbar,html::-webkit-scrollbar{
+  display: none; /* ocultar en Chrome, safari y edge */
+}
+
+html{
+overflow: auto;
+scrollbar-width: none;
 }
 
 /* HOME */
@@ -77,6 +88,7 @@ a {
 
 .OutletWrapper{
   min-height: 100vh;
+  padding-bottom: 12vh;
   flex: 1;
   background: var(--color-bg);
   display: flex;
