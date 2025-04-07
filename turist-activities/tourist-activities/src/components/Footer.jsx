@@ -32,7 +32,7 @@ export const Footer = () => {
                                     <motion.div
                                     layoutId="dots"
                                     className="Footer-dots"
-                                    transition={{type: "spring", stiffness: 140, damping: 15}}
+                                    transition={{type: "spring", stiffness: 50, damping: 25}}
                                     >
                                     <span className="dot"></span>
                                     <span className="dot"></span>
