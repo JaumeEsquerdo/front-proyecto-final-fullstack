@@ -18,7 +18,15 @@ const router = createBrowserRouter([
         path: '/',
         element: <WelcomePage/>,
         index: true,// página principal sin Layout, para q no comparta header y footer
-    }
+    },
+    {
+        path: '/login',
+        element:<Login/>
+    },
+    {
+        path:'/register',
+        element:<Register/>
+    },
     ,
     {
         element: <Layout/>,
@@ -36,14 +44,7 @@ const router = createBrowserRouter([
             //     path: 'secciones/:id',
             //     element: <SeccionDinamica/>
             // },
-            {
-                path: '/login',
-                element:<Login/>
-            },
-            {
-                path:'/register',
-                element:<Register/>
-            },
+            
             {
                 path: '*',
                 element:<ErrorPage/>
