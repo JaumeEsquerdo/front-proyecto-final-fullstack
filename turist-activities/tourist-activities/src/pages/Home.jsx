@@ -39,9 +39,9 @@ const Home = () => {
                 </section>
 
                 <section className="Pending">
-                    <div>
-                        <h2>Tus actividades pendientes</h2>
-                        <Link to='/tareas' className="VerTodas">Ver todas</Link>
+                    <div className="Pending-titles">
+                        <h2 className="Pending-title">Tus actividades pendientes</h2>
+                        <Link className="Pending-all" to='/tareas'>Ver todas</Link>
                     </div>
 
                     <div className="Pending-act">

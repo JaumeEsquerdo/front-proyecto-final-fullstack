@@ -5,6 +5,8 @@ import Home from '@/pages/Home'
 import Secciones from '@/pages/Secciones'
 import ErrorPage from '@/pages/ErrorPage'
 import WelcomePage from '@/pages/WelcomePage'
+import Login from '@/pages/Login'
+import Register from '@/pages/Register'
 
 
 // importe de páginas especiales
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
             //     path: 'secciones/:id',
             //     element: <SeccionDinamica/>
             // },
+            {
+                path: '/login',
+                element:<Login/>
+            },
+            {
+                path:'/register',
+                element:<Register/>
+            },
             {
                 path: '*',
                 element:<ErrorPage/>

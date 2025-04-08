@@ -9,13 +9,19 @@
 /* Packs recomendadoss */
 
 .Act-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
     margin-bottom: 20px;
-
 }
 
 .Act-h2,
 .Act-p {
-    padding: 5px 20px;
+    width: 95%;
+    /* pongo un 95% junto con margin left auto para igualar con el resto de la pagina que mantien el 90% width, y necesito poner ese 95% para que el contenido del slider tenga su 100%*/
+    padding: 2px 0px;
+    margin-left: auto;
 }
 
 .Act-cardScroll {
@@ -70,8 +76,33 @@
 /* Act pendientes */
 
 .Pending {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
+    align-items: center;
 }
+
+
+.Pending-titles {
+    width: 100%;
+    align-self: stretch;
+    /* strecth para sobreescribir el align center de Pending (el padre) */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+
+.Pending-title,
+.Pending-all {
+    padding: 2px 0px;
+}
+
+.Pending-all {
+    color: #9468f3;
+}
+
 
 .Pending-act {
     display: flex;
@@ -81,11 +112,16 @@
     border-radius: 20px;
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px 0;
+    margin: 8px 0;
+    width: 350px;
+    height: 160px;
 }
 
 .ActPending {
-    padding: 15px 15px 0px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 8px 0px 8px;
 }
 
 .Pending-links {
