@@ -48,6 +48,7 @@ export const Footer = () => {
 
                 </ul>
             </nav>
+            
             <div className="Footer-div">+</div>
         </footer>);
 }

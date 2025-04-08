@@ -55,7 +55,16 @@
     align-items: center;
     cursor: pointer;
     box-shadow: 0 10px 8px rgba(183, 144, 83, 0.5);
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
 
+.Footer-div:hover{
+    transform: translate(-50%, -55%) scale(1.05);
+    box-shadow: 0 14px 12px rgba(183, 144, 83, 0.6);
+}
+
+.Footer-div:active{
+    transform: translate(-50% ,-50%) scale(0.95);
 }
 
 /* MOTION con los DOTS */

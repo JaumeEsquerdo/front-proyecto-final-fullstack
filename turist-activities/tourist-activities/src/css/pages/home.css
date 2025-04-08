@@ -72,9 +72,28 @@ padding: 5px 20px;
 
 .Pending-act{
     display: flex;
+    align-items: start;
+    justify-content: space-around;
     background-color: #fff;
     border-radius: 20px;
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: 20px 0;
+}
+
+.ActPending{
+    padding: 15px 15px 0px 15px;
+}
+
+.Pending-links{
+    display: flex;
+    /* gap: 10px; */
+    justify-content: space-around;
+}
+
+.Pending-link{
+    padding: 8px;
+    background-color: #f0d6bf;
+    border-radius:15px ;
+    color: gray;
 }

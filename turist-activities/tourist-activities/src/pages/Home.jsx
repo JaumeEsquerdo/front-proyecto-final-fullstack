@@ -50,9 +50,9 @@ const Home = () => {
                             <h3 className="ActPending-h3">Museo Chocolates Valor</h3>
                             <p className="ActPending-p">Visita al museo de chocolates Valor</p>
                             <p className="ActPending-time">11:00-12:30</p>
-                            <div>
-                                <Link>Actividad</Link>
-                                <Link to='/secciones'>Calendario</Link>
+                            <div className="Pending-links">
+                                <Link className="Pending-link">Actividad</Link>
+                                <Link className="Pending-link" to='/secciones'>Calendario</Link>
                                 
                             </div>
                         </div>
@@ -64,9 +64,9 @@ const Home = () => {
                             <h3 className="ActPending-h3">Restaurante El Pòsit</h3>
                             <p className="ActPending-p">Comida familiar en la playa centro</p>
                             <p className="ActPending-time">14:00</p>
-                            <div>
-                                <Link>Actividad</Link>
-                                <Link>Calendario</Link>
+                            <div  className="Pending-links">
+                                <Link className="Pending-link">Actividad</Link>
+                                <Link className="Pending-link">Calendario</Link>
                                 
                             </div>
                         </div>
@@ -77,9 +77,9 @@ const Home = () => {
                             <h3 className="ActPending-h3">Restaurante El Pòsit</h3>
                             <p className="ActPending-p">Comida familiar en la playa centro</p>
                             <p className="ActPending-time">14:00</p>
-                            <div>
-                                <Link>Actividad</Link>
-                                <Link>Calendario</Link>
+                            <div  className="Pending-links">
+                                <Link className="Pending-link">Actividad</Link>
+                                <Link className="Pending-link">Calendario</Link>
                                 
                             </div>
                         </div>
@@ -90,9 +90,9 @@ const Home = () => {
                             <h3 className="ActPending-h3">Restaurante El Pòsit</h3>
                             <p className="ActPending-p">Comida familiar en la playa centro</p>
                             <p className="ActPending-time">14:00</p>
-                            <div>
-                                <Link>Actividad</Link>
-                                <Link>Calendario</Link>
+                            <div  className="Pending-links">
+                                <Link className="Pending-link">Actividad</Link>
+                                <Link className="Pending-link">Calendario</Link>
                                 
                             </div>
                         </div>
