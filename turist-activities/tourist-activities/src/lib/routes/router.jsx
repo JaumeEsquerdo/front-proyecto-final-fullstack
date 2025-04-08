@@ -2,11 +2,11 @@ import {createBrowserRouter} from 'react-router'
 
 // importe de páginas
 import Home from '@/pages/Home'
-import Secciones from '@/pages/Secciones'
 import ErrorPage from '@/pages/ErrorPage'
 import WelcomePage from '@/pages/WelcomePage'
 import Login from '@/pages/Login'
 import Register from '@/pages/Register'
+import Calendar from '@/pages/Calendario'
 
 
 // importe de páginas especiales
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
                 element: <Home/>
             },
             {
-                path: '/secciones',
-                element: <Secciones/>,
+                path: '/calendar',
+                element: <Calendar/>,
             },
             // {
             //     path: 'secciones/:id',
