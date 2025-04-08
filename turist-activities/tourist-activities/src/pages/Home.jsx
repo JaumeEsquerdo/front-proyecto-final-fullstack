@@ -52,7 +52,7 @@ const Home = () => {
                             <p className="ActPending-time">11:00-12:30</p>
                             <div className="Pending-links">
                                 <Link className="Pending-link">Actividad</Link>
-                                <Link className="Pending-link" to='/secciones'>Calendario</Link>
+                                <Link className="Pending-link--violet" to='/secciones'>Calendario</Link>
                                 
                             </div>
                         </div>
@@ -66,7 +66,7 @@ const Home = () => {
                             <p className="ActPending-time">14:00</p>
                             <div  className="Pending-links">
                                 <Link className="Pending-link">Actividad</Link>
-                                <Link className="Pending-link">Calendario</Link>
+                                <Link className="Pending-link--violet">Calendario</Link>
                                 
                             </div>
                         </div>
@@ -79,7 +79,7 @@ const Home = () => {
                             <p className="ActPending-time">14:00</p>
                             <div  className="Pending-links">
                                 <Link className="Pending-link">Actividad</Link>
-                                <Link className="Pending-link">Calendario</Link>
+                                <Link className="Pending-link--violet">Calendario</Link>
                                 
                             </div>
                         </div>
@@ -92,7 +92,7 @@ const Home = () => {
                             <p className="ActPending-time">14:00</p>
                             <div  className="Pending-links">
                                 <Link className="Pending-link">Actividad</Link>
-                                <Link className="Pending-link">Calendario</Link>
+                                <Link className="Pending-link--violet">Calendario</Link>
                                 
                             </div>
                         </div>
