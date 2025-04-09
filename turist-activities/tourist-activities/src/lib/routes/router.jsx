@@ -6,7 +6,7 @@ import ErrorPage from '@/pages/ErrorPage'
 import WelcomePage from '@/pages/WelcomePage'
 import Login from '@/pages/Login'
 import Register from '@/pages/Register'
-import Calendar from '@/pages/Calendario'
+import CalendarPage from '@/pages/Calendario'
 
 
 // importe de páginas especiales
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/calendar',
-                element: <Calendar/>,
+                element: <CalendarPage/>,
             },
             // {
             //     path: 'secciones/:id',

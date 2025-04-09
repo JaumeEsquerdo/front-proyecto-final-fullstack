@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 const navItems = [
     { name: 'Home', path: '/home' },
-    { name: 'Calendar', path: '/secciones' }
+    { name: 'Calendar', path: '/calendar' }
 ]
 
 
