@@ -1,5 +1,6 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion'
+import { useNavigate } from "react-router-dom";
 // cuando un NavLink esta activo `isActive` se genera automáticamente 
 
 const navItems = [
@@ -10,6 +11,16 @@ const navItems = [
 
 export const Footer = () => {
     const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleAddClick = () =>{
+        if(location.pathname ==='/calendar'){
+
+        }else{
+            localStorage.setItem('redirectedWithAdd', 'true')
+            navigate('/calendar')
+        }
+    }
 
     return (
         <footer className="Footer">
@@ -49,7 +60,7 @@ export const Footer = () => {
                 </ul>
             </nav>
             
-            <div className="Footer-div">+</div>
+            <div className="Footer-div" onClick={handleAddClick}>+</div>
         </footer>);
 }
 
