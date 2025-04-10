@@ -15,9 +15,8 @@ export const Footer = () => {
 
     const handleAddClick = () =>{
         if(location.pathname ==='/calendar'){
-
+            onAddActivity()
         }else{
-            localStorage.setItem('redirectedWithAdd', 'true')
             navigate('/calendar')
         }
     }
@@ -60,7 +59,7 @@ export const Footer = () => {
                 </ul>
             </nav>
             
-            <div className="Footer-div" onClick={handleAddClick}>+</div>
+            <div className="Footer-div" onClick={handleAddClick}>➕</div>
         </footer>);
 }
 

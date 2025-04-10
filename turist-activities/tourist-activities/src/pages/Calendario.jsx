@@ -136,7 +136,7 @@ const CalendarPage = () => {
             displayHour // este es para poder agrupar las horas segun si ej. es a las 10:40 la actividad agruparla con las actividaes de las 10:00
         }
 
-        setActivities([...activities, newActivity])
+        setActivities((prev)=>[...prev, newActivity])
         setTitle("")
 
     }
