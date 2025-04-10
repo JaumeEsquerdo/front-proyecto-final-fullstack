@@ -1,6 +1,5 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion'
-import { useNavigate } from "react-router-dom";
 // cuando un NavLink esta activo `isActive` se genera automáticamente 
 
 const navItems = [

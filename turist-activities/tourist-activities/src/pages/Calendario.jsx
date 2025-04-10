@@ -25,7 +25,8 @@ const CalendarPage = () => {
         title: "Reunión de equipo",
         time: new Date("2025-04-10T10:30:00"),
         timeExact: "10:30",
-        displayHour: "10:00"
+        displayHour: "10:00",
+        description: "Reunion de equipo de volley"
     },
     {
         title: "Clase de yoga",
@@ -66,9 +67,11 @@ const CalendarPage = () => {
     }
     ]);
 
+    // para los inputs
     const [title, setTitle] = useState('');
     const [hour, setHour] = useState("10");
     const [minutes, setMinutes] = useState('00')
+    const [description, setDescription] = useState('')
 
 
     /* cada vez que cambie 'selectedDate' generamos los dias d ese mes */
@@ -116,28 +119,31 @@ const CalendarPage = () => {
     const visibleHours = generateHours(showExtraHours ? 0 : 7, 25) // si quiero mostrar todas las horas emepieza desde 0:00, si no empieza de 7:00 a 24:00, pone 25 porq el bucle funciona cuando i<25 para que llegue a 24:00 y si i=== 24 pongo 00:00
 
     //para el form de las actividades
-    const handleAddActivity = (hour) => {
-        const title = prompt('Nombre de la actividad?')
-        if (!title) return
+    const handleAddActivity = ({ title, hour, description, minutes }) => {
 
         const date = new Date(selectedDay) // no se ve bien para el usuario asi que creo un displa del tiempo para que sea mas legible...
-        const [h, m] = hour.split(':')
-        date.setHours(parseInt(h))
-        date.setMinutes(parseInt(m))
+        // const [h, m] = hour.split(':')
+        date.setHours(parseInt(hour))
+        date.setMinutes(parseInt(minutes))
 
-        const timeExact = `${hour}:${minutes}` // aqui si ve bien la hora el usuario (10:00 .. 13:40..)
-
+        const timeExact = `${hour.padStart(2, '0')}:${minutes.padStart(2, '0')}` // padStart asegura que tenga bien las horas(2 digitoss, si no añade un 0 para tener 2 digitos)
         const displayHour = `${hour.padStart(2, '0')}:00`; // padStart asegura q tenga dos digitos  (7 -> 07) y luego añado ':00' =  (07:00)
 
         const newActivity = {
             title,
+            description,
             time: date,
             timeExact,
             displayHour // este es para poder agrupar las horas segun si ej. es a las 10:40 la actividad agruparla con las actividaes de las 10:00
         }
 
-        setActivities((prev)=>[...prev, newActivity])
+        setActivities((prev) => [...prev, newActivity])
+
+        //limpieza de inputs
         setTitle("")
+        setDescription("")
+        setHour('10')
+        setMinutes('00')
 
     }
 
@@ -177,12 +183,52 @@ const CalendarPage = () => {
 
             {
                 selectedDay && (
-                    <ActivityPanel
-                        selectedDay={selectedDay}
-                        visibleHours={visibleHours}
-                        activities={activities}
-                        dateOptions={dateOptions}
-                    />
+                    <>
+                        <ActivityPanel
+                            selectedDay={selectedDay}
+                            visibleHours={visibleHours}
+                            activities={activities}
+                            dateOptions={dateOptions}
+                        />
+
+                        {/* formulario de las actividades */}
+                        <form
+                            onSubmit={(e => {
+                                e.preventDefault();
+                                handleAddActivity({title, minutes,hour,description})
+                            })}>
+                                <input type="text" placeholder='Nombre actividad' value={title} onChange={(e)=>setTitle(e.target.value)}
+                                required
+                                />
+
+                                <textarea placeholder='Descripción (opcional)'
+                                value={description}
+                                onChange={(e)=>setDescription(e.target.value)}
+                                >
+                                </textarea>
+
+                                {/* select de horas */}
+                                <select value={hour} onChange={(e)=> setHour(e.target.value)}>
+                                    {/* listar las horas con el indice(creo un array vacion con 24 posiciones undefined y a cada indice le asigno el valor de cada hora del 0 al 23) */}
+                                    {[...Array(24)].map((_,i)=>(
+                                        <option key={i} value={i.toString().padStart(2,'0')}>
+                                            {i.toString().padStart(2,'0')}
+                                        </option>
+                                    ))}
+                                </select>
+
+                                {/* select de minutos */}
+                                <select value={minutes} onChange={(e)=> setMinutes(e.target.value)}>
+                                    <option value="00">00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                </select>
+
+
+                            <button type='submit'>Guardar actividad</button>
+                        </form>
+                    </>
                 )
             }
 

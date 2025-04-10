@@ -54,6 +54,7 @@ export const ActivityPanel = ({ selectedDay, visibleHours, activities, dateOptio
                             <h4>{hour}</h4>
                             {acttividadesDeEstaHora.map((a, i) => (
                                 <p key={i}>{a.timeExact}-{a.title}</p>
+                                
                             ))}
                         </div>
                     )
