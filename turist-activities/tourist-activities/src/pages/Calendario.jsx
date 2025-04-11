@@ -159,6 +159,8 @@ const CalendarPage = () => {
                                 placeholder='Descripción (opcional)'
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
+                                rows={10}
+                                cols={40}
                                 >
                                 </textarea>
 
