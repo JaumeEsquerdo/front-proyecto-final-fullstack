@@ -21,55 +21,6 @@ const CalendarPage = () => {
 
     const [showExtraHours, setShowExtraHours] = useState(false)
 
-
-
-    /*import Actividades con los horarios, hay puestos unos d ej antes de tener la base de datos */
-    // const [activities, setActivities] = useState([{
-    //     title: "Reunión de equipo",
-    //     time: new Date("2025-04-10T10:30:00"),
-    //     timeExact: "10:30",
-    //     displayHour: "10:00",
-    //     description: "Reunion de equipo de volley"
-    // },
-    // {
-    //     title: "Clase de yoga",
-    //     time: new Date("2025-04-10T08:00:00"),
-    //     timeExact: "08:00",
-    //     displayHour: "08:00"
-    // },
-    // {
-    //     title: "Café con Ana",
-    //     time: new Date("2025-04-10T17:15:00"),
-    //     timeExact: "17:15",
-    //     displayHour: "17:00"
-    // },
-    // {
-    //     title: "Comida con familia",
-    //     time: new Date("2025-04-10T14:00:00"),
-    //     timeExact: "14:00",
-    //     displayHour: "14:00"
-    // },
-    // {
-    //     title: "Tarea frontend",
-    //     time: new Date("2025-04-10T10:45:00"),
-    //     timeExact: "10:45",
-    //     displayHour: "10:00"
-    // },
-    // {
-    //     title: "Salir a correr",
-    //     time: new Date("2025-04-10T07:30:00"),
-    //     timeExact: "07:30",
-    //     displayHour: "07:00"
-    // }
-    //     ,
-    // {
-    //     title: "Salir a pasear",
-    //     time: new Date("2025-05-12T07:30:00"),
-    //     timeExact: "07:30",
-    //     displayHour: "07:00"
-    // }
-    // ]);
-
     // para los inputs
     const [title, setTitle] = useState('');
     const [hour, setHour] = useState("10");

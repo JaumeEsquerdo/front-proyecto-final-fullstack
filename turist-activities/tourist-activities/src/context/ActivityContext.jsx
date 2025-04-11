@@ -5,6 +5,7 @@ const ActivityContext = createContext();
 export const useActivity = () => useContext(ActivityContext)
 
 export const ActivityProvider = ({ children }) => {
+    /* ej de activities: dejarlo vacio cuando lo ponga con base de datos*/
     const [activities, setActivities] = useState([{
         title: "Reunión de equipo",
         time: new Date("2025-04-10T10:30:00"),

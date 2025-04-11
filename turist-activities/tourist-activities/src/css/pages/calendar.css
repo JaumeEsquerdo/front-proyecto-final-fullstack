@@ -86,6 +86,30 @@ background-color: rgb(196, 243, 162);}
 /* FORM del calendario */
 
 .CalendarForm{
+    /* position: absolute; */
     display: flex;
     flex-direction: column;
+    gap: 1rem;    
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px); /*defenfoque a lo q hay detras del background color  de este elemnto */
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.CalendarForm-input,.CalendarForm-textarea,.CalendarForm-select{
+    border: none;
+    border-radius: 14px;
+    padding: 0.8rem 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.CalendarForm-btn{
+    padding: 0.8rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
 }
