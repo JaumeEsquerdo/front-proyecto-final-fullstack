@@ -79,9 +79,9 @@ const CalendarPage = () => {
 
     /* cada vez que cambie 'selectedDate' generamos los dias d ese mes */
     useEffect(() => {
-        if(selectedDate.getMonth()=== today.getMonth()&& selectedDate.getFullYear()===today.getFullYear()){
+        if (selectedDate.getMonth() === today.getMonth() && selectedDate.getFullYear() === today.getFullYear()) {
             setSelectedDay(today) // si estamos en el mismo mes y año, por defecto que aparezca el calendario de hoy
-        }else{
+        } else {
             setSelectedDay(null) // reiniciamos el día seleccionado cuando cambia de mes
 
         }
@@ -195,20 +195,26 @@ const CalendarPage = () => {
                         {isAddFormOpen && (
 
                             <form
-                            className='CalendarForm'
+                                className='CalendarForm'
                                 onSubmit={handleSubmit}>
+
                                 <input type="text" placeholder='Nombre actividad' value={title} onChange={(e) => setTitle(e.target.value)}
                                     required
+                                    className='CalendarForm-input'
                                 />
 
-                                <textarea placeholder='Descripción (opcional)'
+                                <textarea
+                                className='CalendarForm-textarea'
+                                placeholder='Descripción (opcional)'
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
                                 >
                                 </textarea>
 
                                 {/* select de horas */}
-                                <select value={hour} onChange={(e) => setHour(e.target.value)}>
+                                <select
+                                    className='CalendarForm-select'
+                                    value={hour} onChange={(e) => setHour(e.target.value)}>
                                     {/* listar las horas con el indice(creo un array vacion con 24 posiciones undefined y a cada indice le asigno el valor de cada hora del 0 al 23) */}
                                     {[...Array(24)].map((_, i) => (
                                         <option key={i} value={i.toString().padStart(2, '0')}>
@@ -218,7 +224,9 @@ const CalendarPage = () => {
                                 </select>
 
                                 {/* select de minutos */}
-                                <select value={minutes} onChange={(e) => setMinutes(e.target.value)}>
+                                <select
+                                className='CalendarForm-select'
+                                value={minutes} onChange={(e) => setMinutes(e.target.value)}>
                                     <option value="00">00</option>
                                     <option value="15">15</option>
                                     <option value="30">30</option>
@@ -226,8 +234,8 @@ const CalendarPage = () => {
                                 </select>
 
 
-                                <button type='submit'>Guardar actividad</button>
-                                <button onClick={() => setIsAddFormOpen(false)}>Cerrar formulario</button>
+                                <button className='CalendarForm-btn' type='submit'>Guardar actividad</button>
+                                <button className='CalendarForm-btn' onClick={() => setIsAddFormOpen(false)}>Cerrar formulario</button>
                             </form>
 
                         )

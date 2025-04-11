@@ -53,7 +53,7 @@ export const ActivityPanel = ({ selectedDay, visibleHours, activities, dateOptio
                     /*if (acttividadesDeEstaHora.length === 0) return null */
                     return (
                         <div key={hour} className={`BloqueHoras`}>
-                            <h4>{hour}</h4>
+                            <h4 className="BloqueHoras-h4">{hour}</h4>
                             {acttividadesDeEstaHora.map((a, i) => (
                                 <p className={`CalendarioHoras CalendarioHoras-${globalIndex++}`} key={i}>{a.timeExact}-{a.title}</p>
                                 
