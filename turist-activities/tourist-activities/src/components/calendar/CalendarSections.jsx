@@ -44,7 +44,7 @@ export const ActivityPanel = ({ selectedDay, visibleHours, activities, dateOptio
     let globalIndex = 0;
     return (
         <>
-            <div className='actividades'>
+            <div className='Actividades'>
                 <h3>Actividades para {selectedDay.toLocaleDateString('es-Es', dateOptions)}</h3>
 
                 {visibleHours.map((hour) => {
