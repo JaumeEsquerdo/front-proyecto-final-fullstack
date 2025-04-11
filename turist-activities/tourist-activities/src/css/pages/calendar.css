@@ -80,3 +80,12 @@ background-color: rgb(196, 243, 162);}
 
 .CalendarioHoras-12,
 .CalendarioHoras-24 {}
+
+
+
+/* FORM del calendario */
+
+.CalendarForm{
+    display: flex;
+    flex-direction: column;
+}
