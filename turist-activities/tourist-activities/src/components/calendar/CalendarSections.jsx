@@ -27,7 +27,7 @@ export const MonthDaysSlider = ({ monthDays, selectedDay, onSelectDay }) => {
                         <button
                             key={i}
                             onClick={() => onSelectDay(day)}
-                            className={selectedDay?.getDate() === day.getDate() ? 'selected-day' : ""}
+                            className={`Slider-btn ${selectedDay?.getDate() === day.getDate() ? 'Selected-day' : ""}`}
                         >
                             {day.getDate()}
                         </button>
@@ -39,7 +39,9 @@ export const MonthDaysSlider = ({ monthDays, selectedDay, onSelectDay }) => {
 }
 
 
+
 export const ActivityPanel = ({ selectedDay, visibleHours, activities, dateOptions }) => {
+    let globalIndex = 0;
     return (
         <>
             <div className='actividades'>
@@ -50,12 +52,13 @@ export const ActivityPanel = ({ selectedDay, visibleHours, activities, dateOptio
 
                     /*if (acttividadesDeEstaHora.length === 0) return null */
                     return (
-                        <div key={hour} className='bloque-hora'>
+                        <div key={hour} className={`BloqueHoras`}>
                             <h4>{hour}</h4>
                             {acttividadesDeEstaHora.map((a, i) => (
-                                <p key={i}>{a.timeExact}-{a.title}</p>
+                                <p className={`CalendarioHoras CalendarioHoras-${globalIndex++}`} key={i}>{a.timeExact}-{a.title}</p>
                                 
                             ))}
+                            
                         </div>
                     )
                 })}

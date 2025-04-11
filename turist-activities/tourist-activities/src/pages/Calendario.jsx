@@ -195,6 +195,7 @@ const CalendarPage = () => {
                         {isAddFormOpen && (
 
                             <form
+                            className=''
                                 onSubmit={handleSubmit}>
                                 <input type="text" placeholder='Nombre actividad' value={title} onChange={(e) => setTitle(e.target.value)}
                                     required

@@ -1,0 +1,83 @@
+.Slider{
+    display: flex;
+}
+
+.Selected-day {
+    color: rgb(111, 29, 116);
+    font-weight: 700;
+}
+
+.Slider-btn{
+    padding: 0.8rem;
+    border-radius: 20px;
+    height: 60px;
+    width: 40px;
+    background-color: azure;
+    transition: background-color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+
+.Slider-btn:hover{
+    background-color: rgb(148, 148, 202);
+}
+
+.BloqueHoras {}
+
+.Bloquehoras-10 {
+    background-color: blue;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.CalendarioHoras {
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: aquamarine;
+}
+
+.CalendarioHoras-0,
+.CalendarioHoras-11 {
+    color: blue;
+}
+
+.CalendarioHoras-1,
+.CalendarioHoras-13 {
+    background-color: pink;
+}
+
+.CalendarioHoras-2,
+.CalendarioHoras-14 {}
+
+.CalendarioHoras-3,
+.CalendarioHoras-15 {}
+
+.CalendarioHoras-4,
+.CalendarioHoras-16 {}
+
+.CalendarioHoras-5,
+.CalendarioHoras-17 {}
+
+.CalendarioHoras-6,
+.CalendarioHoras-18 {}
+
+.CalendarioHoras-7,
+.CalendarioHoras-19 {}
+
+.CalendarioHoras-8,
+.CalendarioHoras-20 {}
+
+.CalendarioHoras-9,
+.CalendarioHoras-21 {}
+
+.CalendarioHoras-10,
+.CalendarioHoras-22 {}
+
+.CalendarioHoras-11,
+.CalendarioHoras-23 {}
+
+.CalendarioHoras-12,
+.CalendarioHoras-24 {}
