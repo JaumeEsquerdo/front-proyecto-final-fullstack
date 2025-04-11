@@ -5,16 +5,22 @@ import '@/css/index.css'
 import '@/css/components/header.css'
 import '@/css/components/footer.css'
 
+import { ActivityProvider } from './context/ActivityContext'
+
 function Layout() {
 
   return (
     <>
-      <div className='OutletWrapper'>
-        <Header/>
-        <Outlet />
-      </div>
+      <ActivityProvider>
 
-      <Footer />
+        <div className='OutletWrapper'>
+          <Header />
+          <Outlet />
+        </div>
+
+        <Footer />
+      </ActivityProvider>
+
     </>
   )
 }

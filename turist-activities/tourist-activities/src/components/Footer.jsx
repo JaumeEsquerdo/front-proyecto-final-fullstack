@@ -1,5 +1,6 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion'
+import { useActivity } from "@/context/ActivityContext";
 // cuando un NavLink esta activo `isActive` se genera automáticamente 
 
 const navItems = [
@@ -9,14 +10,18 @@ const navItems = [
 
 
 export const Footer = () => {
+
+    const {setIsAddFormOpen, isAddFormOpen} =useActivity(); //contexto
+
+
     const location = useLocation();
     const navigate = useNavigate();
 
     const handleAddClick = () =>{
         if(location.pathname ==='/calendar'){
-            onAddActivity()
+            setIsAddFormOpen(!isAddFormOpen) //abrir el form si esta ya en calendar
         }else{
-            navigate('/calendar')
+            navigate('/calendar') // si no solamente redirije a calendar, no quiero que se abra automaticamente, probablemente quiera elejir el dia antes...
         }
     }
 
