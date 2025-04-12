@@ -9,10 +9,10 @@ const Home = () => {
 
             <div className="Home">
 
-                <h1>QUE PUEDO HACER EN LA VILA</h1>
+                <h1>Aún te preguntas que puedes hacer en la vila?</h1>
                 {/* sección act recomendadas */}
                 <section className="Act-section">
-                    <h2 className="Act-h2">Actividades recomendadas</h2>
+                    <h2 className="Act-h2">Packs de actividades</h2>
                     <p className="Act-p">2 packs</p>
 
                     <div className="Act-cardScroll">
@@ -40,7 +40,7 @@ const Home = () => {
 
                 <section className="Pending">
                     <div className="Pending-titles">
-                        <h2 className="Pending-title">Tus actividades pendientes</h2>
+                        <h2 className="Pending-title">Más actividades recomendadas</h2>
                         <Link className="Pending-all" to='/tareas'>Ver todas</Link>
                     </div>
 
