@@ -9,7 +9,7 @@ const Home = () => {
 
             <div className="Home">
 
-                <h1>Guíate con antelación</h1>
+                <h1>QUE PUEDO HACER EN LA VILA</h1>
                 {/* sección act recomendadas */}
                 <section className="Act-section">
                     <h2 className="Act-h2">Actividades recomendadas</h2>
