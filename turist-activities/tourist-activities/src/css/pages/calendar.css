@@ -10,11 +10,6 @@
     scroll-behavior: smooth;
 }
 
-.Selected-day {
-    color: rgb(111, 29, 116);
-    font-weight: 700;
-}
-
 .Slider-btn{
     scroll-snap-align: center; /* hace que busque un slider-btn para centrarse y asi da la sensacion de suavidad.. o de que va buscando un dia  */
     padding: 0.8rem;
@@ -28,6 +23,11 @@
     justify-content: center;
     cursor: pointer;
     
+}
+.Selected-day {
+    color: rgb(221, 221, 221);
+    font-weight: 700;
+    background-color: blueviolet;
 }
 
 .Slider-btn:hover{
