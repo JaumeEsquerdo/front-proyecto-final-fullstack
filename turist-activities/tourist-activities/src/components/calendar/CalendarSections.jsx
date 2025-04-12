@@ -28,7 +28,7 @@ export const CalendarSelector = ({ showCalendar, selectedDate, handleDateChange 
         y en cada button del map se pone ref={isToday ? todayRef : null} -> cada btn representa un dia y es preguntado con el ref si es hoy y si es cierto le pongo todayRef para q vaya el scroll a el
 */
 export const MonthDaysSlider = ({ monthDays, selectedDay, onSelectDay }) => {
-    
+
     const todayRef = useRef(null);
 
     useEffect(() => {
@@ -72,23 +72,41 @@ export const MonthDaysSlider = ({ monthDays, selectedDay, onSelectDay }) => {
 
 
 export const ActivityPanel = ({ selectedDay, visibleHours, activities, dateOptions }) => {
-    let globalIndex = 0;
+    const now = new Date();
+
     return (
         <>
             <div className='Actividades'>
                 <h3>Actividades para {selectedDay.toLocaleDateString('es-Es', dateOptions)}</h3>
 
                 {visibleHours.map((hour) => {
-                    const acttividadesDeEstaHora = activities.filter(a => a.displayHour === hour && new Date(a.time).toDateString() === selectedDay.toDateString())
+                    const acttividadesDeEstaHora = activities.filter(a => a.displayHour === hour && new Date(a.time).toDateString() === selectedDay.toDateString()) //mostrar actividades por horas y q esten separadas segun la hora
 
-                    /*if (acttividadesDeEstaHora.length === 0) return null */
                     return (
                         <div key={hour} className={`BloqueHoras`}>
                             <h4 className="BloqueHoras-h4">{hour}</h4>
-                            {acttividadesDeEstaHora.map((a, i) => (
-                                <p className={`CalendarioHoras CalendarioHoras-${globalIndex++}`} key={i}>{a.timeExact}-{a.title}</p>
+                            {acttividadesDeEstaHora.map((a, i) => {
+                                const activityDate = new Date(a.time)
+                                const hasPassed = activityDate < now;
 
-                            ))}
+                                // comprobar si esta dentro de la proxima hora
+
+                                const oneHourFromNow = new Date(now.getTime() + 60 *60 *1000)
+                                const isSoon = activityDate> now && activityDate <= oneHourFromNow
+
+                                let clase = 'actividad-futura'
+                                if(hasPassed) clase = 'actividad-pasada'
+                                else if(isSoon) clase = 'actividad-pronto'
+
+
+
+
+                                return (
+                                    <p className={`CalendarioHoras ${clase}`} key={i}>{a.timeExact}-{a.title}</p>
+                                )
+
+
+                            })}
 
                         </div>
                     )

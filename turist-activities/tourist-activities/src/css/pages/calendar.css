@@ -45,52 +45,18 @@
 .CalendarioHoras {
     padding: 1rem;
     border-radius: 20px;
-    background-color: aquamarine;
+    background-color: rgb(103, 156, 139);
 }
 
-.CalendarioHoras-0,
-.CalendarioHoras-11 {
-background-color: rgb(196, 243, 162);}
-
-.CalendarioHoras-1,
-.CalendarioHoras-13 {
-    background-color: pink;
+.activdad-futura{
+    background-color: rgb(99, 154, 73);
 }
-
-.CalendarioHoras-2,
-.CalendarioHoras-14 {}
-
-.CalendarioHoras-3,
-.CalendarioHoras-15 {}
-
-.CalendarioHoras-4,
-.CalendarioHoras-16 {}
-
-.CalendarioHoras-5,
-.CalendarioHoras-17 {}
-
-.CalendarioHoras-6,
-.CalendarioHoras-18 {}
-
-.CalendarioHoras-7,
-.CalendarioHoras-19 {}
-
-.CalendarioHoras-8,
-.CalendarioHoras-20 {}
-
-.CalendarioHoras-9,
-.CalendarioHoras-21 {}
-
-.CalendarioHoras-10,
-.CalendarioHoras-22 {}
-
-.CalendarioHoras-11,
-.CalendarioHoras-23 {}
-
-.CalendarioHoras-12,
-.CalendarioHoras-24 {}
-
-
+.actividad-pronto{
+    background-color: rgb(220, 218, 87);
+}
+.actividad-pasada{
+    background-color: brown;
+}
 
 /* FORM del calendario */
 
