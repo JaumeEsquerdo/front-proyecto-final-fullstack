@@ -33,7 +33,7 @@ const CalendarPage = () => {
         if (selectedDate.getMonth() === today.getMonth() && selectedDate.getFullYear() === today.getFullYear()) {
             setSelectedDay(today) // si estamos en el mismo mes y año, por defecto que aparezca el calendario de hoy
         } else {
-            setSelectedDay(null) // reiniciamos el día seleccionado cuando cambia de mes
+            setSelectedDay(null) // al no coincidir, reiniciamos el día seleccionado cuando cambia de mes
 
         }
         generateMonthDays(selectedDate);

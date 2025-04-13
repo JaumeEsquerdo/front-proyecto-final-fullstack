@@ -5,7 +5,14 @@ import { useEffect, useRef } from "react";
 
 /*---MOSTRAR CALENDARIO EN VISTA AÑO PARA SELECCIONAR FECHA---
     el componente del calendario viene importado! "import Calendar from "react-calendar" "
-*/
+
+    funcionamiento:
+    - view 'year: vista de meses del año
+    - onChange 'handleDateChange' : se ejecuta al seleccionar fecha exacta (actualizar fecha)
+    - value 'selectedDate' : obtiene la fecha seleccionada actual
+    - onclickmonth 'handledatechange' : para cambiar de mes sin seleccionar dia y actualizar
+
+    */
 export const CalendarSelector = ({ showCalendar, selectedDate, handleDateChange }) => {
     return (
         <>
