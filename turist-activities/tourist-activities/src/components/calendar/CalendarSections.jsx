@@ -2,6 +2,10 @@ import Calendar from "react-calendar"; // importar calendario por defecto
 import 'react-calendar/dist/Calendar.css' //css predefinido para el calendario
 import { useEffect, useRef } from "react";
 
+
+/*---MOSTRAR CALENDARIO EN VISTA AÑO PARA SELECCIONAR FECHA---
+    el componente del calendario viene importado! "import Calendar from "react-calendar" "
+*/
 export const CalendarSelector = ({ showCalendar, selectedDate, handleDateChange }) => {
     return (
         <>
@@ -20,7 +24,9 @@ export const CalendarSelector = ({ showCalendar, selectedDate, handleDateChange 
 }
 
 
-/* useRef en los días del mes:
+/* ---SLIDER DE DIAS DEL MES---
+
+    useRef en los días del mes:
     cuando se renderiza el slider quiero q el boton del dia actual tenga una ref para que se haga un scroll a ese día y asi centrar el slider con la fecha actual
         const todayRef = useRef(null); es -> es la referencia creada
         dentro del useEffect si existe todayRef.current... scrollIntoView para el scroll hasta esa posición
@@ -47,22 +53,18 @@ export const MonthDaysSlider = ({ monthDays, selectedDay, onSelectDay }) => {
         <>
             <div className='Slider'>
                 {
-                    monthDays.map((day, i) => {
-                        const isToday =
-                            day.getDate() === today.getDate() && day.getMonth() === today.getMonth() && day.getFullYear() === today.getFullYear()
+                    monthDays.map((day, i) => (
 
+                        <DayButton
+                            key={i}
+                            day={day}
+                            today={today}
+                            todayRef={todayRef}
+                            selectedDay={selectedDay}
+                            onSelectDay={onSelectDay}
+                        />
 
-                        return (
-                            <button
-                                key={i}
-                                ref={isToday ? todayRef : null}
-                                onClick={() => onSelectDay(day)}
-                                className={`Slider-btn ${selectedDay?.getDate() === day.getDate() ? 'Selected-day' : ""}`}
-                            >
-                                {day.getDate()}
-                            </button>
-                        );
-                    })
+                    ))
                 }
             </div>
         </>
@@ -71,6 +73,29 @@ export const MonthDaysSlider = ({ monthDays, selectedDay, onSelectDay }) => {
 
 
 
+const DayButton = ({ day, today, todayRef, selectedDay, onSelectDay }) => {
+    const isToday =
+        day.getDate() === today.getDate()
+        && day.getMonth() === today.getMonth()
+        && day.getFullYear() === today.getFullYear();
+
+
+    return (
+        <button
+            ref={isToday ? todayRef : null}
+            onClick={() => onSelectDay(day)}
+            className={`Slider-btn ${selectedDay?.getDate() === day.getDate() ? 'Selected-day' : ""}`}
+        >
+            {day.getDate()}
+        </button>
+    );
+}
+
+
+
+
+
+/*---MOSTRAR ACTIVIDADES DEL DIA SELECCIONADO POR HORAS--- */
 export const ActivityPanel = ({ selectedDay, visibleHours, activities, dateOptions }) => {
     const now = new Date();
 
@@ -98,7 +123,7 @@ const BloqueHora = ({ hour, activities, selectedDay, now }) => {
             <h4 className="BloqueHoras-h4">{hour}</h4>
             {actividadesDeEstaHora.map((a, i) => (
                 <Actividad key={i} activity={a} now={now} />
-            
+
             ))}
 
         </div>
@@ -124,46 +149,3 @@ const Actividad = ({ activity, now }) => {
     )
 }
 
-
-
-/**
- * 
- *
-<>
-            <div className='Actividades'>
-                <h3>Actividades para {selectedDay.toLocaleDateString('es-Es', dateOptions)}</h3>
-
-                {visibleHours.map((hour) => {
-                    const actividadesDeEstaHora = activities.filter(a => a.displayHour === hour && new Date(a.time).toDateString() === selectedDay.toDateString()) //mostrar actividades por horas y q esten separadas segun la hora
-
-                    return (
-                        <div key={hour} className={`BloqueHoras`}>
-                            <h4 className="BloqueHoras-h4">{hour}</h4>
-                            {actividadesDeEstaHora.map((a, i) => {
-                                const activityDate = new Date(a.time)
-                                const hasPassed = activityDate < now;
-
-                                // comprobar si esta dentro de la proxima hora
-
-                                const oneHourFromNow = new Date(now.getTime() + 60 * 60 * 1000)
-                                const isSoon = activityDate > now && activityDate <= oneHourFromNow
-
-                                let clase = 'actividad-futura'
-                                if (hasPassed) clase = 'actividad-pasada'
-                                else if (isSoon) clase = 'actividad-pronto'
-
-                                return (
-                                    <p className={`CalendarioHoras ${clase}`} key={i}>{a.timeExact}-{a.title}</p>
-                                )
-
-
-                            })}
-
-                        </div>
-                    )
-                })}
-
-            </div>
-        </>
-
-*/
