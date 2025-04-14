@@ -7,17 +7,7 @@ import { color } from "framer-motion";
 
 const Home = () => {
 
-
-    const listaDePacks = [
-        {
-            nombre: 'Día de playa',
-            color: 'orange',
-            actividades: []
-        },
-        {}
-
-    ];
-
+    const [verTodas, setVertodas] = useState(false); //para ver solo unas pocas act recomendadas o verlas todas
     const actividades = [
         { id: 'act1', titulo: 'Museo del Chocolate Valor', descripcion: 'Visita guiada y degustación de chocolates.', icono: '🍫', tipo: 'cultural' },
         { id: 'act2', titulo: 'Playa Centro', descripcion: 'Relájate en la playa principal de Villajoyosa.', icono: '🏖️', tipo: 'playa' },
@@ -103,7 +93,25 @@ const Home = () => {
 
 
     ];
+    const actividadesMostradas = verTodas ? actividades : actividades.slice(0,6) // para solo ver las 6 primeras actividades recomendadas
 
+
+    const listaDePacks = [
+        {
+            nombre: 'Día de playa',
+            color: 'orange',
+            actividades: []
+        },
+        {}
+
+    ];
+
+    
+
+
+    const handleActividades = () =>{
+        setVertodas(!verTodas)
+    }
     return (
         <>
 
@@ -140,11 +148,12 @@ const Home = () => {
                 <section className="Pending">
                     <div className="Pending-titles">
                         <h2 className="Pending-title">Más actividades recomendadas</h2>
-                        <Link className="Pending-all" to='/tareas'>Ver todas</Link>
+                        <p>{actividadesMostradas.length} actividades</p>
+                        <button onClick={handleActividades}>{verTodas? "Ver menos":"Ver todas"}</button>
                     </div>
 
                     <div>
-                    {actividades.map((actividad)=>(
+                    {actividadesMostradas.map((actividad)=>(
                         <div className="Pending-activities" key={actividad.id}>
                             <div className="Pending-act">
                                 <div>
@@ -155,7 +164,7 @@ const Home = () => {
                                     <p className="ActPending-p">{actividad.descripcion}</p>
                                 </div>
                                 <div className="Pending-links">
-                                    <Link className="Pending-link" to='/calendar'>Agregar al calendario</Link>
+                                    <Link className="Pending-link" to='#'>Agregar al calendario</Link>
                                 </div>
                             </div>
                         </div>
