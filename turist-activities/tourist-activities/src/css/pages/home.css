@@ -36,7 +36,6 @@
     max-width: 100vw;
     box-sizing: border-box;
     padding: 1.5rem;
-    transform: skewY(-0.1deg);
 
 }
 
@@ -46,7 +45,6 @@
     padding: 1rem;
     /* border-radius: 30px; */
     border-radius: 67px 55px 33px 40px;
-    transform: rotate(-0.5deg);
     flex-shrink: 0;
     color: rgb(0, 0, 0);
     position: relative;
