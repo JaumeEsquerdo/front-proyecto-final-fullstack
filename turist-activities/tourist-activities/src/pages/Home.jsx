@@ -8,6 +8,9 @@ import { color } from "framer-motion";
 const Home = () => {
 
     const [verTodas, setVertodas] = useState(false); //para ver solo unas pocas act recomendadas o verlas todas
+    const [packAbierto, setPackAbierto] = useState(null) // para abrir el pack segun su indice
+
+
     const actividades = [
         { id: 'act1', titulo: 'Museo del Chocolate Valor', descripcion: 'Visita guiada y degustación de chocolates.', icono: '🍫', tipo: 'cultural' },
         { id: 'act2', titulo: 'Playa Centro', descripcion: 'Relájate en la playa principal de Villajoyosa.', icono: '🏖️', tipo: 'playa' },
@@ -93,24 +96,85 @@ const Home = () => {
 
 
     ];
-    const actividadesMostradas = verTodas ? actividades : actividades.slice(0,6) // para solo ver las 6 primeras actividades recomendadas
+    const actividadesMostradas = verTodas ? actividades : actividades.slice(0, 6) // para solo ver las 6 primeras actividades recomendadas
 
 
     const listaDePacks = [
         {
             nombre: 'Día de playa',
+            icono: '🏖️',
             color: 'orange',
-            actividades: []
+            actividades: [
+                'act2',  // Playa Centro
+                'act38', // Almuerzo en T-Class
+                'act22', // Heladería La Jijonenca
+                'act45', // Paseo Marítimo
+                'act54', // Tienda de recuerdos junto a la playa
+            ]
         },
-        {}
-
+        {
+            nombre: 'Día cultural',
+            icono: '🏛️',
+            color: 'blue',
+            actividades: [
+                'act1',  // Museo Chocolates Valor
+                'act9',  // Casco Antiguo de Villajoyosa
+                'act10', // Murallas renacentistas
+                'act41', // Café en Zerca
+                'act30', // Visita al Mercado Central
+            ]
+        },
+        {
+            nombre: 'Excursión a Altea',
+            icono: '🚗',
+            color: 'teal',
+            actividades: [
+                'act65', // Playa de Altea
+                'act66', // Casco antiguo de Altea
+                'act67', // Iglesia de Nuestra Señora del Consuelo
+                'act38', // Almuerzo en T-Class (de vuelta)
+                'act28', // Paseo vespertino
+            ]
+        },
+        {
+            nombre: 'Día gastronómico',
+            icono: '🍽️',
+            color: 'red',
+            actividades: [
+                'act31', // Restaurante El Hogar del Pescador
+                'act32', // Restaurante Ca Marta
+                'act33', // Bar El Tintero
+                'act22', // Heladería La Jijonenca
+                'act55', // Compras gourmet
+            ]
+        },
+        {
+            nombre: 'Naturaleza y relax',
+            icono: '🌿',
+            color: 'green',
+            actividades: [
+                'act12', // Ruta por el río Amadorio
+                'act13', // Mirador de La Creueta
+                'act14', // Parque Censal
+                'act29', // Lectura en el parque
+                'act44', // Té en The Garden Café
+            ]
+        }
     ];
 
-    
 
 
-    const handleActividades = () =>{
+
+
+
+    /* ver todas las actividades o una muestra */
+    const handleActividades = () => {
         setVertodas(!verTodas)
+    }
+
+    /* ABRIR 1 pack / CERRAR los otros */
+    const handleAbrirPack = (i) => {
+        setPackAbierto(prev => prev === i ? null : i)
     }
     return (
         <>
@@ -124,22 +188,37 @@ const Home = () => {
                     <p className="Act-p">2 packs</p>
 
                     <div className="Act-cardScroll">
-                        <div className="Act-card orange">
-                            <h3>Día de paseos!</h3>
-                            <p>un total de 4 actividades</p>
-                        </div>
+                        {listaDePacks.map((pack, i) => (
+                            <div onClick={() => handleAbrirPack(i)}
+                                key={i} className={`Act-card ${color}`}>
+                                <span>{pack.icono}</span>
+                                <p>{pack.nombre}</p>
+                                <h3>{pack.actividades.length} actividades</h3>
 
-                        <div className="Act-card blue">
-                            <h3>Día de playa</h3>
-                            <p>un total de 3 actividades</p>
-                            <div className="Act-icons">3</div>
-                        </div>
+                                {
+                                    packAbierto === i && (
+                                        <div className="Pack-detalle">
+                                            {/* filter para devolver las actividades completas q estan dentro del pack concreto, segun su id */}
+                                            {actividades
+                                                .filter(act => pack.actividades.includes(act.id))
+                                                .map(act => (
+                                                    <div key={act.id} className="Pending-activities">
+                                                        <div>{act.icono}</div>
+                                                        <div className="ActPending">
+                                                            <h3 className="ActPending-h3">{act.titulo}</h3>
+                                                            <p className="ActPending-p">{act.descripcion}</p>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            }
+                                        </div>
+                                    )
+                                }
 
-                        <div className="Act-card yellow">
-                            <h3>Día de playa</h3>
-                            <p>un total de 3 actividades</p>
-                            <div className="Act-icons">3</div>
-                        </div>
+
+
+                            </div>
+                        ))}
 
 
                     </div>
@@ -149,32 +228,32 @@ const Home = () => {
                     <div className="Pending-titles">
                         <h2 className="Pending-title">Más actividades recomendadas</h2>
                         <p>{actividadesMostradas.length} actividades</p>
-                        <button onClick={handleActividades}>{verTodas? "Ver menos":"Ver todas"}</button>
+                        <button className="Pending-more" onClick={handleActividades}>{verTodas ? "Ver menos" : "Ver todas"}</button>
                     </div>
 
                     <div>
-                    {actividadesMostradas.map((actividad)=>(
-                        <div className="Pending-activities" key={actividad.id}>
-                            <div className="Pending-act">
-                                <div>
-                                    {actividad.icono}
-                                </div>
-                                <div className="ActPending">
-                                    <h3 className="ActPending-h3">{actividad.titulo}</h3>
-                                    <p className="ActPending-p">{actividad.descripcion}</p>
-                                </div>
-                                <div className="Pending-links">
-                                    <Link className="Pending-link" to='#'>Agregar al calendario</Link>
+                        {actividadesMostradas.map((actividad) => (
+                            <div className="Pending-activities" key={actividad.id}>
+                                <div className="Pending-act">
+                                    <div>
+                                        {actividad.icono}
+                                    </div>
+                                    <div className="ActPending">
+                                        <h3 className="ActPending-h3">{actividad.titulo}</h3>
+                                        <p className="ActPending-p">{actividad.descripcion}</p>
+                                    </div>
+                                    <div className="Pending-links">
+                                        <Link className="Pending-link" to='#'>Agregar al calendario</Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
 
                     </div>
 
-                    
-                    
-                    
+
+
+
 
                 </section>
 
