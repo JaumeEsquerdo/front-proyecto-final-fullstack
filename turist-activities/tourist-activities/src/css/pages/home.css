@@ -48,7 +48,7 @@
     border-radius: 67px 55px 33px 40px;
     transform: rotate(-0.5deg);
     flex-shrink: 0;
-    color: white;
+    color: rgb(0, 0, 0);
     position: relative;
     display: flex;
     flex-direction: column;
