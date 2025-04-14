@@ -190,7 +190,7 @@ const Home = () => {
                     <div className="Act-cardScroll">
                         {listaDePacks.map((pack, i) => (
                             <div onClick={() => handleAbrirPack(i)}
-                                key={i} className={`Act-card ${color}`}>
+                                key={i} className={`Act-card ${pack.color}`}>
                                 <span>{pack.icono}</span>
                                 <p>{pack.nombre}</p>
                                 <h3>{pack.actividades.length} actividades</h3>
