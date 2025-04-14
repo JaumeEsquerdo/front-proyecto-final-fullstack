@@ -4,8 +4,8 @@ import { useActivity } from "@/context/ActivityContext";
 // cuando un NavLink esta activo `isActive` se genera automáticamente 
 
 const navItems = [
-    { name: 'Home', path: '/home' },
-    { name: 'Calendar', path: '/calendar' }
+    { src: '/img/home.svg', path: '/home' },
+    { src: '/img/calendario.svg', path: '/calendar' }
 ]
 
 
@@ -39,7 +39,7 @@ export const Footer = () => {
                                     className={({ isActive }) => `Footer-link ${isActive ? "active" : ""}`}
                                     to={item.path}
                                 >
-                                    {item.name}
+                                    <img className="Footer-imgLink" src={item.src} alt="Icono de navegación" />
                                 </NavLink>
 
                                 {isActive && (

@@ -54,7 +54,9 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
 }
 
 .Act-card.orange {
@@ -83,7 +85,7 @@
 
 /* Act pendientes */
 
-.Pending {
+.Activities {
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -92,29 +94,30 @@
 }
 
 
-.Pending-titles {
+.Activities-titles {
     width: 100%;
     align-self: stretch;
-    /* strecth para sobreescribir el align center de Pending (el padre) */
+    /* strecth para sobreescribir el align center de Activities (el padre) */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 
 }
 
-.Pending-title,
-.Pending-all {
+.Activities-title,
+.Activities-all {
     padding: 2px 0px;
 }
 
-.Pending-all {
+.Activities-all {
     color: #9468f3;
 }
 
 
-.Pending-act {
+.Activities-act {
     display: flex;
-    align-items: start;
+    align-items: center;
+    flex-direction: column;
     justify-content: space-around;
     background-color: #fff;
     border-radius: 20px;
@@ -124,24 +127,25 @@
     width: 350px;
     height: 160px;
 }
-.Pending-img{
+.Activities-img{
+    
     width: 40px;
 }
 
-.ActPending {
+.ActActivities {
     display: flex;
     flex-direction: column;
     gap: 8px;
     padding: 8px 8px 0px 8px;
 }
 
-.Pending-links {
+.Activities-links {
     display: flex;
     /* gap: 10px; */
     justify-content: space-around;
 }
 
-.Pending-link {
+.Activities-link {
     padding: 8px;
     background-color: #d3823b;
     border-radius: 15px;
@@ -149,7 +153,7 @@
     transition: opacity 0.6s ease-in-out, color 0.6s ease-in-out;
 }
 
-.Pending-link--violet {
+.Activities-link--violet {
     padding: 8px;
     border-radius: 15px;
     color: rgb(255, 255, 255);
@@ -158,14 +162,14 @@
 
 }
 
-.Pending-link:hover,
-.Pending-link--violet:hover {
+.Activities-link:hover,
+.Activities-link--violet:hover {
     opacity: 0.8;
     color: rgb(41, 38, 38);
 }
 
-.Pending-link:active,
-.Pending-link--violet:active {
+.Activities-link:active,
+.Activities-link--violet:active {
     opacity: 0.7;
     color: rgb(0, 0, 0);
 }

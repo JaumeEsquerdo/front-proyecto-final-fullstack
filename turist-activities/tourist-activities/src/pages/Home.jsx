@@ -163,8 +163,7 @@ const Home = () => {
     ];
 
 
-
-    /* ver todas las actividades o una muestra */
+    /* Ver todas las actividades o una muestra */
     const handleActividades = () => {
         setVertodas(!verTodas)
     }
@@ -205,8 +204,8 @@ const Home = () => {
                                                             <h3 className="ActPending-h3">{act.titulo}</h3>
                                                             <p className="ActPending-p">{act.descripcion}</p>
                                                         </div>
-                                                        <div className="Pending-links">
-                                                            <Link className="Pending-link" to='#'>Agregar al calendario</Link>
+                                                        <div className="Activities-links">
+                                                            <Link className="Activities-link" to='#'>Agregar al calendario</Link>
                                                         </div>
                                                     </div>
                                                 ))
@@ -221,27 +220,27 @@ const Home = () => {
                     </div>
                 </section>
 
-                <section className="Pending">
-                    <div className="Pending-titles">
-                        <h2 className="Pending-title">Más actividades recomendadas</h2>
+                <section className="Activities">
+                    <div className="Activities-titles">
+                        <h2 className="Activities-title">Más actividades recomendadas</h2>
                         <p>{actividadesMostradas.length} actividades</p>
-                        <button className="Pending-more" onClick={handleActividades}>{verTodas ? "Ver menos" : "Ver todas"}</button>
+                        <Link className="Activities-more" onClick={handleActividades}>{verTodas ? "Ver menos" : "Ver todas"}</Link>
                     </div>
 
                     <div>
                         {actividadesMostradas.map((actividad) => (
-                            <div className="Pending-activities" key={actividad.id}>
-                                <div className="Pending-act">
+                            <div className="Activities-activities" key={actividad.id}>
+                                <div className="Activities-act">
                                     <div>
 
-                                        <img className="Pending-img" src={`/img/actividades-tipos/act-${actividad.tipo}.svg`} alt="Icono actividad" />
+                                        <img className="Activities-img" src={`/img/actividades-tipos/act-${actividad.tipo}.svg`} alt="Icono actividad" />
                                     </div>
                                     <div className="ActPending">
                                         <h3 className="ActPending-h3">{actividad.titulo}</h3>
                                         <p className="ActPending-p">{actividad.descripcion}</p>
                                     </div>
-                                    <div className="Pending-links">
-                                        <Link className="Pending-link" to='#'>Agregar al calendario</Link>
+                                    <div className="Activities-links">
+                                        <Link className="Activities-link" to='#'>Agregar al calendario</Link>
                                     </div>
                                 </div>
                             </div>

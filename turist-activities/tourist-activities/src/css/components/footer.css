@@ -39,6 +39,15 @@
     color: brown;
 }
 
+.Footer-imgLink{
+    width: 25px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.Footer-imgLink:hover{
+    opacity: 0.5;
+}
+
 .Footer-div {
     color: white;
     position: absolute;

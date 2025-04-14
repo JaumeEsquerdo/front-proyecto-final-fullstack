@@ -29,6 +29,21 @@ a {
   text-decoration: none;
 }
 
+/* button{
+  width: 150px;
+  padding: 1rem;
+  border-radius: 24px;
+  border: none;
+  transition: border-bottom 0.3s ease-in-out;
+}
+button:hover{
+  border-bottom: 4px solid black;
+
+}
+button:active{
+  border-bottom: 1px solid black;
+} */
+
 .Body {
   display: flex;
   flex-direction: column;
