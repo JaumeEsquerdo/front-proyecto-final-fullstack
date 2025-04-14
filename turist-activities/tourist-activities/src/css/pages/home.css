@@ -38,6 +38,10 @@
     padding: 1.5rem;
 
 }
+.Pack-icono{
+    width: 60px;
+
+}
 
 .Act-card {
     min-width: 250px;
@@ -56,8 +60,6 @@
 .Act-card.orange {
     background: linear-gradient(135deg, #ff9941, #f0d6bf);
     box-shadow: 0px 10px 20px hsla(28, 76%, 82%, 0.6);
-
-
 }
 
 .Act-card.blue {
@@ -69,6 +71,14 @@
 .Act-card.yellow {
     background: linear-gradient(135deg, #fddc4b, #f3ebca);
     box-shadow: 0px 10px 20px hsla(49, 69%, 80%, 0.4);
+}
+.Act-card.green {
+    background: linear-gradient(135deg, #9ad058, #c9e3b8);
+    box-shadow: 0px 10px 20px hsla(110, 69%, 80%, 0.4);
+}
+.Act-card.red {
+    background: linear-gradient(135deg, #d05c58, #eca9a9);
+    box-shadow: 0px 10px 20px hsla(0, 69%, 80%, 0.4);
 }
 
 /* Act pendientes */
@@ -114,6 +124,9 @@
     width: 350px;
     height: 160px;
 }
+.Pending-img{
+    width: 40px;
+}
 
 .ActPending {
     display: flex;
@@ -130,9 +143,9 @@
 
 .Pending-link {
     padding: 8px;
-    background-color: #f0d6bf;
+    background-color: #d3823b;
     border-radius: 15px;
-    color: gray;
+    color: rgb(39, 38, 38);
     transition: opacity 0.6s ease-in-out, color 0.6s ease-in-out;
 }
 
