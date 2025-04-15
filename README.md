@@ -114,12 +114,12 @@ Solución: en el map de las actividades utilizar el mismo nombre 'actividad' par
             navigate('/calendar')
     }
 // ----------------------- //
-
+ // 1.MAP
 {actividades.filter(actividad => pack.actividades.includes(actividad.id))
             .map(actividad => ())}
 
             //---//
-            
+  // 2.MAP
 {actividadesMostradas.map((actividad) => ())}
                             
 
