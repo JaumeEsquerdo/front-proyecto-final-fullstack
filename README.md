@@ -93,3 +93,37 @@ Leaflet
 iconos para actividades sueltas : https://www.flaticon.es/resultados?word=playa&type=uicon
 
 iconos para los packs: https://www.svgrepo.com/collection/travel-theme-candy-vectors/
+
+
+# Seccion de problemas! 
+
+1. Problema para pasar una actividad desde Home a Calendario.
+
+Problema: consistía en que estaba generando dos maps, uno para filtrar actividades que me gustaban para hacer packs de actividades y otro para mostrar todas las actividades, y en un map pasaba 'act' y en el otro 'actividad'.
+
+Solución: en el map de las actividades utilizar el mismo nombre 'actividad' para generar la actividad individual, y pasar el mismo nombre tanto en el handle como en el useEffect.
+
+```js
+/* Agregar actividad al Calendario desde home*/
+    const handleAgregarACalendario = (actividad) => { // IMPORTANTE!!! al tener dos maps (dos secciones de actividades), los maps tienen q pasar el mismo nombre "actividad", si no no funciona
+        setPreloadData({
+            title: actividad.titulo,
+            description: actividad.descripcion
+        })
+        console.log('handle preload en home', preloadData)
+            navigate('/calendar')
+    }
+// ----------------------- //
+
+{actividades.filter(actividad => pack.actividades.includes(actividad.id))
+            .map(actividad => ())}
+
+            //---//
+            
+{actividadesMostradas.map((actividad) => ())}
+                            
+
+// ----------------------- //
+ <button className="Activities-link" onClick={() => handleAgregarACalendario(actividad)}>Agregar al calendario</button>
+
+```

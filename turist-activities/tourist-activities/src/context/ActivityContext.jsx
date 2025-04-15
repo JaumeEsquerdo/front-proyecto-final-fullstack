@@ -53,7 +53,7 @@ export const ActivityProvider = ({ children }) => {
     ]);
     const [selectedDay, setSelectedDay] = useState(new Date());  // para el dia seleccionado
     const [isAddFormOpen, setIsAddFormOpen] = useState(false)
-
+    const [preloadData, setPreloadData] = useState(null); // para cargar contenido desde Home a Calendario
 
     //para el form de las actividades
     const handleAddActivity = ({ title, hour, description, minutes }) => {
@@ -81,7 +81,10 @@ export const ActivityProvider = ({ children }) => {
 
     return (
         <ActivityContext.Provider
-            value={{ activities, setActivities, setSelectedDay, selectedDay, handleAddActivity, isAddFormOpen, setIsAddFormOpen }}
+            value={{
+                activities, setActivities, setSelectedDay, selectedDay,
+                handleAddActivity, isAddFormOpen, setIsAddFormOpen, preloadData, setPreloadData
+            }}
         >
             {children}
         </ActivityContext.Provider>

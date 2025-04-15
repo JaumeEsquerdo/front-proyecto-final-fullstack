@@ -6,7 +6,7 @@ import { useActivity } from '@/context/ActivityContext';
 
 
 const CalendarPage = () => {
-    const { isAddFormOpen, setIsAddFormOpen, handleAddActivity, selectedDay, setSelectedDay, activities } = useActivity()
+    const { isAddFormOpen, setIsAddFormOpen, handleAddActivity, selectedDay, setSelectedDay, activities, preloadData } = useActivity()
 
 
     const [selectedDate, setSelectedDate] = useState(new Date()); // almacenar la fecha seleccionada (por defecto la de hoy)
@@ -95,6 +95,18 @@ const CalendarPage = () => {
         }
         setIsAddFormOpen(false)
     }
+
+
+    console.log('preload de clandar', preloadData)
+
+    /* useEffect para cargar contenido al form desde Home (btns de agregar al calendario) */
+    useEffect(()=>{
+        if(preloadData){
+            setTitle(preloadData.title)
+            setDescription(preloadData.description)
+            setIsAddFormOpen(true)
+        }
+    },[preloadData])
 
     return (
         <>

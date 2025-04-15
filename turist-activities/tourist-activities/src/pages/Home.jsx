@@ -1,7 +1,10 @@
 import { Link } from "react-router";
 import '@/css/pages/home.css'
 import { useState } from "react";
-import { color } from "framer-motion";
+// import { color } from "framer-motion";
+import { useActivity } from '@/context/ActivityContext'
+import { useNavigate } from "react-router";
+import { preload } from "react-dom";
 
 
 
@@ -9,7 +12,8 @@ const Home = () => {
 
     const [verTodas, setVertodas] = useState(false); //para ver solo unas pocas act recomendadas o verlas todas
     const [packAbierto, setPackAbierto] = useState(null) // para abrir el pack segun su indice
-
+    const { setPreloadData, preloadData } = useActivity();
+    const navigate = useNavigate();
 
     const actividades = [
         { id: 'act1', titulo: 'Museo del Chocolate Valor', descripcion: 'Visita guiada y degustación de chocolates.', tipo: 'cultural' },
@@ -172,6 +176,16 @@ const Home = () => {
     const handleAbrirPack = (i) => {
         setPackAbierto(prev => prev === i ? null : i)
     }
+    /* Agregar actividad al Calendario desde home*/
+    const handleAgregarACalendario = (actividad) => { // IMPORTANTE!!! al tener dos maps (dos secciones de actividades), los maps tienen q pasar el mismo nombre "actividad", si no no funciona
+        setPreloadData({
+            title: actividad.titulo,
+            description: actividad.descripcion
+        })
+        console.log('handle preload en home', preloadData)
+            navigate('/calendar')
+    }
+    
     return (
         <>
 
@@ -196,16 +210,17 @@ const Home = () => {
                                         <div className="Pack-detalle">
                                             {/* filter para devolver las actividades completas q estan dentro del pack concreto, segun su id */}
                                             {actividades
-                                                .filter(act => pack.actividades.includes(act.id))
-                                                .map(act => (
-                                                    <div key={act.id} className="Pending-activities">
-                                                        <div>{act.icono}</div>
+                                                .filter(actividad => pack.actividades.includes(actividad.id))
+                                                .map(actividad => (
+                                                    <div key={actividad.id} className="Pending-activities">
+                                                        <div>{actividad.icono}</div>
                                                         <div className="ActPending">
-                                                            <h3 className="ActPending-h3">{act.titulo}</h3>
-                                                            <p className="ActPending-p">{act.descripcion}</p>
+                                                            <h3 className="ActPending-h3">{actividad.titulo}</h3>
+                                                            <p className="ActPending-p">{actividad.descripcion}</p>
                                                         </div>
                                                         <div className="Activities-links">
-                                                            <Link className="Activities-link" to='#'>Agregar al calendario</Link>
+                                                            <button className="Activities-link" onClick={() => handleAgregarACalendario(actividad)}>Agregar al calendario</button>
+                                                        
                                                         </div>
                                                     </div>
                                                 ))
@@ -218,6 +233,7 @@ const Home = () => {
                         ))}
 
                     </div>
+
                 </section>
 
                 <section className="Activities">
@@ -240,7 +256,7 @@ const Home = () => {
                                         <p className="ActPending-p">{actividad.descripcion}</p>
                                     </div>
                                     <div className="Activities-links">
-                                        <Link className="Activities-link" to='#'>Agregar al calendario</Link>
+                                        <button className="Activities-link" onClick={() => handleAgregarACalendario(actividad)}>Agregar al calendario</button>
                                     </div>
                                 </div>
                             </div>
