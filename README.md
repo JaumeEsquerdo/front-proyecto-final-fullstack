@@ -104,7 +104,7 @@ Problema: consistía en que estaba generando dos maps, uno para filtrar activida
 Solución: en el map de las actividades utilizar el mismo nombre 'actividad' para generar la actividad individual, y pasar el mismo nombre tanto en el handle como en el useEffect.
 
 ```js
-/* Agregar actividad al Calendario desde home*/
+/* Agregar actividad al Calendario desde Home*/
     const handleAgregarACalendario = (actividad) => { // IMPORTANTE!!! al tener dos maps (dos secciones de actividades), los maps tienen q pasar el mismo nombre "actividad", si no no funciona
         setPreloadData({
             title: actividad.titulo,

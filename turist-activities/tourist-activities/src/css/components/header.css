@@ -12,15 +12,6 @@
     width: 100%;
 }
 
-/* .Hamburger {
-    display: flex;
-    flex-direction: column;
-    width: 30px;
-    
-    gap: 3px;
-    cursor: pointer;
-} */
-
 .bar {
     width: 100%;
     height: 4px;
@@ -35,32 +26,8 @@
     opacity: 1;
 }
 
-/* .Nav-menu.Open {
-    transform: translateX(0);
-    opacity: 1;
-} */
+.Nav-perfil{
+    width: 26px;
+    height: auto;
+}
 
-/* @media screen and (min-width: 768px) {
-
-    .Nav-menu {
-        gap: 20px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        position: static;
-        transform: none;
-        opacity: 1;
-
-    }
-
-    .Hamburger {
-        display: none;
-    }
-
-    .Nav-link {
-        padding: 1;
-
-    }
-
-} */

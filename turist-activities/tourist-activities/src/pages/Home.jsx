@@ -183,9 +183,9 @@ const Home = () => {
             description: actividad.descripcion
         })
         console.log('handle preload en home', preloadData)
-            navigate('/calendar')
+        navigate('/calendar')
     }
-    
+
     return (
         <>
 
@@ -205,32 +205,36 @@ const Home = () => {
                                 <h3>{pack.nombre}</h3>
                                 <p>{pack.actividades.length} actividades</p>
 
-                                {
-                                    packAbierto === i && (
-                                        <div className="Pack-detalle">
-                                            {/* filter para devolver las actividades completas q estan dentro del pack concreto, segun su id */}
-                                            {actividades
-                                                .filter(actividad => pack.actividades.includes(actividad.id))
-                                                .map(actividad => (
-                                                    <div key={actividad.id} className="Pending-activities">
-                                                        <div>{actividad.icono}</div>
-                                                        <div className="ActPending">
-                                                            <h3 className="ActPending-h3">{actividad.titulo}</h3>
-                                                            <p className="ActPending-p">{actividad.descripcion}</p>
-                                                        </div>
-                                                        <div className="Activities-links">
-                                                            <button className="Activities-link" onClick={() => handleAgregarACalendario(actividad)}>Agregar al calendario</button>
-                                                        
-                                                        </div>
-                                                    </div>
-                                                ))
-                                            }
-                                        </div>
-                                    )
-                                }
+
 
                             </div>
                         ))}
+
+                        {
+                            packAbierto !== null && (
+                                <div className="Pack-overlay" onClick={() => setPackAbierto(null)}>
+                                    <span className="Pack-cerrar">X</span>
+                                    <div className="Pack-detalles" onClick={(e) => e.stopPropagation()}>
+                                        {/* filter para devolver las actividades completas q estan dentro del pack concreto, segun su id */}
+                                        {actividades
+                                            .filter(actividad => listaDePacks[packAbierto].actividades.includes(actividad.id))
+                                            .map(actividad => (
+                                                <div key={actividad.id} className="Pack-activity">
+                                                    <div>{actividad.icono}</div>
+                                                    <div className="Activity">
+                                                        <h3 className="Activity-h3">{actividad.titulo}</h3>
+                                                        <p className="Activity-p">{actividad.descripcion}</p>
+                                                    </div>
+                                                    <button className="Activity-link" onClick={() => handleAgregarACalendario(actividad)}>Agregar al calendario</button>
+
+
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+                                </div>
+                            )
+                        }
 
                     </div>
 
@@ -245,20 +249,13 @@ const Home = () => {
 
                     <div>
                         {actividadesMostradas.map((actividad) => (
-                            <div className="Activities-activities" key={actividad.id}>
-                                <div className="Activities-act">
-                                    <div>
-
-                                        <img className="Activities-img" src={`/img/actividades-tipos/act-${actividad.tipo}.svg`} alt="Icono actividad" />
-                                    </div>
-                                    <div className="ActPending">
-                                        <h3 className="ActPending-h3">{actividad.titulo}</h3>
-                                        <p className="ActPending-p">{actividad.descripcion}</p>
-                                    </div>
-                                    <div className="Activities-links">
-                                        <button className="Activities-link" onClick={() => handleAgregarACalendario(actividad)}>Agregar al calendario</button>
-                                    </div>
+                            <div className="Activities-act" key={actividad.id}>
+                                <img className="Activities-img" src={`/img/actividades-tipos/act-${actividad.tipo}.svg`} alt="Icono actividad" />
+                                <div className="Activity">
+                                    <h3 className="Activity-h3">{actividad.titulo}</h3>
+                                    <p className="Activity-p">{actividad.descripcion}</p>
                                 </div>
+                                <button className="Activity-link" onClick={() => handleAgregarACalendario(actividad)}>Agregar al calendario</button>
                             </div>
                         ))}
 
