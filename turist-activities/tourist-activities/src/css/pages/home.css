@@ -44,7 +44,7 @@
 }
 
 .Act-card {
-    min-width: 250px;
+    min-width: 220px;
     height: 210px;
     padding: 1rem;
     /* border-radius: 30px; */
@@ -118,14 +118,14 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: #fff;
     border-radius: 20px;
-    padding: 1rem;
+    padding: 0.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: 8px 0;
     width: 350px;
-    height: 160px;
+    height: 150px;
 }
 .Activities-img{
     

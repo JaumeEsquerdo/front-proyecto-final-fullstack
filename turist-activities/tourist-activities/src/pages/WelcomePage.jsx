@@ -25,7 +25,7 @@ const Welcome = () => {
         <>
 
             <section className="WelcomePage">
-                <p className="foto" style={{ width: "100%", flex: "1", backgroundColor: "blue" }}>AQUI VA UNA IMG</p>
+                <img className="WelcomePage-fondo" src="/img/fondo-escena.png" alt="Fondo escena" />
 
                 <div className="WelcomePage-div">
                     <div className="WelcomePage-content">

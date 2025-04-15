@@ -4,18 +4,25 @@
     flex-direction: column;
     justify-content: end;
     background-color: rgb(229, 234, 161);
-
 }
 
+.WelcomePage-fondo{
+    height: 100vh;
+    aspect-ratio: 16/9;
+}
 .WelcomePage-div {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
     height: 40vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    width: 100vw;
+    
     border-radius: 50px 50px 0 0;
-    background: var(--color-bg);
-    /* background-color: rgb(227, 109, 109); */
+    /* background: var(--color-bg); */
+    background-color: rgb(241, 124, 124);
 }
 
 .WelcomePage-content {
@@ -28,12 +35,12 @@
 
 }
 
-.foto {
+/* .foto {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 
 .WelcomePage-line {
     border: 4px solid #24b7bf;
