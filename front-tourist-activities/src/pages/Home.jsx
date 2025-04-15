@@ -215,6 +215,11 @@ const Home = () => {
                                 <div className="Pack-overlay" onClick={() => setPackAbierto(null)}>
                                     <span className="Pack-cerrar">X</span>
                                     <div className="Pack-detalles" onClick={(e) => e.stopPropagation()}>
+                                        <div className="Pack-header">
+                                            <img className="Pack-icono" src={listaDePacks[packAbierto].icono} alt="Icono pack" />
+                                            <h3>{listaDePacks[packAbierto].nombre}</h3>
+                                        </div>
+
                                         {/* filter para devolver las actividades completas q estan dentro del pack concreto, segun su id */}
                                         {actividades
                                             .filter(actividad => listaDePacks[packAbierto].actividades.includes(actividad.id))
