@@ -107,14 +107,14 @@
     justify-content: center;
 }
 
-.activdad-futura{
-    background-color: rgb(99, 154, 73);
+.actividad-futura{
+    background-color: var(--color-act-futura);
 }
 .actividad-pronto{
-    background-color: rgb(220, 218, 87);
+    background-color: var(--color-act-pronto);
 }
 .actividad-pasada{
-    background-color: brown;
+    background-color: var(--color-act-pasada);
 }
 
 /* FORM del calendario */

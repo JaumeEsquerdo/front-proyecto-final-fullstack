@@ -12,6 +12,9 @@
   --btn-hover-bg: linear-gradient(135deg, #feb47b, #ff7e5f);
   --btn-hover-shadow: 0 6px 14px rgba(0, 0, 0, 0.8);
   --btn-transition: all 0.3s ease-in-out;
+  --color-act-pronto: #f1ef86;
+  --color-act-pasada: #f38989;
+  --color-act-futura: #b2f493;
 }
 
 

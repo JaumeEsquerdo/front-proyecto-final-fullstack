@@ -142,8 +142,7 @@ const Actividad = ({ activity, now }) => {
     const activityDate = new Date(activity.time)
     const hasPassed = activityDate < now;
 
-    // comprobar si esta dentro de la proxima hora
-
+    // comprobar si la act esta dentro de la proxima hora
     const oneHourFromNow = new Date(now.getTime() + 60 * 60 * 1000)
     const isSoon = activityDate > now && activityDate <= oneHourFromNow
 
