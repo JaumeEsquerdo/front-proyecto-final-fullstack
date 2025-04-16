@@ -6,7 +6,7 @@ import { useActivity } from '@/context/ActivityContext';
 
 
 const CalendarPage = () => {
-    const { isAddFormOpen, setIsAddFormOpen, handleAddActivity, selectedDay, setSelectedDay, activities, preloadData } = useActivity()
+    const { isAddFormOpen, setIsAddFormOpen, handleAddActivity, selectedDay, setSelectedDay, activities, preloadData, selectedActivity } = useActivity()
 
 
     const [selectedDate, setSelectedDate] = useState(new Date()); // almacenar la fecha seleccionada (por defecto la de hoy)
@@ -20,6 +20,7 @@ const CalendarPage = () => {
     const monthTitle = selectedDate.toLocaleDateString('es-Es', { month: 'long', year: 'numeric' }) // que se vea la fecha con el mes y el año
 
     const [showExtraHours, setShowExtraHours] = useState(false)
+
 
     // para los inputs
     const [title, setTitle] = useState('');
@@ -109,6 +110,13 @@ const CalendarPage = () => {
         }
     }, [preloadData])
 
+    const handleEdit = () =>{
+        console.log(handleEdit)
+    }
+    const handleDelete = () => {
+        console.log(handleDelete)
+    }
+
     return (
         <>
             <div className='CalendarHeader'>
@@ -158,7 +166,6 @@ const CalendarPage = () => {
 
 
                         {/* formulario de las actividades */}
-
                         {isAddFormOpen && (
 
                             <form
@@ -209,6 +216,20 @@ const CalendarPage = () => {
 
                         )
                         }
+
+                        {selectedActivity && (
+                            <div className='ActividadSeleccionada'>
+                                <h3>Actividad seleccionada</h3>
+                                <p><strong>Hora:</strong>{selectedActivity.timeExact}</p>
+                                <h4>{selectedActivity.title}</h4>
+                                <p><strong>Desripción</strong>{selectedActivity.description}</p>
+                                <div className='ActividadSeleccionada-botones'>
+                                    <button onClick={()=> handleEdit(selectedActivity)}>Editar</button>
+                                    <button onClick={()=> handleDelete(selectedActivity.id)}>Eliminar</button>
+                                </div>
+                            </div>
+                        )}
+                        
 
                     </>
                 )
