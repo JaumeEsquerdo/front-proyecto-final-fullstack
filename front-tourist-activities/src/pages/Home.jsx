@@ -191,7 +191,7 @@ const Home = () => {
 
             <div className="Home">
 
-                <h1>Aún te preguntas que puedes hacer en "la Vila" ?</h1>
+                <h1 className="Home-h1">Aún te preguntas que puedes hacer en "la Vila" ?</h1>
                 {/* sección act recomendadas */}
                 <section className="Act-section">
                     <h2 className="Act-h2">Packs de actividades</h2>
@@ -214,7 +214,7 @@ const Home = () => {
                             packAbierto !== null && (
                                 <div className="Pack-overlay" onClick={() => setPackAbierto(null)}>
                                     <span className="Pack-cerrar">X</span>
-                                    <div className="Pack-detalles" onClick={(e) => e.stopPropagation()}>
+                                    <div className={`Pack-detalles ${listaDePacks[packAbierto].color}`} onClick={(e) => e.stopPropagation()}>
                                         <div className="Pack-header">
                                             <img className="Pack-icono" src={listaDePacks[packAbierto].icono} alt="Icono pack" />
                                             <h3>{listaDePacks[packAbierto].nombre}</h3>
@@ -248,7 +248,7 @@ const Home = () => {
                 <section className="Activities">
                     <div className="Activities-titles">
                         <h2 className="Activities-title">Más actividades recomendadas</h2>
-                        <p>{actividadesMostradas.length} actividades</p>
+                        <p style={{marginLeft:"0"}} className="Act-p">{actividadesMostradas.length} actividades</p>
                         <Link className="Activities-more" onClick={handleActividades}>{verTodas ? "Ver menos" : "Ver todas"}</Link>
                     </div>
 

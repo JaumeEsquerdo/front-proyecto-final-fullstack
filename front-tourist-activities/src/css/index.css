@@ -2,7 +2,9 @@
 
   --btn-bg: linear-gradient(135deg, #d08a79, #f0d6c3);
   --btn-text-color: #fff;
-  --btn-font: 'Poppins', sans-serif;
+  
+  --font-main:'Nunito', sans-serif;
+  --font-logo:'Quicksand', sans-serif;
   --color-bg: linear-gradient(0deg, #68bedb8e, #d4e4ef00);
   --btn-padding: 12px 24px;
   --btn-border-radius: 12px;
@@ -50,9 +52,15 @@ button:active{
   min-height: 100vh;
   overflow: auto;
   scrollbar-width: none; /* ocultar en firefox */
+  font-family: var(--font-main);
+
 }
 .Body::-webkit-scrollbar,html::-webkit-scrollbar{
   display: none; /* ocultar en Chrome, safari y edge */
+}
+
+.Header-title{
+  font-family: var(--font-logo);
 }
 
 html{
