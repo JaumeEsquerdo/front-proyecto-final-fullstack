@@ -50,18 +50,13 @@
     width: 25px;
 }
 
-
-
-
-
-
-.Footer-div {
+.Footer-divBtn {
     color: white;
     position: absolute;
     top: -10px;
     left: 50%;
     padding: 20px;
-    background: linear-gradient(135deg, #ff9941, #f0d6bf);
+    background: linear-gradient(135deg, #e86ede, #efbff0);
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -70,7 +65,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 10px 8px rgba(183, 144, 83, 0.5);
+    box-shadow: 0 10px 8px rgba(121, 83, 183, 0.5);
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 

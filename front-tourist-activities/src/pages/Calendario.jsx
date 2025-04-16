@@ -28,6 +28,7 @@ const CalendarPage = () => {
     const [description, setDescription] = useState('')
 
 
+
     /* cada vez que cambie 'selectedDate' generamos los dias d ese mes */
     useEffect(() => {
         if (selectedDate.getMonth() === today.getMonth() && selectedDate.getFullYear() === today.getFullYear()) {

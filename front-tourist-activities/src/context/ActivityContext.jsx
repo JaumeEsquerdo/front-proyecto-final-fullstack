@@ -55,6 +55,9 @@ export const ActivityProvider = ({ children }) => {
     const [isAddFormOpen, setIsAddFormOpen] = useState(false)
     const [preloadData, setPreloadData] = useState(null); // para cargar contenido desde Home a Calendario
 
+    const [selectedActivity, setSelectedActivity] = useState(null) // para abrir-cerrar la actividad clickada en el calendar
+
+
     //para el form de las actividades
     const handleAddActivity = ({ title, hour, description, minutes }) => {
 
@@ -83,7 +86,9 @@ export const ActivityProvider = ({ children }) => {
         <ActivityContext.Provider
             value={{
                 activities, setActivities, setSelectedDay, selectedDay,
-                handleAddActivity, isAddFormOpen, setIsAddFormOpen, preloadData, setPreloadData
+                handleAddActivity, isAddFormOpen,
+                setIsAddFormOpen, preloadData, setPreloadData,
+                selectedActivity, setSelectedActivity
             }}
         >
             {children}

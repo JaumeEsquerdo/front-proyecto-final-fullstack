@@ -63,7 +63,7 @@ export const Footer = () => {
                 </ul>
             </nav>
             
-            <div className="Footer-div" onClick={handleAddClick}>➕</div>
+            <div className="Footer-divBtn" onClick={handleAddClick}>➕</div>
         </footer>);
 }
 

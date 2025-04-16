@@ -1,6 +1,7 @@
 import Calendar from "react-calendar"; // importar calendario por defecto
 import 'react-calendar/dist/Calendar.css' //css predefinido para el calendario
 import { useEffect, useRef } from "react";
+import { useActivity } from '@/context/ActivityContext'
 
 
 /*---MOSTRAR CALENDARIO EN VISTA AÑO PARA SELECCIONAR FECHA---
@@ -116,7 +117,6 @@ export const ActivityPanel = ({ selectedDay, visibleHours, activities, dateOptio
                         activities={activities} selectedDay={selectedDay}
                         now={now} />
                 ))}
-
             </div>
         </>
     );
@@ -132,13 +132,13 @@ const BloqueHora = ({ hour, activities, selectedDay, now }) => {
                 <Actividad key={i} activity={a} now={now} />
 
             ))}
-
         </div>
     )
 }
 
 
 const Actividad = ({ activity, now }) => {
+    const { setSelectedActivity } = useActivity()
     const activityDate = new Date(activity.time)
     const hasPassed = activityDate < now;
 
@@ -151,7 +151,9 @@ const Actividad = ({ activity, now }) => {
     else if (isSoon) clase = 'actividad-pronto'
 
     return (
-        <p className={`CalendarioHoras ${clase}`} >{activity.timeExact}-{activity.title}</p>
+        <p onClick={() => setSelectedActivity(activity)} className={`CalendarioHoras ${clase}`}>
+            {activity.timeExact}-{activity.title}
+        </p>
     )
 }
 
