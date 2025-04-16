@@ -67,9 +67,25 @@
     width: 90%;
     padding: 20px;
     border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.BloqueHoras {}
+.Actividades-h3{
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    color: #333;
+    font-weight: 700;
+}
+.BloqueHoras {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    border-bottom: 0.2px solid black;
+}
+
+.BloqueHoras-h4{
+    font-size: 0.9rem;
+}
 
 .Bloquehoras-10 {
     background-color: blue;
@@ -78,9 +94,17 @@
 }
 
 .CalendarioHoras {
-    padding: 1rem;
-    border-radius: 20px;
+    margin: 20px;
+    padding: 10px 16px;
+    color: #333;
+    height: 58px;
+    border-radius: 10px;
     background-color: rgb(103, 156, 139);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .activdad-futura{

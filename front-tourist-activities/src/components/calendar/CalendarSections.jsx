@@ -109,7 +109,7 @@ export const ActivityPanel = ({ selectedDay, visibleHours, activities, dateOptio
     return (
         <>
             <div className='Actividades'>
-                <h3>Actividades para {selectedDay.toLocaleDateString('es-Es', dateOptions)}</h3>
+                <h3 className="Actividades-h3">Actividades para {selectedDay.toLocaleDateString('es-Es', dateOptions)}</h3>
 
                 {visibleHours.map((hour, i) => (
                     <BloqueHora key={i} hour={hour}
