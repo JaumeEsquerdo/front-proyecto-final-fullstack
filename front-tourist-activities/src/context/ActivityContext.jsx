@@ -11,44 +11,51 @@ export const ActivityProvider = ({ children }) => {
         time: new Date("2025-04-16T10:30:00"),
         timeExact: "10:30",
         displayHour: "10:00",
-        description: "Reunion de equipo de volley"
+        description: "Reunion de equipo de volley",
+        id: '1'
     },
     {
         title: "Clase de yoga",
         time: new Date("2025-04-16T08:00:00"),
         timeExact: "08:00",
-        displayHour: "08:00"
+        displayHour: "08:00",
+        id: '2'
     },
     {
         title: "Café con Ana",
         time: new Date("2025-04-16T17:15:00"),
         timeExact: "17:15",
-        displayHour: "17:00"
+        displayHour: "17:00",
+        id: '3'
     },
     {
         title: "Comida con familia",
         time: new Date("2025-04-16T14:00:00"),
         timeExact: "21:00",
-        displayHour: "14:00"
+        displayHour: "14:00",
+        id: '4'
     },
     {
         title: "Tarea frontend",
         time: new Date("2025-04-16T18:45:00"),
         timeExact: "18:45",
-        displayHour: "18:00"
+        displayHour: "18:00",
+        id: '5'
     },
     {
         title: "Salir a correr",
         time: new Date("2025-04-16T23:30:00"),
         timeExact: "23:30",
-        displayHour: "23:00"
+        displayHour: "23:00",
+        id: '6'
     }
         ,
     {
         title: "Salir a pasear",
         time: new Date("2025-05-16T07:30:00"),
         timeExact: "07:30",
-        displayHour: "07:00"
+        displayHour: "07:00",
+        id: '7'
     }
     ]);
     const [selectedDay, setSelectedDay] = useState(new Date());  // para el dia seleccionado
@@ -59,7 +66,7 @@ export const ActivityProvider = ({ children }) => {
 
 
     //para el form de las actividades
-    const handleAddActivity = ({ title, hour, description, minutes }) => {
+    const handleSaveActivity = ({ title, hour, description, minutes, id }) => {
 
         const date = new Date(selectedDay) // no se ve bien para el usuario asi que creo un displa del tiempo para que sea mas legible...
         // const [h, m] = hour.split(':')
@@ -77,8 +84,24 @@ export const ActivityProvider = ({ children }) => {
             displayHour // este es para poder agrupar las horas segun si ej. es a las 10:40 la actividad agruparla con las actividaes de las 10:00
         }
 
-        setActivities((prev) => [...prev, newActivity])
-        console.log('añadiendo actividad,', newActivity)
+        //diferenciar entre editar(pasa id) o crear nueva actividad
+        if (id) {
+            //editano
+            setActivities(prev =>
+                prev.map(act => act.id === id ? { ...act, ...newActivity, id } : act)
+            )
+            console.log('activvidad editada:', newActivity)
+        }
+
+        else {
+            //creando act
+            const newWidthId = { ...newActivity, id: Math.floor(Math.random()) }
+            setActivities((prev) => [...prev, newWidthId])
+            console.log('añadiendo actividad,', newWidthId)
+        }
+
+
+
         return true;
     }
 
@@ -88,23 +111,24 @@ export const ActivityProvider = ({ children }) => {
             title: actividad.title,
             description: actividad.description || '',
             hour,
-            minutes
+            minutes,
+            id: actividad.id
         })
         setIsAddFormOpen(true)
         setSelectedDay(new Date(actividad.time))
         console.log(handleEdit)
     }
-    const handleDelete = () => {
-        console.log(handleDelete)
+    const handleDelete = (id) => {
+        console.log('eliminar actividad con id', id)
     }
 
     return (
         <ActivityContext.Provider
             value={{
                 activities, setActivities, setSelectedDay, selectedDay,
-                handleAddActivity, isAddFormOpen,
+                handleSaveActivity, isAddFormOpen,
                 setIsAddFormOpen, preloadData, setPreloadData,
-                selectedActivity, setSelectedActivity, handleEdit
+                selectedActivity, setSelectedActivity, handleEdit, handleDelete
             }}
         >
             {children}

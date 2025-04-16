@@ -6,7 +6,7 @@ import { useActivity } from '@/context/ActivityContext';
 
 
 const CalendarPage = () => {
-    const { handleEdit,isAddFormOpen, setIsAddFormOpen, handleAddActivity, selectedDay, setSelectedDay, activities, preloadData, selectedActivity } = useActivity()
+    const { handleDelete,setPreloadData,handleEdit,isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, activities, preloadData, selectedActivity } = useActivity()
 
 
     const [selectedDate, setSelectedDate] = useState(new Date()); // almacenar la fecha seleccionada (por defecto la de hoy)
@@ -17,7 +17,7 @@ const CalendarPage = () => {
     const today = new Date(); //fecha de hoy
     const dateOptions = { month: 'long', day: 'numeric' }; /* leer la fecha solo con mes y dia */
     const formateDate = today.toLocaleDateString('es-ES', dateOptions) /* para q se lea mejor la fecha */
-    const monthTitle = selectedDate.toLocaleDateString('es-Es', { month: 'long', year: 'numeric' }) // que se vea la fecha con el mes y el año
+    const monthTitle = selectedDate.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' }) // que se vea la fecha con el mes y el año
 
     const [showExtraHours, setShowExtraHours] = useState(false)
 
@@ -86,7 +86,7 @@ const CalendarPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const success = handleAddActivity({ title, hour, description, minutes, date: selectedDay })
+        const success = handleSaveActivity({ id:preloadData?.id ,title, hour, description, minutes, date: selectedDay })
 
         //limpieza de inputs
         if (success) {
@@ -94,6 +94,8 @@ const CalendarPage = () => {
             setDescription("")
             setHour('10')
             setMinutes('00')
+            setPreloadData(null)
+            
         }
         setIsAddFormOpen(false)
     }
@@ -101,14 +103,22 @@ const CalendarPage = () => {
 
     console.log('preload de clandar', preloadData)
 
-    /* useEffect para cargar contenido al form desde Home (btns de agregar al calendario) */
+    /* useEffect para cargar contenido al form desde Home (btns de agregar al calendario) Y tmb para editar actividades ya existentes */
     useEffect(() => {
         if (preloadData) {
             setTitle(preloadData.title)
             setDescription(preloadData.description)
+            setHour(preloadData.hour || '10')
+            setMinutes(preloadData.minutes ||'00')
             setIsAddFormOpen(true)
         }
     }, [preloadData])
+
+    /* cerrar y limpiar form */
+    const handleCloseForm=()=>{
+        setIsAddFormOpen(false)
+        setPreloadData(null)
+    }
 
     
 
@@ -206,7 +216,7 @@ const CalendarPage = () => {
 
 
                                 <button className='CalendarForm-btn' type='submit'>Guardar actividad</button>
-                                <button className='CalendarForm-btn' onClick={() => setIsAddFormOpen(false)}>Cerrar formulario</button>
+                                <button className='CalendarForm-btn' onClick={handleCloseForm}>Cerrar formulario</button>
                             </form>
 
                         )
