@@ -33,6 +33,18 @@ a {
 
 .react-calendar{
   border-radius: 24px;
+  margin: 12px 0;
+  border: 0.2px solid rgb(197, 197, 197);
+}
+.react-calendar__navigation button,.react-calendar__year-view .react-calendar__tile{
+  border-radius: 24px;
+  
+}
+
+.react-calendar__navigation button:hover{
+  border-radius: 24px;
+  border: 0.2px solid rgb(78, 77, 77);
+
 }
 
 /* button{
