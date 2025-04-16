@@ -100,24 +100,27 @@ const CalendarPage = () => {
     console.log('preload de clandar', preloadData)
 
     /* useEffect para cargar contenido al form desde Home (btns de agregar al calendario) */
-    useEffect(()=>{
-        if(preloadData){
+    useEffect(() => {
+        if (preloadData) {
             setTitle(preloadData.title)
             setDescription(preloadData.description)
             setIsAddFormOpen(true)
         }
-    },[preloadData])
+    }, [preloadData])
 
     return (
         <>
-            <div>
-                <div>
-                    <button onClick={() => setShowCalendar(!showCalendar)}>Calendar</button>
-                </div>
-                <div>
-                    {formateDate}
+            <div className='CalendarHeader'>
+                <div className=''>
+                    <h2>Hoy es {formateDate}</h2>
                     <p>10 actividades pendientes</p>
                 </div>
+
+                <button className='CalendarHeader-btn' onClick={() => setShowCalendar(!showCalendar)}>
+                    <img className='CalendarHeader-btnImg' src='/img/calendario-blanco-32px.png' alt='Calendario' />
+
+                </button>
+
             </div>
 
 
@@ -167,12 +170,12 @@ const CalendarPage = () => {
                                 />
 
                                 <textarea
-                                className='CalendarForm-textarea'
-                                placeholder='Descripción (opcional)'
+                                    className='CalendarForm-textarea'
+                                    placeholder='Descripción (opcional)'
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
-                                rows={10}
-                                cols={40}
+                                    rows={10}
+                                    cols={40}
                                 >
                                 </textarea>
 
@@ -190,8 +193,8 @@ const CalendarPage = () => {
 
                                 {/* select de minutos */}
                                 <select
-                                className='CalendarForm-select'
-                                value={minutes} onChange={(e) => setMinutes(e.target.value)}>
+                                    className='CalendarForm-select'
+                                    value={minutes} onChange={(e) => setMinutes(e.target.value)}>
                                     <option value="00">00</option>
                                     <option value="15">15</option>
                                     <option value="30">30</option>

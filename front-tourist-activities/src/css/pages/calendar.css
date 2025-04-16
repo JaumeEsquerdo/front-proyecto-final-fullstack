@@ -1,3 +1,28 @@
+.CalendarHeader{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.CalendarHeader-btn{
+    cursor: pointer;
+    width: 60px;
+    height: 60px; 
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: rgb(228, 228, 23);
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CalendarHeader-btnImg{
+    width: 28px;
+    height: 28px; 
+}
+
 .Slider{
     display: flex;
     overflow-x: auto;
@@ -32,6 +57,16 @@
 
 .Slider-btn:hover{
     background-color: rgb(148, 148, 202);
+}
+
+
+/* Bloque de horas y actividades */
+
+.Actividades{
+    background-color: #fff;
+    width: 90%;
+    padding: 20px;
+    border-radius: 16px;
 }
 
 .BloqueHoras {}
