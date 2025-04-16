@@ -138,7 +138,7 @@ const BloqueHora = ({ hour, activities, selectedDay, now }) => {
 
 
 const Actividad = ({ activity, now }) => {
-    const { setSelectedActivity } = useActivity()
+    const {setSelectedActivity } = useActivity()
     const activityDate = new Date(activity.time)
     const hasPassed = activityDate < now;
 
@@ -151,7 +151,7 @@ const Actividad = ({ activity, now }) => {
     else if (isSoon) clase = 'actividad-pronto'
 
     return (
-        <p onClick={() => setSelectedActivity(activity)} className={`CalendarioHoras ${clase}`}>
+        <p onClick={() => {setSelectedActivity(activity)}} className={`CalendarioHoras ${clase}`}>
             {activity.timeExact}-{activity.title}
         </p>
     )

@@ -6,7 +6,7 @@ import { useActivity } from '@/context/ActivityContext';
 
 
 const CalendarPage = () => {
-    const { isAddFormOpen, setIsAddFormOpen, handleAddActivity, selectedDay, setSelectedDay, activities, preloadData, selectedActivity } = useActivity()
+    const { handleEdit,isAddFormOpen, setIsAddFormOpen, handleAddActivity, selectedDay, setSelectedDay, activities, preloadData, selectedActivity } = useActivity()
 
 
     const [selectedDate, setSelectedDate] = useState(new Date()); // almacenar la fecha seleccionada (por defecto la de hoy)
@@ -110,12 +110,7 @@ const CalendarPage = () => {
         }
     }, [preloadData])
 
-    const handleEdit = () =>{
-        console.log(handleEdit)
-    }
-    const handleDelete = () => {
-        console.log(handleDelete)
-    }
+    
 
     return (
         <>
@@ -242,68 +237,3 @@ const CalendarPage = () => {
 export default CalendarPage;
 
 
-/* { <div className='lista de horas'>
-{
-    visibleHours.map((hour,i)=>(
-        <div key={i} className='horas'>
-            <span>{hour}</span>
-        </div>
-    ))
-}
-</div> }*/
-
-/*
- {
-                showCalendar && (
-                    <Calendar
-                        view='year'
-                        onChange={handleDateChange}
-                        value={selectedDate}
-                        onClickMonth={handleDateChange}
-                    />
-                )
-            }
-            <h2>{monthTitle}</h2>
-
-            {
-                monthDays.length > 0 && (
-                    <div className='Slider'>
-                        {
-                            monthDays.map((day, i) => (
-                                <button
-                                    key={i}
-                                    onClick={() => setSelectedDay(day)}
-                                    className={selectedDay?.getDate() === day.getDate() ? 'selected-day' : ""}
-                                >
-                                    {day.getDate()}
-                                </button>
-                            ))
-                        }
-                    </div>
-                )
-            }
-
-            {
-                selectedDay && (
-                    <div className='actividades'>
-                        <h3>Actividades para {selectedDay.toLocaleDateString('es-Es', dateOptions)}</h3>
-
-                        {visibleHours.map((hour) => {
-                            const acttividadesDeEstaHora = activities.filter(a => a.displayHour === hour && new Date(a.time).toDateString() === selectedDay.toDateString())
-
-                            /*if (acttividadesDeEstaHora.length === 0) return null */
-/*            return (
-                 <div key={hour} className='bloque-hora'>
-                     <h4>{hour}</h4>
-                     {acttividadesDeEstaHora.map((a, i) => (
-                         <p key={i}>{a.timeExact}-{a.title}</p>
-                     ))}
-                 </div>
-             )
-         })}
-
-     </div>
- )
-}
-
-*/

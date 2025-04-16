@@ -82,13 +82,29 @@ export const ActivityProvider = ({ children }) => {
         return true;
     }
 
+    const handleEdit = (actividad) => {
+        const [hour, minutes] = actividad.timeExact.split(':') // descomponer la hora en dos partes para ponerlo en el form y poder editarlo
+        setPreloadData({
+            title: actividad.title,
+            description: actividad.description || '',
+            hour,
+            minutes
+        })
+        setIsAddFormOpen(true)
+        setSelectedDay(new Date(actividad.time))
+        console.log(handleEdit)
+    }
+    const handleDelete = () => {
+        console.log(handleDelete)
+    }
+
     return (
         <ActivityContext.Provider
             value={{
                 activities, setActivities, setSelectedDay, selectedDay,
                 handleAddActivity, isAddFormOpen,
                 setIsAddFormOpen, preloadData, setPreloadData,
-                selectedActivity, setSelectedActivity
+                selectedActivity, setSelectedActivity, handleEdit
             }}
         >
             {children}
