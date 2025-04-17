@@ -99,7 +99,7 @@ iconos para los packs: https://www.svgrepo.com/collection/travel-theme-candy-vec
 
 1. Problema para pasar una actividad desde Home a Calendario.
 
-Problema: consistía en que estaba generando dos maps, uno para filtrar actividades que me gustaban para hacer packs de actividades y otro para mostrar todas las actividades, y en un map pasaba 'act' y en el otro 'actividad'.
+Problema: consistía en que estaba generando dos maps, uno para filtrar actividades que me gustaban (dentro de todas las actividades) para hacer packs de actividades y otro para mostrar todas las actividades, y en un map pasaba 'act' y en el otro 'actividad'.
 
 Solución: en el map de las actividades utilizar el mismo nombre 'actividad' para generar la actividad individual, y pasar el mismo nombre tanto en el handle como en el useEffect.
 
@@ -162,7 +162,21 @@ Solución: en el map de las actividades utilizar el mismo nombre 'actividad' par
 
 ## useNavigate
 
-- He utilizado useNavigate, investigando un poco, para hacer que cuando esté en la página de perfil si has accedido desde la página 'Home' y le das al botón de volver, vuelva a 'Home' y si has accedido desde 'Calendar' vuelve a Calendar.
+- En primer lugar, he utilizado el useNavigate para navegar al final de alguna función de una manera sencilla, por ejemplo para agregar una actividad al calendario desde 'Home':
+
+```js
+/* Agregar actividad al Calendario desde home*/
+    const handleAgregarACalendario = (actividad) => { // IMPORTANTE!!! al tener dos maps (dos secciones de actividades), los maps tienen q pasar el mismo nombre "actividad", si no no funciona
+        setPreloadData({
+            title: actividad.titulo,
+            description: actividad.descripcion
+        })
+        console.log('handle preload en home', preloadData)
+        navigate('/calendar')
+    }
+```
+
+- En otra ocasión, investigando un poco y aplicando la misma estructura, utilicé useNavigate para implementar un botón "Volver" en la página de perfil. La idea es que si el usuario accede desde la página Home, al pulsar el botón vuelve a Home, y si accede desde Calendar, vuelve a Calendar.
 
 Esto lo he logrado con:
 
