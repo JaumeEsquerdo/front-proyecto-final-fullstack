@@ -1,0 +1,72 @@
+.Profile{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    max-height: 100vh;
+    background-color: #f4f6f8;
+}
+
+.Profile-card{
+background-color: #fff;
+padding: 2rem;
+border-radius: 24px;
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+width: 100%;
+max-width: 420px;
+}
+
+.Profile-title{
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.Profile-form{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.Profile-label{
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+.Profile-input{
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.75rem;
+    transition: border 0.3s ease-in-out;
+}
+
+.Profile-input:focus{
+    border-color: #5b9df9;
+}
+
+.Profile-button{
+    padding: 0.8rem 1rem;
+    border-color: #5b9df9;
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease-in-out;
+
+}
+
+.Profile-button:hover{
+    background-color: #407ee7
+}
+
+.Profile-logout{
+    margin-top: 1.5rem;
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    text-align: center;
+}

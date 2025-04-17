@@ -7,6 +7,7 @@ import WelcomePage from '@/pages/WelcomePage'
 import Login from '@/pages/Login'
 import Register from '@/pages/Register'
 import CalendarPage from '@/pages/Calendario'
+import Profile from '@/pages/Profile'
 
 
 // importe de páginas especiales
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         path:'/register',
         element:<Register/>
     },
+    {
+        path: '/profile',
+        element: <Profile/>,
+    },
     ,
     {
         element: <Layout/>,
@@ -40,6 +45,8 @@ const router = createBrowserRouter([
                 path: '/calendar',
                 element: <CalendarPage/>,
             },
+            
+
             // {
             //     path: 'secciones/:id',
             //     element: <SeccionDinamica/>

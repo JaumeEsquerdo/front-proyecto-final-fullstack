@@ -17,8 +17,8 @@ export const Header = () => {
                 <span className="bar"></span>
             </div>
             <nav className={`Nav-menu ${isOpen ? 'Open' : ''}`}>
-                <NavLink className="Nav-link" to={"/login"}>
-                <img className='Nav-perfil' src="/img/icono-perfil.svg" alt="" />
+                <NavLink className="Nav-link" to={"/profile"}>
+                <img className='Nav-perfil' src="/img/icono-perfil.svg" alt="Perfil" />
                 </NavLink>
 
             </nav>
