@@ -134,7 +134,9 @@
     font-size: 1rem;
     color: #666;
 }
-
+.Activities-more{
+    width: fit-content;
+}
 /* botones */
 .Activity-link{
 background-color: #4ad3da;

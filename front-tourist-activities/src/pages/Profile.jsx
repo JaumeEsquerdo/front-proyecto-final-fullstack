@@ -12,9 +12,9 @@ const Profile = () => {
         <>
             <div className="Profile">
                 <img className='Profile-bg' src="/img/fondo-escena.png" alt="img de fondo" />
-                <button className="Profile-nav" onClick={handleBack}>
-                    <img className='Profile-link' src="/img/flecha-atras.svg" alt="Perfil" />
-                </button>
+                <nav className="Profile-nav" >
+                    <img onClick={handleBack} className='Profile-link' src="/img/flecha-atras.svg" alt="Perfil" />
+                </nav>
                 <div className="Profile-card">
                     <h2 className="Profile-title">Tu Perfil</h2>
 
