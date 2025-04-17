@@ -189,3 +189,22 @@ Esto lo he logrado con:
     }
 
 ```
+
+## scrollIntoView
+
+Para redirijir un scroll a una posición del mismo componente he utilizado scrollIntoView.
+No lo había utilizado mucho anteriormente, ya que antes esto lo hacía con JS vanilla y por lo tanto hacia un redirect con un id y con un link hacia el id con `#`
+
+ej. para hacer esta función en React con scrollIntoView:
+
+```js
+ /* useEffect para q cuando abra el form de añadir actividad se redirija alli (ya q se posiciona en la zona baja y no se ve si no lo sabes) */
+    useEffect(() => {
+        if (isAddFormOpen) {
+            const element = document.getElementById('CalendarForm')
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" })
+            }
+        }
+    }, [isAddFormOpen])
+```

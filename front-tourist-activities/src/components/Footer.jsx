@@ -11,16 +11,16 @@ const navItems = [
 
 export const Footer = () => {
 
-    const {setIsAddFormOpen, isAddFormOpen} =useActivity(); //contexto
+    const { setIsAddFormOpen, isAddFormOpen } = useActivity(); //contexto
 
 
     const location = useLocation();
     const navigate = useNavigate();
 
-    const handleAddClick = () =>{
-        if(location.pathname ==='/calendar'){
-            setIsAddFormOpen(!isAddFormOpen) //abrir el form si esta ya en calendar
-        }else{
+    const handleAddClick = () => {
+        if (location.pathname === '/calendar') {
+            setIsAddFormOpen(prev => !prev) //abrir el form si esta ya en calendar
+        } else {
             navigate('/calendar') // si no solamente redirije a calendar, no quiero que se abra automaticamente, probablemente quiera elejir el dia antes...
         }
     }
@@ -44,15 +44,15 @@ export const Footer = () => {
 
                                 {isActive && (
                                     <motion.div
-                                    layoutId="dots"
-                                    className="Footer-dots"
-                                    transition={{type: "spring", stiffness: 50, damping: 25}}
+                                        layoutId="dots"
+                                        className="Footer-dots"
+                                        transition={{ type: "spring", stiffness: 50, damping: 25 }}
                                     >
-                                    <span className="dot"></span>
-                                    <span className="dot"></span>
-                                    <span className="dot"></span>
-                                    
-                                    
+                                        <span className="dot"></span>
+                                        <span className="dot"></span>
+                                        <span className="dot"></span>
+
+
                                     </motion.div>
                                 )}
 
@@ -62,7 +62,7 @@ export const Footer = () => {
 
                 </ul>
             </nav>
-            
+
             <div className="Footer-divBtn" onClick={handleAddClick}>➕</div>
         </footer>);
 }

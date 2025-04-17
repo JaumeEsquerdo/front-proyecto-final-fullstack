@@ -6,7 +6,7 @@ import { useActivity } from '@/context/ActivityContext';
 
 
 const CalendarPage = () => {
-    const { handleDelete,setPreloadData,handleEdit,isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, activities, preloadData, selectedActivity } = useActivity()
+    const { handleDelete, setPreloadData, handleEdit, isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, activities, preloadData, selectedActivity } = useActivity()
 
 
     const [selectedDate, setSelectedDate] = useState(new Date()); // almacenar la fecha seleccionada (por defecto la de hoy)
@@ -86,7 +86,7 @@ const CalendarPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const success = handleSaveActivity({ id:preloadData?.id ,title, hour, description, minutes, date: selectedDay })
+        const success = handleSaveActivity({ id: preloadData?.id, title, hour, description, minutes, date: selectedDay })
 
         //limpieza de inputs
         if (success) {
@@ -95,7 +95,7 @@ const CalendarPage = () => {
             setHour('10')
             setMinutes('00')
             setPreloadData(null)
-            
+
         }
         setIsAddFormOpen(false)
     }
@@ -109,18 +109,28 @@ const CalendarPage = () => {
             setTitle(preloadData.title)
             setDescription(preloadData.description)
             setHour(preloadData.hour || '10')
-            setMinutes(preloadData.minutes ||'00')
+            setMinutes(preloadData.minutes || '00')
             setIsAddFormOpen(true)
         }
     }, [preloadData])
 
     /* cerrar y limpiar form */
-    const handleCloseForm=()=>{
+    const handleCloseForm = () => {
         setIsAddFormOpen(false)
         setPreloadData(null)
     }
 
-    
+    /* useEffect para q cuando abra el form de añadir actividad se redirija alli (ya q se posiciona en la zona baja y no se ve si no lo sabes) */
+    useEffect(() => {
+        if (isAddFormOpen) {
+            const element = document.getElementById('CalendarForm')
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" })
+            }
+        }
+    }, [isAddFormOpen])
+
+
 
     return (
         <>
@@ -174,6 +184,7 @@ const CalendarPage = () => {
                         {isAddFormOpen && (
 
                             <form
+                                id='CalendarForm'
                                 className='CalendarForm'
                                 onSubmit={handleSubmit}>
 
@@ -229,12 +240,12 @@ const CalendarPage = () => {
                                 <h4>{selectedActivity.title}</h4>
                                 <p><strong>Desripción</strong>{selectedActivity.description}</p>
                                 <div className='ActividadSeleccionada-botones'>
-                                    <button onClick={()=> handleEdit(selectedActivity)}>Editar</button>
-                                    <button onClick={()=> handleDelete(selectedActivity.id)}>Eliminar</button>
+                                    <button onClick={() => handleEdit(selectedActivity)}>Editar</button>
+                                    <button onClick={() => handleDelete(selectedActivity.id)}>Eliminar</button>
                                 </div>
                             </div>
                         )}
-                        
+
 
                     </>
                 )
