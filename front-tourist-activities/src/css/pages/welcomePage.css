@@ -23,7 +23,7 @@
     
     border-radius: 50px 50px 0 0;
     /* background: var(--color-bg); */
-    background-color: rgb(241, 124, 124);
+    background-color: rgb(255, 255, 255);
 }
 
 .WelcomePage-content {
@@ -63,10 +63,11 @@ color: black;
     color: white;
     padding: 20px;
     background: linear-gradient(135deg, #3bdae3, #c8f2f4);
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    border-radius: 2.5rem;
+    width: 120px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
