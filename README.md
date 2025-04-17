@@ -159,3 +159,19 @@ Solución: en el map de las actividades utilizar el mismo nombre 'actividad' par
  * 
  */
 ```
+
+## useNavigate
+
+- He utilizado useNavigate, investigando un poco, para hacer que cuando esté en la página de perfil si has accedido desde la página 'Home' y le das al botón de volver, vuelva a 'Home' y si has accedido desde 'Calendar' vuelve a Calendar.
+
+Esto lo he logrado con:
+
+```js
+
+    const navigate = useNavigate();
+    
+    const handleBack = () => {
+        navigate(-1); // volver a la pagina anterior (o pagina de home o calendar)
+    }
+
+```

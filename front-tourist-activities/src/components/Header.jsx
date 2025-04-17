@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink } from "react-router";
+import { Link } from "react-router";
 
 export const Header = () => {
 
@@ -17,10 +17,9 @@ export const Header = () => {
                 <span className="bar"></span>
             </div>
             <nav className={`Nav-menu ${isOpen ? 'Open' : ''}`}>
-                <NavLink className="Nav-link" to={"/profile"}>
+                <Link className="Nav-link" to={"/profile"}>
                 <img className='Nav-perfil' src="/img/icono-perfil.svg" alt="Perfil" />
-                </NavLink>
-
+                </Link>
             </nav>
 
 
