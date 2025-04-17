@@ -50,6 +50,7 @@
 }
 
 .WelcomePage-title{
+font-family: var(--font-logo);
 color: black;
 font-size: 2rem;
 }
