@@ -13,7 +13,7 @@ const Welcome = () => {
     /**  useEffect(()=>{
          // para verificar si el usuario ya ha visitado el WelcomePage y pasar directamente al '/home'
          if(localStorage.getItem('hasVisitedWelcomePage')){
-             navigate('/home')
+            navigate('/home')
          } else{
              // en caso de ser la primera vez, marco que se ha visitado ya (el true no tiene efecto de comparación pero lo dejo para verlo mas claro)
              localStorage.setItem('hasVisitedWelcomePage', 'true')

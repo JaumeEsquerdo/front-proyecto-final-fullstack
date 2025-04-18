@@ -27,14 +27,9 @@ const Profile = () => {
                     <h2 className="Profile-title">Tu Perfil</h2>
 
                     <form className="Profile-form">
-
-
                         <label className="Profile-label">Nombre
                             <input type="text" className="Profile-input" />
                         </label>
-
-
-
                         <label className="Profile-label">Email
                             <input type="email" className="Profile-input" />
                         </label>
@@ -46,9 +41,7 @@ const Profile = () => {
 
                         <button className="Profile-button" type="submit">Guardar cambios</button>
                     </form>
-
-
-
+                    
                     <button className="Profile-logout">Cerrar sesión</button>
 
                     <div className='Policy-links'>

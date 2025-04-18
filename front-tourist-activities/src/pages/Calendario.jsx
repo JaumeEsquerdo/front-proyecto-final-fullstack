@@ -123,13 +123,29 @@ const CalendarPage = () => {
     /* useEffect para q cuando abra el form de añadir actividad se redirija alli (ya q se posiciona en la zona baja y no se ve si no lo sabes) */
     useEffect(() => {
         if (isAddFormOpen) {
-            const element = document.getElementById('CalendarForm')
+            const timeout = setTimeout(()=>{
+                
+                const element = document.getElementById('CalendarForm')
             if (element) {
                 element.scrollIntoView({ behavior: "smooth" })
             }
+            }, 250)
+
+            
+            return () => clearTimeout(timeout)
         }
     }, [isAddFormOpen])
 
+    /* useEffect para q cuando se abra la actividad, se redirija allí */
+    useEffect(()=>{
+        if(selectedActivity){
+            const element = document.getElementById('ActividadSeleccionada')
+
+            if(element){
+                element.scrollIntoView({behavior:'smooth'})
+            }
+        }
+    },[selectedActivity])
 
 
     return (
@@ -234,7 +250,7 @@ const CalendarPage = () => {
                         }
 
                         {selectedActivity && (
-                            <div className='ActividadSeleccionada'>
+                            <div id='ActividadSeleccionada' className='ActividadSeleccionada'>
                                 <h3>Actividad seleccionada</h3>
                                 <p><strong>Hora:</strong>{selectedActivity.timeExact}</p>
                                 <h4>{selectedActivity.title}</h4>

@@ -12,7 +12,7 @@ const Home = () => {
 
     const [verTodas, setVertodas] = useState(false); //para ver solo unas pocas act recomendadas o verlas todas
     const [packAbierto, setPackAbierto] = useState(null) // para abrir el pack segun su indice
-    const { setPreloadData, preloadData } = useActivity();
+    const { setIsAddFormOpen,setPreloadData, preloadData } = useActivity();
     const navigate = useNavigate();
 
     const actividades = [
@@ -183,7 +183,8 @@ const Home = () => {
             description: actividad.descripcion
         })
         console.log('handle preload en home', preloadData)
-        navigate('/calendar')
+        setIsAddFormOpen(true) // poner en true el isAddFormOpen para que se active el useEffect en Calendario
+        navigate('/calendario')
     }
 
     return (

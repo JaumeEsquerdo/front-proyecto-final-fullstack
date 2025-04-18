@@ -239,4 +239,18 @@ ej. para hacer esta función en React con scrollIntoView:
             }
         }
     }, [isAddFormOpen])
+
+/*otro ejemplo, esta vez con la actividad seleccionada del calendario */
+
+/* useEffect para q cuando se abra la actividad, se redirija allí */
+    useEffect(()=>{
+        if(selectedActivity){
+            const element = document.getElementById('ActividadSeleccionada')
+
+            if(element){
+                element.scrollIntoView({behavior:'smooth'})
+            }
+        }
+    },[selectedActivity])
 ```
+

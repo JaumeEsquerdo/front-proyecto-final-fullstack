@@ -6,58 +6,62 @@ export const useActivity = () => useContext(ActivityContext)
 
 export const ActivityProvider = ({ children }) => {
     /* ej de activities: dejarlo vacio cuando lo ponga con base de datos*/
-    const [activities, setActivities] = useState([{
-        title: "Reunión de equipo",
-        time: new Date("2025-04-16T10:30:00"),
-        timeExact: "10:30",
-        displayHour: "10:00",
-        description: "Reunion de equipo de volley",
-        id: '1'
-    },
-    {
-        title: "Clase de yoga",
-        time: new Date("2025-04-16T08:00:00"),
-        timeExact: "08:00",
-        displayHour: "08:00",
-        id: '2'
-    },
-    {
-        title: "Café con Ana",
-        time: new Date("2025-04-16T17:15:00"),
-        timeExact: "17:15",
-        displayHour: "17:00",
-        id: '3'
-    },
-    {
-        title: "Comida con familia",
-        time: new Date("2025-04-16T14:00:00"),
-        timeExact: "21:00",
-        displayHour: "14:00",
-        id: '4'
-    },
-    {
-        title: "Tarea frontend",
-        time: new Date("2025-04-16T18:45:00"),
-        timeExact: "18:45",
-        displayHour: "18:00",
-        id: '5'
-    },
-    {
-        title: "Salir a correr",
-        time: new Date("2025-04-16T23:30:00"),
-        timeExact: "23:30",
-        displayHour: "23:00",
-        id: '6'
-    }
-        ,
-    {
-        title: "Salir a pasear",
-        time: new Date("2025-05-16T07:30:00"),
-        timeExact: "07:30",
-        displayHour: "07:00",
-        id: '7'
-    }
-    ]);
+
+
+    const [activities, setActivities] = useState(
+        [
+            {
+                title: "Reunión de equipo",
+                time: new Date("2025-04-16T10:30:00"),
+                timeExact: "10:30",
+                displayHour: "10:00",
+                description: "Reunion de equipo de volley",
+                id: '1'
+            },
+            {
+                title: "Clase de yoga",
+                time: new Date("2025-04-16T08:00:00"),
+                timeExact: "08:00",
+                displayHour: "08:00",
+                id: '2'
+            },
+            {
+                title: "Café con Ana",
+                time: new Date("2025-04-16T17:15:00"),
+                timeExact: "17:15",
+                displayHour: "17:00",
+                id: '3'
+            },
+            {
+                title: "Comida con familia",
+                time: new Date("2025-04-16T14:00:00"),
+                timeExact: "21:00",
+                displayHour: "14:00",
+                id: '4'
+            },
+            {
+                title: "Tarea frontend",
+                time: new Date("2025-04-16T18:45:00"),
+                timeExact: "18:45",
+                displayHour: "18:00",
+                id: '5'
+            },
+            {
+                title: "Salir a correr",
+                time: new Date("2025-04-16T23:30:00"),
+                timeExact: "23:30",
+                displayHour: "23:00",
+                id: '6'
+            }
+            ,
+            {
+                title: "Salir a pasear",
+                time: new Date("2025-05-16T07:30:00"),
+                timeExact: "07:30",
+                displayHour: "07:00",
+                id: '7'
+            }
+        ]);
     const [selectedDay, setSelectedDay] = useState(new Date());  // para el dia seleccionado
     const [isAddFormOpen, setIsAddFormOpen] = useState(false)
     const [preloadData, setPreloadData] = useState(null); // para cargar contenido desde Home a Calendario
@@ -99,9 +103,6 @@ export const ActivityProvider = ({ children }) => {
             setActivities((prev) => [...prev, newWidthId])
             console.log('añadiendo actividad,', newWidthId)
         }
-
-
-
         return true;
     }
 
