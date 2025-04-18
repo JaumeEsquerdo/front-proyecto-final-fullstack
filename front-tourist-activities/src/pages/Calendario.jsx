@@ -251,13 +251,13 @@ const CalendarPage = () => {
 
                         {selectedActivity && (
                             <div id='ActividadSeleccionada' className='ActividadSeleccionada'>
-                                <h3>Actividad seleccionada</h3>
-                                <p><strong>Hora:</strong>{selectedActivity.timeExact}</p>
-                                <h4>{selectedActivity.title}</h4>
-                                <p><strong>Desripción</strong>{selectedActivity.description}</p>
+                                <h3 className='ActividadSeleccionada-h3'>Actividad seleccionada</h3>
+                                <p className='ActividadSeleccionada-p'><strong>Hora:</strong>{selectedActivity.timeExact}</p>
+                                <h4 className='ActividadSeleccionada-h4'>{selectedActivity.title}</h4>
+                                <p className='ActividadSeleccionada-p'><strong>Desripción</strong>{selectedActivity.description}</p>
                                 <div className='ActividadSeleccionada-botones'>
-                                    <button onClick={() => handleEdit(selectedActivity)}>Editar</button>
-                                    <button onClick={() => handleDelete(selectedActivity.id)}>Eliminar</button>
+                                    <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--edit'  onClick={() => handleEdit(selectedActivity)}>Editar</button>
+                                    <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--delete' onClick={() => handleDelete(selectedActivity.id)}>Eliminar</button>
                                 </div>
                             </div>
                         )}

@@ -158,3 +158,68 @@
     border-radius: 14px;
     cursor: pointer;
 }
+
+/* parte de la actividad seleccionada  */
+
+.ActividadSeleccionada {
+    background-color: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    margin: 2rem auto;
+    border: 1px solid #f0f0f0;
+}
+
+.ActividadSeleccionada-h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.ActividadSeleccionada-h4 {
+    font-size: 1.25rem;
+    color: #555;
+    margin-top: 0.5rem;
+}
+
+.ActividadSeleccionada-p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+}
+
+.ActividadSeleccionada-botones {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.ActividadSeleccionada-btn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.8s ease-in-out;
+}
+
+.ActividadSeleccionada-btn--edit {
+    background-color: #5c6ab4;
+    color: #fff;
+}
+
+.ActividadSeleccionada-btn--edit:hover {
+    background-color: #4b5bb2;
+}
+
+.ActividadSeleccionada-btn--delete {
+    background-color: #f5f5f5;
+    color: #c0392b;
+    border: 1px solid #e0e0e0;
+}
+
+.ActividadSeleccionada-btn--delete:hover {
+    background-color: #fbeaea;
+}
