@@ -123,29 +123,29 @@ const CalendarPage = () => {
     /* useEffect para q cuando abra el form de añadir actividad se redirija alli (ya q se posiciona en la zona baja y no se ve si no lo sabes) */
     useEffect(() => {
         if (isAddFormOpen) {
-            const timeout = setTimeout(()=>{
-                
+            const timeout = setTimeout(() => {
+
                 const element = document.getElementById('CalendarForm')
-            if (element) {
-                element.scrollIntoView({ behavior: "smooth" })
-            }
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" })
+                }
             }, 250)
 
-            
+
             return () => clearTimeout(timeout)
         }
     }, [isAddFormOpen])
 
     /* useEffect para q cuando se abra la actividad, se redirija allí */
-    useEffect(()=>{
-        if(selectedActivity){
+    useEffect(() => {
+        if (selectedActivity) {
             const element = document.getElementById('ActividadSeleccionada')
 
-            if(element){
-                element.scrollIntoView({behavior:'smooth'})
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' })
             }
         }
-    },[selectedActivity])
+    }, [selectedActivity])
 
 
     return (
@@ -252,16 +252,17 @@ const CalendarPage = () => {
                         {selectedActivity && (
                             <div id='ActividadSeleccionada' className='ActividadSeleccionada'>
                                 <h3 className='ActividadSeleccionada-h3'>Actividad seleccionada</h3>
-                                <p className='ActividadSeleccionada-p'><strong>Hora:</strong>{selectedActivity.timeExact}</p>
                                 <h4 className='ActividadSeleccionada-h4'>{selectedActivity.title}</h4>
-                                <p className='ActividadSeleccionada-p'><strong>Desripción</strong>{selectedActivity.description}</p>
+                                {selectedActivity.description ? (<p className='ActividadSeleccionada-p'><strong>Desripción</strong>{selectedActivity.description}</p>
+                                ) : ""}
+                                <p className='ActividadSeleccionada-p'><strong>Hora:</strong>{selectedActivity.timeExact}</p>
+
                                 <div className='ActividadSeleccionada-botones'>
-                                    <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--edit'  onClick={() => handleEdit(selectedActivity)}>Editar</button>
+                                    <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--edit' onClick={() => handleEdit(selectedActivity)}>Editar</button>
                                     <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--delete' onClick={() => handleDelete(selectedActivity.id)}>Eliminar</button>
                                 </div>
                             </div>
                         )}
-
 
                     </>
                 )

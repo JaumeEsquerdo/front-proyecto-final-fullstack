@@ -35,7 +35,7 @@
 .Profile-title {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: var(--color-text-p);
     text-align: center;
 }
 
@@ -67,7 +67,7 @@
 .Profile-label {
     display: flex;
     flex-direction: column;
-    color: #555;
+    color: var(--color-text-s);
     margin-bottom: 0.3rem;
 }
 
@@ -102,7 +102,7 @@
     margin-top: 1.5rem;
     background: none;
     border: none;
-    color: #999;
+    color: var(--color-text-t);
     cursor: pointer;
     text-align: center;
 }
@@ -119,5 +119,5 @@
 }
 
 .Policy-link:hover{
-    color: #555;
+    color: var(--color-text-s);
 }

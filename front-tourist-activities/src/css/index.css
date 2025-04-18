@@ -1,8 +1,11 @@
 :root {
 
   --btn-bg: linear-gradient(135deg, #d08a79, #f0d6c3);
-  --btn-text-color: #fff;
   
+  --color-text-p: #333;
+  --color-text-s: #555;
+  --color-text-t: #999;
+
   --font-main:'Nunito', sans-serif;
   --font-logo:'Quicksand', sans-serif;
   --color-bg: linear-gradient(0deg, #68bedb8e, #d4e4ef00);

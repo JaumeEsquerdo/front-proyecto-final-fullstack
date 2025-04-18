@@ -76,7 +76,7 @@
 .Actividades-h3 {
     font-size: 1.25rem;
     margin-bottom: 16px;
-    color: #333;
+    color: var(--color-text-p);
     font-weight: 700;
 }
 
@@ -100,7 +100,7 @@
 .CalendarioHoras {
     margin: 12px;
     padding: 10px 16px;
-    color: #333;
+    color: var(--color-text-p);
     height: 58px;
     border-radius: 10px;
     background-color: rgb(103, 156, 139);
@@ -157,7 +157,7 @@
     border: none;
     border-radius: var(--btn-radius);
     cursor: pointer;
-    color: #333;
+    color: var(--color-text-p);
 }
 
 /* parte de la actividad seleccionada  */
@@ -173,19 +173,19 @@
 
 .ActividadSeleccionada-h3 {
     font-size: 1.5rem;
-    color: #333;
+    color: var(--color-text-p);
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
 .ActividadSeleccionada-h4 {
     font-size: 1.25rem;
-    color: #555;
+    color: var(--color-text-p);
     margin-top: 0.5rem;
 }
 
 .ActividadSeleccionada-p {
-    color: #666;
+    color: var(--color-text-s);
     line-height: 1.5;
     margin-bottom: 0.8rem;
 }
