@@ -5,7 +5,7 @@ import { useActivity } from "@/context/ActivityContext";
 
 const navItems = [
     { src: '/img/home.svg', path: '/home' },
-    { src: '/img/calendario.svg', path: '/calendar' }
+    { src: '/img/calendario.svg', path: '/calendario' }
 ]
 
 
@@ -18,10 +18,10 @@ export const Footer = () => {
     const navigate = useNavigate();
 
     const handleAddClick = () => {
-        if (location.pathname === '/calendar') {
+        if (location.pathname === '/calendario') {
             setIsAddFormOpen(prev => !prev) //abrir el form si esta ya en calendar
         } else {
-            navigate('/calendar') // si no solamente redirije a calendar, no quiero que se abra automaticamente, probablemente quiera elejir el dia antes...
+            navigate('/calendario') // si no solamente redirije a calendar, no quiero que se abra automaticamente, probablemente quiera elejir el dia antes...
         }
     }
 

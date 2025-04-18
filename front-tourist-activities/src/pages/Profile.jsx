@@ -1,11 +1,19 @@
 import '@/css/pages/profile.css'
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
     const navigate = useNavigate();
 
     const handleBack = () => {
-        navigate(-1); // volver a la pagina anterior (o pagina de home o calendar)
+
+        const from = sessionStorage.getItem('fromPerfil')
+
+        if (from === '/home' || from === '/calendario') {
+            navigate(from)
+        } else {
+            navigate('/home') // ruta por defecto para evitar bucle en el botón de ir a la página anterior (podría ser Politica Priv o TyC)
+        }
     }
 
     return (
@@ -42,6 +50,11 @@ const Profile = () => {
 
 
                     <button className="Profile-logout">Cerrar sesión</button>
+
+                    <div className='Policy-links'>
+                        <Link className='Policy-link' to='/politica-privacidad'>Política de privacidad</Link>
+                        <Link className='Policy-link' to='/terminos-condiciones'>TyC</Link>
+                    </div>
                 </div>
 
             </div>

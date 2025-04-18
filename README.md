@@ -189,6 +189,38 @@ Esto lo he logrado con:
     }
 
 ```
+- Esto último de la función `handleBack` finalmente me genero un problema al introducir las paginas de Politica de Privacidad y TyC en la página de Perfil, entonces cuando llegaban a Perfil y le daban a una de estas dos páginas, al volver a Perfil y darle al botón de atrás volvían a una de estas dos páginas y no había de volver al Layout principal.
+
+Solución: 
+La solución encontrada ha sido jugar con el path, guardarlo en `sessionStorage` en el Header y poder preguntar una vez en la página de Perfil por donde ha llegado, y dejar una vuelva atrás por defecto a `/home` para evitar fallos.
+
+
+```js
+/*en el HEADER */
+const handlePerfilClick = () =>{
+        const currentPath = location.pathname;
+
+        if(currentPath === '/home'  || currentPath === '/calendario'){
+            sessionStorage.setItem('fromPerfil', currentPath)
+        } else{
+            sessionStorage.removeItem('fromPerfil')
+        }
+    }
+
+
+/*en PERFIL */
+ const handleBack = () => {
+
+        const from = sessionStorage.getItem('fromPerfil')
+
+        if(from === '/home' || from === '/calendario'){
+            navigate(from)
+        }else{
+            navigate('/home') // ruta por defecto para evitar bucle en el botón de ir a la página anterior (podría ser Politica Priv o TyC)
+        }
+    }
+```
+
 
 ## scrollIntoView
 

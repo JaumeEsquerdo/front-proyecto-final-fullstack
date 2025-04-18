@@ -8,10 +8,12 @@ import Login from '@/pages/Login'
 import Register from '@/pages/Register'
 import CalendarPage from '@/pages/Calendario'
 import Profile from '@/pages/Profile'
-
+import PoliticaPriv from '@/pages/Policy'
+import Terminos from '@/pages/Terminos'
 
 // importe de páginas especiales
 import  Layout from '@/Layout'
+
 
 
 const router = createBrowserRouter([
@@ -25,12 +27,20 @@ const router = createBrowserRouter([
         element:<Login/>
     },
     {
-        path:'/register',
+        path:'/registro',
         element:<Register/>
     },
     {
-        path: '/profile',
+        path: '/perfil',
         element: <Profile/>,
+    },
+    {
+        path: '/politica-privacidad',
+        element: <PoliticaPriv/>,
+    },
+    {
+        path: '/terminos-condiciones',
+        element: <Terminos/>,
     },
     ,
     {
@@ -42,7 +52,7 @@ const router = createBrowserRouter([
                 element: <Home/>
             },
             {
-                path: '/calendar',
+                path: '/calendario',
                 element: <CalendarPage/>,
             },
             
