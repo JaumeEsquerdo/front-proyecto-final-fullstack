@@ -83,7 +83,7 @@
 }
 
 .Profile-button {
-    padding: 0.8rem 1rem;
+    padding: var(--btn-padding);
     background-color: #5b9df9;
     color: white;
     border: none;
@@ -105,4 +105,19 @@
     color: #999;
     cursor: pointer;
     text-align: center;
+}
+
+.Policy-links{
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+}
+
+.Policy-link{
+    color: #407ee7;
+    transition: color 0.4s ease-in-out;
+}
+
+.Policy-link:hover{
+    color: #555;
 }

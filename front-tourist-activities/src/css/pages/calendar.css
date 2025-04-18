@@ -146,17 +146,18 @@
 .CalendarForm-select {
     border: none;
     border-radius: 14px;
-    padding: 0.8rem 1rem;
+    padding: var(--btn-padding);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 
 .CalendarForm-btn {
-    padding: 0.8rem;
+    padding: var(--btn-padding);
     font-weight: 600;
     border: none;
-    border-radius: 14px;
+    border-radius: var(--btn-radius);
     cursor: pointer;
+    color: #333;
 }
 
 /* parte de la actividad seleccionada  */
