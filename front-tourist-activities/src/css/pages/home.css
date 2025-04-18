@@ -140,13 +140,13 @@
 /* botones */
 .Activity-link{
 background: var(--btn-bg-color);
-color: #fff;
+color: var(--btn-text-light);
 border: none;
-border-radius: 1rem;
-padding: 0.5rem 1rem;
+border-radius: var(--btn-radius);
+padding: var(--btn-padding);
 cursor: pointer;
 font-size: 1rem;
-width: 7rem;
+width: 190px;
 height: auto;
 transition: background-color 0.5s ease-in-out;
 }
