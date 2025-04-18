@@ -6,12 +6,12 @@
   --font-main:'Nunito', sans-serif;
   --font-logo:'Quicksand', sans-serif;
   --color-bg: linear-gradient(0deg, #68bedb8e, #d4e4ef00);
-  --btn-padding: 12px 24px;
-  --btn-border-radius: 12px;
-  --btn-shadow: 0 0px 10px rgba(0, 0, 0, 0.7);
-  --btn-hover-bg: linear-gradient(135deg, #feb47b, #ff7e5f);
-  --btn-hover-shadow: 0 6px 14px rgba(0, 0, 0, 0.8);
-  --btn-transition: all 0.3s ease-in-out;
+
+  --btn-padding: 0.75rem 1rem;
+  --btn-radius:18px;
+  --btn-bg-primary:#5c6ab4;
+  --btn-text-light:#fff;
+
   --color-act-pronto: #f1ef86;
   --color-act-pasada: #f38989;
   --color-act-futura: #b2f493;
