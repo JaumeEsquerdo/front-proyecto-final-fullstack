@@ -139,7 +139,7 @@
 }
 /* botones */
 .Activity-link{
-background-color: #4ad3da;
+background: var(--btn-bg-color);
 color: #fff;
 border: none;
 border-radius: 1rem;
