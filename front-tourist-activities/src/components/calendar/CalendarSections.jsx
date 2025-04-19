@@ -104,14 +104,16 @@ const DayButton = ({ day, today, todayRef, selectedDay, onSelectDay }) => {
 
 
 /*---MOSTRAR ACTIVIDADES DEL DIA SELECCIONADO POR HORAS--- */
-export const ActivityPanel = ({ selectedDay, visibleHours, activities, dateOptions }) => {
+export const ActivityPanel = ({ setShowExtraHours,showExtraHours,selectedDay, visibleHours, activities, dateOptions }) => {
     const now = new Date();
 
     return (
         <>
             <div className='Actividades'>
                 <h3 className="Actividades-h3">Actividades para {selectedDay.toLocaleDateString('es-Es', dateOptions)}</h3>
-
+                <button onClick={() => setShowExtraHours(!showExtraHours)}>
+                    {showExtraHours? 'Ocultar horas extra': 'Mostrar dos las horas'}
+                </button>
                 {visibleHours.map((hour, i) => (
                     <BloqueHora key={i} hour={hour}
                         activities={activities} selectedDay={selectedDay}

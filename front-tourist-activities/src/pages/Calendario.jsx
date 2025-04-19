@@ -81,8 +81,6 @@ const CalendarPage = () => {
     const visibleHours = generateHours(showExtraHours ? 0 : 7, 25) // si quiero mostrar todas las horas emepieza desde 0:00, si no empieza de 7:00 a 24:00, pone 25 porq el bucle funciona cuando i<25 para que llegue a 24:00 y si i=== 24 pongo 00:00
 
     //para el form de las actividades
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -189,6 +187,8 @@ const CalendarPage = () => {
                 selectedDay && (
                     <>
                         <ActivityPanel
+                            setShowExtraHours={setShowExtraHours}
+                            showExtraHours={showExtraHours}
                             selectedDay={selectedDay}
                             visibleHours={visibleHours}
                             activities={activities}
