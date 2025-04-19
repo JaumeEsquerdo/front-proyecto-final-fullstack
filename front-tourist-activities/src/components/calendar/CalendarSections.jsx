@@ -111,7 +111,7 @@ export const ActivityPanel = ({ setShowExtraHours,showExtraHours,selectedDay, vi
         <>
             <div className='Actividades'>
                 <h3 className="Actividades-h3">Actividades para {selectedDay.toLocaleDateString('es-Es', dateOptions)}</h3>
-                <button onClick={() => setShowExtraHours(!showExtraHours)}>
+                <button className="Actividades-btn" onClick={() => setShowExtraHours(!showExtraHours)}>
                     {showExtraHours? 'Ocultar horas extra': 'Mostrar dos las horas'}
                 </button>
                 {visibleHours.map((hour, i) => (

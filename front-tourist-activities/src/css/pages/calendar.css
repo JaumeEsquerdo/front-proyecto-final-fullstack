@@ -73,6 +73,23 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
+.Actividades-btn {
+    padding: 0;
+    background: none;
+    border: none;
+    color: #4b5bb2;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: 500;
+    display: flex;
+    transition: color 0.5s ease-in-out;
+}
+
+.Actividades-btn:hover {
+    color: #5c6ab4;
+    text-decoration: underline;
+}
+
 .Actividades-h3 {
     font-size: 1.25rem;
     margin-bottom: 16px;
