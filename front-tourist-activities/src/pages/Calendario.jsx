@@ -129,7 +129,7 @@ const CalendarPage = () => {
                 if (element) {
                     element.scrollIntoView({ behavior: "smooth" })
                 }
-            }, 250)
+            }, 350)
 
 
             return () => clearTimeout(timeout)
