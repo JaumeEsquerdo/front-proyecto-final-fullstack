@@ -4,7 +4,7 @@ const Login = () => {
     return (
         <>
             <div className="Login">
-            <img className="WelcomePage-fondo" src="/img/fondo-escena.png" alt="Fondo escena" />
+            {/* <img className="WelcomePage-fondo" src="/img/fondo-escena.png" alt="Fondo escena" /> */}
             <div className='Login-container'>
                     <h1 className="Login-h1">Accede a tu cuenta</h1>
                     <div className='Login-divForm'>
@@ -22,8 +22,8 @@ const Login = () => {
                             <button className='Login-btn'>Inicia sesión</button>
                         </form>
                         <div className='Login-divLogin'>
-                            <span>No tienes cuenta aún? </span>
-                            <Link to='/register'>Regístrate aquí</Link>
+                            <span className='Login-textRegister'>No tienes cuenta aún? </span>
+                            <Link className='Login-linkRegister' to='/registro'>Regístrate aquí</Link>
                         </div>
                     </div>
 

@@ -3,6 +3,10 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background: url('/img/fondo-escena.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .Register-container{
@@ -11,10 +15,11 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
-    height: 75vh;
+    height: 65vh;
     bottom: 0;
-    border-radius: 50px 50px 0 0;
-    background-color: bisque;
+    border-radius: 40px 40px 0 0;
+    background-color: #f4e7d5 ;
+    box-shadow: var(--box-shadow);
     align-items: center;
     /* justify-content: space-evenly; */
 }
@@ -27,10 +32,12 @@
 }
 
 .Register-h1{
-    margin: 20px 0 20px 0;
+    margin: 20px 0;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #1a2b45;
 }
 .Register-divForm{
     width: 100%;
@@ -44,26 +51,55 @@
 }
 
 .Register-inputTitle{
-    margin: 20px;
+    margin: 10px 20px;
+    font-weight: 500;
+    color: #2c3e50;
 }
 .Register-input{
     height: 40px;
-    border-radius: 30px;
-    background-color: beige;
-    border: none;
+    border-radius: var(--btn-radius);
+    background-color: #f5faff ;
+    border: 1px solid #c2d4e5 ;
+    padding: 0 20px;
+    font-size: 0.875rem;
+    box-shadow: var(--box-shadow);
+}
+.Register-input:focus{
+    outline: none;
+    border: 2px solid #4f7cac;
 }
 
 .Register-btn{
     margin: 20px 0;
     height: 50px;
     width: 250px;
-    background-color: blanchedalmond;
-    border-radius: 30px;
+    background-color: #4f7cac  ;
+    border-radius: var(--btn-radius);
+    border: none;
+    /* color: white; */
+    transition: background-color 0.6s ease-in-out;
+}
+
+.Register-btn:hover{
+    background-color: #395f78;
 }
 
 .Register-divLogin{
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    margin: 20px 10px;
+    gap: 20px;
+}
+
+.Register-textLogin{
+    color: var(--color-text-s);
+}
+
+.Register-linkLogin{
+    color: var(--color-text-s);
+}
+
+.Register-linkLogin:hover{
+    color: #2c3e50;
 }

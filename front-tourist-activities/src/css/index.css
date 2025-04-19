@@ -1,6 +1,5 @@
 :root {
 
-  --btn-bg: linear-gradient(135deg, #d08a79, #f0d6c3);
 
   --color-text-p: #333;
   --color-text-s: #555;
@@ -12,6 +11,8 @@
 
   --btn-padding: 0.75rem 1rem;
   --btn-radius: 18px;
+
+  --box-shadow: 0 8px 24px rgba(0,0,0, 0.08);
 
   --btn-bg-color: linear-gradient(135deg, #4fd1c5, #38b2ac);
   --btn-text-light: #fff;
