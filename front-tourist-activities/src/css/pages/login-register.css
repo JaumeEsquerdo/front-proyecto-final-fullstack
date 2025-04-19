@@ -1,4 +1,5 @@
-.Login {
+.Login,
+.Register {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -9,7 +10,8 @@
     background-repeat: none;
 }
 
-.Login-container {
+.Login-container,
+.Register-container {
     padding: 40px 30px;
     position: absolute;
     width: 100vw;
@@ -25,29 +27,38 @@
     align-items: center;
     /* justify-content: space-evenly; */
 }
+.Register-container{
+    background-color: #f4e7d5;
 
-.Login-form {
+}
+
+.Login-form,
+.Register-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    
+
 }
 
-.Login-h1 {
+.Login-h1,
+.Register-h1 {
     margin-bottom: 20px;
     font-size: 24px;
     color: var(--color-text-p);
     width: 100%;
     display: flex;
     justify-content: center;
+    color: var(--color-text-p);
 }
 
-.Login-divForm {
+.Login-divForm,
+.Register-divForm {
     width: 100%;
 }
 
-.Login-label {
+.Login-label,
+.Register-label {
     margin: 20px 0;
     width: 100%;
     display: flex;
@@ -57,32 +68,51 @@
     color: var(--color-text-s);
 }
 
-.Login-inputTitle {
+.Login-inputTitle,
+.Register-inputTitle {
     margin: 0 0 10px 10px;
+    font-weight: 500;
+    color: var(--color-text-p);
 }
 
-.Login-input {
+
+.Login-input,
+.Register-input {
     height: 45px;
     border-radius: var(--btn-radius);
-    background-color: #f5faff ;
-    border: 1px solid #c2d4e5 ;
+    border: 1px solid #c2d4e5;
     font-size: 0.875rem;
     box-shadow: var(--box-shadow);
     padding: 0 16px;
 }
 
-.Login-input:focus{
+.Login-input {
+    background-color: #f5faff;
+
+}
+
+.Register-input {
+    background-color: #f5faff;
+
+}
+
+.Login-input:focus {
     outline: none;
     border: 2px solid #73bbdd;
 }
 
-.Login-btn {
+.Register-input:focus {
+    outline: none;
+    border: 2px solid #4f7cac;
+}
+
+.Login-btn,
+.Register-btn {
     margin-top: 30px;
     height: 50px;
     width: 100%;
     color: #fff;
     font-weight: 600;
-    background-color: #4f7cac ;
     border-radius: var(--btn-radius);
     border: none;
     box-shadow: var(--box-shadow);
@@ -91,11 +121,26 @@
     cursor: pointer;
 }
 
-.Login-btn:hover{
+.Login-btn {
+    background-color: #4f7cac;
+}
+
+.Register-btn {
+    background-color: #4f7cac;
+}
+
+.Login-btn:hover {
     background-color: #7db2cb;
 }
 
-.Login-divLogin {
+.Register-btn:hover {
+    background-color: #395f78;
+
+}
+
+
+.Login-divLogin,
+.Register-divLogin {
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -104,14 +149,30 @@
     gap: 20px;
 }
 
-.Login-textRegister{
+.Login-textRegister {
     color: var(--color-text-s);
 }
-.Login-linkRegister{
-    color: var(--color-text-p);
-    font-weight: 600;
+
+.Register-textLogin {
+    color: var(--color-text-s);
+}
+
+.Register-linkLogin {
+    color: var(--color-text-s);
+    font-weight: 700;
+}
+
+.Register-linkLogin:hover{
+    color: #395f78;
+}
+
+
+.Login-linkRegister {
+    color: var(--color-text-s);
+    font-weight: 700;
     transition: color 0.6s ease-in-out;
 }
-.Login-linkRegister:hover{
+
+.Login-linkRegister:hover {
     color: #73bbdd;
 }

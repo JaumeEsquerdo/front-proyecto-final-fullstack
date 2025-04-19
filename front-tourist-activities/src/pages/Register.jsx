@@ -1,4 +1,4 @@
-import '@/css/pages/register.css'
+import '@/css/pages/login-register.css'
 import { Link } from 'react-router-dom';
 const Register = () => {
     return (
