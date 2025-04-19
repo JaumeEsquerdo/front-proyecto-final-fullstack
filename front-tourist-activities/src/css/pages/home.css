@@ -5,12 +5,19 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
 }
-.Home-h1{
+
+.Home-h1 {
     width: 90%;
     display: flex;
     justify-content: center;
 }
+
+
+
 /* Packs recomendadoss */
 
 .Act-section {
@@ -43,12 +50,14 @@
     padding: 1.5rem;
 
 }
-.Pack-icono{
+
+.Pack-icono {
     width: 60px;
 }
+
 /* LIGHTBOX PACKS */
 
-.Pack-overlay{
+.Pack-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -63,10 +72,11 @@
     backdrop-filter: blur(3px);
     padding: 1rem;
 }
-.Pack-cerrar{
+
+.Pack-cerrar {
     position: absolute;
-    top:1rem;
-    right:1rem;
+    top: 1rem;
+    right: 1rem;
     z-index: 31;
     font-size: 1.5rem;
     background-color: #fff;
@@ -82,17 +92,18 @@
     color: #333;
     transition: background-color 1s ease-in-out;
 }
-.Pack-cerrar:hover{
+
+.Pack-cerrar:hover {
     background-color: #f0f0f0;
 }
 
-.Pack-header{
+.Pack-header {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.Pack-detalles{
+.Pack-detalles {
     background-color: rgb(255, 255, 255);
     border-radius: 1.5rem;
     display: flex;
@@ -101,14 +112,15 @@
     width: 90%;
     max-width: 700px;
     max-height: 90vh;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    
+
 }
+
 /* actividades */
-.Pack-activity{
+.Pack-activity {
     height: 120px;
     background-color: #f8f9fa;
     border-radius: 1rem;
@@ -117,41 +129,44 @@
     align-items: center;
     justify-content: space-between;
     gap: 0.4rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-.Activity{
+.Activity {
     width: 220px;
     /* flex: 1; */
 }
 
-.Activity-h3{
+.Activity-h3 {
     font-size: 1.1rem;
     color: #333;
 }
-.Activity-p{
+
+.Activity-p {
     margin-top: 0.3rem;
     font-size: 1rem;
     color: #666;
 }
-.Activities-more{
+
+.Activities-more {
     width: fit-content;
 }
+
 /* botones */
-.Activity-link{
-background: var(--btn-bg-color);
-color: var(--btn-text-light);
-border: none;
-border-radius: var(--btn-radius);
-padding: var(--btn-padding);
-cursor: pointer;
-font-size: 1rem;
-width: 190px;
-height: auto;
-transition: background-color 0.5s ease-in-out;
+.Activity-link {
+    background: var(--btn-bg-color);
+    color: var(--btn-text-light);
+    border: none;
+    border-radius: var(--btn-radius);
+    padding: var(--btn-padding);
+    cursor: pointer;
+    font-size: 1rem;
+    width: 190px;
+    height: auto;
+    transition: background-color 0.5s ease-in-out;
 }
 
-.Activity-link:hover{
+.Activity-link:hover {
     background-color: #7bd7dc;
 }
 
@@ -175,7 +190,8 @@ transition: background-color 0.5s ease-in-out;
     background: linear-gradient(135deg, #ff9941, #f3bc8c);
     box-shadow: 0px 10px 20px hsla(28, 76%, 82%, 0.6);
 }
-.Pack-detalles.orange{
+
+.Pack-detalles.orange {
     background-color: #f3bc8c;
 }
 
@@ -183,7 +199,8 @@ transition: background-color 0.5s ease-in-out;
     background: linear-gradient(135deg, #3bdae3, #95e5ea);
     box-shadow: 0px 10px 20px hsla(183, 63%, 78%, 0.4);
 }
-.Pack-detalles.blue{
+
+.Pack-detalles.blue {
     background-color: #95e5ea;
 }
 
@@ -191,21 +208,26 @@ transition: background-color 0.5s ease-in-out;
     background: linear-gradient(135deg, #fddc4b, #f1e5b4);
     box-shadow: 0px 10px 20px hsla(49, 69%, 80%, 0.4);
 }
-.Pack-detalles.yellow{
+
+.Pack-detalles.yellow {
     background-color: #f1e5b4;
 }
+
 .Act-card.green {
     background: linear-gradient(135deg, #9ad058, #badba4);
     box-shadow: 0px 10px 20px hsla(110, 69%, 80%, 0.4);
 }
-.Pack-detalles.green{
+
+.Pack-detalles.green {
     background-color: #badba4;
 }
+
 .Act-card.red {
     background: linear-gradient(135deg, #d05c58, #eca9a9);
     box-shadow: 0px 10px 20px hsla(0, 69%, 80%, 0.4);
 }
-.Pack-detalles.red{
+
+.Pack-detalles.red {
     background-color: #eca9a9;
 }
 
@@ -254,10 +276,10 @@ transition: background-color 0.5s ease-in-out;
     width: 350px;
     height: 150px;
 }
-.Activities-img{
+
+.Activities-img {
     position: absolute;
     top: 0.8rem;
     left: 0.8rem;
     width: 40px;
 }
-

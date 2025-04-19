@@ -1,20 +1,20 @@
 :root {
 
   --btn-bg: linear-gradient(135deg, #d08a79, #f0d6c3);
-  
+
   --color-text-p: #333;
   --color-text-s: #555;
   --color-text-t: #999;
 
-  --font-main:'Nunito', sans-serif;
-  --font-logo:'Quicksand', sans-serif;
+  --font-main: 'Nunito', sans-serif;
+  --font-logo: 'Quicksand', sans-serif;
   --color-bg: linear-gradient(0deg, #68bedb8e, #d4e4ef00);
 
   --btn-padding: 0.75rem 1rem;
-  --btn-radius:18px;
+  --btn-radius: 18px;
 
   --btn-bg-color: linear-gradient(135deg, #4fd1c5, #38b2ac);
-  --btn-text-light:#fff;
+  --btn-text-light: #fff;
 
   --color-act-pronto: #f1ef86;
   --color-act-pasada: #f38989;
@@ -38,17 +38,19 @@ a {
   text-decoration: none;
 }
 
-.react-calendar{
+.react-calendar {
   border-radius: 24px;
   margin: 12px 0;
   border: 0.2px solid rgb(197, 197, 197);
 }
-.react-calendar__navigation button,.react-calendar__year-view .react-calendar__tile{
+
+.react-calendar__navigation button,
+.react-calendar__year-view .react-calendar__tile {
   border-radius: 24px;
-  
+
 }
 
-.react-calendar__navigation button:hover{
+.react-calendar__navigation button:hover {
   border-radius: 24px;
   border: 0.2px solid rgb(78, 77, 77);
 
@@ -74,51 +76,21 @@ button:active{
   flex-direction: column;
   min-height: 100vh;
   overflow: auto;
-  scrollbar-width: none; /* ocultar en firefox */
+  scrollbar-width: none;
+  /* ocultar en firefox */
   font-family: var(--font-main);
 
 }
-.Body::-webkit-scrollbar,html::-webkit-scrollbar{
-  display: none; /* ocultar en Chrome, safari y edge */
+
+.Body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  display: none;
+  /* ocultar en Chrome, safari y edge */
 }
 
-.Header-title{
-  font-family: var(--font-logo);
-}
-
-html{
-overflow: auto;
-scrollbar-width: none;
-}
-
-/* HOME */
-.Home {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.Home-links {
-  display: flex;
-  gap: 20px;
-}
-
-.Home-link {
-  background: var(--btn-bg);
-  display: inline-block;
-  color: var(--btn-text-color);
-  padding: var(--btn-padding);
-  border-radius: var(--btn-border-radius);
-  /* box-shadow: var(--btn-shadow); */
-  transition: background-color 0.4s ease-in-out, box-shadow 1s ease-in-out, transform 1s ease-in-out;
-}
-
-.Home-link:hover {
-  background: var(--btn-hover-bg);
-  box-shadow: var(--btn-hover-shadow);
-  transform: translateY(-10px);
+html {
+  overflow: auto;
+  scrollbar-width: none;
 }
 
 /* SECCIONES */
@@ -132,7 +104,7 @@ scrollbar-width: none;
 
 }
 
-.OutletWrapper{
+.OutletWrapper {
   min-height: 100vh;
   padding-bottom: 12vh;
   flex: 1;
