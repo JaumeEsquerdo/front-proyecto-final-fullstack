@@ -26,7 +26,7 @@ const Welcome = () => {
 
             <section className="WelcomePage">
                 <img className="WelcomePage-fondo" src="/img/fondo-escena.png" alt="Fondo escena" />
-
+                <img className="WelcomePage-logo" src="/img/logo-app.png" alt="logo" />
                 <div className="WelcomePage-div">
                     <div className="WelcomePage-content">
                         <span className="WelcomePage-line"></span>

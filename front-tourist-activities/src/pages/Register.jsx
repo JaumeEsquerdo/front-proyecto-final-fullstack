@@ -1,6 +1,16 @@
 import '@/css/pages/login-register.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Register = () => {
+
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+
+        localStorage.setItem('user', 'true')
+
+        navigate('/home')
+    }
     return (
         <>
             <div className="Register">
@@ -9,7 +19,7 @@ const Register = () => {
                 <div className='Register-container'>
                     <h1 className="Register-h1">Registro</h1>
                     <div className='Register-divForm'>
-                        <form className="Register-form">
+                        <form onSubmit={handleSubmit} className="Register-form">
                             <label className="Register-label">
                                 <span className='Register-inputTitle'>Nombre</span>
                                 <input className="Register-input" type="text" />

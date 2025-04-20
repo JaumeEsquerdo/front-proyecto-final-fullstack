@@ -1,6 +1,16 @@
 import '@/css/pages/login-register.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Login = () => {
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+
+        localStorage.setItem('user', 'true')
+
+        navigate('/home')
+    }
+
     return (
         <>
             <div className="Login">
@@ -8,7 +18,7 @@ const Login = () => {
             <div className='Login-container'>
                     <h1 className="Login-h1">Accede a tu cuenta</h1>
                     <div className='Login-divForm'>
-                        <form className="Login-form">
+                        <form onSubmit={handleSubmit} className="Login-form">
                             <label className="Login-label">
                                 <span className='Login-inputTitle'>Nombre</span>
                                 <input className="Login-input" type="text" />
