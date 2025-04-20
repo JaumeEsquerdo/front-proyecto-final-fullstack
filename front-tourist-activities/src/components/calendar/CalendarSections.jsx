@@ -154,7 +154,7 @@ const Actividad = ({ activity, now }) => {
 
     return (
         <p onClick={() => {setSelectedActivity(activity)}} className={`CalendarioHoras ${clase}`}>
-            {activity.timeExact}-{activity.title}
+            {activity.timeExact} - {activity.title}
         </p>
     )
 }
