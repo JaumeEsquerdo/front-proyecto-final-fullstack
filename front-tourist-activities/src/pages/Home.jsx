@@ -192,7 +192,8 @@ const Home = () => {
 
             <div className="Home">
 
-                <h1 className="Home-h1">Aún te preguntas que puedes hacer en "la Vila" ?</h1>
+                <h1 className="Home-h1">Guarda nuestras recomendaciones o crea tus propias actividades</h1>
+                
                 {/* sección act recomendadas */}
                 <section className="Act-section">
                     <h2 className="Act-h2">Packs de actividades</h2>

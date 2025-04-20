@@ -149,7 +149,18 @@
 }
 
 .Activities-more {
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: #4b5bb2;
     width: fit-content;
+    margin-bottom: 20px;
+    transition: color 0.5s ease-in-out;
+}
+
+.Activities-more:hover {
+
+    color: #5c6ab4;
+    text-decoration: underline;
 }
 
 /* botones */
