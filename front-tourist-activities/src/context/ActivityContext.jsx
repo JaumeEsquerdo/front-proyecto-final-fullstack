@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from "react";
-
+import { createContext, useContext, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 const ActivityContext = createContext();
 
 export const useActivity = () => useContext(ActivityContext)
@@ -67,7 +67,8 @@ export const ActivityProvider = ({ children }) => {
     const [preloadData, setPreloadData] = useState(null); // para cargar contenido desde Home a Calendario
 
     const [selectedActivity, setSelectedActivity] = useState(null) // para abrir-cerrar la actividad clickada en el calendar
-
+    
+    const location = useLocation()
 
     //para el form de las actividades
     const handleSaveActivity = ({ title, hour, description, minutes, id }) => {
@@ -123,6 +124,13 @@ export const ActivityProvider = ({ children }) => {
     const handleDelete = (id) => {
         console.log('eliminar actividad con id', id)
     }
+    
+    /* useEffect con useLocation para decidir cuando se tiene que cerrar la actividad seleccionada (para evitar irse a otra sección de la web, y al volver tener todo abierto) */
+    useEffect(()=>{
+        if(!location.pathname.includes('/calendario')){
+            setSelectedActivity(null)
+        }
+    },[location.pathname])
 
     return (
         <ActivityContext.Provider

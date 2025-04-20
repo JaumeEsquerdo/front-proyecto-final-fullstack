@@ -192,7 +192,7 @@ Esto lo he logrado con:
 - Esto último de la función `handleBack` finalmente me genero un problema al introducir las paginas de Politica de Privacidad y TyC en la página de Perfil, entonces cuando llegaban a Perfil y le daban a una de estas dos páginas, al volver a Perfil y darle al botón de atrás volvían a una de estas dos páginas y no había de volver al Layout principal.
 
 Solución: 
-La solución encontrada ha sido jugar con el path, guardarlo en `sessionStorage` en el Header y poder preguntar una vez en la página de Perfil por donde ha llegado, y dejar una vuelva atrás por defecto a `/home` para evitar fallos.
+La solución encontrada ha sido jugar con el path, guardarlo en `sessionStorage` gracias al useLocation en el Header y poder preguntar una vez en la página de Perfil por donde ha llegado, y dejar una vuelva atrás por defecto a `/home` para evitar fallos.
 
 
 ```js
@@ -254,3 +254,20 @@ ej. para hacer esta función en React con scrollIntoView:
     },[selectedActivity])
 ```
 
+## useLocation
+
+Para gestionar ciertos comportamientos durante la navegación, he utilizado el hook `useLocation`.
+
+En uno de los casos, lo uso dentro del context (donde está el estado global `selectedActivity`) para que, cuando el usuario navegue fuera de la sección del calendario, se cierre automáticamente cualquier actividad que estuviera seleccionada. Esto evita que, al volver, todo siga abierto innecesariamente.
+ej 
+```js
+/* useEffect con useLocation para decidir cuando se tiene que cerrar la actividad seleccionada (para evitar irse a otra sección de la web, y al volver tener todo abierto) */
+    useEffect(()=>{
+        if(!location.pathname.includes('/calendario')){
+            setSelectedActivity(null)
+        }
+    },[location.pathname])
+```
+De esta forma, cuando la ruta ya no incluye `/calendario`, se deselecciona la actividad.
+
+Además, aunque no lo he explicado en detalle anteriormente, también utilizo `useLocation` en el `Header`, como parte de la lógica del botón de volver atrás desde la página de perfil. Lo uso para guardar desde qué página se accedió al perfil, y así poder volver correctamente al pulsar “volver”.
