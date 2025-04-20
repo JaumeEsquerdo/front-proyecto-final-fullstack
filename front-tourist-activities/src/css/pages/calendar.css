@@ -98,6 +98,33 @@
     font-weight: 700;
 }
 
+/* mensaje flotante toast */
+
+.ToastMessage{
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background-color: #4caf50;
+    border-radius: var(--btn-radius);
+    color: white;
+    padding: var(--btn-padding);
+    box-shadow: var(--box-shadow);
+    animation: fadeInOut 1s ease-in-out;
+    pointer-events: none;
+    /* evitar salto petardeo al final*/
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInOut{
+    0%{opacity: 0; transform:translateY(-10px);}
+    10%{opacity: 1; transform:translateY(0);}
+    90%{opacity: 1; transform:translateY(0);}
+    100%{opacity: 0; transform:translateY(-10px);}
+
+}
+
+/* bloque de horas */
+
 .BloqueHoras {
     display: flex;
     flex-direction: column;

@@ -37,7 +37,7 @@ const Home = () => {
         { id: 'act19', titulo: 'Taller de cerámica', descripcion: 'Aprende a crear tus propias piezas.', tipo: 'relax' },
         { id: 'act20', titulo: 'Paseo en bici', descripcion: 'Recorre el litoral de forma divertida.', tipo: 'aventura' },
         { id: 'act21', titulo: 'Calle Arsenal', descripcion: 'Una de las calles más pintorescas.', tipo: 'cultural' },
-        { id: 'act22', titulo: 'Cata de vinos', descripcion: 'Degusta vinos alicantinos en una bodega local.', tipo: 'restaurante' },
+        { id: 'act22', titulo: 'Cata de vinos en Handeland', descripcion: 'Degusta vinos alicantinos en una bodega local.', tipo: 'restaurante' },
         { id: 'act23', titulo: 'Helado artesanal', descripcion: 'Prueba los sabores típicos de la zona.', tipo: 'restaurante' },
         { id: 'act24', titulo: 'Visita al Faro', descripcion: 'Punto de referencia y vistas al horizonte.', tipo: 'paseos' },
         { id: 'act25', titulo: 'Playa El Paraíso', descripcion: 'Menos concurrida y con aguas cristalinas.', tipo: 'playa' },
@@ -192,11 +192,11 @@ const Home = () => {
 
             <div className="Home">
 
-                <h1 className="Home-h1">Guarda nuestras recomendaciones o crea tus propias actividades</h1>
+                <h1 className="Home-h1">Planifica tu visita a Villajoyosa</h1>
                 
                 {/* sección act recomendadas */}
                 <section className="Act-section">
-                    <h2 className="Act-h2">Packs de actividades</h2>
+                    <h2 className="Act-h2">Packs de recomendaciones</h2>
                     <p className="Act-p">{listaDePacks.length} packs</p>
 
                     <div className="Act-cardScroll">

@@ -90,11 +90,12 @@ export const ActivityProvider = ({ children }) => {
 
         //diferenciar entre editar(pasa id) o crear nueva actividad
         if (id) {
-            //editano
+            //editando
             setActivities(prev =>
                 prev.map(act => act.id === id ? { ...act, ...newActivity, id } : act)
             )
             console.log('activvidad editada:', newActivity)
+            return 'editado'
         }
 
         else {
@@ -102,8 +103,8 @@ export const ActivityProvider = ({ children }) => {
             const newWidthId = { ...newActivity, id: Math.floor(Math.random()) }
             setActivities((prev) => [...prev, newWidthId])
             console.log('añadiendo actividad,', newWidthId)
+            return 'creado'
         }
-        return true;
     }
 
     const handleEdit = (actividad) => {

@@ -21,6 +21,7 @@ const CalendarPage = () => {
 
     const [showExtraHours, setShowExtraHours] = useState(false)
 
+    const [toastMessage, setToastMessage] = useState(null); // para manejar texto flotante de cuando se crea o se edita con exito una act
 
     // para los inputs
     const [title, setTitle] = useState('');
@@ -84,10 +85,18 @@ const CalendarPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const success = handleSaveActivity({ id: preloadData?.id, title, hour, description, minutes, date: selectedDay })
+        const result = handleSaveActivity({ id: preloadData?.id, title, hour, description, minutes, date: selectedDay })
+
+
+        if (result === 'creado') {
+            setToastMessage('Actividad creada con éxito')
+        } else if (result === 'editado') {
+            setToastMessage('Actividad editada con éxito')
+        }
+
 
         //limpieza de inputs
-        if (success) {
+        if (result) {
             setTitle("")
             setDescription("")
             setHour('10')
@@ -96,6 +105,10 @@ const CalendarPage = () => {
 
         }
         setIsAddFormOpen(false)
+
+        setTimeout(() => {
+            setToastMessage(null)
+        }, 1500)
     }
 
 
@@ -247,6 +260,11 @@ const CalendarPage = () => {
                             </form>
 
                         )
+                        }
+                        {toastMessage &&
+                            <div className='ToastMessage'>
+                                {toastMessage}
+                            </div>
                         }
 
                         {selectedActivity && (
