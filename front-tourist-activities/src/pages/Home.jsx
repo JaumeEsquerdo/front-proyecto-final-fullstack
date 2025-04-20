@@ -53,7 +53,7 @@ const Home = () => {
         { id: 'act35', titulo: 'Taller de cocina', descripcion: 'Aprende a hacer paella o arroces alicantinos.', tipo: 'cultural' },
         { id: 'act36', titulo: 'Galería de arte local', descripcion: 'Arte contemporáneo de artistas de la zona.', tipo: 'cultural' },
         { id: 'act37', titulo: 'Jornada de pesca', descripcion: 'Acompaña a pescadores o haz pesca recreativa.', tipo: 'aventura' },
-        { id: 'act38', titulo: 'Café con vistas', descripcion: 'Tómate un café mirando al mar.', tipo: 'bar' },
+        { id: 'act38', titulo: 'Café en Hotel Censal', descripcion: 'Tómate un café en el centro.', tipo: 'bar' },
         { id: 'act39', titulo: 'Castillo de Benidorm', descripcion: 'Restos del castillo y su mirador.', tipo: 'cultural' },
         { id: 'act40', titulo: 'Tarde en el cine', descripcion: 'Películas en versión original o dobladas.', tipo: 'relax' },
         { id: 'act41', titulo: 'Excursión a Calpe', descripcion: 'Subida al Peñón de Ifach y mariscos frescos.', tipo: 'excursion' },
