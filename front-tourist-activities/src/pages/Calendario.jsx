@@ -108,7 +108,7 @@ const CalendarPage = () => {
 
         setTimeout(() => {
             setToastMessage(null)
-        }, 1500)
+        }, 4500)
     }
 
 
