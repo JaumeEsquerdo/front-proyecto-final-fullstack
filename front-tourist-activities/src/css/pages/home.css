@@ -128,7 +128,7 @@
     padding: 0.2rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 0.4rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }

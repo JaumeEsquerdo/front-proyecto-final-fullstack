@@ -6,7 +6,7 @@ import { useActivity } from '@/context/ActivityContext';
 
 
 const CalendarPage = () => {
-    const { handleDelete, setPreloadData, handleEdit, isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, activities, preloadData, selectedActivity } = useActivity()
+    const { handleDelete, setPreloadData, handleEdit, isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, activities, preloadData, selectedActivity, setSelectedActivity } = useActivity()
 
 
     const [selectedDate, setSelectedDate] = useState(new Date()); // almacenar la fecha seleccionada (por defecto la de hoy)
@@ -113,6 +113,12 @@ const CalendarPage = () => {
 
 
     console.log('preload de clandar', preloadData)
+
+    /* cerrar actividad seleccionada*/
+    const handleOffSelectedActivity = () =>{
+        setSelectedActivity(null)
+        
+    }
 
     /* useEffect para cargar contenido al form desde Home (btns de agregar al calendario) Y tmb para editar actividades ya existentes */
     useEffect(() => {
@@ -269,6 +275,7 @@ const CalendarPage = () => {
 
                         {selectedActivity && (
                             <div id='ActividadSeleccionada' className='ActividadSeleccionada'>
+                                <button className='ActividadSeleccionada-close' onClick={handleOffSelectedActivity}>X</button>
                                 <h3 className='ActividadSeleccionada-h3'>Actividad seleccionada</h3>
                                 <h4 className='ActividadSeleccionada-h4'>{selectedActivity.title}</h4>
                                 {selectedActivity.description ? (<p className='ActividadSeleccionada-p'><strong>Desripción</strong>{selectedActivity.description}</p>
