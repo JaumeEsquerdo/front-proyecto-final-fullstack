@@ -2,19 +2,57 @@ import '@/css/pages/login-register.css'
 import { Link, useNavigate } from 'react-router-dom';
 const Register = () => {
 
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+
     const navigate = useNavigate();
 
-    const handleSubmit = (e) =>{
+    const API_URL = import.meta.env.VITE_API_URL;
+    const API_ROUTER = import.meta.env.VITE_API_ROUTER;
+    const API_AUTH_REGISTER = import.meta.env.VITE_AUTH_REGISTER;
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        localStorage.setItem('user', 'true')
+        if (password !== confirmPassword) {
+            console.error("Las contraseñas no coinciden");
+            return;
+        }
+        try {
+            const res = await fetch(`${API_URL}${API_ROUTER}${API_AUTH_REGISTER}`, {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, password })
+            })
 
-        navigate('/home')
+            if (!res.ok) {
+                console.error(data.msg || "Error al registrar");
+                return;
+            }
+
+            const data = await res.json();
+
+            localStorage.setItem('token', data.data.token);
+            localStorage.setItem('user', JSON.stringify(data.data.user))
+
+
+
+
+            navigate('/home')
+
+        } catch (e) {
+            console.error("Erroe en el registro", e)
+        }
+
+
+
     }
     return (
         <>
             <div className="Register">
-            <img className="WelcomePage-fondo" src="/img/fondo-escena.png" alt="Fondo escena" />
+                <img className="WelcomePage-fondo" src="/img/fondo-escena.png" alt="Fondo escena" />
 
                 <div className='Register-container'>
                     <h1 className="Register-h1">Registro</h1>
