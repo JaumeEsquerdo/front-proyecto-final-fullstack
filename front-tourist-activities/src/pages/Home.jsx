@@ -227,7 +227,7 @@ const Home = () => {
                                             .filter(actividad => listaDePacks[packAbierto].actividades.includes(actividad.id))
                                             .map(actividad => (
                                                 <div key={actividad.id} className="Pack-activity">
-                                                    <div>{actividad.icono}</div>
+                                                    
                                                     <div className="Activity">
                                                         <h3 className="Activity-h3">{actividad.titulo}</h3>
                                                         <p className="Activity-p">{actividad.descripcion}</p>
