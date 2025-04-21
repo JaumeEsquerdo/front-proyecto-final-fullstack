@@ -42,7 +42,7 @@ const router = createBrowserRouter([
     {
         path: '/terminos-condiciones',
         element: <Terminos />,
-    },
+    }
     ,
     {
         element: <PrivateRoute />, // rutas protegidas!

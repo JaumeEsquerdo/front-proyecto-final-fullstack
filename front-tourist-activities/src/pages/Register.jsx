@@ -1,5 +1,6 @@
 import '@/css/pages/login-register.css'
 import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 const Register = () => {
 
     const [name, setName] = useState("");
@@ -27,13 +28,12 @@ const Register = () => {
                 body: JSON.stringify({ name, email, password })
             })
 
+            const data = await res.json();
+
             if (!res.ok) {
                 console.error(data.msg || "Error al registrar");
                 return;
             }
-
-            const data = await res.json();
-
             localStorage.setItem('token', data.data.token);
             localStorage.setItem('user', JSON.stringify(data.data.user))
 
@@ -57,19 +57,34 @@ const Register = () => {
                 <div className='Register-container'>
                     <h1 className="Register-h1">Registro</h1>
                     <div className='Register-divForm'>
+
                         <form onSubmit={handleSubmit} className="Register-form">
                             <label className="Register-label">
                                 <span className='Register-inputTitle'>Nombre</span>
-                                <input className="Register-input" type="text" />
+                                <input value={name} onChange={(e)=> setName(e.target.value)} className="Register-input" type="text" />
                             </label>
 
                             <label className="Register-label">
                                 <span className='Register-inputTitle'>Email</span>
-                                <input className="Register-input" type="text"></input>
+                                <input value={email} onChange={(e) => setEmail(e.target.value)} className="Register-input" type="text"></input>
 
                             </label>
+
+                            <label className="Register-label">
+                                <span className='Register-inputTitle'>Contraseña</span>
+                                <input value={password} onChange={(e) => setPassword(e.target.value)} className="Register-input" type="password"></input>
+
+                            </label>
+
+                            <label className="Register-label">
+                                <span className='Register-inputTitle'>Confirmar contraseña</span>
+                                <input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="Register-input" type="password"></input>
+                                
+                            </label>
+
                             <button className='Register-btn'>Registrar</button>
                         </form>
+
                         <div className='Register-divLogin'>
                             <span className='Register-textLogin'>Ya tienes una cuenta?</span>
                             <Link className='Register-linkLogin' to='/login'>Accede a ella</Link>
