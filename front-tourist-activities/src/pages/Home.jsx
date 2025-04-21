@@ -16,24 +16,24 @@ const Home = () => {
     const navigate = useNavigate();
 
     const actividades = [
-        { id: 'act1', titulo: 'Museo del Chocolate Valor', descripcion: 'Visita guiada y degustación de chocolates.', tipo: 'cultural' },
-        { id: 'act2', titulo: 'Playa Centro', descripcion: 'Relájate en la playa principal de Villajoyosa.', tipo: 'playa' },
-        { id: 'act3', titulo: 'Casco antiguo', descripcion: 'Paseo entre casas de colores y calles históricas.', tipo: 'cultural' },
-        { id: 'act4', titulo: 'Restaurante Ca Marta', descripcion: 'Cocina mediterránea moderna en un entorno elegante.', tipo: 'restaurante' },
-        { id: 'act5', titulo: 'Excursión a Guadalest', descripcion: 'Descubre el castillo y el pueblo en lo alto de la montaña.', tipo: 'excursion' },
-        { id: 'act6', titulo: 'Mirador del puerto', descripcion: 'Vistas panorámicas del mar y los barcos pesqueros.', tipo: 'cultural' },
-        { id: 'act7', titulo: 'Paseo en kayak', descripcion: 'Explora la costa desde el agua.', tipo: 'aventura' },
-        { id: 'act8', titulo: 'Ruta de tapas', descripcion: 'Degusta tapas en bares tradicionales.', tipo: 'restaurante' },
-        { id: 'act9', titulo: 'Senderismo en la Malladeta', descripcion: 'Camina por senderos con vistas al mar.', tipo: 'aventura' },
-        { id: 'act10', titulo: 'Tarde en Benidorm', descripcion: 'Compras, playa y ambiente turístico.', tipo: 'compras' },
-        { id: 'act11', titulo: 'Paseo por la Vila Vella', descripcion: 'Antiguo barrio pesquero lleno de encanto.', tipo: 'cultural' },
-        { id: 'act12', titulo: 'Excursión a Altea', descripcion: 'Visita este precioso pueblo blanco con vistas.', tipo: 'restaurante' },
-        { id: 'act13', titulo: 'Paseo marítimo', descripcion: 'Camina junto al mar con restaurantes y tiendas.', tipo: 'relax' },
-        { id: 'act14', titulo: 'Chiringuito al atardecer', descripcion: 'Cóctel frente al mar al caer el sol.', tipo: 'restaurante' },
-        { id: 'act15', titulo: 'Museo municipal', descripcion: 'Conoce la historia local y restos arqueológicos.', tipo: 'cultural' },
-        { id: 'act16', titulo: 'Puerto pesquero', descripcion: 'Observa cómo descargan el pescado fresco.', tipo: 'cultural' },
-        { id: 'act17', titulo: 'Mercado de abastos', descripcion: 'Frutas, verduras y productos locales.', tipo: 'compras' },
-        { id: 'act18', titulo: 'Tour fotográfico', descripcion: 'Captura los rincones más bonitos del pueblo.', tipo: 'relax' },
+        { id: 'act1', titulo: 'Museo del Chocolate Valor', descripcion: 'Visita guiada y degustación de chocolates.', tipo: 'cultural',icono: '/img/actividades-tipos/act-cultural.svg' },
+        { id: 'act2', titulo: 'Playa Centro', descripcion: 'Relájate en la playa principal de Villajoyosa.', tipo: 'playa',icono: '/img/actividades-tipos/act-cultural.svg' },
+        { id: 'act3', titulo: 'Casco antiguo', descripcion: 'Paseo entre casas de colores y calles históricas.', tipo: 'cultural',icono: '/img/actividades-tipos/act-cultural.svg' },
+        { id: 'act4', titulo: 'Restaurante Ca Marta', descripcion: 'Cocina mediterránea moderna en un entorno elegante.', tipo: 'restaurante',icono: '/img/actividades-tipos/act-cultural.svg' },
+        { id: 'act5', titulo: 'Excursión a Guadalest', descripcion: 'Descubre el castillo y el pueblo en lo alto de la montaña.', tipo: 'excursion',icono: '/img/actividades-tipos/act-cultural.svg' },
+        { id: 'act6', titulo: 'Mirador del puerto', descripcion: 'Vistas panorámicas del mar y los barcos pesqueros.', tipo: 'cultural',icono: '/img/actividades-tipos/act-cultural.svg' },
+        { id: 'act7', titulo: 'Paseo en kayak', descripcion: 'Explora la costa desde el agua.', tipo: 'aventura',icono: '/img/actividades-tipos/act-cultural.svg' },
+        { id: 'act8', titulo: 'Ruta de tapas', descripcion: 'Degusta tapas en bares tradicionales.', tipo: 'restaurante',icono: '/img/actividades-tipos/act-cultural.svg' },
+        { id: 'act9', titulo: 'Senderismo en la Malladeta', descripcion: 'Camina por senderos con vistas al mar.', tipo: 'aventura',icono: '/img/actividades-tipos/cultural.svg' },
+        { id: 'act10', titulo: 'Tarde en Benidorm', descripcion: 'Compras, playa y ambiente turístico.', tipo: 'compras',icono: '/img/actividades-tipos/cultural.svg' },
+        { id: 'act11', titulo: 'Paseo por la Vila Vella', descripcion: 'Antiguo barrio pesquero lleno de encanto.', tipo: 'cultural',icono: '/img/actividades-tipos/cultural.svg' },
+        { id: 'act12', titulo: 'Excursión a Altea', descripcion: 'Visita este precioso pueblo blanco con vistas.', tipo: 'restaurante',icono: '/img/actividades-tipos/cultural.svg' },
+        { id: 'act13', titulo: 'Paseo marítimo', descripcion: 'Camina junto al mar con restaurantes y tiendas.', tipo: 'relax',icono: '/img/actividades-tipos/cultural.svg' },
+        { id: 'act14', titulo: 'Chiringuito al atardecer', descripcion: 'Cóctel frente al mar al caer el sol.', tipo: 'restaurante',icono: '/img/actividades-tipos/cultural.svg' },
+        { id: 'act15', titulo: 'Museo municipal', descripcion: 'Conoce la historia local y restos arqueológicos.', tipo: 'cultural',icono: '/img/actividades-tipos/cultural.svg' },
+        { id: 'act16', titulo: 'Puerto pesquero', descripcion: 'Observa cómo descargan el pescado fresco.', tipo: 'cultural',icono: '/img/actividades-tipos/cultural.svg' },
+        { id: 'act17', titulo: 'Mercado de abastos', descripcion: 'Frutas, verduras y productos locales.', tipo: 'compras',icono: '/img/actividades-tipos/cultural.svg' },
+        { id: 'act18', titulo: 'Tour fotográfico', descripcion: 'Captura los rincones más bonitos del pueblo.', tipo: 'relax',icono: '/img/actividades-tipos/cultural.svg' },
         { id: 'act19', titulo: 'Taller de cerámica', descripcion: 'Aprende a crear tus propias piezas.', tipo: 'relax' },
         { id: 'act20', titulo: 'Paseo en bici', descripcion: 'Recorre el litoral de forma divertida.', tipo: 'aventura' },
         { id: 'act21', titulo: 'Calle Arsenal', descripcion: 'Una de las calles más pintorescas.', tipo: 'cultural' },
@@ -257,7 +257,7 @@ const Home = () => {
                     <div>
                         {actividadesMostradas.map((actividad) => (
                             <div className="Activities-act" key={actividad.id}>
-                                <img className="Activities-img" src={`/img/actividades-tipos/act-${actividad.tipo}.svg`} alt="Icono actividad" />
+                                <img className="Activities-img" src={actividad.icono} alt="Icono actividad" />
                                 <div className="Activity">
                                     <h3 className="Activity-h3">{actividad.titulo}</h3>
                                     <p className="Activity-p">{actividad.descripcion}</p>
