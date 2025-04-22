@@ -11,6 +11,7 @@ import Profile from '@/pages/Profile'
 import PoliticaPriv from '@/pages/Policy'
 import Terminos from '@/pages/Terminos'
 import AddActividadForm from '@/pages/AddActividadForm'
+import AddPackForm from '@/pages/AddPackForm'
 
 // importe de páginas especiales
 import Layout from '@/Layout'
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
                     {
                         path: '/agregar-actividad',
                         element: <AddActividadForm />
+                    },
+                    {
+                        path: '/agregar-packs',
+                        element: <AddPackForm />
                     }
                 ]
             }

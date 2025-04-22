@@ -14,7 +14,7 @@ const AddActividadForm = () => {
 
     const API_URL = import.meta.env.VITE_API_URL;
     const API_ROUTER = import.meta.env.VITE_API_ROUTER;
-    const API_ACTIVIDADES = import.meta.env.VITE_ACTIVIDADES;
+    const API_ACTIVIDADES = import.meta.env.VITE_API_ACTIVIDADES;
 
     const handleChange = (e) => {
         const { name, value } = e.target;
