@@ -5,8 +5,8 @@ const AddPackForm = () => {
 
     const [pack, setPack] = useState({
         nombre: '',
-        tipo: '',
-        color: '',
+        tipo: 'cultural',
+        color: 'yellow',
         actividades: []
     })
 
@@ -93,7 +93,7 @@ const AddPackForm = () => {
             if (res.ok) {
                 setSuccess('Pack creado correctamente');
                 setPack({
-                    nombre: '', tipo: '', color: '', actividades: []
+                    nombre: '', tipo: 'cultural', color: 'yellow', actividades: []
                 })
             } else {
                 setError(data.msg || 'error al crear el pack')

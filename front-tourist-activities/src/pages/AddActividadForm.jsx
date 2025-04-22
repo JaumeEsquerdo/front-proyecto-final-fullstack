@@ -6,7 +6,7 @@ const AddActividadForm = () => {
     const [actividad, setActividad] = useState({
         titulo: '',
         descripcion: '',
-        tipo: ''
+        tipo: 'cultural'
     })
 
     const [error, setError] = useState('');
@@ -45,7 +45,7 @@ const AddActividadForm = () => {
 
             if (res.ok) {
                 setSuccess('AcTividad creada correctamente');
-                setActividad({ titulo: '', descripcion: '', tipo: '' }) //limpieza
+                setActividad({ titulo: '', descripcion: '', tipo: 'cultural' }) //limpieza
 
             } else {
                 setError(data.msg || 'Hubo un problema al crear la actividad')
