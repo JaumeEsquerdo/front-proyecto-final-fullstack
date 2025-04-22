@@ -10,10 +10,12 @@ import CalendarPage from '@/pages/Calendario'
 import Profile from '@/pages/Profile'
 import PoliticaPriv from '@/pages/Policy'
 import Terminos from '@/pages/Terminos'
+import AddActividadForm from '@/pages/AddActividadForm'
 
 // importe de páginas especiales
 import Layout from '@/Layout'
 import PrivateRoute from '@/components/PrivateRoute'
+import AdminRoute from '@/components/AdminRoute'
 
 
 
@@ -59,7 +61,23 @@ const router = createBrowserRouter([
                             path: '/calendario',
                             element: <CalendarPage />,
                         }
+
                     ]
+            }
+        ]
+    },
+    // rutas solo para admin
+    {
+        element: <AdminRoute />,
+        children: [
+            {
+                element: <Layout />,
+                children: [
+                    {
+                        path: '/agregar-actividad',
+                        element: <AddActividadForm />
+                    }
+                ]
             }
         ]
     },
