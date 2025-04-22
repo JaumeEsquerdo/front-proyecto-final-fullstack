@@ -145,7 +145,7 @@ const Profile = () => {
         }
 
         try {
-            const res = await fetch(`${API_URL}${API_ROUTER}/usuarios/${user._id}/contraseña`, {
+            const res = await fetch(`${API_URL}${API_ROUTER}/usuarios/${user._id}/password`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
