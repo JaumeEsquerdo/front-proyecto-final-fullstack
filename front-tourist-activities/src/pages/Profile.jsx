@@ -175,6 +175,12 @@ const Profile = () => {
         setShowPasswordForm(!showPasswordForm)
     }
 
+    const handleLogout = () =>{
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        navigate("/login")
+    }
+
     if (!user) {
         return <div>Cargando...</div>; // Mostrar mientras los datos del usuario no se han cargado
     }
@@ -240,7 +246,7 @@ const Profile = () => {
 
                     {error && <div className='Profile-error'>{error}</div>}
 
-                    <button className="Profile-logout">Cerrar sesión</button>
+                    <button onClick={handleLogout} className="Profile-logout">Cerrar sesión</button>
 
                     <div className='Policy-links'>
                         <Link className='Policy-link' to='/politica-privacidad'>Política de privacidad</Link>

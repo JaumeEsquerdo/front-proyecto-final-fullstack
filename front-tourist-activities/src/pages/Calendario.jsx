@@ -115,9 +115,9 @@ const CalendarPage = () => {
     console.log('preload de clandar', preloadData)
 
     /* cerrar actividad seleccionada*/
-    const handleOffSelectedActivity = () =>{
+    const handleOffSelectedActivity = () => {
         setSelectedActivity(null)
-        
+
     }
 
     /* useEffect para cargar contenido al form desde Home (btns de agregar al calendario) Y tmb para editar actividades ya existentes */
@@ -223,20 +223,11 @@ const CalendarPage = () => {
                                 className='CalendarForm'
                                 onSubmit={handleSubmit}>
 
+
                                 <input type="text" placeholder='Nombre actividad' value={title} onChange={(e) => setTitle(e.target.value)}
                                     required
                                     className='CalendarForm-input'
                                 />
-
-                                <textarea
-                                    className='CalendarForm-textarea'
-                                    placeholder='Descripción (opcional)'
-                                    value={description}
-                                    onChange={(e) => setDescription(e.target.value)}
-                                    rows={10}
-                                    cols={40}
-                                >
-                                </textarea>
 
                                 {/* select de horas */}
                                 <select
@@ -259,6 +250,17 @@ const CalendarPage = () => {
                                     <option value="30">30</option>
                                     <option value="45">45</option>
                                 </select>
+
+                                <textarea
+                                    className='CalendarForm-textarea'
+                                    placeholder='Descripción (opcional)'
+                                    value={description}
+                                    onChange={(e) => setDescription(e.target.value)}
+                                    rows={10}
+                                    cols={40}
+                                >
+                                </textarea>
+
 
 
                                 <button className='CalendarForm-btn' type='submit'>Guardar actividad</button>

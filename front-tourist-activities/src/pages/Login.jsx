@@ -15,6 +15,10 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
 
+        if(!email.includes('@') || password.length < 6 ){
+            setError('Introduce un email válido y una contraseña con al menos 6 carácteres');
+            return;
+        }
 
         try {
 
@@ -81,6 +85,10 @@ const Login = () => {
                             <span className='Login-textRegister'>No tienes cuenta aún? </span>
                             <Link className='Login-linkRegister' to='/registro'>Regístrate aquí</Link>
                         </div>
+                    </div>
+                    <div className='Policy-links'>
+                        <Link className='Policy-link' to='/politica-privacidad'>Política de privacidad</Link>
+                        <Link className='Policy-link' to='/terminos-condiciones'>TyC</Link>
                     </div>
 
                 </div>

@@ -199,6 +199,8 @@
     border-radius: 20px;
     padding: 2rem;
     max-width: 550px;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .CalendarForm-input,
@@ -208,6 +210,7 @@
     border-radius: 14px;
     padding: var(--btn-padding);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
 }
 
 
@@ -310,3 +313,4 @@
 .ActividadSeleccionada-btn--delete:hover {
     background-color: #fbeaea;
 }
+
