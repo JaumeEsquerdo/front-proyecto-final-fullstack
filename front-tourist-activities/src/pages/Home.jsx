@@ -14,29 +14,32 @@ const Home = () => {
     const [verTodas, setVertodas] = useState(false); //para ver solo unas pocas act recomendadas o verlas todas
     const [packAbierto, setPackAbierto] = useState(null) // para abrir el pack segun su indice
     const { setIsAddFormOpen, setPreloadData, preloadData } = useActivity();
+    const [actividades, setActividades] = useState([]); // para guardar las acts que llegan d la API
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
     const navigate = useNavigate();
 
-    const actividades = [
-        { id: 'act1', titulo: 'Museo del Chocolate Valor', descripcion: 'Visita guiada y degustación de chocolates.', tipo: 'cultural', icono: '/img/actividades-tipos/act-cultural.svg' },
-        { id: 'act2', titulo: 'Playa Centro', descripcion: 'Relájate en la playa principal de Villajoyosa.', tipo: 'playa', icono: '/img/actividades-tipos/act-cultural.svg' },
-        { id: 'act3', titulo: 'Casco antiguo', descripcion: 'Paseo entre casas de colores y calles históricas.', tipo: 'cultural', icono: '/img/actividades-tipos/act-cultural.svg' },
-        { id: 'act4', titulo: 'Restaurante Ca Marta', descripcion: 'Cocina mediterránea moderna en un entorno elegante.', tipo: 'restaurante', icono: '/img/actividades-tipos/act-cultural.svg' },
-        { id: 'act5', titulo: 'Excursión a Guadalest', descripcion: 'Descubre el castillo y el pueblo en lo alto de la montaña.', tipo: 'excursion', icono: '/img/actividades-tipos/act-cultural.svg' },
-        { id: 'act6', titulo: 'Mirador del puerto', descripcion: 'Vistas panorámicas del mar y los barcos pesqueros.', tipo: 'cultural', icono: '/img/actividades-tipos/act-cultural.svg' },
-        { id: 'act7', titulo: 'Paseo en kayak', descripcion: 'Explora la costa desde el agua.', tipo: 'aventura', icono: '/img/actividades-tipos/act-cultural.svg' },
-        { id: 'act8', titulo: 'Ruta de tapas', descripcion: 'Degusta tapas en bares tradicionales.', tipo: 'restaurante', icono: '/img/actividades-tipos/act-cultural.svg' },
-        { id: 'act9', titulo: 'Senderismo en la Malladeta', descripcion: 'Camina por senderos con vistas al mar.', tipo: 'aventura', icono: '/img/actividades-tipos/cultural.svg' },
-        { id: 'act10', titulo: 'Tarde en Benidorm', descripcion: 'Compras, playa y ambiente turístico.', tipo: 'compras', icono: '/img/actividades-tipos/cultural.svg' },
-        { id: 'act11', titulo: 'Paseo por la Vila Vella', descripcion: 'Antiguo barrio pesquero lleno de encanto.', tipo: 'cultural', icono: '/img/actividades-tipos/cultural.svg' },
-        { id: 'act12', titulo: 'Excursión a Altea', descripcion: 'Visita este precioso pueblo blanco con vistas.', tipo: 'restaurante', icono: '/img/actividades-tipos/cultural.svg' },
-        { id: 'act13', titulo: 'Paseo marítimo', descripcion: 'Camina junto al mar con restaurantes y tiendas.', tipo: 'relax', icono: '/img/actividades-tipos/cultural.svg' },
-        { id: 'act14', titulo: 'Chiringuito al atardecer', descripcion: 'Cóctel frente al mar al caer el sol.', tipo: 'restaurante', icono: '/img/actividades-tipos/cultural.svg' },
-        { id: 'act15', titulo: 'Museo municipal', descripcion: 'Conoce la historia local y restos arqueológicos.', tipo: 'cultural', icono: '/img/actividades-tipos/cultural.svg' },
-        { id: 'act16', titulo: 'Puerto pesquero', descripcion: 'Observa cómo descargan el pescado fresco.', tipo: 'cultural', icono: '/img/actividades-tipos/cultural.svg' },
-        { id: 'act17', titulo: 'Mercado de abastos', descripcion: 'Frutas, verduras y productos locales.', tipo: 'compras', icono: '/img/actividades-tipos/cultural.svg' },
-        { id: 'act18', titulo: 'Tour fotográfico', descripcion: 'Captura los rincones más bonitos del pueblo.', tipo: 'relax', icono: '/img/actividades-tipos/cultural.svg' },
+    // const actividades = [
+    //     { id: 'act1', titulo: 'Museo del Chocolate Valor', descripcion: 'Visita guiada y degustación de chocolates.', tipo: 'cultural', icono: '/img/actividades-tipos/act-cultural.svg' },
+    //     { id: 'act2', titulo: 'Playa Centro', descripcion: 'Relájate en la playa principal de Villajoyosa.', tipo: 'playa', icono: '/img/actividades-tipos/act-cultural.svg' },
+    //     { id: 'act3', titulo: 'Casco antiguo', descripcion: 'Paseo entre casas de colores y calles históricas.', tipo: 'cultural', icono: '/img/actividades-tipos/act-cultural.svg' },
+    //     { id: 'act4', titulo: 'Restaurante Ca Marta', descripcion: 'Cocina mediterránea moderna en un entorno elegante.', tipo: 'restaurante', icono: '/img/actividades-tipos/act-cultural.svg' },
+    //     { id: 'act5', titulo: 'Excursión a Guadalest', descripcion: 'Descubre el castillo y el pueblo en lo alto de la montaña.', tipo: 'excursion', icono: '/img/actividades-tipos/act-cultural.svg' },
+    //     { id: 'act6', titulo: 'Mirador del puerto', descripcion: 'Vistas panorámicas del mar y los barcos pesqueros.', tipo: 'cultural', icono: '/img/actividades-tipos/act-cultural.svg' },
+    //     { id: 'act7', titulo: 'Paseo en kayak', descripcion: 'Explora la costa desde el agua.', tipo: 'aventura', icono: '/img/actividades-tipos/act-cultural.svg' },
+    //     { id: 'act8', titulo: 'Ruta de tapas', descripcion: 'Degusta tapas en bares tradicionales.', tipo: 'restaurante', icono: '/img/actividades-tipos/act-cultural.svg' },
+    //     { id: 'act9', titulo: 'Senderismo en la Malladeta', descripcion: 'Camina por senderos con vistas al mar.', tipo: 'aventura', icono: '/img/actividades-tipos/cultural.svg' },
+    //     { id: 'act10', titulo: 'Tarde en Benidorm', descripcion: 'Compras, playa y ambiente turístico.', tipo: 'compras', icono: '/img/actividades-tipos/cultural.svg' },
+    //     { id: 'act11', titulo: 'Paseo por la Vila Vella', descripcion: 'Antiguo barrio pesquero lleno de encanto.', tipo: 'cultural', icono: '/img/actividades-tipos/cultural.svg' },
+    //     { id: 'act12', titulo: 'Excursión a Altea', descripcion: 'Visita este precioso pueblo blanco con vistas.', tipo: 'restaurante', icono: '/img/actividades-tipos/cultural.svg' },
+    //     { id: 'act13', titulo: 'Paseo marítimo', descripcion: 'Camina junto al mar con restaurantes y tiendas.', tipo: 'relax', icono: '/img/actividades-tipos/cultural.svg' },
+    //     { id: 'act14', titulo: 'Chiringuito al atardecer', descripcion: 'Cóctel frente al mar al caer el sol.', tipo: 'restaurante', icono: '/img/actividades-tipos/cultural.svg' },
+    //     { id: 'act15', titulo: 'Museo municipal', descripcion: 'Conoce la historia local y restos arqueológicos.', tipo: 'cultural', icono: '/img/actividades-tipos/cultural.svg' },
+    //     { id: 'act16', titulo: 'Puerto pesquero', descripcion: 'Observa cómo descargan el pescado fresco.', tipo: 'cultural', icono: '/img/actividades-tipos/cultural.svg' },
+    //     { id: 'act17', titulo: 'Mercado de abastos', descripcion: 'Frutas, verduras y productos locales.', tipo: 'compras', icono: '/img/actividades-tipos/cultural.svg' },
+    //     { id: 'act18', titulo: 'Tour fotográfico', descripcion: 'Captura los rincones más bonitos del pueblo.', tipo: 'relax', icono: '/img/actividades-tipos/cultural.svg' },
     
-    ];
+    // ];
 
     
     const actividadesMostradas = verTodas ? actividades : actividades.slice(0, 6) // para solo ver las 6 primeras actividades recomendadas
@@ -105,6 +108,49 @@ const Home = () => {
         }
     ];
 
+    const API_URL = import.meta.env.VITE_API_URL
+    const API_ROUTER = import.meta.env.VITE_API_ROUTER
+    const API_ACTIVIDADES = import.meta.env.VITE_API_ACTIVIDADES
+
+    // useEffect para traer todas las actividades recomendadas
+    useEffect(()=>{
+        const fetchActividades = async () => {
+            const token = localStorage.getItem('token');
+
+            try{
+                const res = await fetch(`${API_URL}${API_ROUTER}${API_ACTIVIDADES}`,{
+                    method:'GET',
+                    headers:{
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                const data = await res.json();
+
+                if(!res.ok){
+                    setError(data.msg ||' error al obtener las actividades')
+                    return;
+                }
+
+                setActividades(data.data)
+
+            }catch(e){
+                console.error('error en el fetch de actividades en home', e)
+                setError('error en la conexión del servidor')
+            } finally{
+                setLoading(false)
+            }
+        }
+        
+        fetchActividades();
+        
+    },[])
+
+    useEffect(() => {
+        console.log('actividades cargadas:', actividades);
+      }, [actividades]);
+
+    
 
     // para que al cambiar de pagina empiece la otra pagina desde arriba
     useEffect(()=>{
@@ -137,6 +183,9 @@ const Home = () => {
         setIsAddFormOpen(true) // poner en true el isAddFormOpen para que se active el useEffect en Calendario
         navigate('/calendario')
     }
+
+    if(loading) return <p>Cargando actividades...</p>;
+    if(error) return <p>Error : {error}</p>
 
     return (
         <>
@@ -177,7 +226,7 @@ const Home = () => {
                                         {actividades
                                             .filter(actividad => listaDePacks[packAbierto].actividades.includes(actividad.id))
                                             .map(actividad => (
-                                                <div key={actividad.id} className="Pack-activity">
+                                                <div key={actividad._id} className="Pack-activity">
 
                                                     <div className="Activity">
                                                         <h3 className="Activity-h3">{actividad.titulo}</h3>
@@ -207,7 +256,7 @@ const Home = () => {
 
                     <div>
                         {actividadesMostradas.map((actividad) => (
-                            <div className="Activities-act" key={actividad.id}>
+                            <div className="Activities-act" key={actividad._id}>
                                 <img className="Activities-img" src={actividad.icono} alt="Icono actividad" />
                                 <div className="Activity">
                                     <h3 className="Activity-h3">{actividad.titulo}</h3>
