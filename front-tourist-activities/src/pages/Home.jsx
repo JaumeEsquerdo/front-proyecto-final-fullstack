@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import '@/css/pages/home.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { color } from "framer-motion";
 import { useActivity } from '@/context/ActivityContext'
 import { useNavigate } from "react-router";
@@ -35,72 +35,10 @@ const Home = () => {
         { id: 'act16', titulo: 'Puerto pesquero', descripcion: 'Observa cómo descargan el pescado fresco.', tipo: 'cultural', icono: '/img/actividades-tipos/cultural.svg' },
         { id: 'act17', titulo: 'Mercado de abastos', descripcion: 'Frutas, verduras y productos locales.', tipo: 'compras', icono: '/img/actividades-tipos/cultural.svg' },
         { id: 'act18', titulo: 'Tour fotográfico', descripcion: 'Captura los rincones más bonitos del pueblo.', tipo: 'relax', icono: '/img/actividades-tipos/cultural.svg' },
-        { id: 'act19', titulo: 'Taller de cerámica', descripcion: 'Aprende a crear tus propias piezas.', tipo: 'relax' },
-        { id: 'act20', titulo: 'Paseo en bici', descripcion: 'Recorre el litoral de forma divertida.', tipo: 'aventura' },
-        { id: 'act21', titulo: 'Calle Arsenal', descripcion: 'Una de las calles más pintorescas.', tipo: 'cultural' },
-        { id: 'act22', titulo: 'Cata de vinos en Handeland', descripcion: 'Degusta vinos alicantinos en una bodega local.', tipo: 'restaurante' },
-        { id: 'act23', titulo: 'Helado artesanal', descripcion: 'Prueba los sabores típicos de la zona.', tipo: 'restaurante' },
-        { id: 'act24', titulo: 'Visita al Faro', descripcion: 'Punto de referencia y vistas al horizonte.', tipo: 'paseos' },
-        { id: 'act25', titulo: 'Playa El Paraíso', descripcion: 'Menos concurrida y con aguas cristalinas.', tipo: 'playa' },
-        { id: 'act26', titulo: 'Paseo en barco', descripcion: 'Tour por la costa o excursión de pesca.', tipo: 'aventura' },
-        { id: 'act27', titulo: 'Tour histórico', descripcion: 'Recorrido guiado sobre la historia local.', tipo: 'cultural' },
-        { id: 'act28', titulo: 'Clases de paddle surf', descripcion: 'Diviértete en el mar con este deporte acuático.', tipo: 'aventura' },
-        { id: 'act29', titulo: 'Mercadillo de los jueves', descripcion: 'Productos textiles, comida y más.', tipo: 'compras' },
-        { id: 'act30', titulo: 'Día en Terra Mítica', descripcion: 'Parque temático en Benidorm.', tipo: 'ocio' },
-        { id: 'act31', titulo: 'Spa y relajación', descripcion: 'Un rato de desconexión en un spa local.', tipo: 'relax' },
-        { id: 'act32', titulo: 'Les Puntes de Gosàlvez', descripcion: 'Yacimiento arqueológico en plena naturaleza.', tipo: 'cultural' },
-        { id: 'act33', titulo: 'Picnic en la playa', descripcion: 'Desayuno o merienda con vistas al mar.', tipo: 'playa' },
-        { id: 'act34', titulo: 'Noche de estrellas', descripcion: 'Observación astronómica en zona oscura.', tipo: 'aventura' },
-        { id: 'act35', titulo: 'Taller de cocina', descripcion: 'Aprende a hacer paella o arroces alicantinos.', tipo: 'cultural' },
-        { id: 'act36', titulo: 'Galería de arte local', descripcion: 'Arte contemporáneo de artistas de la zona.', tipo: 'cultural' },
-        { id: 'act37', titulo: 'Jornada de pesca', descripcion: 'Acompaña a pescadores o haz pesca recreativa.', tipo: 'aventura' },
-        { id: 'act38', titulo: 'Café en Hotel Censal', descripcion: 'Tómate un café en el centro.', tipo: 'bar' },
-        { id: 'act39', titulo: 'Castillo de Benidorm', descripcion: 'Restos del castillo y su mirador.', tipo: 'cultural' },
-        { id: 'act40', titulo: 'Tarde en el cine', descripcion: 'Películas en versión original o dobladas.', tipo: 'relax' },
-        { id: 'act41', titulo: 'Excursión a Calpe', descripcion: 'Subida al Peñón de Ifach y mariscos frescos.', tipo: 'excursion' },
-        { id: 'act42', titulo: 'Atardecer desde torre Sant Josep', descripcion: 'Rincón histórico y panorámica única.', tipo: 'paseos' },
-        { id: 'act43', titulo: 'Ruta en segway', descripcion: 'Descubre la ciudad de forma divertida.', tipo: 'aventura' },
-        { id: 'act44', titulo: 'Taller de mosaico romano', descripcion: 'Manualidad inspirada en la historia local.', tipo: 'cultural' },
-        { id: 'act45', titulo: 'Paseo con guía local', descripcion: 'Conoce curiosidades y secretos del pueblo.', tipo: 'cultural' },
-        { id: 'act46', titulo: 'Día de compras', descripcion: 'Tiendas locales y souvenirs.', tipo: 'compras' },
-        { id: 'act47', titulo: 'Cine de verano', descripcion: 'Películas al aire libre junto al mar.', tipo: 'relax' },
-        { id: 'act48', titulo: 'Concierto en la plaza', descripcion: 'Música en vivo en noches especiales.', tipo: 'cultural' },
-        { id: 'act49', titulo: 'Visita a la lonja', descripcion: 'Ver la subasta del pescado fresco.', tipo: 'cultural' },
-        { id: 'act50', titulo: 'Clase de yoga en la playa', descripcion: 'Relajación y bienestar al amanecer.', tipo: 'relax' },
-        { id: 'act51', titulo: 'Restaurante Hogar del Pescador', descripcion: 'Famoso por su arroz a banda y marisco fresco.', tipo: 'restaurante' },
-        { id: 'act52', titulo: 'Heladería El Buen Gusto', descripcion: 'Heladería artesanal con sabores únicos.', tipo: 'restaurante' },
-        { id: 'act53', titulo: 'Restaurante El Posit', descripcion: 'Cocina mediterránea con platos de autor.', tipo: 'restaurante' },
-        { id: 'act54', titulo: 'T-Class', descripcion: 'Restaurante de tapas modernas junto al paseo marítimo.', tipo: 'restaurante' },
-        { id: 'act55', titulo: 'Chocolatería Valor', descripcion: 'Churros con chocolate clásicos y crujientes.', tipo: 'bar' },
-        { id: 'act56', titulo: 'Bar El Mercantil', descripcion: 'Ambiente local con vermuts y tapas.', tipo: 'bar' },
-        { id: 'act57', titulo: 'La Cabaña Chill Out', descripcion: 'Cócteles frente al mar en ambiente relajado.', tipo: 'bar' },
-        { id: 'act58', titulo: 'Bar El Tintero', descripcion: 'Bar típico con cerveza fría y vistas al puerto.', tipo: 'bar' },
-        { id: 'act59', titulo: 'Café Teatret', descripcion: 'Café bohemio con libros y música en directo.', tipo: 'bar' },
-        { id: 'act60', titulo: 'Café ChocoArt', descripcion: 'Especialistas en café y repostería con chocolate.', tipo: 'bar' },
-        { id: 'act61', titulo: 'L’Eixida', descripcion: 'Tienda de productos artesanales y ecológicos.', tipo: 'compras' },
-        { id: 'act62', titulo: 'Tienda Valor', descripcion: 'Productos de chocolate, souvenirs y regalos.', tipo: 'compras' },
-        { id: 'act63', titulo: 'Boutique Maralba', descripcion: 'Ropa y accesorios con estilo mediterráneo.', tipo: 'compras' },
-        { id: 'act64', titulo: 'Mercería La Moderna', descripcion: 'Tienda de toda la vida para artículos textiles.', tipo: 'compras' },
-        { id: 'act65', titulo: 'Librería Espai Lector Nobel', descripcion: 'Librería con selección de libros y papelería.', tipo: 'compras' },
-        { id: 'act66', titulo: 'Paseo por el Casco Antiguo', descripcion: 'Calles coloridas con historia marinera.', tipo: 'paseos' },
-        { id: 'act67', titulo: 'Paseo por el Paseo Marítimo', descripcion: 'Camina junto al mar con vistas al puerto y palmeras.', tipo: 'paseos' },
-        { id: 'act69', titulo: 'Paseo por la Playa del Torres', descripcion: 'Camino con vistas a calas y restos romanos.', tipo: 'paseos' },
-        { id: 'act70', titulo: 'Camino a la Ermita de Sant Antoni', descripcion: 'Subida suave con vistas panorámicas del pueblo.', tipo: 'paseos' },
-        { id: 'act71', titulo: 'Paseo al Faro de Villajoyosa', descripcion: 'Corto recorrido hasta el faro con vistas al Mediterráneo.', tipo: 'paseos' },
-        { id: 'act72', titulo: 'Ruta de los Murales de Villajoyosa', descripcion: 'Descubre arte urbano en el centro histórico.', tipo: 'paseos' },
-        { id: 'act73', titulo: 'Playa El Paraíso', descripcion: 'Amplia playa de grava y aguas cristalinas.', tipo: 'playa' },
-        { id: 'act74', titulo: 'Playa del Torres', descripcion: 'Playa tranquila con restos arqueológicos romanos.', tipo: 'playa' },
-        { id: 'act75', titulo: 'Playa La Caleta', descripcion: 'Cala acogedora de piedras rodeada de naturaleza.', tipo: 'playa' },
-        { id: 'act76', titulo: 'Playa de los Estudiantes', descripcion: 'Pequeña cala escondida ideal para el relax.', tipo: 'playa' },
-        { id: 'act77', titulo: 'Playa de Bon Nou', descripcion: 'Agua turquesa y ambiente local.', tipo: 'playa' },
-        { id: 'act78', titulo: 'Playa de El Campello', descripcion: 'Larga playa con paseo marítimo y muchas opciones para comer.', tipo: 'playa' },
-        { id: 'act79', titulo: 'Playa de Altea', descripcion: 'Playas de piedras con vistas preciosas y ambiente bohemio.', tipo: 'playa' },
-        { id: 'act80', titulo: 'Cala del Tío Ximo (Benidorm)', descripcion: 'Cala escondida rodeada de naturaleza ideal para snorkel.', tipo: 'playa' },
-        { id: 'act81', titulo: 'Playa de Levante (Benidorm)', descripcion: 'Una de las playas más famosas de la zona, con mucha vida.', tipo: 'playa' },
-        { id: 'act82', titulo: 'Playa Racó del Conill', descripcion: 'Playa nudista de ambiente tranquilo y rodeada de rocas.', tipo: 'playa' },
-
-
+    
     ];
+
+    
     const actividadesMostradas = verTodas ? actividades : actividades.slice(0, 6) // para solo ver las 6 primeras actividades recomendadas
 
 
@@ -166,6 +104,12 @@ const Home = () => {
             ]
         }
     ];
+
+
+    // para que al cambiar de pagina empiece la otra pagina desde arriba
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
 
 
     /* Ver todas las actividades o una muestra */

@@ -1,6 +1,8 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion'
 import { useActivity } from "@/context/ActivityContext";
+import { memo, useMemo } from "react";
+//import { useState, useEffect } from "react";
 // cuando un NavLink esta activo `isActive` se genera automáticamente 
 
 const navItems = [
@@ -9,8 +11,9 @@ const navItems = [
 ]
 
 
-export const Footer = () => {
+export const Footer = memo(() => {
 
+    //const[disableDotsAnim, setDisableDotsAnim] = useState();
     const { setIsAddFormOpen, isAddFormOpen } = useActivity(); //contexto
 
 
@@ -19,11 +22,28 @@ export const Footer = () => {
 
     const handleAddClick = () => {
         if (location.pathname === '/calendario') {
-            setIsAddFormOpen(prev => !prev) //abrir el form si esta ya en calendar
+            setIsAddFormOpen(prev => !prev) //abrir el form si esta ya en calendar 
         } else {
             navigate('/calendario') // si no solamente redirije a calendar, no quiero que se abra automaticamente, probablemente quiera elejir el dia antes...
         }
     }
+
+    const dots = useMemo(() => {
+        return (
+            <motion.div
+
+                layoutId="dots"
+                className="Footer-dots"
+                transition={{ type: "spring", stiffness: 50, damping: 25 }}
+            >
+                <span className="dot"></span>
+                <span className="dot"></span>
+                <span className="dot"></span>
+
+
+            </motion.div>
+        )
+    }, [location.pathname]) // solo se recalcula si cambia
 
     return (
         <footer className="Footer">
@@ -42,19 +62,7 @@ export const Footer = () => {
                                     <img className="Footer-imgLink" src={item.src} alt="Icono de navegación" />
                                 </NavLink>
 
-                                {isActive && (
-                                    <motion.div
-                                        layoutId="dots"
-                                        className="Footer-dots"
-                                        transition={{ type: "spring", stiffness: 50, damping: 25 }}
-                                    >
-                                        <span className="dot"></span>
-                                        <span className="dot"></span>
-                                        <span className="dot"></span>
-
-
-                                    </motion.div>
-                                )}
+                                {isActive && dots}
 
                             </li>
                         )
@@ -65,7 +73,8 @@ export const Footer = () => {
 
             <div className="Footer-divBtn" onClick={handleAddClick}>➕</div>
         </footer>);
-}
+
+})
 
 /**
  * Transición en Framer Motion para la animación en el  footer de muelle en los 3 puntos

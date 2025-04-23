@@ -159,6 +159,82 @@ Solución: en el map de las actividades utilizar el mismo nombre 'actividad' par
  * 
  */
 ```
+cuando se navega entre rutas `/home` y `/calendar` los dos puntos se mueven entre ellos gracias a la referencia que tienen  `layoutId="dots"`, que le dice al framer que es el mismo elemento pero que se active una animación al cambiar de posición.
+
+y la lógica de la posición:
+
+```js
+const navItems = [
+    { src: '/img/home.svg', path: '/home' },
+    { src: '/img/calendario.svg', path: '/calendario' }
+]
+
+// y
+
+{navItems.map((item) => {
+                        const isActive = location.pathname === item.path;
+                        return (
+
+                            <li key={item.path} className="Footer-li">
+                                <NavLink
+                                    className={({ isActive }) => `Footer-link ${isActive ? "active" : ""}`}
+                                    to={item.path}
+                                >
+                                    <img className="Footer-imgLink" src={item.src} alt="Icono de navegación" />
+                                </NavLink>
+
+                                {isActive && dots}
+
+                            </li>
+                        )
+                    })}
+
+```
+
+
+## useMemo
+
+- Tenia un problema con
+
+```js
+                                <motion.div
+                                    layoutId="dots"
+                                    className="Footer-dots"
+                                    transition={{type: "spring", stiffness: 140, damping: 15}}
+                                    >
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+
+                                    
+                                </motion.div>
+```
+
+ , que son los 3 puntos que se situan bajo del nav del footer, y que al cambiar de location se van cambiando entre ellos. Bien el problema es que en el mismo footer hay un botón para abrir/cerrar el form del calendario o redirijir al calendario si no estás situado en esa página. Y por alguna razón, al abrir el form se re-renderizaba toda la pagina de nuevo y hacia que el footer entonces cambiara a una posición más baja, ya que entendía que cambiaba de pestaña, aunque fuera la misma.
+
+ - Solución: investigué un poco y vi que existia la opción de React Portal o el hook memo. Decidí hacerlo con memo, ya que me parecía más simple y utilizaba una estructura similar al useEffect.
+
+ ```js
+const dots = useMemo(() => {
+        return (
+            <motion.div
+
+                layoutId="dots"
+                className="Footer-dots"
+                transition={{ type: "spring", stiffness: 50, damping: 25 }}
+            >
+                <span className="dot"></span>
+                <span className="dot"></span>
+                <span className="dot"></span>
+
+
+            </motion.div>
+        )
+    }, [location.pathname]) // solo se recalcula si cambia
+
+ ```
+ Así es como queda, dots se memoriza con useMemo, haciendo que solo se ejecute de nuevo si cambia la ruta.
+
 
 ## useNavigate
 
@@ -271,3 +347,19 @@ ej
 De esta forma, cuando la ruta ya no incluye `/calendario`, se deselecciona la actividad.
 
 Además, aunque no lo he explicado en detalle anteriormente, también utilizo `useLocation` en el `Header`, como parte de la lógica del botón de volver atrás desde la página de perfil. Lo uso para guardar desde qué página se accedió al perfil, y así poder volver correctamente al pulsar “volver”.
+
+
+## useEffect
+
+1. Tengo un useEffect importante, ya que al moverme entre las paginas `Home` y `Calendario`, si en una de ellas mi scroll no estaba al inicio (es decir no estaba arriba de toda la página), y cambiaba a la otra página, no iniciaba la página desde arriba.
+
+En este caso he investigado como podía arreglar este pequeño fallo y he encontrado esta solución, que he puesto arriba de todos los useEffects en estas dos páginas, para que no pueda chocar con otros useEffect como en el que tengo `scrollIntoView` que me redirije el scroll (con un pequeño retardo) al form donde guarda las actividades en el calendario.
+
+```js
+
+// para que al cambiar de pagina empiece la otra pagina desde arriba (es decir que el scroll empiece al inicio)
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
+
+```

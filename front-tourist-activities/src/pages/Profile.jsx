@@ -175,7 +175,7 @@ const Profile = () => {
         setShowPasswordForm(!showPasswordForm)
     }
 
-    const handleLogout = () =>{
+    const handleLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         navigate("/login")
@@ -186,7 +186,7 @@ const Profile = () => {
     }
 
 
-    
+
 
     return (
         <>
@@ -209,7 +209,8 @@ const Profile = () => {
                             <label className="Profile-label">Email
                                 <input value={newEmail} onChange={(e) => setNewEmail(e.target.value)} type="email" className="Profile-input" />
                             </label>
-                            <div>
+
+                            <div className='Profile-btnsChange'>
                                 <button className="Profile-button" type="submit">Guardar cambios</button>
                                 <button type='button' onClick={() => {
                                     setIsEditing(false);
@@ -221,24 +222,24 @@ const Profile = () => {
 
 
                     ) : (
-                        <div>
-                            <p><strong>Nombre:</strong>{user.name}</p>
-                            <p><strong>Email:</strong>{user.email}</p>
+                        <div className='Profile-info'>
+                            <p className='Profile-name'><strong>Nombre:</strong>{user.name}</p>
+                            <p className='Profile-email'><strong>Email:</strong>{user.email}</p>
                             <button className='Profile-button' onClick={() => setIsEditing(true)}>Editar perfil</button>
 
                         </div>
                     )}
-                    <button onClick={handleTogglePasswordForm}>{showPasswordForm ? "Cancelar cambio de contraseña" : "Cambiar contraseña"}</button>
+                    <button className='Profile-button Profile-button--pass' onClick={handleTogglePasswordForm}>{showPasswordForm ? "Cancelar cambio de contraseña" : "Cambiar contraseña"}</button>
 
                     {showPasswordForm && (
                         <form onSubmit={handleUpdatePassword}>
                             <label className="Profile-label">Contraseña antigua
-                                <input value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} type="password" className="Profile-input" />
+                                <input  value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} type="password" className="Profile-input" />
                             </label>
                             <label className="Profile-label">Nueva contraseña
                                 <input value={newPassword} onChange={(e) => setNewPassword(e.target.value)} type="password" className="Profile-input" />
                             </label>
-                            <button type='submit'>Actualizar contraseña</button>
+                            <button className='Profile-button Profile-button--passConfirm' type='submit'>Actualizar contraseña</button>
                         </form>
                     )}
 

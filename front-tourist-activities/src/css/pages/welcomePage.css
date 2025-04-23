@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     justify-content: end;
-    background-color: rgb(229, 234, 161);
+    /* background-color: rgb(229, 234, 161); */
 }
 
 .WelcomePage-fondo{
@@ -36,7 +36,8 @@
     
     border-radius: 50px 50px 0 0;
     /* background: var(--color-bg); */
-    background-color: rgb(255, 255, 255);
+    background-color:  #fbfdfd;
+    ;
 }
 
 .WelcomePage-content {

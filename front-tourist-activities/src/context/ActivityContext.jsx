@@ -65,9 +65,10 @@ export const ActivityProvider = ({ children }) => {
     const [selectedDay, setSelectedDay] = useState(new Date());  // para el dia seleccionado
     const [isAddFormOpen, setIsAddFormOpen] = useState(false)
     const [preloadData, setPreloadData] = useState(null); // para cargar contenido desde Home a Calendario
+       // const[pendingCount, setPendingCount] = useState(0); // contar las actividades pendientes de hoy!
 
     const [selectedActivity, setSelectedActivity] = useState(null) // para abrir-cerrar la actividad clickada en el calendar
-    
+
     const location = useLocation()
 
     //para el form de las actividades
@@ -108,6 +109,7 @@ export const ActivityProvider = ({ children }) => {
         }
     }
 
+    //para editar la actividad del calendario
     const handleEdit = (actividad) => {
         const [hour, minutes] = actividad.timeExact.split(':') // descomponer la hora en dos partes para ponerlo en el form y poder editarlo
         setPreloadData({
@@ -121,16 +123,40 @@ export const ActivityProvider = ({ children }) => {
         setSelectedDay(new Date(actividad.time))
         console.log(handleEdit)
     }
+    //para eliminar la actividad del calendario
     const handleDelete = (id) => {
         console.log('eliminar actividad con id', id)
     }
+
+    // para filtrar y mostrar en el inicio de la pagina 'Calendario' las actividades q tienes pendientes hoy
     
+    const getPendingActivities = () => {
+        const currentTime = new Date(); //obtener fecha y hora
+        const currentDate = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate()) //obtener la fecha sin la hora
+        
+        const pendingActivities = activities.filter(activity =>{
+
+            const activityDate = new Date(activity.time);
+            const activityStartOfDay = new Date(activityDate.getFullYear(), activityDate.getMonth(), activityDate.getDate()); // obtener las fechas de las actividades (año,mes y dia, sin las horas)
+
+            return activityStartOfDay.getTime() === currentDate.getTime() && activity.time > currentTime
+        })
+        
+        
+        return pendingActivities.length;
+    }
+
+    // para actualizar las el num. de actividades pendientes cuando se cambian las actividades
+    // useEffect(()=>{
+    //     setPendingCount(getPendingActivities())
+    // },[activities])
+
     /* useEffect con useLocation para decidir cuando se tiene que cerrar la actividad seleccionada (para evitar irse a otra sección de la web, y al volver tener todo abierto) */
-    useEffect(()=>{
-        if(!location.pathname.includes('/calendario')){
+    useEffect(() => {
+        if (!location.pathname.includes('/calendario')) {
             setSelectedActivity(null)
         }
-    },[location.pathname])
+    }, [location.pathname])
 
     return (
         <ActivityContext.Provider
@@ -138,7 +164,7 @@ export const ActivityProvider = ({ children }) => {
                 activities, setActivities, setSelectedDay, selectedDay,
                 handleSaveActivity, isAddFormOpen,
                 setIsAddFormOpen, preloadData, setPreloadData,
-                selectedActivity, setSelectedActivity, handleEdit, handleDelete
+                selectedActivity, setSelectedActivity, handleEdit, handleDelete, getPendingActivities
             }}
         >
             {children}

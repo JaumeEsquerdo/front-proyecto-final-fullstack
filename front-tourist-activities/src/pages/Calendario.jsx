@@ -6,7 +6,7 @@ import { useActivity } from '@/context/ActivityContext';
 
 
 const CalendarPage = () => {
-    const { handleDelete, setPreloadData, handleEdit, isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, activities, preloadData, selectedActivity, setSelectedActivity } = useActivity()
+    const {getPendingActivities, handleDelete, setPreloadData, handleEdit, isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, activities, preloadData, selectedActivity, setSelectedActivity } = useActivity()
 
 
     const [selectedDate, setSelectedDate] = useState(new Date()); // almacenar la fecha seleccionada (por defecto la de hoy)
@@ -29,7 +29,10 @@ const CalendarPage = () => {
     const [minutes, setMinutes] = useState('00')
     const [description, setDescription] = useState('')
 
-
+    // para que al cambiar de pagina empiece la otra pagina desde arriba (es decir que el scroll empiece al inicio)
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
 
     /* cada vez que cambie 'selectedDate' generamos los dias d ese mes */
     useEffect(() => {
@@ -170,7 +173,7 @@ const CalendarPage = () => {
             <div className='CalendarHeader'>
                 <div className=''>
                     <h2>Hoy es {formateDate}</h2>
-                    <p>10 actividades pendientes</p>
+                    <p>Actividades pendientes: {getPendingActivities()}</p>
                 </div>
 
                 <button className='CalendarHeader-btn' onClick={() => setShowCalendar(!showCalendar)}>
