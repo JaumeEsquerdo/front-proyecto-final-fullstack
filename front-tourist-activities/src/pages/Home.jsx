@@ -15,147 +15,99 @@ const Home = () => {
     const [packAbierto, setPackAbierto] = useState(null) // para abrir el pack segun su indice
     const { setIsAddFormOpen, setPreloadData, preloadData } = useActivity();
     const [actividades, setActividades] = useState([]); // para guardar las acts que llegan d la API
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
+    const [listaDePacks, setListaDePacks] = useState([]) // par aguardar los packs
+
+    const [loadingAct, setLoadingAct] = useState(true) // loding para act
+    const [loadingPack, setLoadingPack] = useState(true) // loading para pack
+    const [errorAct, setErrorAct] = useState(null) // para errores de acts
+    const [errorPack, setErrorPacks] = useState(null) // para errores de packs
     const navigate = useNavigate();
 
-    // const actividades = [
-    //     { id: 'act1', titulo: 'Museo del Chocolate Valor', descripcion: 'Visita guiada y degustación de chocolates.', tipo: 'cultural', icono: '/img/actividades-tipos/act-cultural.svg' },
-    //     { id: 'act2', titulo: 'Playa Centro', descripcion: 'Relájate en la playa principal de Villajoyosa.', tipo: 'playa', icono: '/img/actividades-tipos/act-cultural.svg' },
-    //     { id: 'act3', titulo: 'Casco antiguo', descripcion: 'Paseo entre casas de colores y calles históricas.', tipo: 'cultural', icono: '/img/actividades-tipos/act-cultural.svg' },
-    //     { id: 'act4', titulo: 'Restaurante Ca Marta', descripcion: 'Cocina mediterránea moderna en un entorno elegante.', tipo: 'restaurante', icono: '/img/actividades-tipos/act-cultural.svg' },
-    //     { id: 'act5', titulo: 'Excursión a Guadalest', descripcion: 'Descubre el castillo y el pueblo en lo alto de la montaña.', tipo: 'excursion', icono: '/img/actividades-tipos/act-cultural.svg' },
-    //     { id: 'act6', titulo: 'Mirador del puerto', descripcion: 'Vistas panorámicas del mar y los barcos pesqueros.', tipo: 'cultural', icono: '/img/actividades-tipos/act-cultural.svg' },
-    //     { id: 'act7', titulo: 'Paseo en kayak', descripcion: 'Explora la costa desde el agua.', tipo: 'aventura', icono: '/img/actividades-tipos/act-cultural.svg' },
-    //     { id: 'act8', titulo: 'Ruta de tapas', descripcion: 'Degusta tapas en bares tradicionales.', tipo: 'restaurante', icono: '/img/actividades-tipos/act-cultural.svg' },
-    //     { id: 'act9', titulo: 'Senderismo en la Malladeta', descripcion: 'Camina por senderos con vistas al mar.', tipo: 'aventura', icono: '/img/actividades-tipos/cultural.svg' },
-    //     { id: 'act10', titulo: 'Tarde en Benidorm', descripcion: 'Compras, playa y ambiente turístico.', tipo: 'compras', icono: '/img/actividades-tipos/cultural.svg' },
-    //     { id: 'act11', titulo: 'Paseo por la Vila Vella', descripcion: 'Antiguo barrio pesquero lleno de encanto.', tipo: 'cultural', icono: '/img/actividades-tipos/cultural.svg' },
-    //     { id: 'act12', titulo: 'Excursión a Altea', descripcion: 'Visita este precioso pueblo blanco con vistas.', tipo: 'restaurante', icono: '/img/actividades-tipos/cultural.svg' },
-    //     { id: 'act13', titulo: 'Paseo marítimo', descripcion: 'Camina junto al mar con restaurantes y tiendas.', tipo: 'relax', icono: '/img/actividades-tipos/cultural.svg' },
-    //     { id: 'act14', titulo: 'Chiringuito al atardecer', descripcion: 'Cóctel frente al mar al caer el sol.', tipo: 'restaurante', icono: '/img/actividades-tipos/cultural.svg' },
-    //     { id: 'act15', titulo: 'Museo municipal', descripcion: 'Conoce la historia local y restos arqueológicos.', tipo: 'cultural', icono: '/img/actividades-tipos/cultural.svg' },
-    //     { id: 'act16', titulo: 'Puerto pesquero', descripcion: 'Observa cómo descargan el pescado fresco.', tipo: 'cultural', icono: '/img/actividades-tipos/cultural.svg' },
-    //     { id: 'act17', titulo: 'Mercado de abastos', descripcion: 'Frutas, verduras y productos locales.', tipo: 'compras', icono: '/img/actividades-tipos/cultural.svg' },
-    //     { id: 'act18', titulo: 'Tour fotográfico', descripcion: 'Captura los rincones más bonitos del pueblo.', tipo: 'relax', icono: '/img/actividades-tipos/cultural.svg' },
-    
-    // ];
-
-    
     const actividadesMostradas = verTodas ? actividades : actividades.slice(0, 6) // para solo ver las 6 primeras actividades recomendadas
 
 
-    const listaDePacks = [
-        {
-            nombre: 'Día de playa',
-            icono: '/img/playa.svg',
-            color: 'orange',
-            actividades: [
-                'act2',  // Playa Centro
-                'act38', // Almuerzo en T-Class
-                'act22', // Heladería La Jijonenca
-                'act45', // Paseo Marítimo
-                'act54', // Tienda de recuerdos junto a la playa
-            ]
-        },
-        {
-            nombre: 'Día cultural',
-            icono: '/img/cultural.svg',
-            color: 'blue',
-            actividades: [
-                'act1',  // Museo Chocolates Valor
-                'act9',  // Casco Antiguo de Villajoyosa
-                'act10', // Murallas renacentistas
-                'act41', // Café en Zerca
-                'act30', // Visita al Mercado Central
-            ]
-        },
-        {
-            nombre: 'Excursión a Altea',
-            icono: '/img/excursion.svg',
-            color: 'yellow',
-            actividades: [
-                'act65', // Playa de Altea
-                'act66', // Casco antiguo de Altea
-                'act67', // Iglesia de Nuestra Señora del Consuelo
-                'act38', // Almuerzo en T-Class (de vuelta)
-                'act28', // Paseo vespertino
-            ]
-        },
-        {
-            nombre: 'Día gastronómico',
-            icono: '/img/gastronomia.svg',
-            color: 'red',
-            actividades: [
-                'act31', // Restaurante El Hogar del Pescador
-                'act32', // Restaurante Ca Marta
-                'act33', // Bar El Tintero
-                'act22', // Heladería La Jijonenca
-                'act55', // Compras gourmet
-            ]
-        },
-        {
-            nombre: 'Naturaleza y relax',
-            icono: '/img/naturaleza.svg',
-            color: 'green',
-            actividades: [
-                'act12', // Ruta por el río Amadorio
-                'act13', // Mirador de La Creueta
-                'act14', // Parque Censal
-                'act29', // Lectura en el parque
-                'act44', // Té en The Garden Café
-            ]
-        }
-    ];
+    const token = localStorage.getItem('token'); // importante, ponerlo fuera para q se actualice de forma general y asi afectar a ambos useEffect
+
 
     const API_URL = import.meta.env.VITE_API_URL
     const API_ROUTER = import.meta.env.VITE_API_ROUTER
     const API_ACTIVIDADES = import.meta.env.VITE_API_ACTIVIDADES
+    const API_PACKS = import.meta.env.VITE_API_PACKS
 
     // useEffect para traer todas las actividades recomendadas
-    useEffect(()=>{
+    useEffect(() => {
         const fetchActividades = async () => {
-            const token = localStorage.getItem('token');
 
-            try{
-                const res = await fetch(`${API_URL}${API_ROUTER}${API_ACTIVIDADES}`,{
-                    method:'GET',
-                    headers:{
+            if (!token) return
+            try {
+                const res = await fetch(`${API_URL}${API_ROUTER}${API_ACTIVIDADES}`, {
+                    method: 'GET',
+                    headers: {
                         Authorization: `Bearer ${token}`
                     }
                 });
 
                 const data = await res.json();
 
-                if(!res.ok){
-                    setError(data.msg ||' error al obtener las actividades')
+                if (!res.ok) {
+                    setErrorAct(data.msg || ' error al obtener las actividades')
                     return;
                 }
 
                 setActividades(data.data)
 
-            }catch(e){
+            } catch (e) {
                 console.error('error en el fetch de actividades en home', e)
-                setError('error en la conexión del servidor')
-            } finally{
-                setLoading(false)
+                setErrorAct('error en la conexión del servidor')
+            } finally {
+                setLoadingAct(false)
             }
         }
-        
+
         fetchActividades();
-        
-    },[])
 
+    }, [token])
+
+    // useEffect(() => {
+    //     console.log('actividades cargadas:', actividades);
+    // }, [actividades]);
+
+
+    //useEffect para la API de packs de acts recomendadas
     useEffect(() => {
-        console.log('actividades cargadas:', actividades);
-      }, [actividades]);
+        const fetchPacksActividades = async () => {
+            if (!token) return
+            try {
+                const res = await fetch(`${API_URL}${API_ROUTER}${API_PACKS}`, {
+                    method: 'GET',
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
 
-    
+                const data = await res.json();
+
+                if (!res.ok) {
+                    setErrorPacks(data.msg || ' error al obtener los packs')
+                    return;
+                }
+                setListaDePacks(data.data)
+            } catch (e) {
+                console.error('error en el fetch de packs en home', e)
+                setErrorPacks('error en la conexión del servidor en el fetch de packs')
+            } finally {
+                setLoadingPack(false)
+            }
+        }
+
+        fetchPacksActividades();
+    }, [token])
+
 
     // para que al cambiar de pagina empiece la otra pagina desde arriba
-    useEffect(()=>{
-        window.scrollTo(0,0)
-    },[])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
 
     /* Ver todas las actividades o una muestra */
@@ -184,8 +136,10 @@ const Home = () => {
         navigate('/calendario')
     }
 
-    if(loading) return <p>Cargando actividades...</p>;
-    if(error) return <p>Error : {error}</p>
+    if (loadingPack) return <p>Cargando packs...</p>;
+    if (loadingAct) return <p>Cargando actividades...</p>;
+    if (errorAct) return <p>Error en actividades : {errorAct}</p>
+    if (errorPack) return <p>Error en packs : {errorPack}</p>
 
     return (
         <>
@@ -202,7 +156,7 @@ const Home = () => {
                     <div className="Act-cardScroll">
                         {listaDePacks.map((pack, i) => (
                             <div onClick={() => handleAbrirPack(i)}
-                                key={i} className={`Act-card ${pack.color}`}>
+                                key={pack._id} className={`Act-card ${pack.color}`}>
                                 <img className="Pack-icono" src={pack.icono} alt="icono pack actividades" />
                                 <h3>{pack.nombre}</h3>
                                 <p>{pack.actividades.length} actividades</p>
@@ -224,7 +178,7 @@ const Home = () => {
 
                                         {/* filter para devolver las actividades completas q estan dentro del pack concreto, segun su id */}
                                         {actividades
-                                            .filter(actividad => listaDePacks[packAbierto].actividades.includes(actividad.id))
+                                            .filter(actividad => listaDePacks[packAbierto].actividades.includes(actividad._id))
                                             .map(actividad => (
                                                 <div key={actividad._id} className="Pack-activity">
 
