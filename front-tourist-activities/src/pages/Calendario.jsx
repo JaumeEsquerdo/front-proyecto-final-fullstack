@@ -6,7 +6,7 @@ import { useActivity } from '@/context/ActivityContext';
 
 
 const CalendarPage = () => {
-    const {getPendingActivities, handleDelete, setPreloadData, handleEdit, isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, activities, preloadData, selectedActivity, setSelectedActivity } = useActivity()
+    const { setActivities,getPendingActivities, handleDelete, setPreloadData, handleEdit, isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, preloadData, selectedActivity, setSelectedActivity } = useActivity()
 
 
     const [selectedDate, setSelectedDate] = useState(new Date()); // almacenar la fecha seleccionada (por defecto la de hoy)
@@ -28,11 +28,16 @@ const CalendarPage = () => {
     const [hour, setHour] = useState("10");
     const [minutes, setMinutes] = useState('00')
     const [description, setDescription] = useState('')
+    const [displayHours, setDisplayHours] = useState('')
+
+    const API_URL = import.meta.env.VITE_API_URL
+    const API_ROUTER = import.meta.env.VITE_API_ROUTER
+    const API_CALENDAR_ACTS = import.meta.env.VITE_API_CALENDAR_ACTS
 
     // para que al cambiar de pagina empiece la otra pagina desde arriba (es decir que el scroll empiece al inicio)
-    useEffect(()=>{
-        window.scrollTo(0,0)
-    },[])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     /* cada vez que cambie 'selectedDate' generamos los dias d ese mes */
     useEffect(() => {
@@ -84,35 +89,92 @@ const CalendarPage = () => {
 
     const visibleHours = generateHours(showExtraHours ? 0 : 7, 25) // si quiero mostrar todas las horas emepieza desde 0:00, si no empieza de 7:00 a 24:00, pone 25 porq el bucle funciona cuando i<25 para que llegue a 24:00 y si i=== 24 pongo 00:00
 
-    //para el form de las actividades
-    const handleSubmit = (e) => {
+    // CREAR o EDITAR ACTIVIDADES CALENDARIO!!
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const result = handleSaveActivity({ id: preloadData?.id, title, hour, description, minutes, date: selectedDay })
+        const token = localStorage.getItem('token');
+        if (!token) return
+        console.log('Token en el frontend:', token); // Verifica que el token esté en el frontend
 
 
-        if (result === 'creado') {
-            setToastMessage('Actividad creada con éxito')
-        } else if (result === 'editado') {
-            setToastMessage('Actividad editada con éxito')
+        const horaCompleta = `${hour}:${minutes}`; //para guardarlo en time
+        const fechaConHora = new Date(selectedDay);
+        fechaConHora.setHours(Number(hour))
+        fechaConHora.setMinutes(Number(minutes)) // para guardarlo en timeExact
+
+        const actividad = {
+            title: title,
+            description: description,
+            time: fechaConHora,
+            timeExact: horaCompleta,
+            displayHours: `${hour}:00`
+        }
+        console.log("Actividad que se va a enviar:", actividad);
+
+        try {
+            let res;
+            let data;
+
+            if (selectedActivity && selectedActivity._id) {
+                //si la act esta seleccionada y tiene un id, la editamos
+                res = await fetch(`${API_URL}${API_ROUTER}${API_CALENDAR_ACTS}/${selectedActivity._id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+
+                    },
+                    body: JSON.stringify(actividad)
+                });
+                data = await res.json();
+
+                if (res.ok) {
+                    // si el EDIT es ok...
+                    setActivities((prev) => prev.map((a) => (a.id === selectedActivity._id ? { ...a, ...actividad } : a))) // aqui solo actualiza el array de actividades para reemplzara solo la actividad editaada que coincide en id, si no se mantiene igual
+                    setToastMessage('Actividad EDITADA con éxito')
+                } else {
+                    console.error('Error editando la actividad', data.msg)
+                }
+            } else {
+                // si la actividad no esta seleccioanda 
+                res = await fetch(`${API_URL}${API_ROUTER}${API_CALENDAR_ACTS}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(actividad)
+                });
+                data = await res.json();
+
+                if (res.ok) {
+                    setActivities((prev) => [...prev, data]) //agregamos la act(data) al resto ya guardado
+                    setToastMessage('Actividad creada con éxito')
+                } else {
+                    console.error('Error creando la actividad', data.msg)
+                }
+            }
+
+            // limpiar campos
+            setTitle('');
+            setDescription('');
+            setHour('10');
+            setMinutes('10')
+            setDisplayHours('')
+            setSelectedActivity(null)
+            setIsAddFormOpen(false)
+
+            setTimeout(() => {
+                setToastMessage(null)
+            }, 4500)
+
+
+        } catch (e) {
+            console.error('error en el proceso de editar/crear actividad en el calendario', e)
         }
 
-
-        //limpieza de inputs
-        if (result) {
-            setTitle("")
-            setDescription("")
-            setHour('10')
-            setMinutes('00')
-            setPreloadData(null)
-
-        }
-        setIsAddFormOpen(false)
-
-        setTimeout(() => {
-            setToastMessage(null)
-        }, 4500)
-    }
+    };
 
 
     console.log('preload de clandar', preloadData)
@@ -213,7 +275,6 @@ const CalendarPage = () => {
                             showExtraHours={showExtraHours}
                             selectedDay={selectedDay}
                             visibleHours={visibleHours}
-                            activities={activities}
                             dateOptions={dateOptions}
                         />
 
@@ -227,7 +288,8 @@ const CalendarPage = () => {
                                 onSubmit={handleSubmit}>
 
 
-                                <input type="text" placeholder='Nombre actividad' value={title} onChange={(e) => setTitle(e.target.value)}
+                                <input type="text" placeholder='Nombre actividad' value={selectedActivity ? selectedActivity.title : title} // si hay act seleccionada, precargar 
+                                    onChange={(e) => setTitle(e.target.value)}
                                     required
                                     className='CalendarForm-input'
                                 />
@@ -235,7 +297,7 @@ const CalendarPage = () => {
                                 {/* select de horas */}
                                 <select
                                     className='CalendarForm-select'
-                                    value={hour} onChange={(e) => setHour(e.target.value)}>
+                                    value={selectedActivity ? selectedActivity.hour : hour} onChange={(e) => setHour(e.target.value)}>
                                     {/* listar las horas con el indice(creo un array vacion con 24 posiciones undefined y a cada indice le asigno el valor de cada hora del 0 al 23) */}
                                     {[...Array(24)].map((_, i) => (
                                         <option key={i} value={i.toString().padStart(2, '0')}>
@@ -247,7 +309,7 @@ const CalendarPage = () => {
                                 {/* select de minutos */}
                                 <select
                                     className='CalendarForm-select'
-                                    value={minutes} onChange={(e) => setMinutes(e.target.value)}>
+                                    value={selectedActivity ? selectedActivity.minutes : minutes} onChange={(e) => setMinutes(e.target.value)}>
                                     <option value="00">00</option>
                                     <option value="15">15</option>
                                     <option value="30">30</option>
@@ -257,7 +319,7 @@ const CalendarPage = () => {
                                 <textarea
                                     className='CalendarForm-textarea'
                                     placeholder='Descripción (opcional)'
-                                    value={description}
+                                    value={selectedActivity ? selectedActivity.description : description}
                                     onChange={(e) => setDescription(e.target.value)}
                                     rows={10}
                                     cols={40}
@@ -266,7 +328,9 @@ const CalendarPage = () => {
 
 
 
-                                <button className='CalendarForm-btn' type='submit'>Guardar actividad</button>
+                                <button className='CalendarForm-btn' type='submit'>
+                                    {selectedActivity ? 'Actualizar actividad' : 'Guardar actividad'}
+                                </button>
                                 <button className='CalendarForm-btn' onClick={handleCloseForm}>Cerrar formulario</button>
                             </form>
 
@@ -283,13 +347,13 @@ const CalendarPage = () => {
                                 <button className='ActividadSeleccionada-close' onClick={handleOffSelectedActivity}>X</button>
                                 <h3 className='ActividadSeleccionada-h3'>Actividad seleccionada</h3>
                                 <h4 className='ActividadSeleccionada-h4'>{selectedActivity.title}</h4>
-                                {selectedActivity.description ? (<p className='ActividadSeleccionada-p'><strong>Desripción</strong>{selectedActivity.description}</p>
+                                {selectedActivity.description ? (<p className='ActividadSeleccionada-p'><strong>Descripción</strong>{selectedActivity.description}</p>
                                 ) : ""}
                                 <p className='ActividadSeleccionada-p'><strong>Hora:</strong>{selectedActivity.timeExact}</p>
 
                                 <div className='ActividadSeleccionada-botones'>
                                     <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--edit' onClick={() => handleEdit(selectedActivity)}>Editar</button>
-                                    <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--delete' onClick={() => handleDelete(selectedActivity.id)}>Eliminar</button>
+                                    <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--delete' onClick={() => handleDelete(selectedActivity._id)}>Eliminar</button>
                                 </div>
                             </div>
                         )}

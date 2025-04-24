@@ -13,7 +13,9 @@ const Home = () => {
 
     const [verTodas, setVertodas] = useState(false); //para ver solo unas pocas act recomendadas o verlas todas
     const [packAbierto, setPackAbierto] = useState(null) // para abrir el pack segun su indice
+    
     const { setIsAddFormOpen, setPreloadData, preloadData } = useActivity();
+    
     const [actividades, setActividades] = useState([]); // para guardar las acts que llegan d la API
     const [listaDePacks, setListaDePacks] = useState([]) // par aguardar los packs
 

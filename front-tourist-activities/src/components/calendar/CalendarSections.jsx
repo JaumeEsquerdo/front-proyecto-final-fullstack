@@ -104,7 +104,7 @@ const DayButton = ({ day, today, todayRef, selectedDay, onSelectDay }) => {
 
 
 /*---MOSTRAR ACTIVIDADES DEL DIA SELECCIONADO POR HORAS--- */
-export const ActivityPanel = ({ setShowExtraHours,showExtraHours,selectedDay, visibleHours, activities, dateOptions }) => {
+export const ActivityPanel = ({ setShowExtraHours,showExtraHours,selectedDay, visibleHours, dateOptions }) => {
     const now = new Date();
 
     return (
@@ -116,7 +116,7 @@ export const ActivityPanel = ({ setShowExtraHours,showExtraHours,selectedDay, vi
                 </button>
                 {visibleHours.map((hour, i) => (
                     <BloqueHora key={i} hour={hour}
-                        activities={activities} selectedDay={selectedDay}
+                        selectedDay={selectedDay}
                         now={now} />
                 ))}
             </div>
@@ -124,7 +124,8 @@ export const ActivityPanel = ({ setShowExtraHours,showExtraHours,selectedDay, vi
     );
 }
 
-const BloqueHora = ({ hour, activities, selectedDay, now }) => {
+const BloqueHora = ({ hour, selectedDay, now }) => {
+    const {activities} = useActivity();
     const actividadesDeEstaHora = activities.filter(a => a.displayHour === hour && new Date(a.time).toDateString() === selectedDay.toDateString()) //mostrar actividades por horas y q esten separadas segun la hora
 
     return (
