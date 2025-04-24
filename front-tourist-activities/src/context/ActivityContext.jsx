@@ -33,7 +33,13 @@ export const ActivityProvider = ({ children }) => {
 
     const [selectedDay, setSelectedDay] = useState(new Date());  // para el dia seleccionado
     const [isAddFormOpen, setIsAddFormOpen] = useState(false)
-    const [preloadData, setPreloadData] = useState(null); // para cargar contenido desde Home a Calendario
+    const [preloadData, setPreloadData] = useState({
+        title: '',
+        description: '',
+        hour: '10',
+        minutes: '00',
+        id: ''
+    }); // para cargar contenido desde Home a Calendario
     // const[pendingCount, setPendingCount] = useState(0); // contar las actividades pendientes de hoy!
 
     const [selectedActivity, setSelectedActivity] = useState(null) // para abrir-cerrar la actividad clickada en el calendar

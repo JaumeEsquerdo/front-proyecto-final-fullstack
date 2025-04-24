@@ -201,7 +201,11 @@ const CalendarPage = () => {
     /* cerrar y limpiar form */
     const handleCloseForm = () => {
         setIsAddFormOpen(false)
-        setPreloadData(null)
+        setPreloadData({title: '',
+            description: '',
+            hour: '10',
+            minutes: '00',
+            id: ''})
     }
 
     /* useEffect para q cuando abra el form de añadir actividad se redirija alli (ya q se posiciona en la zona baja y no se ve si no lo sabes) */
@@ -290,7 +294,7 @@ const CalendarPage = () => {
                                 onSubmit={handleSubmit}>
 
 
-                                <input type="text" placeholder='Nombre actividad' value={preloadData.title ||''} // si hay act seleccionada, precargar 
+                                <input type="text" placeholder='Nombre actividad' value={preloadData?.title ||''} // si hay act seleccionada, precargar 
                                     onChange={(e) => setPreloadData({...preloadData, title: e.target.value})}
                                     required
                                     className='CalendarForm-input'
