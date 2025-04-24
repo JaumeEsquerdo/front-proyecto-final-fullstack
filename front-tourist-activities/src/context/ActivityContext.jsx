@@ -72,7 +72,6 @@ export const ActivityProvider = ({ children }) => {
             setActivities(prev =>
                 prev.map(act => act.id === id ? { ...act, ...newActivity, id } : act)
             )
-            console.log('activvidad editada:', newActivity)
             return 'editado'
         }
 
@@ -80,7 +79,6 @@ export const ActivityProvider = ({ children }) => {
             //creando act
             const newWidthId = { ...newActivity, id: Math.floor(Math.random()) }
             setActivities((prev) => [...prev, newWidthId])
-            console.log('añadiendo actividad,', newWidthId)
             return 'creado'
         }
     }
@@ -89,14 +87,16 @@ export const ActivityProvider = ({ children }) => {
 
     //para cargar la actividad del calendario que se va a editar
     const handleEdit = (actividad) => {
+        console.log('Actividad seleccionada para editar:', actividad);
         const [hour, minutes] = actividad.timeExact.split(':') // descomponer la hora en dos partes para ponerlo en el form y poder editarlo
         setPreloadData({
             title: actividad.title,
             description: actividad.description || '',
             hour,
             minutes,
-            id: actividad._id
+            id: actividad.id
         })
+        setSelectedActivity(actividad) // necesario para q sepa el form q estamos editando la act no creando una
         setIsAddFormOpen(true)
         setSelectedDay(new Date(actividad.time))
         console.log('abriendo form actiivdad', actividad)
@@ -115,7 +115,6 @@ export const ActivityProvider = ({ children }) => {
 
     //para eliminar la actividad del calendario
     const handleDelete = async (id) => { // paso el id en este caso se necesita saber el id directamente
-        console.log("IDDDDD recibido en handleDelete:", id);  // Verifica si el ID es undefined
 
         try {
             const token = localStorage.getItem('token');
@@ -193,8 +192,7 @@ export const ActivityProvider = ({ children }) => {
 
             const data = await res.json();
 
-            console.log("Actividades cargadas desde la API:", data);  // Verifica las actividades al cargarlas
-            console.log("Estructura de datos recibidos:", data.data); // Asegúrate de que cada actividad tenga _id
+           
 
 
             if (!res.ok) {
@@ -215,7 +213,7 @@ export const ActivityProvider = ({ children }) => {
                 setActivities(parsedActivities)
             }
 
-            console.log('actividades del calendario', data)
+            // console.log('actividades del calendario', data)
 
         } catch (e) {
             console.error('error en el fetch de actividades en home', e)
@@ -230,9 +228,9 @@ export const ActivityProvider = ({ children }) => {
         
     }, []) // cada vez q cambie actividades se ejecuta asi no tengo ni que pasarlo a Calendario
 
-    useEffect(() =>{
-        console.log('ACTIVITIEEEES', activities)
-    },[activities])
+    // useEffect(() =>{
+    //     console.log('ACTIVITIEEEES', activities)
+    // },[activities])
 
     return (
         <ActivityContext.Provider

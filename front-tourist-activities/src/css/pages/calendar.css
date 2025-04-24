@@ -211,8 +211,14 @@
     padding: var(--btn-padding);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
-}
+    appearance: none; /* <- Esto desactiva el estilo nativo */
 
+}
+.CalendarForm-input:focus,
+.CalendarForm-textarea:focus,
+.CalendarForm-select:focus{
+border-color: #4b5bb2;
+}
 
 .CalendarForm-btn {
     padding: var(--btn-padding);
@@ -220,7 +226,17 @@
     border: none;
     border-radius: var(--btn-radius);
     cursor: pointer;
-    color: var(--color-text-p);
+    color: white;
+
+}
+
+.CalendarForm-btn--confirm{
+    background-color: #4b964d;
+
+}
+.CalendarForm-btn--cancel{
+    background-color: #db2a41;
+
 }
 
 /* parte de la actividad seleccionada  */

@@ -126,10 +126,8 @@ export const ActivityPanel = ({ setShowExtraHours, showExtraHours, selectedDay, 
 
 const BloqueHora = ({ hour, selectedDay, now }) => {
     const { activities } = useActivity();
-    console.log("Activities antes del filtro:", activities);
 
     const actividadesDeEstaHora = activities.filter(a => a.displayHours === hour && new Date(a.time).toDateString() === selectedDay.toDateString()) //mostrar actividades por horas y q esten separadas segun la hora
-    console.log("Actividades de esta hora:", actividadesDeEstaHora);
 
     return (
         <div className={`BloqueHoras`}>

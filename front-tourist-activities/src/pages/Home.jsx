@@ -33,7 +33,7 @@ const Home = () => {
 
     const API_URL = import.meta.env.VITE_API_URL
     const API_ROUTER = import.meta.env.VITE_API_ROUTER
-    const API_ACTIVIDADES = import.meta.env.VITE_API_ACTIVIDADES
+    const API_ACTIVIDADES_PUBLIC = import.meta.env.VITE_API_ACTIVIDADES_PUBLIC
     const API_PACKS = import.meta.env.VITE_API_PACKS
 
     // useEffect para traer todas las actividades recomendadas
@@ -42,7 +42,7 @@ const Home = () => {
 
             if (!token) return
             try {
-                const res = await fetch(`${API_URL}${API_ROUTER}${API_ACTIVIDADES}`, {
+                const res = await fetch(`${API_URL}${API_ROUTER}${API_ACTIVIDADES_PUBLIC}`, {
                     method: 'GET',
                     headers: {
                         Authorization: `Bearer ${token}`
