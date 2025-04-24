@@ -262,6 +262,9 @@ export const ActivityProvider = ({ children }) => {
 
                 const data = await res.json();
 
+                console.log("Actividades cargadas desde la API:", data);  // Verifica las actividades al cargarlas
+
+
                 if (!res.ok) {
                     setActivitiesError(data.msg || 'Error al obtener las actividades')
                     return;
