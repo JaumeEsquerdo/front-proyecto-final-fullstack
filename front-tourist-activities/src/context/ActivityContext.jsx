@@ -26,6 +26,10 @@ export const ActivityProvider = ({ children }) => {
     /* estados de horas y minutos que se necesitan tanto enn calendario como en el handle de setSelectedActivity */
     const [hour, setHour] = useState("10"); 
     const [minutes, setMinutes] = useState('00')
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('')
+
+
 
     const [selectedDay, setSelectedDay] = useState(new Date());  // para el dia seleccionado
     const [isAddFormOpen, setIsAddFormOpen] = useState(false)
@@ -81,6 +85,8 @@ export const ActivityProvider = ({ children }) => {
         }
     }
 
+    
+
     //para cargar la actividad del calendario que se va a editar
     const handleEdit = (actividad) => {
         const [hour, minutes] = actividad.timeExact.split(':') // descomponer la hora en dos partes para ponerlo en el form y poder editarlo
@@ -96,53 +102,16 @@ export const ActivityProvider = ({ children }) => {
         console.log('abriendo form actiivdad', actividad)
     }
 
-    // esta funcion es la que se activa cuando confirma cambio en el edit de la actividad
-    // const handleSubmit = async (e) => { //aqui la actividad ya esta seleccionada (no hace falta pasar el id directo)
-    //     e.preventDefault();
+    const resetForm = () =>{
+        setTitle('');
+        setDescription('');
+        setHour('10');
+        setMinutes('00');
+        setSelectedActivity(null)
+        setIsAddFormOpen(false)
+    
+    }
 
-    //     const token = localStorage.getItem('token');
-    //     //if (!token || selectedActivity.id) return; // selectedActivity.id es para coger el id de la actividad correspondiente
-
-    //     const horaCompleta = `${preloadData.hour}:${preloadData.minutes}`; //para guardarlo en time
-    //     const fechaConHora = new Date(selectedDay);
-    //     fechaConHora.setHours(Number(preloadData.hour))
-    //     fechaConHora.setMinutes(Number(preload.minutes)) // para guardarlo en timeExact
-
-    //     const actividadEditada = {
-    //         title: preloadData.title,
-    //         description: preloadData.description,
-    //         time: fechaConHora,
-    //         timeExact: horaCompleta,
-    //         displayHour: `${preloadData.hour}:00`
-    //     }
-
-    //     try {
-    //         const res = await fetch(`${API_URL}${API_ROUTER}${API_CALENDAR_ACTS}/${selectedActivity._id}`, {
-    //             method: 'PUT',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Authorization': `Bearer ${token}`
-
-    //             },
-    //             body: JSON.stringify(actividadEditada)
-    //         })
-
-    //         const data = await res.json();
-
-    //         if (res.ok) {
-    //             // y si esta bien se actualiza en el estado
-    //             setActivities((prev) => prev.map((a) => (a.id === selectedActivity._id ? { ...a, ...actividadEditada } : a))) // aqui solo actualiza el array de actividades para reemplzara solo la actividad editaada que coincide en id, si no se mantiene igual
-    //             setIsAddFormOpen(false);
-    //             setPreloadData({ title: '', description: '', hour: '', minutes: '', id: null })
-    //         } else {
-    //             console.error('error edit actividad', data.msg)
-    //         }
-
-    //     } catch (e) {
-    //         console.error('error al enviar cambios de la act', e)
-    //     }
-
-    // }
 
     //para eliminar la actividad del calendario
     const handleDelete = async (id) => { // paso el id en este caso se necesita saber el id directamente
@@ -168,6 +137,7 @@ export const ActivityProvider = ({ children }) => {
                 console.error('error al eliminar la actividad', data.msg)
             }
 
+            resetForm();
         } catch (e) {
             console.error('error en la eliminación de la actividad', e)
         }
@@ -267,7 +237,7 @@ export const ActivityProvider = ({ children }) => {
     return (
         <ActivityContext.Provider
             value={{
-                hour, setHour,
+                hour, setHour, title, description, setTitle, setDescription,
                 minutes, setMinutes,
                 fetchActivities,
                 activitiesError, activitiesLoading,

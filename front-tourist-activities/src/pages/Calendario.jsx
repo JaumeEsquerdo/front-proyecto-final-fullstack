@@ -6,7 +6,7 @@ import { useActivity } from '@/context/ActivityContext';
 
 
 const CalendarPage = () => {
-    const { hour, setHour,
+    const { title, description, setTitle, setDescription,hour, setHour,
         minutes, setMinutes, fetchActivities, setActivities, getPendingActivities, handleDelete, setPreloadData, handleEdit, isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, preloadData, selectedActivity, setSelectedActivity } = useActivity()
 
 
@@ -25,9 +25,7 @@ const CalendarPage = () => {
     const [toastMessage, setToastMessage] = useState(null); // para manejar texto flotante de cuando se crea o se edita con exito una act
 
     // para los inputs
-    const [title, setTitle] = useState('');
-    // hour y minutes vienen del provider
-    const [description, setDescription] = useState('')
+    // title, description, hour y minutes vienen del provider
     const [displayHours, setDisplayHours] = useState('')
 
     const API_URL = import.meta.env.VITE_API_URL
