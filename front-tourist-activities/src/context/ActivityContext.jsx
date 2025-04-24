@@ -18,55 +18,14 @@ export const ActivityProvider = ({ children }) => {
     //             description: "Reunion de equipo de volley",
     //             id: '1'
     //         },
-    //         {
-    //             title: "Clase de yoga",
-    //             time: new Date("2025-04-16T08:00:00"),
-    //             timeExact: "08:00",
-    //             displayHour: "08:00",
-    //             id: '2'
-    //         },
-    //         {
-    //             title: "Café con Ana",
-    //             time: new Date("2025-04-16T17:15:00"),
-    //             timeExact: "17:15",
-    //             displayHour: "17:00",
-    //             id: '3'
-    //         },
-    //         {
-    //             title: "Comida con familia",
-    //             time: new Date("2025-04-16T14:00:00"),
-    //             timeExact: "21:00",
-    //             displayHour: "14:00",
-    //             id: '4'
-    //         },
-    //         {
-    //             title: "Tarea frontend",
-    //             time: new Date("2025-04-16T18:45:00"),
-    //             timeExact: "18:45",
-    //             displayHour: "18:00",
-    //             id: '5'
-    //         },
-    //         {
-    //             title: "Salir a correr",
-    //             time: new Date("2025-04-16T23:30:00"),
-    //             timeExact: "23:30",
-    //             displayHour: "23:00",
-    //             id: '6'
-    //         }
-    //         ,
-    //         {
-    //             title: "Salir a pasear",
-    //             time: new Date("2025-05-16T07:30:00"),
-    //             timeExact: "07:30",
-    //             displayHour: "07:00",
-    //             id: '7'
-    //         }
-    //     ]);
+    //         
 
     const [activities, setActivities] = useState([]); // guardar las actividades guardadas en el calendario
     const [activitiesError, setActivitiesError] = useState(null); // guardar error para las activities
     const [activitiesLoading, setActivitiesLoading] = useState(true); // dejar cargando si llega el fetch
-
+    /* estados de horas y minutos que se necesitan tanto enn calendario como en el handle de setSelectedActivity */
+    const [hour, setHour] = useState("10"); 
+    const [minutes, setMinutes] = useState('00')
 
     const [selectedDay, setSelectedDay] = useState(new Date());  // para el dia seleccionado
     const [isAddFormOpen, setIsAddFormOpen] = useState(false)
@@ -81,6 +40,7 @@ export const ActivityProvider = ({ children }) => {
     const API_URL = import.meta.env.VITE_API_URL
     const API_ROUTER = import.meta.env.VITE_API_ROUTER
     const API_CALENDAR_ACTS_USER = import.meta.env.VITE_API_CALENDAR_ACTS_USER
+    const API_CALENDAR_ACTS = import.meta.env.VITE_API_CALENDAR_ACTS
 
 
     //para el form de las actividades
@@ -186,12 +146,13 @@ export const ActivityProvider = ({ children }) => {
 
     //para eliminar la actividad del calendario
     const handleDelete = async (id) => { // paso el id en este caso se necesita saber el id directamente
+        console.log("IDDDDD recibido en handleDelete:", id);  // Verifica si el ID es undefined
 
         try {
             const token = localStorage.getItem('token');
             if (!token) return;
 
-            const res = await fetch(`${API_URL}${API_ROUTER}${API_CALENDAR_ACTS_USER}/${id}`, {
+            const res = await fetch(`${API_URL}${API_ROUTER}${API_CALENDAR_ACTS}/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -263,6 +224,7 @@ export const ActivityProvider = ({ children }) => {
             const data = await res.json();
 
             console.log("Actividades cargadas desde la API:", data);  // Verifica las actividades al cargarlas
+            console.log("Estructura de datos recibidos:", data.data); // Asegúrate de que cada actividad tenga _id
 
 
             if (!res.ok) {
@@ -305,6 +267,8 @@ export const ActivityProvider = ({ children }) => {
     return (
         <ActivityContext.Provider
             value={{
+                hour, setHour,
+                minutes, setMinutes,
                 fetchActivities,
                 activitiesError, activitiesLoading,
                 activities, setActivities, setSelectedDay, selectedDay,

@@ -104,7 +104,7 @@ const DayButton = ({ day, today, todayRef, selectedDay, onSelectDay }) => {
 
 
 /*---MOSTRAR ACTIVIDADES DEL DIA SELECCIONADO POR HORAS--- */
-export const ActivityPanel = ({ setShowExtraHours,showExtraHours,selectedDay, visibleHours, dateOptions }) => {
+export const ActivityPanel = ({ setShowExtraHours, showExtraHours, selectedDay, visibleHours, dateOptions }) => {
     const now = new Date();
 
     return (
@@ -112,7 +112,7 @@ export const ActivityPanel = ({ setShowExtraHours,showExtraHours,selectedDay, vi
             <div className='Actividades'>
                 <h3 className="Actividades-h3">Actividades para {selectedDay.toLocaleDateString('es-Es', dateOptions)}</h3>
                 <button className="Actividades-btn" onClick={() => setShowExtraHours(!showExtraHours)}>
-                    {showExtraHours? 'Ocultar horas extra': 'Mostrar todas las horas'}
+                    {showExtraHours ? 'Ocultar horas extra' : 'Mostrar todas las horas'}
                 </button>
                 {visibleHours.map((hour, i) => (
                     <BloqueHora key={i} hour={hour}
@@ -125,7 +125,7 @@ export const ActivityPanel = ({ setShowExtraHours,showExtraHours,selectedDay, vi
 }
 
 const BloqueHora = ({ hour, selectedDay, now }) => {
-    const {activities} = useActivity();
+    const { activities } = useActivity();
     console.log("Activities antes del filtro:", activities);
 
     const actividadesDeEstaHora = activities.filter(a => a.displayHours === hour && new Date(a.time).toDateString() === selectedDay.toDateString()) //mostrar actividades por horas y q esten separadas segun la hora
@@ -144,7 +144,7 @@ const BloqueHora = ({ hour, selectedDay, now }) => {
 
 
 const Actividad = ({ activity, now }) => {
-    const {setSelectedActivity } = useActivity()
+    const { setSelectedActivity } = useActivity()
     const activityDate = new Date(activity.time)
     const hasPassed = activityDate < now;
 
@@ -155,9 +155,15 @@ const Actividad = ({ activity, now }) => {
     let clase = 'actividad-futura'
     if (hasPassed) clase = 'actividad-pasada'
     else if (isSoon) clase = 'actividad-pronto'
-
+    // aqui paso la actividad al selectedActivity!!!
     return (
-        <p onClick={() => {setSelectedActivity(activity)}} className={`CalendarioHoras ${clase}`}>
+        <p onClick={() => {
+            
+        console.log('Actividad seleccionada:', activity);
+            { setSelectedActivity(activity) }
+
+        }
+        } className={`CalendarioHoras ${clase}`}>
             {activity.timeExact} - {activity.title}
         </p>
     )

@@ -6,7 +6,8 @@ import { useActivity } from '@/context/ActivityContext';
 
 
 const CalendarPage = () => {
-    const { fetchActivities, setActivities, getPendingActivities, handleDelete, setPreloadData, handleEdit, isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, preloadData, selectedActivity, setSelectedActivity } = useActivity()
+    const { hour, setHour,
+        minutes, setMinutes, fetchActivities, setActivities, getPendingActivities, handleDelete, setPreloadData, handleEdit, isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, preloadData, selectedActivity, setSelectedActivity } = useActivity()
 
 
     const [selectedDate, setSelectedDate] = useState(new Date()); // almacenar la fecha seleccionada (por defecto la de hoy)
@@ -25,8 +26,7 @@ const CalendarPage = () => {
 
     // para los inputs
     const [title, setTitle] = useState('');
-    const [hour, setHour] = useState("10");
-    const [minutes, setMinutes] = useState('00')
+    // hour y minutes vienen del provider
     const [description, setDescription] = useState('')
     const [displayHours, setDisplayHours] = useState('')
 
@@ -301,7 +301,7 @@ const CalendarPage = () => {
                                 {/* select de horas */}
                                 <select
                                     className='CalendarForm-select'
-                                    value={selectedActivity ? selectedActivity.hour : hour} onChange={(e) => setHour(e.target.value)}>
+                                    value={selectedActivity ? selectedActivity.timeExact.split(":")[0] : hour} onChange={(e) => setHour(e.target.value)}>
                                     {/* listar las horas con el indice(creo un array vacion con 24 posiciones undefined y a cada indice le asigno el valor de cada hora del 0 al 23) */}
                                     {[...Array(24)].map((_, i) => (
                                         <option key={i} value={i.toString().padStart(2, '0')}>
@@ -313,7 +313,7 @@ const CalendarPage = () => {
                                 {/* select de minutos */}
                                 <select
                                     className='CalendarForm-select'
-                                    value={selectedActivity ? selectedActivity.minutes : minutes} onChange={(e) => setMinutes(e.target.value)}>
+                                    value={selectedActivity ? selectedActivity.timeExact.split(":")[1] : minutes} onChange={(e) => setMinutes(e.target.value)}>
                                     <option value="00">00</option>
                                     <option value="15">15</option>
                                     <option value="30">30</option>
@@ -357,7 +357,8 @@ const CalendarPage = () => {
 
                                 <div className='ActividadSeleccionada-botones'>
                                     <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--edit' onClick={() => handleEdit(selectedActivity)}>Editar</button>
-                                    <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--delete' onClick={() => handleDelete(selectedActivity._id)}>Eliminar</button>
+                                    <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--delete' onClick={() =>{    console.log("Actividad seleccionada:", selectedActivity);
+handleDelete(selectedActivity.id)} }>Eliminar</button>
                                 </div>
                             </div>
                         )}
