@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 // import { color } from "framer-motion";
 import { useActivity } from '@/context/ActivityContext'
 import { useNavigate } from "react-router";
+import { color } from "framer-motion";
 //import { preload } from "react-dom";
 // import { verificarLogin } from "@/components/utiles/Auth";
 
@@ -13,9 +14,9 @@ const Home = () => {
 
     const [verTodas, setVertodas] = useState(false); //para ver solo unas pocas act recomendadas o verlas todas
     const [packAbierto, setPackAbierto] = useState(null) // para abrir el pack segun su indice
-    
+
     const { setIsAddFormOpen, setPreloadData, preloadData } = useActivity();
-    
+
     const [actividades, setActividades] = useState([]); // para guardar las acts que llegan d la API
     const [listaDePacks, setListaDePacks] = useState([]) // par aguardar los packs
 
@@ -25,8 +26,17 @@ const Home = () => {
     const [errorPack, setErrorPacks] = useState(null) // para errores de packs
     const navigate = useNavigate();
 
-    const actividadesMostradas = verTodas ? actividades : actividades.slice(0, 6) // para solo ver las 6 primeras actividades recomendadas
+    const tipos = [ // para filtrar cuando esté activo verTodas
+        { nombre: 'Todos', valor: '' },
+        { nombre: 'Naturaleza', valor: 'naturaleza' },
+        { nombre: 'Cultural', valor: 'cultural' },
+        { nombre: 'Playa', valor: 'playa' },
+        { nombre: 'Deporte', valor: 'deporte' },
+        { nombre: 'Gastronomía', valor: 'gastronomia' },
+        { nombre: 'Ocio', valor: 'ocio' },
+    ]
 
+    const [tipoSeleccionado, setTipoSeleccionado] = useState('')
 
     const token = localStorage.getItem('token'); // importante, ponerlo fuera para q se actualice de forma general y asi afectar a ambos useEffect
 
@@ -35,6 +45,19 @@ const Home = () => {
     const API_ROUTER = import.meta.env.VITE_API_ROUTER
     const API_ACTIVIDADES_PUBLIC = import.meta.env.VITE_API_ACTIVIDADES_PUBLIC
     const API_PACKS = import.meta.env.VITE_API_PACKS
+
+
+    const actividadesMostradas = verTodas ? actividades : actividades.slice(0, 6) // para solo ver las 6 primeras actividades recomendadas
+
+
+
+    // handle para poner el tipo clickado
+    const handleFiltroTipo = (tipo) => {
+        setTipoSeleccionado(tipo)
+    }
+
+    const actividadesFiltradas = tipoSeleccionado ? actividadesMostradas.filter((act) => act.tipo === tipoSeleccionado) : actividadesMostradas;
+
 
     // useEffect para traer todas las actividades recomendadas
     useEffect(() => {
@@ -210,8 +233,22 @@ const Home = () => {
                         <Link className="Activities-more" onClick={handleActividades}>{verTodas ? "Ver menos" : "Ver todas"}</Link>
                     </div>
 
+                    {verTodas && (
+                        <div className="Actividades-filtros">
+                            {tipos.map((tipo) => (
+                                <button key={tipo.valor}
+                                    className={`Actividad-filtro ${tipoSeleccionado === tipo.valor ? `activo` : tipo.valor}`}
+                                    onClick={() => handleFiltroTipo(tipo.valor)}
+
+                                >
+                                    {tipo.nombre}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+
                     <div>
-                        {actividadesMostradas.map((actividad) => (
+                        {actividadesFiltradas.map((actividad) => (
                             <div className="Activities-act" key={actividad._id}>
                                 <img className="Activities-img" src={actividad.icono} alt="Icono actividad" />
                                 <div className="Activity">
