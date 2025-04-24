@@ -6,7 +6,7 @@ import { useActivity } from '@/context/ActivityContext';
 
 
 const CalendarPage = () => {
-    const { setActivities,getPendingActivities, handleDelete, setPreloadData, handleEdit, isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, preloadData, selectedActivity, setSelectedActivity } = useActivity()
+    const { fetchActivities, setActivities, getPendingActivities, handleDelete, setPreloadData, handleEdit, isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, preloadData, selectedActivity, setSelectedActivity } = useActivity()
 
 
     const [selectedDate, setSelectedDate] = useState(new Date()); // almacenar la fecha seleccionada (por defecto la de hoy)
@@ -155,6 +155,10 @@ const CalendarPage = () => {
                     console.error('Error creando la actividad', data.msg)
                 }
             }
+
+
+            //ejecutar fetchActivities cuando cambie alguna actividad?
+            fetchActivities();
 
             // limpiar campos
             setTitle('');

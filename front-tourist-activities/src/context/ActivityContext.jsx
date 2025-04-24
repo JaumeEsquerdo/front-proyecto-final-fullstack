@@ -80,7 +80,7 @@ export const ActivityProvider = ({ children }) => {
 
     const API_URL = import.meta.env.VITE_API_URL
     const API_ROUTER = import.meta.env.VITE_API_ROUTER
-    const API_CALENDAR_ACTS = import.meta.env.VITE_API_CALENDAR_ACTS
+    const API_CALENDAR_ACTS_USER = import.meta.env.VITE_API_CALENDAR_ACTS_USER
 
 
     //para el form de las actividades
@@ -92,14 +92,14 @@ export const ActivityProvider = ({ children }) => {
         date.setMinutes(parseInt(minutes))
 
         const timeExact = `${hour.padStart(2, '0')}:${minutes.padStart(2, '0')}` // padStart asegura que tenga bien las horas(2 digitoss, si no añade un 0 para tener 2 digitos)
-        const displayHour = `${hour.padStart(2, '0')}:00`; // padStart asegura q tenga dos digitos  (7 -> 07) y luego añado ':00' =  (07:00)
+        const displayHours = `${hour.padStart(2, '0')}:00`; // padStart asegura q tenga dos digitos  (7 -> 07) y luego añado ':00' =  (07:00)
 
         const newActivity = {
             title,
             description,
             time: date,
             timeExact,
-            displayHour // este es para poder agrupar las horas segun si ej. es a las 10:40 la actividad agruparla con las actividaes de las 10:00
+            displayHours // este es para poder agrupar las horas segun si ej. es a las 10:40 la actividad agruparla con las actividaes de las 10:00
         }
 
         //diferenciar entre editar(pasa id) o crear nueva actividad
@@ -191,7 +191,7 @@ export const ActivityProvider = ({ children }) => {
             const token = localStorage.getItem('token');
             if (!token) return;
 
-            const res = await fetch(`${API_URL}${API_ROUTER}${API_CALENDAR_ACTS}/${id}`, {
+            const res = await fetch(`${API_URL}${API_ROUTER}${API_CALENDAR_ACTS_USER}/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -243,61 +243,69 @@ export const ActivityProvider = ({ children }) => {
     }, [location.pathname])
 
 
-    // useEffect para guardar las actividades del calendario
-    useEffect(() => {
-        const fetchActivities = async () => {
+    // useEffect para traer acts del backend y poder imprimirlas
+
+    const fetchActivities = async () => {
 
 
-            try {
-                const token = localStorage.getItem('token');
+        try {
+            const token = localStorage.getItem('token');
 
-                if (!token) return;
+            if (!token) return;
 
-                const res = await fetch(`${API_URL}${API_ROUTER}${API_CALENDAR_ACTS}`, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                })
-
-                const data = await res.json();
-
-                console.log("Actividades cargadas desde la API:", data);  // Verifica las actividades al cargarlas
-
-
-                if (!res.ok) {
-                    setActivitiesError(data.msg || 'Error al obtener las actividades')
-                    return;
+            const res = await fetch(`${API_URL}${API_ROUTER}${API_CALENDAR_ACTS_USER}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
                 }
+            })
 
-                if (data && data.data) {
-                    const parsedActivities = data.data.map((act) => ({
-                        title: act.title,
-                        time: new Date(act.time),
-                        timeExact: act.timeExact,
-                        displayHour: act.displayHour,
-                        description: act.description,
-                        id: act._id
+            const data = await res.json();
 
-                    }));
-                    setActivities(parsedActivities)
-                }
+            console.log("Actividades cargadas desde la API:", data);  // Verifica las actividades al cargarlas
 
-                console.log('actividades del calendario', data)
 
-            } catch (e) {
-                console.error('error en el fetch de actividades en home', e)
-                setActivitiesError('error en la conexión del servidor')
+            if (!res.ok) {
+                setActivitiesError(data.msg || 'Error al obtener las actividades')
+                return;
             }
+
+            if (data && data.data) {
+                const parsedActivities = data.data.map((act) => ({
+                    title: act.title,
+                    time: new Date(act.time),
+                    timeExact: act.timeExact,
+                    displayHours: act.displayHours,
+                    description: act.description,
+                    id: act._id
+
+                }));
+                setActivities(parsedActivities)
+            }
+
+            console.log('actividades del calendario', data)
+
+        } catch (e) {
+            console.error('error en el fetch de actividades en home', e)
+            setActivitiesError('error en la conexión del servidor')
         }
+    }
 
+
+
+    useEffect(() => {
         fetchActivities();
-    }, [])
+        
+    }, []) // cada vez q cambie actividades se ejecuta asi no tengo ni que pasarlo a Calendario
 
+    useEffect(() =>{
+        console.log('ACTIVITIEEEES', activities)
+    },[activities])
 
     return (
         <ActivityContext.Provider
             value={{
+                fetchActivities,
                 activitiesError, activitiesLoading,
                 activities, setActivities, setSelectedDay, selectedDay,
                 handleSaveActivity, isAddFormOpen,
