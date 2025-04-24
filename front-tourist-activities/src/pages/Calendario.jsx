@@ -24,6 +24,8 @@ const CalendarPage = () => {
 
     const [toastMessage, setToastMessage] = useState(null); // para manejar texto flotante de cuando se crea o se edita con exito una act
 
+    const [shouldOpen, setShouldOpen] = useState(true)    
+
     // para los inputs
     // title, description, hour y minutes vienen del provider
     const [displayHours, setDisplayHours] = useState('')
@@ -189,17 +191,19 @@ const CalendarPage = () => {
 
     /* useEffect para cargar contenido al form desde Home (btns de agregar al calendario) Y tmb para editar actividades ya existentes */
     useEffect(() => {
-        if (preloadData) {
+        if (preloadData && shouldOpen ) {
             setTitle(preloadData.title)
             setDescription(preloadData.description)
             setHour(preloadData.hour || '10')
             setMinutes(preloadData.minutes || '00')
             setIsAddFormOpen(true)
         }
+        setShouldOpen(true) // necesito reiniciar para q la logica hacia que se reiniciara preloadData y no dejaba cerrar el form (ya q aqui pongo el form en true)
     }, [preloadData])
 
     /* cerrar y limpiar form */
     const handleCloseForm = () => {
+        setShouldOpen(false) // no permito reapertura del form 
         setIsAddFormOpen(false)
         setPreloadData({title: '',
             description: '',
@@ -337,7 +341,7 @@ const CalendarPage = () => {
                                 <button className='CalendarForm-btn CalendarForm-btn--confirm' type='submit'>
                                     {selectedActivity ? 'Actualizar actividad' : 'Guardar actividad'}
                                 </button>
-                                <button className='CalendarForm-btn CalendarForm-btn--cancel' onClick={handleCloseForm}>Cerrar formulario</button>
+                                <button type='button' className='CalendarForm-btn CalendarForm-btn--cancel' onClick={handleCloseForm}>Cerrar formulario</button>
                             </form>
 
                         )
