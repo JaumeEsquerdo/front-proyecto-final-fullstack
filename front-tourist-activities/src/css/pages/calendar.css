@@ -332,3 +332,11 @@ border-color: #4b5bb2;
     background-color: #fbeaea;
 }
 
+
+/* personalizacion calendario */
+.react-calendar__tile--hasActive{
+    color: white;
+    /* background: #4b5bb2; */
+}
+
+
