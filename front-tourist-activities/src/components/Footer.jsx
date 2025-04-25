@@ -71,7 +71,9 @@ export const Footer = memo(() => {
                 </ul>
             </nav>
 
-            <div className="Footer-divBtn" onClick={handleAddClick}>➕</div>
+            <div className="Footer-divBtn" onClick={handleAddClick}>
+                <img className="Footer-divIcon" src="/img/añadir.svg" alt="añadir" />
+            </div>
         </footer>);
 
 })

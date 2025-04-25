@@ -100,7 +100,7 @@
 
 .Pack-header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -162,9 +162,12 @@
 }
 
 .Activity-p {
-    display: -webkit-box; /*para tener un box para saltar lineas */
-    -webkit-line-clamp: 3; /* máximo 3 líneas antes de cortar */
-    -webkit-box-orient: vertical; /* en modo vertical  */
+    display: -webkit-box;
+    /*para tener un box para saltar lineas */
+    -webkit-line-clamp: 3;
+    /* máximo 3 líneas antes de cortar */
+    -webkit-box-orient: vertical;
+    /* en modo vertical  */
     align-items: center;
     margin: 0.3rem 0;
     font-size: 0.85rem;
@@ -205,7 +208,8 @@
     height: auto;
     transition: background-color 0.5s ease-in-out;
 }
-.Activity-link--pack{
+
+.Activity-link--pack {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -333,11 +337,25 @@
     height: 150px;
 }
 
-.Activities-img {
+.Activities-icondiv {
     position: absolute;
     top: 0.8rem;
     left: 0.8rem;
-    width: 40px;
+    background-color: #f0b3b7;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 43px;
+    height: 43px;
+
+}
+
+.Activities-icon {
+    filter: brightness(0) invert(1); /*con esto cambio el color negro de los svg a blanco */
+    width: 22px;
+    height: 22px;
 }
 
 .Actividades-filtros {

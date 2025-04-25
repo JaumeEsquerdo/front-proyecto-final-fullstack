@@ -6,7 +6,7 @@ import { useActivity } from '@/context/ActivityContext';
 
 
 const CalendarPage = () => {
-    const { title, description, setTitle, setDescription,hour, setHour,
+    const { title, description, setTitle, setDescription, hour, setHour,
         minutes, setMinutes, fetchActivities, setActivities, getPendingActivities, handleDelete, setPreloadData, handleEdit, isAddFormOpen, setIsAddFormOpen, handleSaveActivity, selectedDay, setSelectedDay, preloadData, selectedActivity, setSelectedActivity } = useActivity()
 
 
@@ -24,7 +24,7 @@ const CalendarPage = () => {
 
     const [toastMessage, setToastMessage] = useState(null); // para manejar texto flotante de cuando se crea o se edita con exito una act
 
-    const [shouldOpen, setShouldOpen] = useState(true)    
+    const [shouldOpen, setShouldOpen] = useState(true)
 
     // para los inputs
     // title, description, hour y minutes vienen del provider
@@ -132,7 +132,7 @@ const CalendarPage = () => {
 
                 if (res.ok) {
                     // si el EDIT es ok...
-                    setActivities((prev) => prev.map((a) => (a.id ===  selectedActivity.id ? { ...a, ...actividad, id: selectedActivity.id } : a))) // aqui solo actualiza el array de actividades para reemplzara solo la actividad editaada que coincide en id, si no se mantiene igual
+                    setActivities((prev) => prev.map((a) => (a.id === selectedActivity.id ? { ...a, ...actividad, id: selectedActivity.id } : a))) // aqui solo actualiza el array de actividades para reemplzara solo la actividad editaada que coincide en id, si no se mantiene igual
                     setToastMessage('Actividad EDITADA con éxito')
                 } else {
                     console.error('Error editando la actividad', data.msg)
@@ -162,11 +162,13 @@ const CalendarPage = () => {
             fetchActivities();
 
             // limpiar campos
-            setTitle('');
-            setDescription('');
-            setHour('10');
-            setMinutes('10')
-            setDisplayHours('')
+            setPreloadData({
+                title: '',
+                description: '',
+                hour: 10,
+                minutes: 10,
+                displayHours: ''
+            })
             setSelectedActivity(null)
             setIsAddFormOpen(false)
 
@@ -191,7 +193,7 @@ const CalendarPage = () => {
 
     /* useEffect para cargar contenido al form desde Home (btns de agregar al calendario) Y tmb para editar actividades ya existentes */
     useEffect(() => {
-        if (preloadData && shouldOpen ) {
+        if (preloadData && shouldOpen) {
             setTitle(preloadData.title)
             setDescription(preloadData.description)
             setHour(preloadData.hour || '10')
@@ -205,11 +207,13 @@ const CalendarPage = () => {
     const handleCloseForm = () => {
         setShouldOpen(false) // no permito reapertura del form 
         setIsAddFormOpen(false)
-        setPreloadData({title: '',
+        setPreloadData({
+            title: '',
             description: '',
             hour: '10',
             minutes: '00',
-            id: ''})
+            id: ''
+        })
     }
 
     /* useEffect para q cuando abra el form de añadir actividad se redirija alli (ya q se posiciona en la zona baja y no se ve si no lo sabes) */
@@ -296,10 +300,11 @@ const CalendarPage = () => {
                                 id='CalendarForm'
                                 className='CalendarForm'
                                 onSubmit={handleSubmit}>
+                                <h3>El {selectedDay.toLocaleDateString('es-Es', dateOptions)}</h3>
 
 
-                                <input type="text" placeholder='Nombre actividad' value={preloadData?.title ||''} // si hay act seleccionada, precargar 
-                                    onChange={(e) => setPreloadData({...preloadData, title: e.target.value})}
+                                <input type="text" placeholder='Nombre actividad' value={preloadData?.title || ''} // si hay act seleccionada, precargar 
+                                    onChange={(e) => setPreloadData({ ...preloadData, title: e.target.value })}
                                     required
                                     className='CalendarForm-input'
                                 />
@@ -307,7 +312,7 @@ const CalendarPage = () => {
                                 {/* select de horas */}
                                 <select
                                     className='CalendarForm-select'
-                                    value={preloadData.hour || '10'} onChange={(e) => setPreloadData({...preloadData, hour: e.target.value})}>
+                                    value={preloadData.hour || '10'} onChange={(e) => setPreloadData({ ...preloadData, hour: e.target.value })}>
                                     {/* listar las horas con el indice(creo un array vacion con 24 posiciones undefined y a cada indice le asigno el valor de cada hora del 0 al 23) */}
                                     {[...Array(24)].map((_, i) => (
                                         <option key={i} value={i.toString().padStart(2, '0')}>
@@ -319,7 +324,7 @@ const CalendarPage = () => {
                                 {/* select de minutos */}
                                 <select
                                     className='CalendarForm-select'
-                                    value={preloadData.minutes || '00'} onChange={(e) => setPreloadData({...preloadData, minutes: e.target.value})}>
+                                    value={preloadData.minutes || '00'} onChange={(e) => setPreloadData({ ...preloadData, minutes: e.target.value })}>
                                     <option value="00">00</option>
                                     <option value="15">15</option>
                                     <option value="30">30</option>
@@ -330,7 +335,7 @@ const CalendarPage = () => {
                                     className='CalendarForm-textarea'
                                     placeholder='Descripción (opcional)'
                                     value={preloadData.description || ''}
-                                    onChange={(e) => setPreloadData({...preloadData, description: e.target.value})}
+                                    onChange={(e) => setPreloadData({ ...preloadData, description: e.target.value })}
                                     rows={10}
                                     cols={40}
                                 >
@@ -359,12 +364,14 @@ const CalendarPage = () => {
                                 <h4 className='ActividadSeleccionada-h4'>{selectedActivity.title}</h4>
                                 {selectedActivity.description ? (<p className='ActividadSeleccionada-p'><strong>Descripción</strong>{selectedActivity.description}</p>
                                 ) : ""}
-                                <p className='ActividadSeleccionada-p'><strong>Hora:</strong>{selectedActivity.timeExact}</p>
+                                <p className='ActividadSeleccionada-p'><strong>Hora: </strong>{selectedActivity.timeExact}</p>
 
                                 <div className='ActividadSeleccionada-botones'>
                                     <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--edit' onClick={() => handleEdit(selectedActivity)}>Editar</button>
-                                    <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--delete' onClick={() =>{    console.log("Actividad seleccionada:", selectedActivity);
-handleDelete(selectedActivity.id)} }>Eliminar</button>
+                                    <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--delete' onClick={() => {
+                                        console.log("Actividad seleccionada:", selectedActivity);
+                                        handleDelete(selectedActivity.id)
+                                    }}>Eliminar</button>
                                 </div>
                             </div>
                         )}

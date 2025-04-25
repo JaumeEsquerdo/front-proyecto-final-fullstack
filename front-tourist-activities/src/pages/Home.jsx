@@ -182,7 +182,7 @@ const Home = () => {
                         {listaDePacks.map((pack, i) => (
                             <div onClick={() => handleAbrirPack(i)}
                                 key={pack._id} className={`Act-card ${pack.color}`}>
-                                <img className="Pack-icono" src={pack.icono} alt="icono pack actividades" />
+                                <img className="Pack-icono" src={`/img/pack-recom/${pack.tipo}.svg`} alt="icono pack actividades" />
                                 <h3>{pack.nombre}</h3>
                                 <p>{pack.actividades.length} actividades</p>
 
@@ -197,7 +197,7 @@ const Home = () => {
                                     <span className="Pack-cerrar">X</span>
                                     <div className={`Pack-detalles ${listaDePacks[packAbierto].color}`} onClick={(e) => e.stopPropagation()}>
                                         <div className="Pack-header">
-                                            <img className="Pack-icono" src={listaDePacks[packAbierto].icono} alt="Icono pack" />
+                                            <img className="Pack-icono" src={`/img/pack-recom/${listaDePacks[packAbierto].tipo}.svg`} alt="Icono pack" />
                                             <h3>{listaDePacks[packAbierto].nombre}</h3>
                                         </div>
 
@@ -250,7 +250,10 @@ const Home = () => {
                     <div>
                         {actividadesFiltradas.map((actividad) => (
                             <div className="Activities-act" key={actividad._id}>
-                                <img className="Activities-img" src={actividad.icono} alt="Icono actividad" />
+                                <div className="Activities-icondiv">
+                                    <img className="Activities-icon" src={`/img/act-recom/${actividad.tipo}.svg`} alt="Icono actividad" />
+
+                                </div>
                                 <div className="Activity">
                                     <h3 className="Activity-h3">{actividad.titulo}</h3>
                                     <p className="Activity-p">{actividad.descripcion}</p>
