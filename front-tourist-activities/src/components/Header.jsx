@@ -10,12 +10,12 @@ export const Header = () => {
         setIsOpen(!isOpen)
     }
 
-    const handlePerfilClick = () =>{
+    const handlePerfilClick = () => {
         const currentPath = location.pathname;
 
-        if(currentPath === '/home'  || currentPath === '/calendario'){
+        if (currentPath === '/home' || currentPath === '/calendario') {
             sessionStorage.setItem('fromPerfil', currentPath)
-        } else{
+        } else {
             sessionStorage.removeItem('fromPerfil')
         }
     }
@@ -29,7 +29,7 @@ export const Header = () => {
             </div>
             <nav className={`Nav-menu ${isOpen ? 'Open' : ''}`}>
                 <Link className="Nav-link" to={"/perfil"} onClick={handlePerfilClick}>
-                <img className='Nav-perfil' src="/img/icono-perfil.svg" alt="Perfil" />
+                    <img className='Nav-perfil' src="/img/icono-perfil.svg" alt="Perfil" />
                 </Link>
             </nav>
 

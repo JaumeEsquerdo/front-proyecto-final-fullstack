@@ -111,50 +111,63 @@
 
 .Profile-button {
     padding: var(--btn-padding);
-    background-color: #5b9df9;
+    background-color: #69a9f8;
+    width: 100%;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    
+    border: 2px solid #69a9f8cc;
+    box-shadow: 0 4px 12px #69a9f84d;
     transition: background-color 0.3s ease-in-out;
 
 }
 
 .Profile-button:hover {
-    background-color: #407ee7;
+    background-color: #4f95f4;
 }
 
 .Profile-button--cancel{
-    background-color: #f5867f;
+    background-color: #f48c8c;
+    border: 2px solid #f48c8ccc;
     color: white;
+    box-shadow: 0 4px 12px rgba(1244, 140, 140, 0.1);
+
     transition: background-color 0.3s ease-in-out;
 }
 .Profile-button--cancel:hover{
-    background-color: #f44336;
+    background-color: #e97b7b;
 }
 
 .Profile-button--pass{
     margin-top: 2rem;
-    background-color: #f4a261;
+    margin-bottom: 1rem;
+    background-color: #f4ad68;
+    border: 2px solid #f4ad68cc;
     color: white;
     width: 100%;
+    box-shadow: 0 4px 12px rgba(244, 173, 104, 0.1);
+
     transition: background-color 0.3s ease-in-out;
 }
 
 .Profile-button--pass:hover{
-    background-color: #e76f51;
+    background-color: #ef9a4f;
 }
 .Profile-button--passConfirm{
-    background-color: #2a9d8f;
+    margin-top: 1rem;
+    background-color: #5ac4ae;
+    border: 2px solid #5ac4afcc;
     color: white;
     width: 100%;
+    box-shadow: 0 4px 12px rgba(190, 196, 174, 0.1);
+
     transition: background-color 0.3s ease-in-out;
 
 }
 
 .Profile-button--passConfirm:hover{
-    background-color: #198276;
+    background-color: #43b8a2;
 }
 
 .Profile-logout {
@@ -217,4 +230,10 @@
     font-weight: 700;
     margin-right: 0.5rem;
     color: var(--color-text-s);
+}
+
+.Profile-btnsChange{
+display: flex;
+justify-content: center;
+gap: 10px;
 }

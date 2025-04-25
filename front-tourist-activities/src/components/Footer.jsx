@@ -49,24 +49,11 @@ export const Footer = memo(() => {
         <footer className="Footer">
             <nav className="Footer-nav">
                 <ul className="Footer-ul">
-
-                    {navItems.map((item) => {
-                        const isActive = location.pathname === item.path;
-                        return (
-
-                            <li key={item.path} className="Footer-li">
-                                <NavLink
-                                    className={({ isActive }) => `Footer-link ${isActive ? "active" : ""}`}
-                                    to={item.path}
-                                >
-                                    <img className="Footer-imgLink" src={item.src} alt="Icono de navegación" />
-                                </NavLink>
-
-                                {isActive && dots}
-
-                            </li>
-                        )
-                    })}
+                    <FooterNavItem
+                        navItems={navItems}
+                        location={location}
+                        dots={dots}
+                    />
 
                 </ul>
             </nav>
@@ -77,6 +64,31 @@ export const Footer = memo(() => {
         </footer>);
 
 })
+
+
+
+const FooterNavItem = ({ navItems, location, dots }) => (
+    <>
+        {navItems.map((item) => {
+            const isActive = location.pathname === item.path;
+            return (
+
+                <li key={item.path} className="Footer-li">
+                    <NavLink
+                        className={({ isActive }) => `Footer-link ${isActive ? "active" : ""}`}
+                        to={item.path}
+                    >
+                        <img className="Footer-imgLink" src={item.src} alt="Icono de navegación" />
+                    </NavLink>
+
+                    {isActive && dots}
+
+                </li>
+            )
+        })}
+    </>
+)
+
 
 /**
  * Transición en Framer Motion para la animación en el  footer de muelle en los 3 puntos

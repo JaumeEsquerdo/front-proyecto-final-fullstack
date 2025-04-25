@@ -9,6 +9,10 @@
 }
 
 .PoliticaPriv-div,.TerminosCondiciones-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 400px;
     width: 90%;
     padding: 0.6rem;
     background-color: white;

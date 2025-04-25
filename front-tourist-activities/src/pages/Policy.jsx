@@ -5,7 +5,7 @@ const PoliticaPriv = () => {
     return (
         <>
             <div className="PoliticaPriv">
-                <div className="PoliticaPriv-card">
+                <div className="PoliticaPriv-div">
                     <h1 className="PoliticaPriv-title">Politica de Privacidad</h1>
                     <p className="PoliticaPriv-text">
                         En nuestra aplicación valoramos tu privacidad. Los datos personales que compartes con nosotros se utilizan únicamente para mejorar tu experiencia.

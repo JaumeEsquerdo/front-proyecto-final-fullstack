@@ -168,10 +168,14 @@
     margin: 12px;
     padding: 10px 16px;
     color: var(--color-text-p);
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
     height: 58px;
     border-radius: 10px;
     background-color: rgb(103, 156, 139);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 3px solid rgba(0, 0, 0, 0.08);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -233,22 +237,36 @@
 
 .CalendarForm-btn {
     padding: var(--btn-padding);
-    font-weight: 600;
+    font-weight: 700;
     border: none;
     border-radius: var(--btn-radius);
     cursor: pointer;
     color: white;
+    background-color: rgba(255, 255, 255, 0.922);
+    transition: background-color 0.3s ease-in-out;
 
 }
 
 .CalendarForm-btn--confirm {
-    background-color: #4b964d;
+    background-color: #28610feb;;
+    border: 4px solid #4a7d33;
+    box-shadow: 0 4px 12px rgba(76, 154, 42, 0.2);
 
 }
 
 .CalendarForm-btn--cancel {
-    background-color: #db2a41;
+    background-color: rgba(166, 124, 109, 0.92);;
+    border: 4px solid #8c6b5e;
+    box-shadow: 0 4px 12px rgba(166, 124, 109, 0.2);
+}
 
+.CalendarForm-btn--confirm:hover{
+    background-color: #4a7d33;
+    
+}
+.CalendarForm-btn--cancel:hover{
+    background-color: #8c6b5e;
+    
 }
 
 /* parte de la actividad seleccionada  */
