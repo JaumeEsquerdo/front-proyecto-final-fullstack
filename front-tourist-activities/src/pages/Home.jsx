@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useActivity } from '@/context/ActivityContext'
 import { useNavigate } from "react-router";
 import { color } from "framer-motion";
+import { ActivityCard, ActivityFilters, PackCard, PackDetails } from "@/components/home/HomeSections";
 //import { preload } from "react-dom";
 // import { verificarLogin } from "@/components/utiles/Auth";
 
@@ -168,7 +169,6 @@ const Home = () => {
 
     return (
         <>
-
             <div className="Home">
 
                 <h1 className="Home-h1">Planifica tu visita a Villajoyosa</h1>
@@ -180,45 +180,22 @@ const Home = () => {
 
                     <div className="Act-cardScroll">
                         {listaDePacks.map((pack, i) => (
-                            <div onClick={() => handleAbrirPack(i)}
-                                key={pack._id} className={`Act-card ${pack.color}`}>
-                                <img className="Pack-icono" src={`/img/pack-recom/${pack.tipo}.svg`} alt="icono pack actividades" />
-                                <h3>{pack.nombre}</h3>
-                                <p>{pack.actividades.length} actividades</p>
-
-
-
-                            </div>
+                            <PackCard
+                                key={pack._id}
+                                pack={pack}
+                                handleAbrirPack={handleAbrirPack}
+                            />
                         ))}
 
                         {
                             packAbierto !== null && (
-                                <div className="Pack-overlay" onClick={() => setPackAbierto(null)}>
-                                    <span className="Pack-cerrar">X</span>
-                                    <div className={`Pack-detalles ${listaDePacks[packAbierto].color}`} onClick={(e) => e.stopPropagation()}>
-                                        <div className="Pack-header">
-                                            <img className="Pack-icono" src={`/img/pack-recom/${listaDePacks[packAbierto].tipo}.svg`} alt="Icono pack" />
-                                            <h3>{listaDePacks[packAbierto].nombre}</h3>
-                                        </div>
+                                <PackDetails
 
-                                        {/* filter para devolver las actividades completas q estan dentro del pack concreto, segun su id */}
-                                        {actividades
-                                            .filter(actividad => listaDePacks[packAbierto].actividades.includes(actividad._id))
-                                            .map(actividad => (
-                                                <div key={actividad._id} className="Pack-activity">
-
-                                                    <div className="Activity">
-                                                        <h3 className="Activity-h3">{actividad.titulo}</h3>
-                                                        <p className="Activity-p">{actividad.descripcion}</p>
-                                                    </div>
-                                                    <button className="Activity-link Activity-link--pack" onClick={() => handleAgregarACalendario(actividad)}>Agregar al calendario</button>
-
-
-                                                </div>
-                                            ))
-                                        }
-                                    </div>
-                                </div>
+                                    packAbierto={packAbierto}
+                                    actividades={actividades}
+                                    setPackAbierto={setPackAbierto}
+                                    handleAgregarACalendario={handleAgregarACalendario}
+                                />
                             )
                         }
 
@@ -234,32 +211,20 @@ const Home = () => {
                     </div>
 
                     {verTodas && (
-                        <div className="Actividades-filtros">
-                            {tipos.map((tipo) => (
-                                <button key={tipo.valor}
-                                    className={`Actividad-filtro ${tipoSeleccionado === tipo.valor ? `activo` : tipo.valor}`}
-                                    onClick={() => handleFiltroTipo(tipo.valor)}
-
-                                >
-                                    {tipo.nombre}
-                                </button>
-                            ))}
-                        </div>
+                        <ActivityFilters
+                            tipos={tipos}
+                            tipoSeleccionado={tipoSeleccionado}
+                            handleFiltroTipo={handleFiltroTipo}
+                        />
                     )}
 
                     <div>
                         {actividadesFiltradas.map((actividad) => (
-                            <div className="Activities-act" key={actividad._id}>
-                                <div className="Activities-icondiv">
-                                    <img className="Activities-icon" src={`/img/act-recom/${actividad.tipo}.svg`} alt="Icono actividad" />
-
-                                </div>
-                                <div className="Activity">
-                                    <h3 className="Activity-h3">{actividad.titulo}</h3>
-                                    <p className="Activity-p">{actividad.descripcion}</p>
-                                </div>
-                                <button className="Activity-link" onClick={() => handleAgregarACalendario(actividad)}>Agregar al calendario</button>
-                            </div>
+                            < ActivityCard
+                                key={actividad._id}
+                                actividad={actividad}
+                                handleAgregarACalendario={handleAgregarACalendario}
+                            />
                         ))}
 
                     </div>

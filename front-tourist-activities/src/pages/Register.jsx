@@ -1,6 +1,8 @@
 import '@/css/pages/login-register.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { PolicyLinks } from '@/components/login-register-profile/LoginSections';
+import { RegisterFooter, RegisterForm } from '@/components/login-register-profile/RegisterSections';
 const Register = () => {
 
     const [name, setName] = useState("");
@@ -65,45 +67,24 @@ const Register = () => {
                     <h1 className="Register-h1">Registro</h1>
                     <div className='Register-divForm'>
 
-                        <form onSubmit={handleSubmit} className="Register-form">
-                            <label className="Register-label">
-                                <span className='Register-inputTitle'>Nombre</span>
-                                <input value={name} onChange={(e) => setName(e.target.value)} className="Register-input" type="text" />
-                            </label>
-
-                            <label className="Register-label">
-                                <span className='Register-inputTitle'>Email</span>
-                                <input value={email} onChange={(e) => setEmail(e.target.value)} className="Register-input" type="text"></input>
-
-                            </label>
-
-                            <label className="Register-label">
-                                <span className='Register-inputTitle'>Contraseña</span>
-                                <input value={password} onChange={(e) => setPassword(e.target.value)} className="Register-input" type="password"></input>
-
-                            </label>
-
-                            <label className="Register-label">
-                                <span className='Register-inputTitle'>Confirmar contraseña</span>
-                                <input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="Register-input" type="password"></input>
-
-                            </label>
-
-                            <button className='Register-btn'>Registrar</button>
-                        </form>
+                        <RegisterForm
+                            name={name}
+                            setName={setName}
+                            email={email}
+                            setEmail={setEmail}
+                            password={password}
+                            setPassword={setPassword}
+                            confirmPassword={confirmPassword}
+                            setConfirmPassword={setConfirmPassword}
+                            handleSubmit={handleSubmit}
+                        />
                         {error && (
                             <div className='Login-error'>{error}
                             </div>)}
 
-                        <div className='Register-divLogin'>
-                            <span className='Register-textLogin'>Ya tienes una cuenta?</span>
-                            <Link className='Register-linkLogin' to='/login'>Accede a ella</Link>
-                        </div>
+                        <RegisterFooter />
                     </div>
-                    <div className='Policy-links'>
-                        <Link className='Policy-link' to='/politica-privacidad'>Política de privacidad</Link>
-                        <Link className='Policy-link' to='/terminos-condiciones'>TyC</Link>
-                    </div>
+                    <PolicyLinks />
 
                 </div>
 

@@ -1,6 +1,7 @@
 import '@/css/pages/login-register.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { LoginForm, PolicyLinks } from '@/components/login-register-profile/LoginSections';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        if(!email.includes('@') || password.length < 6 ){
+        if (!email.includes('@') || password.length < 6) {
             setError('Introduce un email válido y una contraseña con al menos 6 carácteres');
             return;
         }
@@ -63,19 +64,13 @@ const Login = () => {
                     <h1 className="Login-h1">Accede a tu cuenta</h1>
                     <div className='Login-divForm'>
 
-                        <form onSubmit={handleLogin} className="Login-form">
-                            <label className="Login-label">
-                                <span className='Login-inputTitle'>Email</span>
-                                <input required value={email} onChange={(e) => setEmail(e.target.value)} className="Login-input" type="email" />
-                            </label>
-
-                            <label className="Login-label">
-                                <span className='Login-inputTitle'>Contraseña</span>
-                                <input required value={password} onChange={(e) => setPassword(e.target.value)} className="Login-input" type="password"></input>
-
-                            </label>
-                            <button className='Login-btn'>Iniciar sesión</button>
-                        </form>
+                        <LoginForm
+                            email={email}
+                            password={password}
+                            setEmail={setEmail}
+                            setPassword={setPassword}
+                            handleLogin={handleLogin}
+                        />
 
                         {error && (
                             <div className='Login-error'>{error}
@@ -86,10 +81,8 @@ const Login = () => {
                             <Link className='Login-linkRegister' to='/registro'>Regístrate aquí</Link>
                         </div>
                     </div>
-                    <div className='Policy-links'>
-                        <Link className='Policy-link' to='/politica-privacidad'>Política de privacidad</Link>
-                        <Link className='Policy-link' to='/terminos-condiciones'>TyC</Link>
-                    </div>
+
+                    <PolicyLinks />
 
                 </div>
 

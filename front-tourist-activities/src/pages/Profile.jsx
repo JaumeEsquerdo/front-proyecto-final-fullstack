@@ -1,3 +1,5 @@
+import { PolicyLinks } from '@/components/login-register-profile/LoginSections';
+import { PasswordChangeForm, ProfileForm, ProfileHeader, ProfileInfo } from '@/components/login-register-profile/ProfileSections';
 import '@/css/pages/profile.css'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
@@ -48,7 +50,7 @@ const Profile = () => {
                 console.log('datos del usuario', data)
 
                 if (data.data && data.data._id) {
-                    setUser({...data.data, id: data.data._id}); // renombro id porq me da error si pongo user._id en el fetch de update
+                    setUser({ ...data.data, id: data.data._id }); // renombro id porq me da error si pongo user._id en el fetch de update
                     setNewName(data.data.name);
                     setNewEmail(data.data.email);
                 } else {
@@ -122,7 +124,7 @@ const Profile = () => {
             }
 
             setUser(data.data);
-            
+
             localStorage.setItem('user', JSON.stringify(data.data))
             setError('');
             setIsEditing(false) // al final volver al modo solo lectura
@@ -147,125 +149,109 @@ const Profile = () => {
         console.log("User object:", user); // Verifica el objeto completo del usuario
         console.log("User ID:", user.id); // Verifica el _id del usuarios
 
-            const updateData = {
-                oldPassword: currentPassword, //contraseña actual
-                newPassword: newPassword //nueva contrasña
+        const updateData = {
+            oldPassword: currentPassword, //contraseña actual
+            newPassword: newPassword //nueva contrasña
+        }
+
+        try {
+            const res = await fetch(`${API_URL}${API_ROUTER}/usuarios/${user.id}/password`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+
+                },
+                body: JSON.stringify(updateData)
+            });
+
+            const data = await res.json();
+
+            console.log("Respuesta de la API al actualizar conrtaseña", data)
+            if (!res.ok) {
+                setError(data.msg || "Error al actualizar contraseña")
+                return;
             }
 
-            try {
-                const res = await fetch(`${API_URL}${API_ROUTER}/usuarios/${user.id}/password`, {
-                    method: 'PUT',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json'
+            setError("")
+            setShowPasswordForm(false)
+        } catch (e) {
+            console.error("Error en el fetch para actualizar contraseña", e)
 
-                    },
-                    body: JSON.stringify(updateData)
-                });
-
-                const data = await res.json();
-
-                console.log("Respuesta de la API al actualizar conrtaseña", data)
-                if (!res.ok) {
-                    setError(data.msg || "Error al actualizar contraseña")
-                    return;
-                }
-
-                setError("")
-                setShowPasswordForm(false)
-            } catch (e) {
-                console.error("Error en el fetch para actualizar contraseña", e)
-
-            }
         }
-
-        const handleTogglePasswordForm = () => {
-            setShowPasswordForm(!showPasswordForm)
-        }
-
-        const handleLogout = () => {
-            localStorage.removeItem('token');
-            localStorage.removeItem('user');
-            navigate("/login")
-        }
-
-        if (!user) {
-            return <div>Cargando...</div>; // Mostrar mientras los datos del usuario no se han cargado
-        }
-
-
-
-
-        return (
-            <>
-
-                <div className="Profile">
-                    <img className='Profile-bg' src="/img/fondo-escena.png" alt="img de fondo" />
-                    <nav className="Profile-nav" >
-                        <img onClick={handleBack} className='Profile-link' src="/img/flecha-atras.svg" alt="Perfil" />
-                    </nav>
-                    <div className="Profile-card">
-                        <h2 className="Profile-title">Tu Perfil</h2>
-
-                        {isEditing ? (
-
-                            <form onSubmit={handleUpdateProfile} className="Profile-form">
-                                <label className="Profile-label">Nombre
-                                    <input value={newName} onChange={(e) => setNewName(e.target.value)} type="text" className="Profile-input" />
-                                </label>
-
-                                <label className="Profile-label">Email
-                                    <input value={newEmail} onChange={(e) => setNewEmail(e.target.value)} type="email" className="Profile-input" />
-                                </label>
-
-                                <div className='Profile-btnsChange'>
-                                    <button className="Profile-button" type="submit">Guardar cambios</button>
-                                    <button type='button' onClick={() => {
-                                        setIsEditing(false);
-                                    }
-                                    } className='Profile-button Profile-button--cancel'>Cancelar</button>
-                                </div>
-                            </form>
-
-
-
-                        ) : (
-                            <div className='Profile-info'>
-                                <p className='Profile-name'><strong>Nombre:</strong>{user.name}</p>
-                                <p className='Profile-email'><strong>Email:</strong>{user.email}</p>
-                                <button className='Profile-button' onClick={() => setIsEditing(true)}>Editar perfil</button>
-
-                            </div>
-                        )}
-                        <button className='Profile-button Profile-button--pass' onClick={handleTogglePasswordForm}>{showPasswordForm ? "Cancelar cambio de contraseña" : "Cambiar contraseña"}</button>
-
-                        {showPasswordForm && (
-                            <form onSubmit={handleUpdatePassword}>
-                                <label className="Profile-label">Contraseña antigua
-                                    <input value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} type="password" className="Profile-input" />
-                                </label>
-                                <label className="Profile-label">Nueva contraseña
-                                    <input value={newPassword} onChange={(e) => setNewPassword(e.target.value)} type="password" className="Profile-input" />
-                                </label>
-                                <button className='Profile-button Profile-button--passConfirm' type='submit'>Actualizar contraseña</button>
-                            </form>
-                        )}
-
-
-
-                        {error && <div className='Profile-error'>{error}</div>}
-
-                        <button onClick={handleLogout} className="Profile-logout">Cerrar sesión</button>
-
-                        <div className='Policy-links'>
-                            <Link className='Policy-link' to='/politica-privacidad'>Política de privacidad</Link>
-                            <Link className='Policy-link' to='/terminos-condiciones'>TyC</Link>
-                        </div>
-                    </div>
-
-                </div>
-            </>
-        );
     }
 
-    export default Profile;
+    const handleTogglePasswordForm = () => {
+        setShowPasswordForm(!showPasswordForm)
+    }
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        navigate("/login")
+    }
+
+    if (!user) {
+        return <div>Cargando...</div>; // Mostrar mientras los datos del usuario no se han cargado
+    }
+
+
+
+
+    return (
+        <>
+
+            <div className="Profile">
+                <img className='Profile-bg' src="/img/fondo-escena.png" alt="img de fondo" />
+                <ProfileHeader
+                    handleBack={handleBack}
+                />
+                <div className="Profile-card">
+                    <h2 className="Profile-title">Tu Perfil</h2>
+
+                    {isEditing ? (
+
+                        <ProfileForm
+                            newName={newName}
+                            newEmail={newEmail}
+                            setNewEmail={setNewEmail}
+                            setNewName={setNewName}
+                            handleUpdateProfile={handleUpdateProfile}
+                            setIsEditing={setIsEditing}
+                        />
+
+
+
+                    ) : (
+                        <ProfileInfo
+                            user={user}
+                            setIsEditing={setIsEditing}
+                        />
+                    )}
+                    <button className='Profile-button Profile-button--pass' onClick={handleTogglePasswordForm}>{showPasswordForm ? "Cancelar cambio de contraseña" : "Cambiar contraseña"}</button>
+
+                    {showPasswordForm && (
+                        <PasswordChangeForm
+                            currentPassword={currentPassword}
+                            setCurrentPassword={setCurrentPassword}
+                            newPassword={newPassword}
+                            setNewPassword={setNewPassword}
+                            handleUpdatePassword={handleUpdatePassword}
+                        />
+                    )}
+
+
+
+                    {error && <div className='Profile-error'>{error}</div>}
+
+                    <button onClick={handleLogout} className="Profile-logout">Cerrar sesión</button>
+
+                    <PolicyLinks />
+                </div>
+
+            </div>
+        </>
+    );
+}
+
+export default Profile;
