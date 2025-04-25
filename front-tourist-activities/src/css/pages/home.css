@@ -127,27 +127,55 @@
     border-radius: 1rem;
     padding: 0.2rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
+
     justify-content: space-around;
     gap: 0.4rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .Activity {
+    position: relative;
     width: 220px;
-    /* flex: 1; */
+    max-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    stroke-width: none;
+    /*ocultar scroll para firefox */
+}
+
+.Activity::-webkit-scrollbar {
+    display: none;
+    /* ocultar en chrome */
 }
 
 .Activity-h3 {
-    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
     color: #333;
+    /* word-break: break-word; cortar palabras ssi son largas */
+    margin: 0;
 }
 
 .Activity-p {
-    margin-top: 0.3rem;
-    font-size: 1rem;
+    display: -webkit-box; /*para tener un box para saltar lineas */
+    -webkit-line-clamp: 3; /* máximo 3 líneas antes de cortar */
+    -webkit-box-orient: vertical; /* en modo vertical  */
+    align-items: center;
+    margin: 0.3rem 0;
+    font-size: 0.85rem;
     color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    max-width: 300px;
 }
+
+
 
 .Activities-more {
     font-weight: 500;
@@ -172,10 +200,17 @@
     border-radius: var(--btn-radius);
     padding: var(--btn-padding);
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.9rem;
     width: auto;
     height: auto;
     transition: background-color 0.5s ease-in-out;
+}
+.Activity-link--pack{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    font-size: 0.9rem;
 }
 
 .Activity-link:hover {
@@ -243,6 +278,15 @@
     background-color: #eca9a9;
 }
 
+.Act-card.pink {
+    background: linear-gradient(135deg, #e86a88, #f5b6c4);
+    box-shadow: 0px 10px 20px hsla(0, 69%, 80%, 0.4);
+}
+
+.Pack-detalles.pink {
+    background-color: #f5b6c4;
+}
+
 /* Act pendientes */
 
 .Activities {
@@ -296,7 +340,7 @@
     width: 40px;
 }
 
-.Actividades-filtros{
+.Actividades-filtros {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -304,31 +348,32 @@
     margin: 1.5rem 0;
 }
 
-.Actividad-filtro{
-padding: var(--btn-padding);
-border-radius: var(--btn-radius);
-font-size: 16px;
-font-weight: 500;
-border: none;
-cursor: pointer;
-color: white;
-background-color: transparent;
-border: 2px solid transparent;
-color: var(--color-text-s);
+.Actividad-filtro {
+    padding: var(--btn-padding);
+    border-radius: var(--btn-radius);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: transparent;
+    border: 2px solid transparent;
+    color: var(--color-text-s);
 }
 
-.Actividad-filtro.activo{
+.Actividad-filtro.activo {
     background: linear-gradient(45deg, #f06b6b, #ff7f50);
     color: white;
     border: 3px solid #ff7f50;
     box-shadow: var(--box-shadow);
 }
-.Actividad-filtro:not(.activo){
+
+.Actividad-filtro:not(.activo) {
     background-color: transparent;
     border-color: rgba(0, 0, 0, 0.1);
     opacity: 0.7;
 }
-.Actividad-filtro:hover{
+
+.Actividad-filtro:hover {
     opacity: 0.9;
 }
-

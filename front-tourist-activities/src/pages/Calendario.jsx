@@ -196,7 +196,7 @@ const CalendarPage = () => {
             setDescription(preloadData.description)
             setHour(preloadData.hour || '10')
             setMinutes(preloadData.minutes || '00')
-            setIsAddFormOpen(true)
+
         }
         setShouldOpen(true) // necesito reiniciar para q la logica hacia que se reiniciara preloadData y no dejaba cerrar el form (ya q aqui pongo el form en true)
     }, [preloadData])

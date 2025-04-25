@@ -211,7 +211,7 @@ const Home = () => {
                                                         <h3 className="Activity-h3">{actividad.titulo}</h3>
                                                         <p className="Activity-p">{actividad.descripcion}</p>
                                                     </div>
-                                                    <button className="Activity-link" onClick={() => handleAgregarACalendario(actividad)}>Agregar al calendario</button>
+                                                    <button className="Activity-link Activity-link--pack" onClick={() => handleAgregarACalendario(actividad)}>Agregar al calendario</button>
 
 
                                                 </div>
