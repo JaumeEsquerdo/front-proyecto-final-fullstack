@@ -116,3 +116,25 @@ html {
   flex-direction: column;
   align-items: center;
 }
+
+.Error{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column ;
+  justify-content: center;
+  align-items: center;
+
+}
+.Error-link{
+  margin-top: 20px;
+  font-size: 600;
+  color: white;
+  padding: var(--btn-padding);
+  background-color: var(--color-act-pasada);
+  border: 4px solid #c72b2b;
+  border-radius: var(--btn-radius);
+}

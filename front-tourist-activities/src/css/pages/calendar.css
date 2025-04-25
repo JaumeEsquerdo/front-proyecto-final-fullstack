@@ -248,15 +248,15 @@
 }
 
 .CalendarForm-btn--confirm {
-    background-color: #28610feb;;
+    background-color: #5cbe8beb;;
     border: 4px solid #4a7d33;
     box-shadow: 0 4px 12px rgba(76, 154, 42, 0.2);
 
 }
 
 .CalendarForm-btn--cancel {
-    background-color: rgba(166, 124, 109, 0.92);;
-    border: 4px solid #8c6b5e;
+    background-color: rgba(121, 102, 95, 0.92);;
+    border: 4px solid #605c5a;
     box-shadow: 0 4px 12px rgba(166, 124, 109, 0.2);
 }
 
@@ -265,7 +265,7 @@
     
 }
 .CalendarForm-btn--cancel:hover{
-    background-color: #8c6b5e;
+    background-color: #605c5a;
     
 }
 

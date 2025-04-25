@@ -74,7 +74,7 @@ const Login = () => {
                                 <input required value={password} onChange={(e) => setPassword(e.target.value)} className="Login-input" type="password"></input>
 
                             </label>
-                            <button className='Login-btn'>Inicia sesión</button>
+                            <button className='Login-btn'>Iniciar sesión</button>
                         </form>
 
                         {error && (
