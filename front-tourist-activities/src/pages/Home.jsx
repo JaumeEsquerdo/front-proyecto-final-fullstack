@@ -28,7 +28,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     const tipos = [ // para filtrar cuando esté activo verTodas
-        { nombre: 'Todos', valor: '' },
+        { nombre: 'Todas', valor: '' },
         { nombre: 'Naturaleza', valor: 'naturaleza' },
         { nombre: 'Cultural', valor: 'cultural' },
         { nombre: 'Playa', valor: 'playa' },
