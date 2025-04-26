@@ -7,8 +7,8 @@ export const PackCard = ({i, pack, handleAbrirPack }) => {
         <div onClick={() => handleAbrirPack(i)}
             className={`Act-card ${pack.color}`}>
             <img className="Pack-icono" src={`/img/pack-recom/${pack.tipo}.svg`} alt="icono pack actividades" />
-            <h3>{pack.nombre}</h3>
-            <p>{pack.actividades.length} actividades</p>
+            <h3 className="Pack-h3">{pack.nombre}</h3>
+            <p className="Pack-p">{pack.actividades.length} actividades</p>
 
         </div>
     )

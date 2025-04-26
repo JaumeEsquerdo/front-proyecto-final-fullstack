@@ -55,6 +55,14 @@
 .Pack-icono {
     width: 60px;
 }
+.Pack-h3{
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 700
+}
+.Pack-p{
+    color: white;
+}
 
 /* LIGHTBOX PACKS */
 
@@ -122,7 +130,7 @@
 
 /* actividades */
 .Pack-activity {
-    height: 120px;
+    height: auto;
     background-color: #f8f9fa;
     border-radius: 1rem;
     padding: 0.2rem;
@@ -198,6 +206,7 @@
 
 /* botones */
 .Activity-link {
+    font-weight: 600;
     background: var(--btn-bg-color);
     color: var(--btn-text-light);
     border: 4px solid #3ab5ae;
@@ -224,7 +233,9 @@
 
 .Act-card {
     min-width: 220px;
-    height: 210px;
+    width: auto;
+    height: auto;
+    min-height: 210px;
     padding: 1rem;
     /* border-radius: 30px; */
     border-radius: 67px 55px 33px 40px;
@@ -239,6 +250,7 @@
 }
 
 .Act-card.orange {
+    border: 4px solid #f3bc8c;
     background: linear-gradient(135deg, #ff9941, #f3bc8c);
     box-shadow: 0px 10px 20px hsla(28, 76%, 82%, 0.6);
 }
@@ -248,66 +260,75 @@
 }
 
 .Act-card.blue {
-    background: linear-gradient(135deg, #3bdae3, #95e5ea);
+    border: 4px solid #8ae2e8;
+    background: linear-gradient(135deg, #3bdae3, #8ae2e8);
     box-shadow: 0px 10px 20px hsla(183, 63%, 78%, 0.4);
 }
 
 .Pack-detalles.blue {
-    background-color: #95e5ea;
+    background-color: #8ae2e8;
 }
 
 .Act-card.yellow {
-    background: linear-gradient(135deg, #fddc4b, #f1e5b4);
+    border: 4px solid #fae17c;
+
+    background: linear-gradient(135deg, #f6d543, #fae17c);
     box-shadow: 0px 10px 20px hsla(49, 69%, 80%, 0.4);
 }
 
 .Pack-detalles.yellow {
-    background-color: #f1e5b4;
+    background-color: #fae17c;
 }
 
 .Act-card.green {
-    background: linear-gradient(135deg, #9ad058, #badba4);
+    border: 4px solid #b6e497;
+
+    background: linear-gradient(135deg, #9ad058, #b6e497);
     box-shadow: 0px 10px 20px hsla(110, 69%, 80%, 0.4);
 }
 
 .Pack-detalles.green {
-    background-color: #badba4;
+    background-color: #b6e497;
 }
 
 .Act-card.red {
-    background: linear-gradient(135deg, #d05c58, #eca9a9);
+    border: 4px solid #d28d8d;
+    background: linear-gradient(135deg, #d05c58, #d28d8d);
     box-shadow: 0px 10px 20px hsla(0, 69%, 80%, 0.4);
 }
 
 .Pack-detalles.red {
-    background-color: #eca9a9;
+    background-color: #d28d8d;
 }
 
 .Act-card.purple {
-    background: linear-gradient(135deg, #7b5cb0, #c5afe6);
+    border: 4px solid #ae92d7;
+    background: linear-gradient(135deg, #7b5cb0, #ae92d7);
     box-shadow: 0px 10px 20px hsla(260, 45%, 80%, 0.4);
 }
 
 .Pack-detalles.purple {
-    background-color: #c5afe6;
+    background-color: #ae92d7;
 }
 
 .Act-card.brown {
-    background: linear-gradient(135deg, #a97b5c, #e3c6b0);
+    border: 4px solid #cda98d;
+    background: linear-gradient(135deg, #a97b5c, #cda98d);
     box-shadow: 0px 10px 20px hsla(25, 45%, 80%, 0.4);
 }
 
 .Pack-detalles.brown {
-    background-color: #e3c6b0;
+    background-color: #cda98d;
 }
 
 .Act-card.pink {
-    background: linear-gradient(135deg, #e86a88, #f5b6c4);
+    border: 4px solid #de9eac;
+    background: linear-gradient(135deg, #e86a88, #de9eac);
     box-shadow: 0px 10px 20px hsla(0, 69%, 80%, 0.4);
 }
 
 .Pack-detalles.pink {
-    background-color: #f5b6c4;
+    background-color: #de9eac;
 }
 
 /* Act pendientes */
@@ -425,6 +446,7 @@
         margin: 20px 0;
     }
 
+
     .Act-cardScroll {
         flex-wrap: wrap;
         display: grid;
@@ -480,6 +502,10 @@
 }
 
 @media (min-width: 1024px) {
+    .Activity-h3 {
+        font-size: 1.1rem;
+    }
+
     .Act-section {
         margin: 40px 0;
     }
