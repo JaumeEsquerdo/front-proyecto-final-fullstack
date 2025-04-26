@@ -190,7 +190,7 @@ const Actividad = ({ activity, now }) => {
 }
 
 /* render de act. seleccionada */
-export const ActivitySelected = ({ selectedActivity, handleOffSelectedActivity, handleEdit, handleDelete }) => {
+export const ActivitySelected = ({ selectedDay, selectedActivity, handleOffSelectedActivity, handleEdit, handleDelete, dateOptions }) => {
     return (
         <div id='ActividadSeleccionada' className='ActividadSeleccionada'>
             <button className='ActividadSeleccionada-close' onClick={handleOffSelectedActivity}>X</button>
@@ -198,7 +198,12 @@ export const ActivitySelected = ({ selectedActivity, handleOffSelectedActivity, 
             <h4 className='ActividadSeleccionada-h4'>{selectedActivity.title}</h4>
             {selectedActivity.description ? (<p className='ActividadSeleccionada-p'><strong>Descripción: </strong>{selectedActivity.description}</p>
             ) : ""}
-            <p className='ActividadSeleccionada-p'><strong>Hora: </strong>{selectedActivity.timeExact}</p>
+
+            <div className="ActividadSeleccionada-fecha">
+                <p className='ActividadSeleccionada-p'><strong>Hora: </strong>{selectedActivity.timeExact}</p>
+                <h5 className="ActividadSeleccionada-h5">{selectedDay.toLocaleDateString('es-Es', dateOptions)}</h5>
+            </div>
+
 
             <div className='ActividadSeleccionada-botones'>
                 <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--edit' onClick={() => handleEdit(selectedActivity)}>Editar</button>

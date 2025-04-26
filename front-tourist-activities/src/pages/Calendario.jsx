@@ -361,6 +361,8 @@ const CalendarPage = () => {
                                 handleOffSelectedActivity={handleOffSelectedActivity}
                                 handleEdit={handleEdit}
                                 handleDelete={handleDelete}
+                                dateOptions={dateOptions}
+                                selectedDay={selectedDay}
                             />
                         )}
 
