@@ -22,7 +22,7 @@ export const PackDetails = ({ listaDePacks, packAbierto, actividades, setPackAbi
             <div className={`Pack-detalles ${listaDePacks[packAbierto].color}`} onClick={(e) => e.stopPropagation()}>
                 <div className="Pack-header">
                     <img className="Pack-icono" src={`/img/pack-recom/${listaDePacks[packAbierto].tipo}.svg`} alt="Icono pack" />
-                    <h3>{listaDePacks[packAbierto].nombre}</h3>
+                    <h3 className="Pack-h3">{listaDePacks[packAbierto].nombre}</h3>
                 </div>
 
                 {/* filter para devolver las actividades completas q estan dentro del pack concreto, segun su id */}
