@@ -22,12 +22,13 @@
     height: auto;
     bottom: 0;
     left: 0;
-    border-radius: 40px 40px 0 0;
+    border-radius: 50px 50px 0 0;
     background-color: #fef7ee;
     align-items: center;
     /* justify-content: space-evenly; */
 }
-.Register-container{
+
+.Register-container {
     background-color: #f4e7d5;
 
 }
@@ -114,7 +115,7 @@
     color: #fff;
     font-weight: 600;
     border-radius: var(--btn-radius);
-    
+
     box-shadow: var(--box-shadow);
     font-size: 1rem;
     transition: background-color 0.6s ease-in-out;
@@ -157,7 +158,7 @@
     font-weight: 700;
 }
 
-.Register-linkLogin:hover{
+.Register-linkLogin:hover {
     color: #395f78;
 }
 
@@ -170,4 +171,40 @@
 
 .Login-linkRegister:hover {
     color: #73bbdd;
+}
+.Login-error{
+    margin: 10px;
+    font-size: 1rem;
+    color: rgb(108, 5, 5);
+}
+
+@media (min-width: 768px) {
+
+    .Login-divForm,.Register-divForm{
+        width: 80%;
+    }
+    .Login-container,
+    .Register-container {
+        border-radius: 60px 60px 0 0;
+    }
+
+
+}
+
+@media (min-width: 1024px) {
+    .Login-divForm,.Register-divForm{
+        width: 70%;
+    }
+    .Login-container,
+    .Register-container {
+        border-radius: 100px 100px 0 0;
+    }
+
+    .Login-btn,
+    .Register-btn {
+        font-size: 1.1rem;
+    }
+    .Login-input,.Register-input{
+        font-size: 1.1rem;
+    }
 }

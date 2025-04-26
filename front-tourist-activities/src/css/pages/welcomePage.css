@@ -7,7 +7,7 @@
     /* background-color: rgb(229, 234, 161); */
 }
 
-.WelcomePage-fondo{
+.WelcomePage-fondo {
     /* position: absolute;
     top: 0;
     left: 0; */
@@ -16,7 +16,8 @@
     object-fit: cover;
     z-index: 0;
 }
-.WelcomePage-logo{
+
+.WelcomePage-logo {
     position: absolute;
     top: 25%;
     left: 50%;
@@ -24,6 +25,7 @@
     width: 250px;
     height: auto;
 }
+
 .WelcomePage-div {
     position: absolute;
     bottom: 0;
@@ -33,10 +35,9 @@
     flex-direction: column;
     align-items: center;
     width: 100vw;
-    
     border-radius: 50px 50px 0 0;
     /* background: var(--color-bg); */
-    background-color:  #fbfdfd;
+    background-color: #fbfdfd;
     ;
 }
 
@@ -57,19 +58,27 @@
     transform: translate(-50%, -50%);
 } */
 
+.WelcomePage-lines{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
 .WelcomePage-line {
-    border: 4px solid #74e0e6;
+    border: 4px solid #6b9ea1;
     width: 40px;
     border-radius: 40px;
 }
 
-.WelcomePage-title{
-font-family: var(--font-logo);
-color: black;
-font-size: 2rem;
+.WelcomePage-title {
+    font-family: var(--font-logo);
+    color: black;
+    font-size: 2rem;
 }
 
-.WelcomePage-subtitle{
+.WelcomePage-subtitle {
     font-size: 1.2rem;
     color: rgb(112, 115, 115);
 }
@@ -79,7 +88,8 @@ font-size: 2rem;
     font-size: 1.5rem;
     color: white;
     padding: 20px;
-    background: linear-gradient(135deg, #3bdae3, #8ed0d3);
+    background: linear-gradient(135deg, #31b4ba, #67a2a5);
+    border: 4px solid #8ed0d3;
     border-radius: 2.5rem;
     width: auto;
     height: 60px;
@@ -87,4 +97,26 @@ font-size: 2rem;
     align-items: center;
     justify-content: center;
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    
+}
+.WelcomePage-link:hover{
+    background: linear-gradient(135deg, rgb(57, 173, 179), #6b9ea1);
+}
+
+
+@media (min-width: 768px) {
+
+    .WelcomePage-logo {
+        width: 280px;
+    }
+
+    .WelcomePage-div {
+        border-radius: 60px 60px 0 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .WelcomePage-div {
+        border-radius: 100px 100px 0 0;
+    }
 }

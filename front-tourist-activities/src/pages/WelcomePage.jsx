@@ -19,7 +19,14 @@ const Welcome = () => {
                 <img className="WelcomePage-logo" src="/img/logo-app.png" alt="logo" />
                 <div className="WelcomePage-div">
                     <div className="WelcomePage-content">
-                        <span className="WelcomePage-line"></span>
+                        <div className="WelcomePage-lines">
+                            <span className="WelcomePage-line"></span>
+                            <span className="WelcomePage-line"></span>
+
+                            <span className="WelcomePage-line"></span>
+                        </div>
+
+
                         <h1 className="WelcomePage-title">Turistea Villajoyosa</h1>
                         <h2 className="WelcomePage-subtitle">Descubre las actividades más típicas de la Vila y organízalas a tu gusto.
                         </h2>

@@ -181,6 +181,7 @@ const Home = () => {
                     <div className="Act-cardScroll">
                         {listaDePacks.map((pack, i) => (
                             <PackCard
+                                i={i}
                                 key={pack._id}
                                 pack={pack}
                                 handleAbrirPack={handleAbrirPack}
@@ -190,7 +191,7 @@ const Home = () => {
                         {
                             packAbierto !== null && (
                                 <PackDetails
-
+                                    listaDePacks={listaDePacks}
                                     packAbierto={packAbierto}
                                     actividades={actividades}
                                     setPackAbierto={setPackAbierto}
@@ -218,7 +219,7 @@ const Home = () => {
                         />
                     )}
 
-                    <div>
+                    <div className="Activities-layout">
                         {actividadesFiltradas.map((actividad) => (
                             < ActivityCard
                                 key={actividad._id}

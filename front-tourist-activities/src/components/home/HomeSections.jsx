@@ -2,7 +2,7 @@ import React from "react";
 
 
 /* packs sin abrir */
-export const PackCard = ({ pack, handleAbrirPack }) => {
+export const PackCard = ({i, pack, handleAbrirPack }) => {
     return (
         <div onClick={() => handleAbrirPack(i)}
             className={`Act-card ${pack.color}`}>
@@ -15,7 +15,7 @@ export const PackCard = ({ pack, handleAbrirPack }) => {
 }
 
 /* */
-export const PackDetails = ({ packAbierto, actividades, setPackAbierto, handleAgregarACalendario }) => {
+export const PackDetails = ({ listaDePacks, packAbierto, actividades, setPackAbierto, handleAgregarACalendario }) => {
     return (
         <div className="Pack-overlay" onClick={() => setPackAbierto(null)}>
             <span className="Pack-cerrar">X</span>
@@ -29,13 +29,13 @@ export const PackDetails = ({ packAbierto, actividades, setPackAbierto, handleAg
                 {actividades
                     .filter(actividad => listaDePacks[packAbierto].actividades.includes(actividad._id))
                     .map(actividad => (
-                        <div key={actividad._id} className="Pack-activity">
+                        <div key={actividad._id} className="Pack-activity Pack-activity--abierto">
 
-                            <div className="Activity">
-                                <h3 className="Activity-h3">{actividad.titulo}</h3>
-                                <p className="Activity-p">{actividad.descripcion}</p>
+                            <div className="Activity Activity--abierto">
+                                <h3 className="Activity-h3 Activity-h3--abierto">{actividad.titulo}</h3>
+                                <p className="Activity-p Activity-p--abierto">{actividad.descripcion}</p>
                             </div>
-                            <button className="Activity-link Activity-link--pack" onClick={() => handleAgregarACalendario(actividad)}>Agregar al calendario</button>
+                            <button className="Activity-link Activity-link--abierto Activity-link--pack" onClick={() => handleAgregarACalendario(actividad)}>Agregar al calendario</button>
 
 
                         </div>

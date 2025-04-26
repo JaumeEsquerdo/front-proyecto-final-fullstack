@@ -130,18 +130,19 @@
     flex-direction: column;
     align-items: center;
 
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 0.4rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .Activity {
+    height: 100%;
     position: relative;
     width: 220px;
     max-height: 160px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     overflow-y: auto;
     stroke-width: none;
     /*ocultar scroll para firefox */
@@ -199,7 +200,7 @@
 .Activity-link {
     background: var(--btn-bg-color);
     color: var(--btn-text-light);
-    border: none;
+    border: 4px solid #3ab5ae;
     border-radius: var(--btn-radius);
     padding: var(--btn-padding);
     cursor: pointer;
@@ -213,7 +214,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 35px;
+    height: 38px;
     font-size: 0.9rem;
 }
 
@@ -321,6 +322,9 @@
     color: #9468f3;
 }
 
+.Activities-layout {
+    width: 100%;
+}
 
 .Activities-act {
     position: relative;
@@ -353,7 +357,8 @@
 }
 
 .Activities-icon {
-    filter: brightness(0) invert(1); /*con esto cambio el color negro de los svg a blanco */
+    filter: brightness(0) invert(1);
+    /*con esto cambio el color negro de los svg a blanco */
     width: 22px;
     height: 22px;
 }
@@ -394,4 +399,101 @@
 
 .Actividad-filtro:hover {
     opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+    .Act-section {
+        width: 80%;
+        margin: 20px 0;
+    }
+
+    .Act-cardScroll {
+        flex-wrap: wrap;
+    }
+
+    .Activities {
+        width: 80%;
+        margin: 20px 0;
+
+
+    }
+
+    .Act-h2,
+    .Act-p {
+        margin: 0;
+    }
+
+    .Activities-layout {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        justify-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+    }
+
+    .Activity-link--abierto {
+        width: 250px;
+    }
+
+    .Activity--abierto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 500px;
+    }
+
+    .Activity-p--abierto {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 500px;
+        font-size: 0.9rem;
+    }
+
+    .Pack-activity--abierto {
+        padding: 0.6rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .Act-section {
+        margin: 40px 0;
+    }
+
+    .Activities {
+        margin: 40px 0;
+    }
+
+    .Activities-layout {
+        width: 100%;
+
+    }
+
+    .Act-h2,
+    .Act-p {
+        margin: 5px 0;
+    }
+
+    .Actividades-filtros {
+        gap: 1rem;
+    }
+
+    .Activities-layout {
+
+        grid-template-columns: repeat(3, 1fr);
+
+
+    }
+    .Activity--abierto{
+        width: 600px;
+    }
+    .Activity-p--abierto{
+        max-width: 600px;
+    }
+    .Pack-cerrar{
+        top: 3rem;
+        right: 20%;
+    }
 }

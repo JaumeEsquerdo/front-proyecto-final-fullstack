@@ -5,6 +5,7 @@ import { useActivity } from '@/context/ActivityContext'
 
 
 
+
 /* Header del Calendario.jsx*/
 export const CalendarHeader = ({ formateDate, getPendingActivities, showCalendar, setShowCalendar }) => {
     return (
@@ -188,75 +189,6 @@ const Actividad = ({ activity, now }) => {
     )
 }
 
-
-/* form del calendario */
-export const CalendarForm = ({
-    preloadData,
-    setPreloadData,
-    handleSubmit,
-    handleCloseForm,
-    selectedDay,
-    setSelectedActivity
-}) => {
-    return (
-
-        <form
-            id='CalendarForm'
-            className='CalendarForm'
-            onSubmit={handleSubmit}>
-            <h3>El {selectedDay.toLocaleDateString('es-Es', dateOptions)}</h3>
-
-
-            <input type="text" placeholder='Nombre actividad' value={preloadData?.title || ''} // si hay act seleccionada, precargar 
-                onChange={(e) => setPreloadData({ ...preloadData, title: e.target.value })}
-                required
-                className='CalendarForm-input'
-            />
-
-            {/* select de horas */}
-            <select
-                className='CalendarForm-select'
-                value={preloadData.hour || '10'} onChange={(e) => setPreloadData({ ...preloadData, hour: e.target.value })}>
-                {/* listar las horas con el indice(creo un array vacion con 24 posiciones undefined y a cada indice le asigno el valor de cada hora del 0 al 23) */}
-                {[...Array(24)].map((_, i) => (
-                    <option key={i} value={i.toString().padStart(2, '0')}>
-                        {i.toString().padStart(2, '0')}
-                    </option>
-                ))}
-            </select>
-
-            {/* select de minutos */}
-            <select
-                className='CalendarForm-select'
-                value={preloadData.minutes || '00'} onChange={(e) => setPreloadData({ ...preloadData, minutes: e.target.value })}>
-                <option value="00">00</option>
-                <option value="15">15</option>
-                <option value="30">30</option>
-                <option value="45">45</option>
-            </select>
-
-            <textarea
-                className='CalendarForm-textarea'
-                placeholder='Descripción (opcional)'
-                value={preloadData.description || ''}
-                onChange={(e) => setPreloadData({ ...preloadData, description: e.target.value })}
-                rows={10}
-                cols={40}
-            >
-            </textarea>
-
-
-
-            <button className='CalendarForm-btn CalendarForm-btn--confirm' type='submit'>
-                {selectedActivity ? 'Actualizar actividad' : 'Guardar actividad'}
-            </button>
-            <button type='button' className='CalendarForm-btn CalendarForm-btn--cancel' onClick={handleCloseForm}>Cerrar formulario</button>
-        </form>
-
-    )
-}
-
-
 /* render de act. seleccionada */
 export const ActivitySelected = ({ selectedActivity, handleOffSelectedActivity, handleEdit, handleDelete }) => {
     return (
@@ -264,7 +196,7 @@ export const ActivitySelected = ({ selectedActivity, handleOffSelectedActivity, 
             <button className='ActividadSeleccionada-close' onClick={handleOffSelectedActivity}>X</button>
             <h3 className='ActividadSeleccionada-h3'>Actividad seleccionada</h3>
             <h4 className='ActividadSeleccionada-h4'>{selectedActivity.title}</h4>
-            {selectedActivity.description ? (<p className='ActividadSeleccionada-p'><strong>Descripción</strong>{selectedActivity.description}</p>
+            {selectedActivity.description ? (<p className='ActividadSeleccionada-p'><strong>Descripción: </strong>{selectedActivity.description}</p>
             ) : ""}
             <p className='ActividadSeleccionada-p'><strong>Hora: </strong>{selectedActivity.timeExact}</p>
 

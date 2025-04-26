@@ -228,6 +228,9 @@
     /* <- Esto desactiva el estilo nativo */
 
 }
+.CalendarForm-select{
+    cursor: pointer;
+}
 
 .CalendarForm-input:focus,
 .CalendarForm-textarea:focus,
@@ -248,15 +251,15 @@
 }
 
 .CalendarForm-btn--confirm {
-    background-color: #5cbe8beb;;
+    background-color: #579675eb;;
     border: 4px solid #4a7d33;
     box-shadow: 0 4px 12px rgba(76, 154, 42, 0.2);
 
 }
 
 .CalendarForm-btn--cancel {
-    background-color: rgba(121, 102, 95, 0.92);;
-    border: 4px solid #605c5a;
+    background-color: #483e54eb;;
+    border: 4px solid #483e54eb;
     box-shadow: 0 4px 12px rgba(166, 124, 109, 0.2);
 }
 
@@ -265,7 +268,7 @@
     
 }
 .CalendarForm-btn--cancel:hover{
-    background-color: #605c5a;
+    background-color: #42374feb;
     
 }
 
@@ -280,6 +283,7 @@
     margin: 2rem auto;
     border: 1px solid #f0f0f0;
     width: 80%;
+    height: auto;
 }
 
 .ActividadSeleccionada-close {
@@ -308,7 +312,7 @@
 
 .ActividadSeleccionada-h3 {
     font-size: 1rem;
-    color: var(--color-text-p);
+    color: var(--color-text-t);
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -316,19 +320,20 @@
 .ActividadSeleccionada-h4 {
     font-size: 1.25rem;
     color: var(--color-text-p);
-    margin-top: 0.5rem;
+    margin: 0.5rem 0;
 }
 
 .ActividadSeleccionada-p {
     color: var(--color-text-s);
     line-height: 1.5;
-    margin-bottom: 0.8rem;
+    margin: 0.5rem 0;
 }
 
 .ActividadSeleccionada-botones {
     display: flex;
     gap: 1rem;
     margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .ActividadSeleccionada-btn {
@@ -365,4 +370,63 @@
 .react-calendar__tile--hasActive {
     color: white;
     /* background: #4b5bb2; */
+}
+
+@media (min-width: 768px){
+    .CalendarForm{
+        width: 700px;
+        max-width: 700px;
+        margin: 40px auto;
+    }
+    .Actividades-btn{
+        font-size: 0.9rem;
+    }
+    .CalendarioHoras{
+        font-size: 0.9rem;
+    }
+    .react-calendar{
+        width: 500px;
+    }
+    .Slider{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+    }
+}
+
+@media (min-width: 1024px) {
+    .Actividades{
+        width: 80%;
+    }
+    .CalendarHeader{
+        width: 80%;
+    }
+    .Slider{
+        width: 80%;
+        padding: 2rem 0 2.5rem 0;
+    }
+    .CalendarForm{
+        width: 800px;
+        max-width: 800px;
+        margin: 50px auto;
+    }
+    .Actividades{
+        padding: 40px;
+    }
+    .Actividades-h3{
+        font-size: 1.5rem;
+    }
+    .CalendarForm-input{
+        font-size: 1rem;
+    }
+    .CalendarForm-select{
+        
+        font-size: 1rem;
+    }
+    .CalendarForm-textarea{
+        font-size: 0.9rem;
+    }
+    
 }
