@@ -283,6 +283,24 @@
     background-color: #eca9a9;
 }
 
+.Act-card.purple {
+    background: linear-gradient(135deg, #7b5cb0, #c5afe6);
+    box-shadow: 0px 10px 20px hsla(260, 45%, 80%, 0.4);
+}
+
+.Pack-detalles.purple {
+    background-color: #c5afe6;
+}
+
+.Act-card.brown {
+    background: linear-gradient(135deg, #a97b5c, #e3c6b0);
+    box-shadow: 0px 10px 20px hsla(25, 45%, 80%, 0.4);
+}
+
+.Pack-detalles.brown {
+    background-color: #e3c6b0;
+}
+
 .Act-card.pink {
     background: linear-gradient(135deg, #e86a88, #f5b6c4);
     box-shadow: 0px 10px 20px hsla(0, 69%, 80%, 0.4);
@@ -409,6 +427,10 @@
 
     .Act-cardScroll {
         flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.4rem;
+        justify-items: center;
     }
 
     .Activities {
@@ -480,19 +502,32 @@
         gap: 1rem;
     }
 
+    .Act-cardScroll {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        justify-items: center;
+
+    }
+
     .Activities-layout {
 
         grid-template-columns: repeat(3, 1fr);
-
-
     }
-    .Activity--abierto{
+
+    .Act-card {
+        max-width: 280px;
+    }
+
+    .Activity--abierto {
         width: 600px;
     }
-    .Activity-p--abierto{
+
+    .Activity-p--abierto {
         max-width: 600px;
     }
-    .Pack-cerrar{
+
+    .Pack-cerrar {
         top: 3rem;
         right: 20%;
     }

@@ -28,9 +28,10 @@ const Welcome = () => {
 
 
                         <h1 className="WelcomePage-title">Turistea Villajoyosa</h1>
-                        <h2 className="WelcomePage-subtitle">Descubre las actividades más típicas de la Vila y organízalas a tu gusto.
+                        <h2 className="WelcomePage-subtitle">Descubre los planes más típicos de 'la Vila' y organízate a tu gusto.
                         </h2>
-                        <h2 className="WelcomePage-subtitle">Guarda tus planes en el calendario, añade los tuyos propios y vive la experiencia a tu manera.</h2>
+                        <h2 className="WelcomePage-subtitle">  Guarda las actividades que te recomendamos en el calendario, añade las tuyas propias y, sobre todo, vive la experiencia a tu manera.
+                        </h2>
                         <Link className="WelcomePage-link" to={'/home'}>Empieza a planificar</Link>
                     </div>
 

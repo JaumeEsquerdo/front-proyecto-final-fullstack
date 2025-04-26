@@ -1,4 +1,4 @@
-# Proyecto final de backend
+# Proyecto final de diseño web fullstack CEI
 
 ### Estructura de la App :
 

@@ -11,6 +11,13 @@
 }
 
 .Header-title {
+    font-size: 32px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #f26483, #faa536);
+    /* para que solo coja las letras */
+    -webkit-background-clip: text;
+    /* hace que el color normla del texto sea transparente, lo q hace q solo se vea el color del bakground */
+    color: transparent;
     pointer-events: none;
     font-family: var(--font-logo);
 }

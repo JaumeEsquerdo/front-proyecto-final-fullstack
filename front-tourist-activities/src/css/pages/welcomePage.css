@@ -58,7 +58,7 @@
     transform: translate(-50%, -50%);
 } */
 
-.WelcomePage-lines{
+.WelcomePage-lines {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -73,9 +73,15 @@
 }
 
 .WelcomePage-title {
+    font-size: 32px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #f26483, #faa536);
+    /* para que solo coja las letras */
+    -webkit-background-clip: text;
+    /* hace que el color normla del texto sea transparente, lo q hace q solo se vea el color del bakground */
+    color: transparent;
+    pointer-events: none;
     font-family: var(--font-logo);
-    color: black;
-    font-size: 2rem;
 }
 
 .WelcomePage-subtitle {
@@ -97,15 +103,18 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-    
+
 }
-.WelcomePage-link:hover{
+
+.WelcomePage-link:hover {
     background: linear-gradient(135deg, rgb(57, 173, 179), #6b9ea1);
 }
 
 
 @media (min-width: 768px) {
-
+    .WelcomePage-title{
+        font-size: 34px;
+    }
     .WelcomePage-logo {
         width: 280px;
     }
@@ -116,6 +125,9 @@
 }
 
 @media (min-width: 1024px) {
+    .WelcomePage-title{
+        font-size: 36px;
+    }
     .WelcomePage-div {
         border-radius: 100px 100px 0 0;
     }
