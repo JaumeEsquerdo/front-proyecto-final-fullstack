@@ -18,6 +18,7 @@ const Register = () => {
     const API_ROUTER = import.meta.env.VITE_API_ROUTER;
     const API_AUTH_REGISTER = import.meta.env.VITE_AUTH_REGISTER;
 
+    /* registro */
     const handleSubmit = async (e) => {
         e.preventDefault();
 

@@ -28,6 +28,7 @@ const Profile = () => {
     //     console.log("Estado de user:", user);
     // }, [user]);
 
+    /* obtener perfil */
     useEffect(() => {
         const fetchUserData = async () => {
             try {
@@ -136,7 +137,7 @@ const Profile = () => {
 
         }
     }
-
+    /* actualizar pass */
     const handleUpdatePassword = async (e) => {
         e.preventDefault();
 

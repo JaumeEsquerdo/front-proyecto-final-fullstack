@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useNavigate, Link } from "react-router";
+
+import { Link } from "react-router";
 
 import '@/css/pages/welcomePage.css'
 import '@/css/index.css'
@@ -8,7 +8,6 @@ import '@/css/index.css'
 
 const Welcome = () => {
 
-    const navigate = useNavigate() //hook para navegar entre rutas y decir los movimientos
 
 
     return (

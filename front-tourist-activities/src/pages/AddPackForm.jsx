@@ -78,7 +78,7 @@ const AddPackForm = () => {
             }))
         }
     }
-
+    /* crear los packs */
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('')

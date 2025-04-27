@@ -48,7 +48,7 @@ const router = createBrowserRouter([
     }
     ,
     {
-        element: <PrivateRoute />, // rutas protegidas!
+        element: <PrivateRoute />, // rutas protegidas con autentificación!
         children: [
             {
                 element: <Layout />,

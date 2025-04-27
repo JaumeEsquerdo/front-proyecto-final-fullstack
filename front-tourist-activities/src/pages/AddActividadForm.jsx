@@ -22,7 +22,7 @@ const AddActividadForm = () => {
     }
 
 
-
+    /* crear las actividades */
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
