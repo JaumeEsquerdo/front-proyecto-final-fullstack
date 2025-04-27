@@ -134,10 +134,10 @@ const CalendarPage = () => {
                     // si el EDIT es ok...
                     setActivities((prev) => prev.map((a) => (a.id === selectedActivity.id ? { ...a, ...actividad, id: selectedActivity.id } : a))) // aqui solo actualiza el array de actividades para reemplzara solo la actividad editaada que coincide en id, si no se mantiene igual
                     setToastMessage('Actividad EDITADA con éxito')
-                    setError("");
+                    // setError("");
                 } else {
                     console.error('Error editando la actividad', data.msg)
-                    setError(data.msg || "Error editando la actividad");
+                    // setError(data.msg || "Error editando la actividad");
                 }
             } else {
                 // si la actividad no esta seleccioanda 
@@ -154,7 +154,7 @@ const CalendarPage = () => {
                 if (res.ok) {
                     setActivities((prev) => [...prev, data]) //agregamos la act(data) al resto ya guardado
                     setToastMessage('Actividad creada con éxito');
-                    setError("");
+                    
                 } else {
                     console.error('Error creando la actividad', data.msg)
                 }
@@ -182,7 +182,8 @@ const CalendarPage = () => {
 
         } catch (e) {
             console.error('error en el proceso de editar/crear actividad en el calendario', e);
-            setError("Error en la conexión con el servidor");
+            // setError('Error en el proceso de cread/ editar activiades')
+            
         }
 
     };
