@@ -1,5 +1,9 @@
 # Proyecto final de diseño web fullstack CEI
 
+https://front-proyecto-final-fullstack.vercel.app/
+https://github.com/JaumeEsquerdo/front-proyecto-final-fullstack
+https://github.com/JaumeEsquerdo/backend-proyecto-final-fullstack.git
+
 ## Estructura y funcionamiento de la App :
 
 ### Toda la app está pensado en utilizarla cuando visitas la ciudad de Villajoyosa
@@ -75,7 +79,7 @@
 
 Front: React + CSS
 Backend: Node.js con Express y MongoDB
-Mapa: Leaflet para mostrar ubicaciones
+
 
 
 
