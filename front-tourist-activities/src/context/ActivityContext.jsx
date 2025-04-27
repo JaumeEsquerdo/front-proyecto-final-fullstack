@@ -179,9 +179,12 @@ export const ActivityProvider = ({ children }) => {
     }, [location.pathname])
 
 
-    // useEffect para traer acts del backend y poder imprimirlas
+    // funcion para traer acts del backend y poder imprimirlas
 
     const fetchActivities = async () => {
+
+        const controller = new AbortController();
+        const signal = controller.signal;
 
 
         try {
@@ -193,8 +196,9 @@ export const ActivityProvider = ({ children }) => {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
-                }
-            })
+                },
+                signal: signal
+            });
 
             const data = await res.json();
 

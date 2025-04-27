@@ -93,6 +93,9 @@ const CalendarPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        const controller = new AbortController();
+        const signal = controller.signal;
+
         const token = localStorage.getItem('token');
         if (!token) return
         //console.log('Token en el frontend:', token); // Verifica que el token esté en el frontend
@@ -126,7 +129,8 @@ const CalendarPage = () => {
                         'Authorization': `Bearer ${token}`
 
                     },
-                    body: JSON.stringify(actividad)
+                    body: JSON.stringify(actividad),
+                    signal: signal
                 });
                 data = await res.json();
 
@@ -147,14 +151,15 @@ const CalendarPage = () => {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
                     },
-                    body: JSON.stringify(actividad)
+                    body: JSON.stringify(actividad),
+                    signal: signal
                 });
                 data = await res.json();
 
                 if (res.ok) {
                     setActivities((prev) => [...prev, data]) //agregamos la act(data) al resto ya guardado
                     setToastMessage('Actividad creada con éxito');
-                    
+
                 } else {
                     console.error('Error creando la actividad', data.msg)
                 }
@@ -183,8 +188,9 @@ const CalendarPage = () => {
         } catch (e) {
             console.error('error en el proceso de editar/crear actividad en el calendario', e);
             // setError('Error en el proceso de cread/ editar activiades')
-            
+
         }
+
 
     };
 

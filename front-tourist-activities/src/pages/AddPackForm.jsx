@@ -22,6 +22,9 @@ const AddPackForm = () => {
 
     // para obtener las actividades a guardar dentro de los packs
     useEffect(() => {
+        const controller = new AbortController();
+        const signal = controller.signal;
+
         const fetchActividades = async () => {
             const token = localStorage.getItem('token');
 
@@ -29,7 +32,8 @@ const AddPackForm = () => {
                 const res = await fetch(`${API_URL}${API_ROUTER}${API_ACTIVIDADES}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
-                    }
+                    },
+                    signal: signal
                 })
 
                 const data = await res.json();
@@ -45,6 +49,10 @@ const AddPackForm = () => {
             }
         }
         fetchActividades();
+
+        return () => {
+            controller.abort(); // para cancelar la solicitud si el componente se desmonta
+        }
     }, []);
 
     const handleChange = (e) => {

@@ -100,6 +100,9 @@ const Home = () => {
 
     //useEffect para la API de packs de acts recomendadas
     useEffect(() => {
+        const controller = new AbortController();
+        const signal = controller.signal;
+
         const fetchPacksActividades = async () => {
             if (!token) return
             try {
@@ -107,7 +110,8 @@ const Home = () => {
                     method: 'GET',
                     headers: {
                         Authorization: `Bearer ${token}`
-                    }
+                    },
+                    signal: signal
                 });
 
                 const data = await res.json();
@@ -126,6 +130,11 @@ const Home = () => {
         }
 
         fetchPacksActividades();
+
+        return () => {
+            controller.abort(); // para cancelar la solicitud si el componente se desmonta
+        }
+
     }, [token])
 
 

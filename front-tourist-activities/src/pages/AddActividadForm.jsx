@@ -44,7 +44,7 @@ const AddActividadForm = () => {
             const data = await res.json();
 
             if (res.ok) {
-                setSuccess('AcTividad creada correctamente');
+                setSuccess('Actividad creada correctamente');
                 setActividad({ titulo: '', descripcion: '', tipo: 'cultural' }) //limpieza
 
             } else {
