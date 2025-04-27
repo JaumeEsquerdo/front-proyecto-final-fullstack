@@ -93,7 +93,7 @@ export const ActivityProvider = ({ children }) => {
 
     //para cargar la actividad del calendario que se va a editar
     const handleEdit = (actividad) => {
-        console.log('Actividad seleccionada para editar:', actividad);
+        // console.log('Actividad seleccionada para editar:', actividad);
         const [hour, minutes] = actividad.timeExact.split(':') // descomponer la hora en dos partes para ponerlo en el form y poder editarlo
         setPreloadData({
             title: actividad.title,
@@ -105,7 +105,7 @@ export const ActivityProvider = ({ children }) => {
         setSelectedActivity(actividad) // necesario para q sepa el form q estamos editando la act no creando una
         setIsAddFormOpen(true)
         setSelectedDay(new Date(actividad.time))
-        console.log('abriendo form actiivdad', actividad)
+        // console.log('abriendo form actiivdad', actividad)
     }
 
     const resetForm = () =>{
@@ -137,7 +137,7 @@ export const ActivityProvider = ({ children }) => {
 
             if (res.ok) {
                 setActivities((prevActs) => prevActs.filter((act) => act.id !== id))
-                console.log('eliminar actividad con id', id)
+                // console.log('eliminar actividad con id', id)
             } else {
                 console.error('error al eliminar la actividad', data.msg)
             }

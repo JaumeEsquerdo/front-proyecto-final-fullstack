@@ -157,7 +157,7 @@ const Home = () => {
             title: actividad.titulo,
             description: actividad.descripcion
         })
-        console.log('handle preload en home', preloadData)
+        // console.log('handle preload en home', preloadData)
         setIsAddFormOpen(true) // poner en true el isAddFormOpen para que se active el useEffect en Calendario
         navigate('/calendario')
     }

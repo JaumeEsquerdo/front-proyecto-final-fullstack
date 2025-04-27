@@ -65,7 +65,7 @@ const CalendarPage = () => {
         for (let day = 1; day <= lastDay; day++) {
             daysArrays.push(new Date(year, month, day))
         }
-        console.log('daysArrays', daysArrays)
+        // console.log('daysArrays', daysArrays)
         setMonthDays(daysArrays)
     }
 
@@ -84,7 +84,6 @@ const CalendarPage = () => {
             const hourText = (i === 24) ? '00:00' : `${i.toString().padStart(2, '0')}:00`;
             hours.push(hourText)
         }
-        console.log(hours)
         return hours
     }
 
@@ -96,9 +95,9 @@ const CalendarPage = () => {
 
         const token = localStorage.getItem('token');
         if (!token) return
-        console.log('Token en el frontend:', token); // Verifica que el token esté en el frontend
+        //console.log('Token en el frontend:', token); // Verifica que el token esté en el frontend
 
-        console.log('SELECTEDACTIVITY', selectedActivity)
+
 
         const horaCompleta = `${hour}:${minutes}`; //para guardarlo en time
         const fechaConHora = new Date(selectedDay);
@@ -112,7 +111,7 @@ const CalendarPage = () => {
             timeExact: horaCompleta,
             displayHours: `${hour}:00`
         }
-        console.log("Actividad que se va a enviar:", actividad);
+        // console.log("Actividad que se va a enviar:", actividad);
 
         try {
             let res;
@@ -135,8 +134,10 @@ const CalendarPage = () => {
                     // si el EDIT es ok...
                     setActivities((prev) => prev.map((a) => (a.id === selectedActivity.id ? { ...a, ...actividad, id: selectedActivity.id } : a))) // aqui solo actualiza el array de actividades para reemplzara solo la actividad editaada que coincide en id, si no se mantiene igual
                     setToastMessage('Actividad EDITADA con éxito')
+                    setError("");
                 } else {
                     console.error('Error editando la actividad', data.msg)
+                    setError(data.msg || "Error editando la actividad");
                 }
             } else {
                 // si la actividad no esta seleccioanda 
@@ -152,7 +153,8 @@ const CalendarPage = () => {
 
                 if (res.ok) {
                     setActivities((prev) => [...prev, data]) //agregamos la act(data) al resto ya guardado
-                    setToastMessage('Actividad creada con éxito')
+                    setToastMessage('Actividad creada con éxito');
+                    setError("");
                 } else {
                     console.error('Error creando la actividad', data.msg)
                 }
@@ -179,7 +181,8 @@ const CalendarPage = () => {
 
 
         } catch (e) {
-            console.error('error en el proceso de editar/crear actividad en el calendario', e)
+            console.error('error en el proceso de editar/crear actividad en el calendario', e);
+            setError("Error en la conexión con el servidor");
         }
 
     };

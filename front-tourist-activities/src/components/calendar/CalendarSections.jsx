@@ -179,7 +179,7 @@ const Actividad = ({ activity, now }) => {
     return (
         <p onClick={() => {
 
-            console.log('Actividad seleccionada:', activity);
+            // console.log('Actividad seleccionada:', activity);
             { setSelectedActivity(activity) }
 
         }
@@ -207,10 +207,9 @@ export const ActivitySelected = ({ selectedDay, selectedActivity, handleOffSelec
 
             <div className='ActividadSeleccionada-botones'>
                 <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--edit' onClick={() => handleEdit(selectedActivity)}>Editar</button>
-                <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--delete' onClick={() => {
-                    console.log("Actividad seleccionada:", selectedActivity);
+                <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--delete' onClick={() => 
                     handleDelete(selectedActivity.id)
-                }}>Eliminar</button>
+                }>Eliminar</button>
             </div>
         </div>
     )

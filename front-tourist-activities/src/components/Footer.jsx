@@ -14,7 +14,7 @@ const navItems = [
 export const Footer = memo(() => {
 
     //const[disableDotsAnim, setDisableDotsAnim] = useState();
-    const { setIsAddFormOpen, isAddFormOpen } = useActivity(); //contexto
+    const { setIsAddFormOpen } = useActivity(); //contexto
 
 
     const location = useLocation();

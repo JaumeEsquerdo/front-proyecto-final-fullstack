@@ -37,13 +37,15 @@ const Login = () => {
                 return;
             }
 
-            console.log("Respuesta del login:", data);
+            // console.log("Respuesta del login:", data);
 
             if (data.data.token) {
-                console.log("token recibido", data.data.token)
+                setError("");
+
                 localStorage.setItem('token', data.data.token);
                 localStorage.setItem('user', JSON.stringify(data.data.user));
-                console.log("redirijiendo a home")
+
+            
                 navigate("/home");
             } else {
                 setError("No ha llegado el token")

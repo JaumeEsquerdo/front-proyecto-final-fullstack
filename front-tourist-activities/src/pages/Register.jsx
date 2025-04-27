@@ -27,7 +27,7 @@ const Register = () => {
         }
 
         if (password !== confirmPassword) {
-            console.error("Las contraseñas no coinciden");
+            setError("Las contraseñas no coinciden");
             return;
         }
         try {
@@ -40,7 +40,7 @@ const Register = () => {
             const data = await res.json();
 
             if (!res.ok) {
-                console.error(data.msg || "Error al registrar");
+                setError(data.msg || "Error al registrar");
                 return;
             }
             localStorage.setItem('token', data.data.token);
@@ -48,11 +48,12 @@ const Register = () => {
 
 
 
-
+            setError("");
             navigate('/home')
 
         } catch (e) {
-            console.error("Erroe en el registro", e)
+            console.error("Erroe en el registro", e);
+            setError('Error en la conexión del servidor');
         }
 
 

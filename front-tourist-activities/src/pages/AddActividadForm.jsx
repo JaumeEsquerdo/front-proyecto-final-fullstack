@@ -29,7 +29,7 @@ const AddActividadForm = () => {
         setSuccess('');
 
         const token = localStorage.getItem('token');
-        console.log(token)
+        // console.log(token)
 
         try {
             const res = await fetch(`${API_URL}${API_ROUTER}${API_ACTIVIDADES}`, {

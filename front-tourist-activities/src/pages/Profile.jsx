@@ -24,9 +24,9 @@ const Profile = () => {
     const API_ROUTER = import.meta.env.VITE_API_ROUTER
     const API_AUTH_GET_USER = import.meta.env.VITE_AUTH_GET_USER
 
-    useEffect(() => {
-        console.log("Estado de user:", user);
-    }, [user]);
+    // useEffect(() => {
+    //     console.log("Estado de user:", user);
+    // }, [user]);
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -47,7 +47,7 @@ const Profile = () => {
                     return;
                 }
 
-                console.log('datos del usuario', data)
+                // console.log('datos del usuario', data)
 
                 if (data.data && data.data._id) {
                     setUser({ ...data.data, id: data.data._id }); // renombro id porq me da error si pongo user._id en el fetch de update
@@ -115,7 +115,7 @@ const Profile = () => {
 
             const data = await res.json();
 
-            console.log("Respuesta de la API al actualizar:", data); // Verifica la respuesta
+            // console.log("Respuesta de la API al actualizar:", data); // Verifica la respuesta
 
 
             if (!res.ok) {
@@ -146,8 +146,8 @@ const Profile = () => {
             return;
         }
 
-        console.log("User object:", user); // Verifica el objeto completo del usuario
-        console.log("User ID:", user.id); // Verifica el _id del usuarios
+        // console.log("User object:", user); // Verifica el objeto completo del usuario
+        // console.log("User ID:", user.id); // Verifica el _id del usuarios
 
         const updateData = {
             oldPassword: currentPassword, //contraseña actual
@@ -167,7 +167,7 @@ const Profile = () => {
 
             const data = await res.json();
 
-            console.log("Respuesta de la API al actualizar conrtaseña", data)
+            // console.log("Respuesta de la API al actualizar conrtaseña", data)
             if (!res.ok) {
                 setError(data.msg || "Error al actualizar contraseña")
                 return;
@@ -176,7 +176,8 @@ const Profile = () => {
             setError("")
             setShowPasswordForm(false)
         } catch (e) {
-            console.error("Error en el fetch para actualizar contraseña", e)
+            console.error("Error en el fetch para actualizar contraseña", e);
+            setError("Error en la conexión del servidor al actualizar contraseña");
 
         }
     }
