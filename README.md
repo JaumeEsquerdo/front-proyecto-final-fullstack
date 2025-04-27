@@ -1,6 +1,8 @@
 # Proyecto final de diseño web fullstack CEI
 
-### Estructura de la App :
+## Estructura y funcionamiento de la App :
+
+### Toda la app está pensado en utilizarla cuando visitas la ciudad de Villajoyosa
 
 1. Welcome Page
 
@@ -8,70 +10,66 @@
 
 - Explicación de los packs de actividades y beneficios de organizar el viaje.
 
-- Llamado a la acción: "Regístrate para empezar".
+- Llamado a la acción: Empezar o algo asi.
 
-- Opción de Login para usuarios ya registrados.
+- Cuando le das a empezar redirije a login, alli o entras con tu cuenta o clickas al link de Register
 
-  2. Dashboard (Pantalla de inicio)
 
-- Bienvenida personalizada: Si es la primera vez, pequeña explicación de la app.
+  2. Home (Pantalla de inicio)
 
 - Packs de actividades recomendados (Ejemplo: "Ruta gastronómica", "Día de playa", "Tour histórico"). Con botón de me gusta para guardarlos en una lista de referencia.
 
-- Resumen de su planificación: Si ya tiene actividades organizadas, se muestran aquí con vista rápida.
+- Actividades sueltas recomendadas, al hay un filtro para ver solo las 6 primeras, si le das a ver todas, aparecen botones filtrando por el tipo de actividades que son, cultural, ocio...
 
-- Mapa integrado con Leaflet para ver ubicación de actividades guardadas o recomendadas.
+- si clickas en alguna actividad en el boton de añadir o agregar actividad, te redirije la página Calendario, donde se te abre un form abajo del calendario y del dashboard con la actividad y con la opcion para ponerle la hora y rellenar como quieras el form, incluso cambiando el titulo de esa actividad.
+
 
 3. Calendario (Organización de Actividades)
- (vista diaria y semanal)
+ (vista diaria)
 
-- Vista diaria de actividades programadas con posibilidad de eliminarlas.
+- Vista diaria de actividades programadas con posibilidad de editarlas / eliminarlas.
 
-- Botón ‘+ Añadir actividad’ que abre un formulario:
 
-- Búsqueda con autocompletado de actividades predefinidas (según dos letras introducidas).
+
+- Si traes la actividad recomendada desde la pagina Home se te abre directamente la actividad. Si quieres cambiarle la fecha vas arriba donde aparecen los dias del mes y le pones el dia, se mantiene el form abierto y se actualiza el dia.
 
 - Opción de crear actividad personalizada si no está en la base de datos (ejemplo: "Visitar a un amigo").
 
 - Campos de actividad: 
     - Nombre
 
-    - Descripción
+    - Descripción (opcional)
 
-    - Imagen (opcional)
+    - Hora
 
-    - Precio (si aplica)
-
-    - Horario
-
-    - Recomendación de franja horaria (ej: "Mejor por la tarde").
-
-    - Ubicación (marcada en el mapa).
-
-- Asignación de hora y ubicación en el mapa.
-- Posibilidad de editar/eliminar actividades programadas.
+- Puedes cambiar tambien de mes y año desde un icono de calendario, el calendario es de una libreria de react.
 
 
+ 4. Header
 
- 4. Mapa interactivo? (dudas de como lo voy a poder realizar... lo veré más adelante cuando esté ya más madura la web)
+ - Logo y botón para ir al perfil (icono)
 
-- Ubicación de todas las actividades programadas en el día.
 
-- Posibilidad de filtrar por tipo de actividad.
+ 5. Footer
 
-- Se accede desde el Dashboard o el Calendario.
+ - Aqui se encuentra el nav de la app : icono de 'Home' y el icono de 'Calendario'.
 
-5. Perfil-Login / Register
+ - Tambien se encuentra el botón '+' de añadir actividad, que abre un formulario en el calendario para añadir la actividad. Si estás en la página Home dándole una vez te redirije a la página 'Calendario' y si estás en 'Calendario' y de nuevo le das al boton '+' se te abre ahora si el form de agregar actividad.
 
-- Si no está logeado: Formulario de login/registro.
 
-- Si está logeado:
+6. Perfil
 
-Ver su información de usuario.
+- Datos básicos del perfil: nombre, email, con posibilidad de actualizar
+- También puedes actualizar la contraseña
+- opción de logout
 
-Historial de actividades guardadas.
 
-Configuración.
+7. Páginas de Login y Register
+
+- Al login entras con tu email y contraseña
+- Al register le pones nombre email y contraseña, la contraseña tiene que tner 6 caracteres minimo
+
+
 
 ### Aspectos técnicos:
 
