@@ -207,7 +207,7 @@ export const ActivitySelected = ({ selectedDay, selectedActivity, handleOffSelec
 
             <div className='ActividadSeleccionada-botones'>
                 <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--edit' onClick={() => handleEdit(selectedActivity)}>Editar</button>
-                <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--delete' onClick={() => 
+                <button className='ActividadSeleccionada-btn ActividadSeleccionada-btn--delete' onClick={() =>
                     handleDelete(selectedActivity.id)
                 }>Eliminar</button>
             </div>

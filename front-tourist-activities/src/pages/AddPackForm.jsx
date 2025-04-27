@@ -26,8 +26,8 @@ const AddPackForm = () => {
             const token = localStorage.getItem('token');
 
             try {
-                const res = await fetch(`${API_URL}${API_ROUTER}${API_ACTIVIDADES}`,{
-                    headers:{
+                const res = await fetch(`${API_URL}${API_ROUTER}${API_ACTIVIDADES}`, {
+                    headers: {
                         Authorization: `Bearer ${token}`
                     }
                 })

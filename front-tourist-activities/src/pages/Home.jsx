@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 // import { color } from "framer-motion";
 import { useActivity } from '@/context/ActivityContext'
 import { useNavigate } from "react-router";
-import { color } from "framer-motion";
 import { ActivityCard, ActivityFilters, PackCard, PackDetails } from "@/components/home/HomeSections";
 //import { preload } from "react-dom";
 // import { verificarLogin } from "@/components/utiles/Auth";

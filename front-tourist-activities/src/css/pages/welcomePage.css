@@ -112,9 +112,10 @@
 
 
 @media (min-width: 768px) {
-    .WelcomePage-title{
+    .WelcomePage-title {
         font-size: 34px;
     }
+
     .WelcomePage-logo {
         width: 280px;
     }
@@ -125,9 +126,10 @@
 }
 
 @media (min-width: 1024px) {
-    .WelcomePage-title{
+    .WelcomePage-title {
         font-size: 36px;
     }
+
     .WelcomePage-div {
         border-radius: 100px 100px 0 0;
     }

@@ -3,7 +3,7 @@ import { PasswordChangeForm, ProfileForm, ProfileHeader, ProfileInfo } from '@/c
 import '@/css/pages/profile.css'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
 
 const Profile = () => {
     const navigate = useNavigate();

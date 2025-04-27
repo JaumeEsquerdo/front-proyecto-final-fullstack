@@ -38,7 +38,7 @@
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.Profile-card:hover{
+.Profile-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
@@ -83,7 +83,7 @@
     transition: background-color 0.3s ease-in-out;
 }
 
-.Profile-link:hover{
+.Profile-link:hover {
     background-color: #f1f1f1;
 }
 
@@ -106,7 +106,7 @@
 
 .Profile-input:focus {
     border-color: #5b9df9;
-    box-shadow: var(--box-shadow) ;
+    box-shadow: var(--box-shadow);
 }
 
 .Profile-button {
@@ -127,7 +127,7 @@
     background-color: #4f95f4;
 }
 
-.Profile-button--cancel{
+.Profile-button--cancel {
     background-color: #f48c8c;
     border: 2px solid #f48c8ccc;
     color: white;
@@ -135,11 +135,12 @@
 
     transition: background-color 0.3s ease-in-out;
 }
-.Profile-button--cancel:hover{
+
+.Profile-button--cancel:hover {
     background-color: #e97b7b;
 }
 
-.Profile-button--pass{
+.Profile-button--pass {
     margin-top: 2rem;
     margin-bottom: 1rem;
     background-color: #f4ad68;
@@ -151,10 +152,11 @@
     transition: background-color 0.3s ease-in-out;
 }
 
-.Profile-button--pass:hover{
+.Profile-button--pass:hover {
     background-color: #ef9a4f;
 }
-.Profile-button--passConfirm{
+
+.Profile-button--passConfirm {
     margin-top: 1rem;
     background-color: #5ac4ae;
     border: 2px solid #5ac4afcc;
@@ -166,7 +168,7 @@
 
 }
 
-.Profile-button--passConfirm:hover{
+.Profile-button--passConfirm:hover {
     background-color: #43b8a2;
 }
 
@@ -179,10 +181,12 @@
     text-align: center;
     font-size: 1rem;
 }
-.Profile-logout:hover{
+
+.Profile-logout:hover {
     color: #5b9df9;
 }
-.Policy-links{
+
+.Policy-links {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -190,25 +194,25 @@
     margin-top: 2rem;
 }
 
-.Policy-link{
+.Policy-link {
     color: #407ee7;
     font-size: 1rem;
     font-weight: 500;
     transition: color 0.4s ease-in-out;
 }
 
-.Policy-link:hover{
+.Policy-link:hover {
     color: var(--color-text-s);
 }
 
-.Profile-error{
+.Profile-error {
     color: #f44336;
     font-size: 1rem;
     margin-top: 1rem;
     text-align: center;
 }
 
-.Profile-info{
+.Profile-info {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -217,23 +221,25 @@
     color: var(--color-text-p);
 }
 
-.Profile-name,.Profile-email{
+.Profile-name,
+.Profile-email {
     background-color: #f9f9f9;
     padding: var(--btn-padding);
     border-radius: 8px;
     border: 1px solid #e0e0e0;
     font-weight: 500;
-    
+
 }
 
-.Profile-name strong,.Profile-email strong{
+.Profile-name strong,
+.Profile-email strong {
     font-weight: 700;
     margin-right: 0.5rem;
     color: var(--color-text-s);
 }
 
-.Profile-btnsChange{
-display: flex;
-justify-content: center;
-gap: 10px;
+.Profile-btnsChange {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }

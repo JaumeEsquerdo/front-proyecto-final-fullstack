@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { CalendarSelector, MonthDaysSlider, ActivityPanel, CalendarHeader, ActivitySelected } from '@/components/calendar/CalendarSections';
 import { useActivity } from '@/context/ActivityContext';
-import { preload } from 'react-dom';
+
 
 
 const CalendarPage = () => {

@@ -55,12 +55,14 @@
 .Pack-icono {
     width: 60px;
 }
-.Pack-h3{
+
+.Pack-h3 {
     font-size: 1.2rem;
     color: white;
     font-weight: 700
 }
-.Pack-p{
+
+.Pack-p {
     color: white;
 }
 

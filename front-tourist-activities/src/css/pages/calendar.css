@@ -329,13 +329,15 @@
     color: var(--color-text-p);
     margin: 0.5rem 0;
 }
-.ActividadSeleccionada-fecha{
+
+.ActividadSeleccionada-fecha {
     display: flex;
     width: 100%;
     justify-content: space-around;
     align-items: center;
     gap: 1rem;
 }
+
 .ActividadSeleccionada-p {
     color: var(--color-text-s);
     line-height: 1.5;
@@ -419,10 +421,11 @@
         justify-content: center;
 
     }
-    .ActividadSeleccionada{
+
+    .ActividadSeleccionada {
         width: 70%;
     }
-    
+
 }
 
 @media (min-width: 1024px) {
@@ -466,7 +469,7 @@
         font-size: 0.9rem;
     }
 
-    .ActividadSeleccionada{
+    .ActividadSeleccionada {
         width: 60%;
     }
 

@@ -45,7 +45,7 @@ const Login = () => {
                 localStorage.setItem('token', data.data.token);
                 localStorage.setItem('user', JSON.stringify(data.data.user));
 
-            
+
                 navigate("/home");
             } else {
                 setError("No ha llegado el token")

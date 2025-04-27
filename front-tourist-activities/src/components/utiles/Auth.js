@@ -1,6 +1,6 @@
-export const verificarLogin = (navigate) =>{ // paso navigate en la función para poder utilizarlo aqui dentro, donde utilice esto faltaroa el ' const navigate= useNavigate() '
+export const verificarLogin = (navigate) => { // paso navigate en la función para poder utilizarlo aqui dentro, donde utilice esto faltaroa el ' const navigate= useNavigate() '
     const token = localStorage.getItem('token');
-    if(!token){
+    if (!token) {
         navigate('/login');
         return false; // si no tiene login return false, ya que no pasa la verificacion
     }

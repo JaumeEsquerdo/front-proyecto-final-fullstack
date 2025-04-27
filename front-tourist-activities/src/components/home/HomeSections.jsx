@@ -2,7 +2,7 @@ import React from "react";
 
 
 /* packs sin abrir */
-export const PackCard = ({i, pack, handleAbrirPack }) => {
+export const PackCard = ({ i, pack, handleAbrirPack }) => {
     return (
         <div onClick={() => handleAbrirPack(i)}
             className={`Act-card ${pack.color}`}>

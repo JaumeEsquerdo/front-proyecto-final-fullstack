@@ -24,7 +24,7 @@ export const ActivityProvider = ({ children }) => {
     const [activitiesError, setActivitiesError] = useState(null); // guardar error para las activities
     const [activitiesLoading, setActivitiesLoading] = useState(true); // dejar cargando si llega el fetch
     /* estados de horas y minutos que se necesitan tanto enn calendario como en el handle de setSelectedActivity */
-    const [hour, setHour] = useState("10"); 
+    const [hour, setHour] = useState("10");
     const [minutes, setMinutes] = useState('00')
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('')
@@ -89,7 +89,7 @@ export const ActivityProvider = ({ children }) => {
         }
     }
 
-    
+
 
     //para cargar la actividad del calendario que se va a editar
     const handleEdit = (actividad) => {
@@ -108,14 +108,14 @@ export const ActivityProvider = ({ children }) => {
         // console.log('abriendo form actiivdad', actividad)
     }
 
-    const resetForm = () =>{
+    const resetForm = () => {
         setTitle('');
         setDescription('');
         setHour('10');
         setMinutes('00');
         setSelectedActivity(null)
         setIsAddFormOpen(false)
-    
+
     }
 
 
@@ -198,7 +198,7 @@ export const ActivityProvider = ({ children }) => {
 
             const data = await res.json();
 
-           
+
 
 
             if (!res.ok) {
@@ -231,7 +231,7 @@ export const ActivityProvider = ({ children }) => {
 
     useEffect(() => {
         fetchActivities();
-        
+
     }, []) // cada vez q cambie actividades se ejecuta asi no tengo ni que pasarlo a Calendario
 
     // useEffect(() =>{

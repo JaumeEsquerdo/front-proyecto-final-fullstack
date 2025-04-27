@@ -1,5 +1,5 @@
 import '@/css/pages/login-register.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { PolicyLinks } from '@/components/login-register-profile/LoginSections';
 import { RegisterFooter, RegisterForm } from '@/components/login-register-profile/RegisterSections';

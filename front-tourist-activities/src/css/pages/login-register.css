@@ -172,7 +172,8 @@
 .Login-linkRegister:hover {
     color: #73bbdd;
 }
-.Login-error{
+
+.Login-error {
     margin: 10px;
     font-size: 1rem;
     color: rgb(108, 5, 5);
@@ -180,9 +181,11 @@
 
 @media (min-width: 768px) {
 
-    .Login-divForm,.Register-divForm{
+    .Login-divForm,
+    .Register-divForm {
         width: 80%;
     }
+
     .Login-container,
     .Register-container {
         border-radius: 60px 60px 0 0;
@@ -192,9 +195,12 @@
 }
 
 @media (min-width: 1024px) {
-    .Login-divForm,.Register-divForm{
+
+    .Login-divForm,
+    .Register-divForm {
         width: 70%;
     }
+
     .Login-container,
     .Register-container {
         border-radius: 100px 100px 0 0;
@@ -204,7 +210,9 @@
     .Register-btn {
         font-size: 1.1rem;
     }
-    .Login-input,.Register-input{
+
+    .Login-input,
+    .Register-input {
         font-size: 1.1rem;
     }
 }
