@@ -87,7 +87,7 @@ const AddActividadForm = () => {
                 </form>
                 {success && <p style={{ color: 'green' }}>{success}</p>}
                 {error && <p style={{ color: 'red' }}>{error}</p>}
-                <Link to="/home">Ir al home</Link>
+                <Link to="/perfil">Ir devuelta al perfil</Link>
             </div>
         </>
     );

@@ -44,6 +44,7 @@ const AddPackForm = () => {
                     setError('Error al cargar actividades')
                 }
             } catch (err) {
+                if (err.name === 'AbortError') return;
                 console.error('error al obtener las actividades para los packs ', err)
                 setError('error de conexion al servidor')
             }
@@ -108,6 +109,7 @@ const AddPackForm = () => {
             }
 
         } catch (e) {
+            if (e.name === "AbortError") return; // 👈 Silenciar abort
             console.error('error en la conexion del servidor de los packs ', e)
             setError('error de conexion al servidor')
 
@@ -177,7 +179,7 @@ const AddPackForm = () => {
 
                 {success && <p style={{ color: 'green' }}>{success}</p>}
                 {error && <p style={{ color: 'red' }}>{error}</p>}
-                <Link to="/home">Ir al home</Link>
+                <Link to="/perfil">Ir devuelta al perfil</Link>
             </div>
 
         </>);

@@ -120,7 +120,6 @@
     border: 2px solid #69a9f8cc;
     box-shadow: 0 4px 12px #69a9f84d;
     transition: background-color 0.3s ease-in-out;
-
 }
 
 .Profile-button:hover {
@@ -140,8 +139,27 @@
     background-color: #e97b7b;
 }
 
+.Profile-adminLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.Profile-button--admin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #212121;
+    border: black;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+.Profile-button--admin:hover{
+    background-color: #212121c6;
+}
+
 .Profile-button--pass {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     margin-bottom: 1rem;
     background-color: #f4ad68;
     border: 2px solid #f4ad68cc;
