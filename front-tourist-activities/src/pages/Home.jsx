@@ -122,6 +122,7 @@ const Home = () => {
                 }
                 setListaDePacks(data.data)
             } catch (e) {
+                if (e.name === "AbortError") return; // 👈 Silenciar abort
                 console.error('error en el fetch de packs en home', e)
                 setErrorPacks('error en la conexión del servidor en el fetch de packs')
             } finally {

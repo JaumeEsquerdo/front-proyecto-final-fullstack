@@ -242,6 +242,16 @@ const Profile = () => {
                         />
                     )}
 
+                    {user?.role === 'admin' && (
+                        <div className="Profile-adminLinks">
+                            <Link to="/agregar-actividad" className="Profile-button Profile-button--admin">
+                                Subir actividad
+                            </Link>
+                            <Link to="/agregar-packs" className="Profile-button Profile-button--admin">
+                                Subir pack
+                            </Link>
+                        </div>
+                    )}
 
 
                     {error && <div className='Profile-error'>{error}</div>}
