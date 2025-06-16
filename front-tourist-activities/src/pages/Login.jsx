@@ -51,6 +51,7 @@ const Login = () => {
                 setError("No ha llegado el token")
             }
 
+
         } catch (e) {
             console.error("Error en el fetch del login", e);
             setError("Error en la conexión del servidor")
