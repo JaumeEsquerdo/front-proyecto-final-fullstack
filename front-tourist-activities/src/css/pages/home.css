@@ -86,7 +86,7 @@
 
 .Pack-cerrar {
     position: absolute;
-    top: 1rem;
+    top: -1rem;
     right: 1rem;
     z-index: 31;
     font-size: 1.5rem;
@@ -117,11 +117,10 @@
 }
 
 .Pack-detalles {
+    position: relative;
     background-color: rgb(255, 255, 255);
     border-radius: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    padding: 0.8rem;
+    padding: 1.2rem;
     width: 90%;
     height: auto;
     max-width: 700px;
@@ -129,6 +128,8 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 1rem;
 
 }
@@ -136,6 +137,7 @@
 /* actividades */
 .Pack-activity {
     height: auto;
+    width: 80%;
     background-color: #f8f9fa;
     border-radius: 1rem;
     padding: 0.2rem;
@@ -563,7 +565,7 @@
     }
 
     .Pack-cerrar {
-        top: 3rem;
+        top: -1rem;
         right: 20%;
     }
 }
