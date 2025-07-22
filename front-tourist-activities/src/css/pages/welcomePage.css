@@ -24,6 +24,7 @@
     transform: translate(-50%, -50%);
     width: 250px;
     height: auto;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.1))
 }
 
 .WelcomePage-div {
@@ -72,6 +73,14 @@
     border-radius: 40px;
 }
 
+.WelcomePage-description {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
 .WelcomePage-title {
     font-size: 32px;
     font-weight: bold;
@@ -103,17 +112,20 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease-out;
 
 }
 
 .WelcomePage-link:hover {
     background: linear-gradient(135deg, rgb(57, 173, 179), #6b9ea1);
+    transform: scale(1.03);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
 }
 
 
 @media (min-width: 768px) {
     .WelcomePage-title {
-        font-size: 34px;
+        font-size: 42px;
     }
 
     .WelcomePage-logo {
