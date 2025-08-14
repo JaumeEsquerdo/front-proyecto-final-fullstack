@@ -5,6 +5,10 @@
     flex-direction: column;
     justify-content: end;
     /* background-color: rgb(229, 234, 161); */
+    /* background: url('/img/vila-foto.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
 }
 
 .WelcomePage-fondo {
@@ -17,29 +21,44 @@
     z-index: 0;
 }
 
+.WelcomePage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.5),
+            /* más oscuro abajo */
+            rgba(0, 0, 0, 0.2)
+            /* más claro arriba */
+        );
+    z-index: 1;
+}
+
 
 .WelcomePage-div {
     position: absolute;
     bottom: 0;
     z-index: 2;
-    height: 60vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw;
     border-radius: 50px 50px 0 0;
     /* background: var(--color-bg); */
-    background-color: #fbfdfd;
+    /* background-color: #fbfdfd; */
     ;
 }
 
 .WelcomePage-content {
+    padding: 40px;
     height: 100%;
     width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-end;
+    gap: 60px;
 
 }
 
@@ -50,13 +69,13 @@
     transform: translate(-50%, -50%);
 } */
 
-.WelcomePage-lines {
+/* .WelcomePage-lines {
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-}
+} */
 
 .WelcomePage-line {
     border: 4px solid #6b9ea1;
@@ -86,7 +105,7 @@
 
 .WelcomePage-subtitle {
     font-size: 1.2rem;
-    color: rgb(112, 115, 115);
+    color: white;
 }
 
 .WelcomePage-link {
@@ -130,7 +149,18 @@
 
 @media (min-width: 1024px) {
     .WelcomePage-title {
-        font-size: 36px;
+        font-size: 80px;
+    }
+
+    .WelcomePage-content{
+        justify-content: flex-start;
+        align-items: start;
+        
+    }
+
+    .WelcomePage-description{
+        align-items: start;
+        width: 50%;
     }
 
     .WelcomePage-div {

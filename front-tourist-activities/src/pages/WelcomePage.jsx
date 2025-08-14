@@ -14,16 +14,11 @@ const Welcome = () => {
         <>
 
             <section className="WelcomePage">
-                <img className="WelcomePage-fondo" src="/img/fondo-escena.png" alt="Fondo escena" />
                 <div className="WelcomePage-div">
                     <div className="WelcomePage-content">
-                        <div className="WelcomePage-lines">
+                        {/* <div className="WelcomePage-lines">
                             <span className="WelcomePage-line"></span>
-                            <span className="WelcomePage-line"></span>
-
-                            <span className="WelcomePage-line"></span>
-                        </div>
-
+                        </div> */}
                         
                         <h1 className="WelcomePage-title">Turistea Villajoyosa</h1>
                         <div className="WelcomePage-description">
