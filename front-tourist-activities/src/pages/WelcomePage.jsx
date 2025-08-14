@@ -15,7 +15,6 @@ const Welcome = () => {
 
             <section className="WelcomePage">
                 <img className="WelcomePage-fondo" src="/img/fondo-escena.png" alt="Fondo escena" />
-                <img className="WelcomePage-logo" src="/img/logo-app.png" alt="Logo ilustración de Villajoyosa con sus casas de colores y mar" />
                 <div className="WelcomePage-div">
                     <div className="WelcomePage-content">
                         <div className="WelcomePage-lines">

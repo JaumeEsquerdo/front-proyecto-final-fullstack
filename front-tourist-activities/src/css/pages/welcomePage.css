@@ -17,15 +17,6 @@
     z-index: 0;
 }
 
-.WelcomePage-logo {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 250px;
-    height: auto;
-    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.1))
-}
 
 .WelcomePage-div {
     position: absolute;
