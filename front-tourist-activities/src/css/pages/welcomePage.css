@@ -4,74 +4,33 @@
     display: flex;
     flex-direction: column;
     justify-content: end;
-    /* background-color: rgb(229, 234, 161); */
-    /* background: url('/img/vila-foto.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; */
+    background-color: #ebf1f38e;
 }
-
-.WelcomePage-fondo {
-    /* position: absolute;
-    top: 0;
-    left: 0; */
-    min-height: 100vh;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    z-index: 0;
-}
-
-
 
 .WelcomePage-header {
-    padding: 40px;
+    padding: 8px;
     height: 100%;
     width: 90%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 60px;
+    justify-content: space-around;
+    gap: 10px;
 
-}
-
-/* .foto {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} */
-
-/* .WelcomePage-lines {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-} */
-
-.WelcomePage-line {
-    border: 4px solid #6b9ea1;
-    width: 40px;
-    border-radius: 40px;
 }
 
 .WelcomePage-description {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
     justify-content: center;
-    align-items: center;
+    align-items: start;
+
 }
 
 .WelcomePage-title {
-    font-size: 32px;
+    font-size: 18px;
     font-weight: bold;
-    background: linear-gradient(90deg, #f26483, #faa536);
-    /* para que solo coja las letras */
-    -webkit-background-clip: text;
-    /* hace que el color normla del texto sea transparente, lo q hace q solo se vea el color del bakground */
-    color: transparent;
+    color: black;
     pointer-events: none;
     font-family: var(--font-logo);
 }
@@ -79,13 +38,21 @@
 .WelcomePage-subtitle {
     font-size: 1.2rem;
     color: BLACK;
+    font-family: var(--font-main);
 }
 
 .WelcomePage-link {
     border-bottom: 1px solid black;
+    width: fit-content;
+    font-family: var(--font-main);
+    color: black;
 }
- 
 
+.WelcomePage-img {
+    height: 60vh;
+    object-fit: cover;
+    object-position: center;
+}
 
 @media (min-width: 768px) {
     .WelcomePage-title {

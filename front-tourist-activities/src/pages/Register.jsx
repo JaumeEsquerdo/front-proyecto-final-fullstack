@@ -63,7 +63,7 @@ const Register = () => {
     return (
         <>
             <div className="Register">
-                <img className="WelcomePage-fondo" src="/img/fondo-escena.png" alt="Fondo escena" />
+                {/* <img className="WelcomePage-fondo" src="/img/fondo-escena.png" alt="Fondo escena" /> */}
 
                 <div className='Register-container'>
                     <h1 className="Register-h1">Registro</h1>

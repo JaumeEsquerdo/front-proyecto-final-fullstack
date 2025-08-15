@@ -27,11 +27,11 @@ const Welcome = () => {
                         </h2>
                         <h2 className="WelcomePage-subtitle">  Guarda las actividades que te recomendamos en el calendario, añade las tuyas propias y, sobre todo, vive la experiencia a tu manera.
                         </h2>
+                        <Link className="WelcomePage-link" to={'/home'}>EMPIEZA A PLANIFICAR</Link>
                     </div>
-                    <Link className="WelcomePage-link" to={'/home'}>Empieza a planificar</Link>
                 </header>
-                
-                <img src="/img/img/vila-foto.jpg" alt="Imagen de la playa de Villajoyosa" />
+
+                <img className="WelcomePage-img" src="/img/vila-foto.jpg" alt="Imagen de la playa de Villajoyosa" />
             </main>
         </>
     );
