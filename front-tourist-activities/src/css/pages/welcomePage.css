@@ -8,6 +8,9 @@
 }
 
 .WelcomePage-header {
+    position: absolute;
+    top: 0;
+    left: 0;
     padding: 8px;
     height: 100%;
     width: 90%;
@@ -49,7 +52,7 @@
 }
 
 .WelcomePage-img {
-    height: 60vh;
+    height: 100vh;
     object-fit: cover;
     object-position: center;
 }
