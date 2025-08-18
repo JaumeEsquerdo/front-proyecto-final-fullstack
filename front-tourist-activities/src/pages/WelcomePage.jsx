@@ -12,29 +12,84 @@ const Welcome = () => {
 
     return (
         <>
-
             <main className="WelcomePage">
 
                 <header className="WelcomePage-header">
-                    {/* <div className="WelcomePage-lines">
-                            <span className="WelcomePage-line"></span>
-                        </div> */}
-
                     <h1 className="WelcomePage-title">Turistea Villajoyosa</h1>
+                    <img src="/img/bycicle.png" alt="" />
                     <div className="WelcomePage-description">
+                        <h2 className="WelcomePage-subtitle">
+                            Descubre los planes más típicos de 'la Vila', guárdalos en tu calendario, añade los tuyos y vive la experiencia a tu manera.
+                        </h2>
 
-                        <h2 className="WelcomePage-subtitle">Descubre los planes más típicos de 'la Vila' y organízate a tu gusto.
-                        </h2>
-                        <h2 className="WelcomePage-subtitle">  Guarda las actividades que te recomendamos en el calendario, añade las tuyas propias y, sobre todo, vive la experiencia a tu manera.
-                        </h2>
-                        <Link className="WelcomePage-link" to={'/home'}>EMPIEZA A PLANIFICAR</Link>
                     </div>
                 </header>
 
-                <img className="WelcomePage-img" src="/img/vila-foto.jpg" alt="Imagen de la playa de Villajoyosa" />
+                <div className="WelcomePage-bottom">
+                    <svg className="WelcomePage-waves" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="turisteaGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="var(--grad-start)" />
+                                <stop offset="100%" stopColor="var(--grad-end)" />
+                            </linearGradient>
+                        </defs>
+
+                        {/* Ola grande (naranja, más alta y suave) */}
+                        <path
+                            d="M0,75
+     C280,10 900,200 1440,170
+     L1440,320 L0,320 Z"
+                            fill="url(#turisteaGrad)"
+                        />
+
+                        {/* Ola trasera blanca */}
+                        <path
+                            d="M0,90
+     C420,300 1020,150 1440,260
+     L1440,320 L0,320 Z"
+                            fill="#fff" opacity="0.35"
+                        />
+
+                        {/* Ola frontal blanca*/}
+                        <path
+                            d="M0,130
+     C500,360 980,180 1440,300
+     L1440,320 L0,320 Z"
+                            fill="#fff" opacity="0.6"
+                        />
+                    </svg>
+
+
+                    <div className="WelcomePage-actions">
+                        <Link className="WelcomePage-btn WelcomePage-btn--filled" to="/register">Register</Link>
+                        <Link className="WelcomePage-btn WelcomePage-btn--outline" to="/login">Sign Up</Link>
+                    </div>
+                </div>
             </main>
         </>
     );
 }
 
 export default Welcome;
+
+
+/* Apuntes svg: */
+
+/* 
+<defs> = cajita de definiciones para reusar.
+
+<linearGradient> = gradiente lineal (puede ser horizontal, vertical o diagonal).
+
+<stop> = punto de color dentro del gradiente.
+
+fill="url(#id)" = aplica ese gradiente a una forma.
+
+En el d:
+M = mover,
+
+L = línea,
+
+C = curva,
+
+Z = como cierra el svg
+ */

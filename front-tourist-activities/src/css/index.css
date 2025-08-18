@@ -19,6 +19,11 @@
   --color-act-pronto: #f1ef86;
   --color-act-pasada: #f38989;
   --color-act-futura: #b2f493;
+
+  --grad-start: #FF7A45;
+  /* naranja */
+  --grad-end: #FF4D84;
+  /* rosa */
 }
 
 
