@@ -16,7 +16,7 @@ const Welcome = () => {
 
                 <header className="WelcomePage-header">
                     <h1 className="WelcomePage-title">Turistea Villajoyosa</h1>
-                    <img src="/img/bycicle.png" alt="" />
+                    <img className="WelcomePage-img" src="/img/bycicle.png" alt="Mujer parada en bici viendo el móvil" />
                     <div className="WelcomePage-description">
                         <h2 className="WelcomePage-subtitle">
                             Descubre los planes más típicos de 'la Vila', guárdalos en tu calendario, añade los tuyos y vive la experiencia a tu manera.

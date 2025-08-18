@@ -7,6 +7,7 @@
   --font-logo: 'Quicksand', sans-serif;
   --font-onboarding: 'Playfair Display', serif;
   --color-bg: linear-gradient(0deg, #68bedb8e, #d4e4ef00);
+  --color-bg-onb: #f5f9fc;
 
   --btn-padding: 0.75rem 1rem;
   --btn-radius: 18px;

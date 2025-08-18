@@ -4,21 +4,26 @@
     display: flex;
     flex-direction: column;
     justify-content: end;
-    background-color: #ebf1f38e;
+    background-color: var(--color-bg-onb);
 }
 
 .WelcomePage-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 8px;
-    height: 100%;
+    position: relative;
+    padding: 16px 12px;
+
     width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: start;
+    align-items: center;
     gap: 10px;
 
+}
+
+.WelcomePage-img {
+    height: 300px;
+    min-height: 100px;
+    width: auto;
 }
 
 .WelcomePage-description {
@@ -44,13 +49,6 @@
     font-family: var(--font-main);
 }
 
-/* .WelcomePage-link {
-    border-bottom: 1px solid black;
-    width: fit-content;
-    font-family: var(--font-main);
-    color: black;
-} */
-
 .WelcomePage-bottom {
     position: relative;
     height: 55vh;
@@ -60,7 +58,7 @@
 
 }
 
-
+/* olas ui parte footer */
 .WelcomePage-waves {
     position: absolute;
     inset: 0;
@@ -81,7 +79,8 @@
 .WelcomePage-actions {
     position: absolute;
     bottom: 20px;
-    right: 16px;
+    right: 50%;
+    transform: translateX(50%);
     display: flex;
     gap: 12px;
     z-index: 2;
