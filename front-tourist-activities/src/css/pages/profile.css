@@ -27,7 +27,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: #fff;
+    background-color: var(--white);
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
@@ -163,7 +163,7 @@
     margin-bottom: 1rem;
     background-color: #f4ad68;
     border: 2px solid #f4ad68cc;
-    color: white;
+    color: var(--white);
     width: 100%;
     box-shadow: 0 4px 12px rgba(244, 173, 104, 0.1);
 
@@ -178,7 +178,7 @@
     margin-top: 1rem;
     background-color: #5ac4ae;
     border: 2px solid #5ac4afcc;
-    color: white;
+    color: var(--white);
     width: 100%;
     box-shadow: 0 4px 12px rgba(190, 196, 174, 0.1);
 

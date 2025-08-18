@@ -17,7 +17,7 @@
     min-height: 400px;
     width: 90%;
     padding: 0.6rem;
-    background-color: white;
+    background-color: var(--white);
     border-radius: 24px;
     margin: 0 auto;
     max-width: 600px;
@@ -48,7 +48,7 @@
 .PoliticaPriv-link,
 .TerminosCondiciones-link {
     padding: 1rem;
-    background-color: #fff;
+    background-color: var(--white);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 
     border-radius: 24px;

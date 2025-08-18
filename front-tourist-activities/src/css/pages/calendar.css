@@ -283,7 +283,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 24px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     padding: 2rem;
@@ -314,7 +314,7 @@
 }
 
 .ActividadSeleccionada-close:hover {
-    background-color: #fff;
+    background-color: var(--white);
 }
 
 .ActividadSeleccionada-h3 {
@@ -371,7 +371,7 @@
 
 .ActividadSeleccionada-btn--edit {
     background-color: #5c6ab4;
-    color: #fff;
+    color: var(--white);
 }
 
 .ActividadSeleccionada-btn--edit:hover {
