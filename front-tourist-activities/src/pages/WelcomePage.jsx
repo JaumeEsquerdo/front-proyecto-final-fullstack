@@ -61,8 +61,8 @@ const Welcome = () => {
 
 
                     <div className="WelcomePage-actions">
-                        <Link className="WelcomePage-btn WelcomePage-btn--filled" to="/register">Register</Link>
-                        <Link className="WelcomePage-btn WelcomePage-btn--outline" to="/login">Sign Up</Link>
+                        <Link className="WelcomePage-btn WelcomePage-btn--filled" to="/registro">Registrarse</Link>
+                        <Link className="WelcomePage-btn WelcomePage-btn--outline" to="/login">Iniciar sesión</Link>
                     </div>
                 </div>
             </main>

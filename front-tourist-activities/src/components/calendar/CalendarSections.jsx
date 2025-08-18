@@ -10,7 +10,7 @@ import { useActivity } from '@/context/ActivityContext'
 export const CalendarHeader = ({ formateDate, getPendingActivities, showCalendar, setShowCalendar }) => {
     return (
         <div className='CalendarHeader'>
-            <div className=''>
+            <div>
                 <h2>Hoy es {formateDate}</h2>
                 <p>Actividades pendientes: {getPendingActivities()}</p>
             </div>

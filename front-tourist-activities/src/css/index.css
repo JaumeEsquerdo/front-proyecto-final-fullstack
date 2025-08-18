@@ -25,6 +25,11 @@
   /* naranja */
   --grad-end: #FF4D84;
   /* rosa */
+
+  --brand: #9c2f21;          /* texto del filled */
+  --brand-700: #c21805;
+  --btn-onboarding: #741f1fd7;
+  --btn-onboarding--hover: #902727e4;
 }
 
 
