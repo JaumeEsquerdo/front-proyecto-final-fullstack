@@ -19,7 +19,7 @@ const Welcome = () => {
                     <img className="WelcomePage-img" src="/img/bycicle.png" alt="Mujer parada en bici viendo el móvil" />
                     <div className="WelcomePage-description">
                         <h2 className="WelcomePage-subtitle">
-                            Descubre los planes más típicos de 'la Vila', guárdalos en tu calendario, añade los tuyos y vive la experiencia a tu manera.
+                            Descubre los planes más típicos de 'la Vila', guárdalos en tu calendario y vive la experiencia.
                         </h2>
 
                     </div>

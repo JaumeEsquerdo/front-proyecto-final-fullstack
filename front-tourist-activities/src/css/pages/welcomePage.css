@@ -48,6 +48,7 @@
 }
 
 .WelcomePage-subtitle {
+    text-align: center;
     font-size: 1.2rem;
     color: var(--color-text-p);
     font-family: var(--font-main);
