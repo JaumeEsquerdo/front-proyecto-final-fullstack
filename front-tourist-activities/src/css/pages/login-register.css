@@ -2,15 +2,15 @@
 .Register {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
     background-color: var(--color-bg-onb);
 }
 
 .Login-container,
 .Register-container {
-    margin-top: auto;
     padding: 20px 12px;
-
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
 
 .Login-img {
     width: 100%;
-    max-height: 280px;
+    max-height: 300px;
     object-fit: contain;
     object-position: center;
     display: block;
@@ -36,8 +36,8 @@
 }
 
 .Login-title {
-    padding: 20px;
-    font-size: 1.8rem;
+    padding: 12px;
+    font-size: 1.75rem;
     font-weight: bold;
     background: linear-gradient(90deg, #f26483, #faa536);
     /* para que solo coja las letras */
@@ -68,7 +68,7 @@
 
 .Login-label,
 .Register-label {
-    margin: 20px 0;
+    margin: 14px 0;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -79,7 +79,7 @@
 
 .Login-inputTitle,
 .Register-inputTitle {
-    margin: 0 0 10px 10px;
+    margin: 0 0 8px 8px;
     font-weight: 500;
     color: var(--color-text-p);
 }
@@ -96,23 +96,23 @@
 }
 
 .Login-input {
-    background-color: #fbf2ef;
+    background-color: #f9f5f3;
 
 }
 
 .Register-input {
-    background-color: #fbf2ef;
+    background-color: #f9f5f3;
 
 }
 
 .Login-input:focus {
     outline: none;
-    border: 2px solid #73bbdd;
+    border: 2px solid var(--grad-start);
 }
 
 .Register-input:focus {
     outline: none;
-    border: 2px solid #4f7cac;
+    border: 2px solid var(--grad-start);
 }
 
 .Login-btn,
@@ -123,22 +123,21 @@
     color: #fff;
     font-weight: 600;
     border-radius: var(--btn-radius);
-
     box-shadow: var(--box-shadow);
     font-size: 1rem;
     transition: background-color 0.6s ease-in-out;
     cursor: pointer;
-    border: 4px solid #2c5e939e;
-    background-color: #4f7cac;
+    border: 4px solid var(--grad-start);
+    background-color: var(--color-btn-login);
 }
 
 
 .Login-btn:hover {
-    background-color: #5899b8;
+    background-color: var(--grad-start);
 }
 
 .Register-btn:hover {
-    background-color: #395f78;
+    background-color: var(--grad-start);
 
 }
 
@@ -162,23 +161,26 @@
 }
 
 .Register-linkLogin {
-    color: var(--color-text-s);
+    color: var(--brand);
     font-weight: 700;
+    transition: color 0.2s ease-out;
+
 }
 
 .Register-linkLogin:hover {
-    color: #395f78;
+    color: var(--brand-700);
 }
 
 
 .Login-linkRegister {
-    color: var(--color-text-s);
+
+    color: var(--brand);
     font-weight: 700;
-    transition: color 0.6s ease-in-out;
+    transition: color 0.2s ease-out;
 }
 
 .Login-linkRegister:hover {
-    color: #73bbdd;
+    color: var(--brand-700);
 }
 
 .Login-error {
@@ -203,10 +205,16 @@
 }
 
 @media (min-width: 1024px) {
-
+    .Login-title{
+        font-size: 2.25rem;
+    }
     .Login-divForm,
     .Register-divForm {
         width: 70%;
+    }
+
+    .Login-img{
+        max-height: 340px;
     }
 
     .Login-container,
@@ -216,7 +224,7 @@
 
     .Login-btn,
     .Register-btn {
-        font-size: 1.1rem;
+        font-size: 1.125rem;
     }
 
     .Login-input,

@@ -1,6 +1,6 @@
 :root {
   --color-text-p: #333;
-  --color-text-s: #555;
+  --color-text-s: #666;
   --color-text-t: #999;
 
   --font-main: 'Nunito', sans-serif;
@@ -22,14 +22,15 @@
   --color-act-futura: #b2f493;
 
   /* gradiantes olas */
-  --grad-start: #FF7A45;
+  --grad-start: #ee622a;
   --grad-end: #FF4D84;
 
+  --color-btn-login: #dc5830;
 
   --brand: #9c2f21;          /* texto del filled */
   --brand-700: #c21805;
-  --btn-onboarding: #741f1fd7;
-  --btn-onboarding--hover: #902727e4;
+  --btn-onboarding: #8f1616ee;
+  --btn-onboarding--hover: #740505f1;
   --white: #fff;
 }
 

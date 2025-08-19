@@ -213,14 +213,14 @@
 }
 
 .Policy-link {
-    color: #407ee7;
+    color: var(--color-text-s);
     font-size: 1rem;
     font-weight: 500;
-    transition: color 0.4s ease-in-out;
+    transition: color 0.2s ease-out;
 }
 
 .Policy-link:hover {
-    color: var(--color-text-s);
+    color: var(--grad-start);
 }
 
 .Profile-error {
