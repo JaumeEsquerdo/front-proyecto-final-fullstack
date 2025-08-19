@@ -62,7 +62,8 @@ const Login = () => {
     return (
         <>
             <div className="Login">
-                {/* <img className="WelcomePage-fondo" src="/img/fondo-escena.png" alt="Fondo escena" /> */}
+                    <h1 className="Login-title">Turistea Villajoyosa</h1>
+                <img className="Login-img" src="/img/map.png" alt="Personaje con un mapa" />
                 <div className='Login-container'>
                     <h1 className="Login-h1">Accede a tu cuenta</h1>
                     <div className='Login-divForm'>

@@ -1,37 +1,30 @@
 .Login,
 .Register {
-    position: relative;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* background: url('/img/vila-foto.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: none; */
+    background-color: var(--color-bg-onb);
 }
 
 .Login-container,
 .Register-container {
+    margin-top: auto;
     padding: 20px 12px;
-    position: absolute;
+
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: var(--box-shadow);
     height: auto;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 25px 25px 25px 25px;
-    background-color: #fef7ee;
-    align-items: center;
-    /* justify-content: space-evenly; */
+    border-radius: 25px;
 }
 
-.Register-container {
-    background-color: #f4e7d5;
-
+.Login-img {
+    width: 100%;
+    max-height: 280px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
 }
 
 .Login-form,
@@ -40,13 +33,27 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+}
 
+.Login-title {
+    padding: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #f26483, #faa536);
+    /* para que solo coja las letras */
+    -webkit-background-clip: text;
+    /* hace que el color normal del texto sea transparente, lo q hace q solo se vea el color del bakground */
+    color: transparent;
+    pointer-events: none;
+    font-family: var(--font-logo);
+    display: flex;
+    justify-content: center;
 }
 
 .Login-h1,
 .Register-h1 {
-    margin-bottom: 20px;
-    font-size: 24px;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
     color: var(--color-text-p);
     width: 100%;
     display: flex;
@@ -89,12 +96,12 @@
 }
 
 .Login-input {
-    background-color: #f5faff;
+    background-color: #fbf2ef;
 
 }
 
 .Register-input {
-    background-color: #f5faff;
+    background-color: #fbf2ef;
 
 }
 
