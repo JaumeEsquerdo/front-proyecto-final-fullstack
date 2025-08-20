@@ -3,7 +3,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100vh; /* fallback */
+    min-height: 100dvh; /* por si cambia en movil el calculo con barras de navegador modernas */
     background-color: var(--color-bg-onb);
 }
 
@@ -11,6 +12,7 @@
 .Register-container {
     padding: 20px 12px;
     width: 100vw;
+    width: 100dvw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,8 +45,10 @@
     background: linear-gradient(90deg, #f26483, #faa536);
     /* para que solo coja las letras */
     -webkit-background-clip: text;
-    /* hace que el color normal del texto sea transparente, lo q hace q solo se vea el color del bakground */
+    /* define solo el background q le pones el color */
+    background-clip: text; /* estandar futuro */
     color: transparent;
+    /* se le quita el color normal del texto */
     pointer-events: none;
     font-family: var(--font-logo);
     display: flex;

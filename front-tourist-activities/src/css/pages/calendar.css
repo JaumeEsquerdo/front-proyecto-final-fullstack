@@ -32,6 +32,7 @@
     scroll-snap-type: x mandatory;
     width: 100%;
     max-width: 100vw;
+    max-width: 100dvw;
     scrollbar-width: none;
     scroll-behavior: smooth;
     gap: 10px;

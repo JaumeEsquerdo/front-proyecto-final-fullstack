@@ -1,6 +1,7 @@
 .WelcomePage {
     position: relative;
-    height: 100vh;
+    height: 100vh; /* fallback */
+    height: 100dvh; /* navs modernos x cambio de valores si hay barras dinamicas */
     display: flex;
     flex-direction: column;
     justify-content: end;

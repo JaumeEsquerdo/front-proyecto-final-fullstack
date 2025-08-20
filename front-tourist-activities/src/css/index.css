@@ -38,7 +38,8 @@
 .Root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; /* fallback */
+  min-height: 100dvh; /* moderno: no cuenta la scrollbar */
 }
 
 * {
@@ -88,7 +89,8 @@ button:active{
 .Body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; /* fallback */
+  min-height: 100dvh; /* moderno: no cuenta la scrollbar */
   overflow: auto;
   scrollbar-width: none;
   /* ocultar en firefox */
@@ -120,8 +122,10 @@ html {
 }
 
 .OutletWrapper {
-  min-height: 100vh;
-  padding-bottom: 12vh;
+  min-height: 100vh; /* fallback */
+  min-height: 100dvh; /* moderno: no cuenta la scrollbar */
+  padding-bottom: 12vh; /* fallback */
+  padding-bottom: 12dvh;  /* moderno: no cuenta la scrollbar */
   flex: 1;
   background: var(--color-bg);
   display: flex;
@@ -133,8 +137,10 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100vw; /* fallback */
+  width: 100dvw; /* moderno: no cuenta la scrollbar */
+  height: 100vh; /* fallback */
+  height: 100dvh; /* para nav modernos con cambios de barra dinamicos en movil */
   display: flex;
   flex-direction: column;
   justify-content: center;
