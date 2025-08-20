@@ -63,8 +63,7 @@ const Register = () => {
     return (
         <>
             <div className="Register">
-                {/* <img className="WelcomePage-fondo" src="/img/fondo-escena.png" alt="Fondo escena" /> */}
-
+                <h1 className="Login-title">Turistea Villajoyosa</h1>
                 <div className='Register-container'>
                     <h1 className="Register-h1">Registro</h1>
                     <div className='Register-divForm'>
@@ -86,12 +85,9 @@ const Register = () => {
 
                         <RegisterFooter />
                     </div>
-                    <PolicyLinks />
-
                 </div>
-
+                <PolicyLinks />
             </div>
-
         </>
     );
 }

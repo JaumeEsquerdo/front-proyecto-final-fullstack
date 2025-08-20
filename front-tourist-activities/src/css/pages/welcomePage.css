@@ -38,11 +38,18 @@
 .WelcomePage-title {
     font-size: 2.25rem;
     font-weight: bold;
+    /* Fallback: color si no hay soporte */
+    color: #f26483;
+
+    /* gradiente en texto */
     background: linear-gradient(90deg, #f26483, #faa536);
     /* para que solo coja las letras */
+    background-clip: text;
+    /* propiedad estandar */
     -webkit-background-clip: text;
     /* hace que el color normal del texto sea transparente, lo q hace q solo se vea el color del bakground */
     color: transparent;
+
     pointer-events: none;
     font-family: var(--font-logo);
 }
