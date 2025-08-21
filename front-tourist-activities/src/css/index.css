@@ -24,10 +24,12 @@
   /* gradiantes olas */
   --grad-start: #ee622a;
   --grad-end: #FF4D84;
+  --grad-alt: #e86ede;
 
   --color-btn-login: #dc5830;
 
-  --brand: #9c2f21;          /* texto del filled */
+  --brand: #9c2f21;
+  /* texto del filled */
   --brand-700: #c21805;
   --btn-onboarding: #8f1616ee;
   --btn-onboarding--hover: #740505f1;
@@ -38,8 +40,10 @@
 .Root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* fallback */
-  min-height: 100dvh; /* moderno: no cuenta la scrollbar */
+  min-height: 100vh;
+  /* fallback */
+  min-height: 100dvh;
+  /* moderno: no cuenta la scrollbar */
 }
 
 * {
@@ -89,8 +93,10 @@ button:active{
 .Body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* fallback */
-  min-height: 100dvh; /* moderno: no cuenta la scrollbar */
+  min-height: 100vh;
+  /* fallback */
+  min-height: 100dvh;
+  /* moderno: no cuenta la scrollbar */
   overflow: auto;
   scrollbar-width: none;
   /* ocultar en firefox */
@@ -122,10 +128,14 @@ html {
 }
 
 .OutletWrapper {
-  min-height: 100vh; /* fallback */
-  min-height: 100dvh; /* moderno: no cuenta la scrollbar */
-  padding-bottom: 12vh; /* fallback */
-  padding-bottom: 12dvh;  /* moderno: no cuenta la scrollbar */
+  min-height: 100vh;
+  /* fallback */
+  min-height: 100dvh;
+  /* moderno: no cuenta la scrollbar */
+  padding-bottom: 12vh;
+  /* fallback */
+  padding-bottom: 12dvh;
+  /* moderno: no cuenta la scrollbar */
   flex: 1;
   background: var(--color-bg);
   display: flex;
@@ -137,10 +147,14 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw; /* fallback */
-  width: 100dvw; /* moderno: no cuenta la scrollbar */
-  height: 100vh; /* fallback */
-  height: 100dvh; /* para nav modernos con cambios de barra dinamicos en movil */
+  width: 100vw;
+  /* fallback */
+  width: 100dvw;
+  /* moderno: no cuenta la scrollbar */
+  height: 100vh;
+  /* fallback */
+  height: 100dvh;
+  /* para nav modernos con cambios de barra dinamicos en movil */
   display: flex;
   flex-direction: column;
   justify-content: center;

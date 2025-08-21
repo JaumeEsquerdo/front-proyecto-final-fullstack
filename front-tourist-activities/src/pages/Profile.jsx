@@ -205,7 +205,21 @@ const Profile = () => {
         <>
 
             <div className="Profile">
-                {/* <img className='Profile-bg' src="/img/fondo-escena.png" alt="img de fondo" /> */}
+
+                <div className="Profile-bg">
+                    {/* Ola superior */}
+                    <svg className="Wave Wave--top" viewBox="0 0 1440 240" preserveAspectRatio="none">
+                        {/* - El viewBox marca el lienzo(altura y ancho),
+- El path marca la forma dentro del lienzo. */}
+                        <path d="M0,80 C240,120 480,10 720,50 C960,90 1200,60 1440,100 L1440,0 L0,0 Z"></path>
+                    </svg>
+
+                    {/* Ola inferior */}
+                    <svg className="Wave Wave--bottom" viewBox="0 0 1440 240" preserveAspectRatio="none">
+                        <path d="M0,200 C220,160 520,240 760,200 C1040,150 1260,190 1440,160 L1440,240 L0,240 Z"></path>
+                    </svg>
+                </div>
+
                 <ProfileHeader
                     handleBack={handleBack}
                 />
@@ -254,14 +268,11 @@ const Profile = () => {
                         </div>
                     )}
 
-
                     {error && <div className='Profile-error'>{error}</div>}
 
                     <button onClick={handleLogout} className="Profile-logout">Cerrar sesión</button>
-
                     <PolicyLinks />
                 </div>
-
             </div>
         </>
     );

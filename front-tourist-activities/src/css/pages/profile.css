@@ -19,16 +19,54 @@
     /* background-color: #f4f6f8; */
 }
 
-/* .Profile-bg {
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+.Profile-bg {
     position: absolute;
-    top: 0;
+    inset: 0;
+    background: linear-gradient(135deg,
+            var(--grad-start),
+            var(--grad-end) 50%,
+            /* El segundo color se ancla al 50%:
+- Sin este % apenas tendría presencia, porque los colores intermedios en un gradiente sirven solo de transición.
+- Con el 50% se ve coral puro en la mitad del gradiente.
+- A partir de ahí empieza a mezclarse con el siguiente color. */
+            var(--grad-alt));
+    z-index: -2;
+}
+
+.Profile-bg::after {
+    /* ::after genera una capa extra encima del fondo */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ffffff93;
+    /* capa blanca con opacidad para q no sea muy chillón los colores */
+    backdrop-filter: blur(20px);
+    z-index: -1;
+}
+
+/* Olas */
+.Wave {
+    position: absolute;
+    width: 100%;
+    height: auto;
     left: 0;
-    filter: blur(5px);
-} */
+    z-index: -1;
+}
+
+.Wave--top {
+    top: 0;
+}
+
+.Wave--bottom {
+    bottom: 0;
+}
+
+.Wave path {
+    fill: #fff;
+    fill-opacity: 0.18;
+    /* translúcido, para dejar ver el gradiente de detrás y queda sensación de ola */
+}
+
 
 .Profile-card {
     display: flex;
@@ -88,6 +126,7 @@
     padding: 0.4rem;
     width: 32px;
     cursor: pointer;
+    background-color: var(--white);
     transition: background-color 0.3s ease-in-out;
 }
 
