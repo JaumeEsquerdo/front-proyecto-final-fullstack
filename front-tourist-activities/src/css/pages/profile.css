@@ -1,13 +1,17 @@
 .Profile {
-    height: 100vh; /* fallback */
-    height: 100dvh; /* para nav modernos con cambios de barra dinamicos */
+    height: 100vh;
+    /* fallback */
+    height: 100dvh;
+    /* para nav modernos con cambios de barra dinamicos */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     padding: 2rem;
-    max-height: 100vh; /* fallback */
-    max-height: 10dvh; /* para nav modernos con cambios de barra dinamicos */
+    max-height: 100vh;
+    /* fallback */
+    max-height: 100dvh;
+    /* para nav modernos con cambios de barra dinamicos */
     width: 100vw;
     width: 100dvw;
     position: relative;
@@ -15,7 +19,7 @@
     /* background-color: #f4f6f8; */
 }
 
-.Profile-bg {
+/* .Profile-bg {
     z-index: -1;
     height: 100%;
     width: 100%;
@@ -24,7 +28,7 @@
     top: 0;
     left: 0;
     filter: blur(5px);
-}
+} */
 
 .Profile-card {
     display: flex;
@@ -37,7 +41,8 @@
     width: 100%;
     max-width: 420px;
     height: auto;
-    min-height: 450px;
+    min-height: 550px;
+    /* overflow-y: auto; */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -71,7 +76,7 @@
     position: absolute;
     top: 40px;
     left: 40px;
-
+    z-index: 10;
 }
 
 .Profile-link {
@@ -157,7 +162,8 @@
     border: black;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }
-.Profile-button--admin:hover{
+
+.Profile-button--admin:hover {
     background-color: #212121c6;
 }
 

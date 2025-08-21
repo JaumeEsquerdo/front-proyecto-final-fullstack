@@ -205,7 +205,7 @@ const Profile = () => {
         <>
 
             <div className="Profile">
-                <img className='Profile-bg' src="/img/fondo-escena.png" alt="img de fondo" />
+                {/* <img className='Profile-bg' src="/img/fondo-escena.png" alt="img de fondo" /> */}
                 <ProfileHeader
                     handleBack={handleBack}
                 />

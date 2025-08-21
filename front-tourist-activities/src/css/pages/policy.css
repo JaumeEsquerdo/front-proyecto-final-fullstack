@@ -2,7 +2,7 @@
 .TerminosCondiciones {
     min-height: 100vh; /* fallback */
     min-height: 100dvh; /* para navs modernos (cambio valores por barra dinamica) */
-    background-color: #e9f5fc;
+    background-color: var(--color-bg-blueSoft);
     display: flex;
     flex-direction: column;
     align-items: center;
