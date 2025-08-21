@@ -118,6 +118,7 @@
 }
 
 .Profile-button {
+    font-size: 1rem;
     padding: var(--btn-padding);
     background-color: #69a9f8;
     width: 100%;
