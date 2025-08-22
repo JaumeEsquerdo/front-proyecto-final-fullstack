@@ -10,7 +10,7 @@
 
 .Login-container,
 .Register-container {
-    padding: 0 12px;
+    padding: 0 0.875rem;
     /* padding-top: 20px; */
     width: 100vw;
     width: 100dvw;
@@ -61,7 +61,6 @@
 .Register-h1 {
     margin-bottom: 8px;
     font-size: 1.5rem;
-    color: var(--color-text-p);
     width: 100%;
     display: flex;
     justify-content: center;
