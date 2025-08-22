@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     justify-content: end;
-    background-color: var(--color-bg-onb);
+    background-color: var(--color-bg-blueSoft);
 }
 
 .WelcomePage-header {

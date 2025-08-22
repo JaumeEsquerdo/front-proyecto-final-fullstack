@@ -2,13 +2,12 @@
 
 .Header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 10vh;
     height: 10dvh;
-
-
-    width: 100%;
+    align-items: center;
+    width: 90%;
 }
 
 .Header-title {

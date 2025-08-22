@@ -37,7 +37,7 @@ export const ProfileForm = ({ newName, newEmail, setNewName, setNewEmail, handle
 export const PasswordChangeForm = ({ currentPassword, setCurrentPassword, newPassword, setNewPassword, handleUpdatePassword }) => {
     return (
 
-        <form onSubmit={handleUpdatePassword}>
+        <form className="Profile-form" onSubmit={handleUpdatePassword}>
             <label className="Profile-label">Contraseña antigua
                 <input value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} type="password" className="Profile-input" />
             </label>

@@ -22,8 +22,6 @@ const Login = () => {
         }
 
         try {
-            console.log({ API_URL, API_ROUTER, API_AUTH_LOGIN });
-
             const res = await fetch(`${API_URL}${API_ROUTER}${API_AUTH_LOGIN}`, {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
