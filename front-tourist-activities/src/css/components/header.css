@@ -46,10 +46,10 @@
 
 
 @media (min-width: 768px) {
-    .Header {
-        width: 80%;
-        justify-content: space-between;
-    }
 }
 
-@media (min-width: 1024px) {}
+@media (min-width: 1024px) {
+    .Header{
+        width: 80%;
+    }
+}
