@@ -5,7 +5,7 @@ const Terminos = () => {
     /* lógica para volver a atrás en links de politicas privacidad */
     const location = useLocation();
     /* obtenemos de donde viene y si no se asume q es desde perfil */
-    // `from` viene del state de useLocation (state={{ from }}) pasado desde el Link
+    // `from` tomado de location.state pasado en el Link
     const from = location.state?.from || "perfil";
     /* fallback de perfil */
 

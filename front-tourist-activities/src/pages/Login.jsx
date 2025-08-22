@@ -84,7 +84,9 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-                <PolicyLinks from="login"/>
+                <PolicyLinks from="login" />
+                {/* se pasa la page de donde llega con from para q sepa como volver a atrás al entrar en los links  */}
+
             </div>
         </>
     );

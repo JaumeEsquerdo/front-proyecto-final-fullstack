@@ -87,6 +87,8 @@ const Register = () => {
                     </div>
                 </div>
                 <PolicyLinks from="registro" />
+                {/* se pasa la page de donde llega con from para q sepa como volver a atrás al entrar en los links  */}
+
             </div>
         </>
     );
