@@ -1,7 +1,19 @@
 import '@/css/pages/policy.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const PoliticaPriv = () => {
+    /* lógica para volver a atrás en links de politicas privacidad */
+    const location = useLocation();
+    /* obtenemos de donde viene y si no se asume q es desde perfil */
+    // `from` viene del state de useLocation (state={{ from }}) pasado desde el Link
+    const from = location.state?.from || "perfil";
+    /* fallback de perfil */
+
+    let backLink = "/perfil";
+    if (from === "login") backLink = "/login";
+    if (from === "registro") backLink = "/registro";
+    // if (from === "perfil") backLink = "/perfil";
+
     return (
         <>
             <div className="PoliticaPriv">
@@ -17,7 +29,7 @@ const PoliticaPriv = () => {
                         Puedes revisar esta política cuando lo necesites. Nuestro compromiso es cuidar tu información con responsabilidad.
                     </p>
                 </div>
-                <Link className='PoliticaPriv-link' to='/perfil'>Volver al perfil</Link>
+                <Link className='PoliticaPriv-link' to={backLink}>Volver</Link>
 
             </div>
 

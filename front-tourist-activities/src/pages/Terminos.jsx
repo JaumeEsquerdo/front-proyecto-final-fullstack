@@ -1,7 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import '@/css/pages/policy.css'
 
 const Terminos = () => {
+    /* lógica para volver a atrás en links de politicas privacidad */
+    const location = useLocation();
+    /* obtenemos de donde viene y si no se asume q es desde perfil */
+    // `from` viene del state de useLocation (state={{ from }}) pasado desde el Link
+    const from = location.state?.from || "perfil";
+    /* fallback de perfil */
+
+    let backLink = "/perfil";
+    if (from === "login") backLink = "/login";
+    if (from === "registro") backLink = "/registro";
+    // if (from === "perfil") backLink = "/perfil";
+
     return (
         <>
             <div className="TerminosCondiciones">
@@ -24,7 +36,7 @@ const Terminos = () => {
                     </p>
 
                 </div>
-                <Link className="TerminosCondiciones-link" to='/perfil'>Volver al perfil</Link>
+                <Link className="TerminosCondiciones-link" to={backLink}>Volver</Link>
             </div>
         </>
     );

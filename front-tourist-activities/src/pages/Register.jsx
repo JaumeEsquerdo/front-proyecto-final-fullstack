@@ -86,7 +86,7 @@ const Register = () => {
                         <RegisterFooter />
                     </div>
                 </div>
-                <PolicyLinks />
+                <PolicyLinks from="registro" />
             </div>
         </>
     );

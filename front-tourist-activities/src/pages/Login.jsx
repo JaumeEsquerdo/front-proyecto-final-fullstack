@@ -84,7 +84,7 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-                <PolicyLinks />
+                <PolicyLinks from="login"/>
             </div>
         </>
     );

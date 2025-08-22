@@ -271,7 +271,7 @@ const Profile = () => {
                     {error && <div className='Profile-error'>{error}</div>}
 
                     <button onClick={handleLogout} className="Profile-logout">Cerrar sesión</button>
-                    <PolicyLinks />
+                    <PolicyLinks from="perfil" />
                 </div>
             </div>
         </>

@@ -20,12 +20,12 @@ export const LoginForm = ({ email, password, setEmail, setPassword, handleLogin 
     )
 }
 
-
-export const PolicyLinks = () => {
+/* dejo el perfil como fallback por si cae en un undefined en un futuro al cambiar algo */
+export const PolicyLinks = ({ from = "perfil" }) => {
     return (
         <div className='Policy-links'>
-            <Link className='Policy-link' to='/politica-privacidad'>Política de privacidad</Link>
-            <Link className='Policy-link' to='/terminos-condiciones'>TyC</Link>
+            <Link className='Policy-link' to='/politica-privacidad' state={{ from }}>Política de privacidad</Link>
+            <Link className='Policy-link' to='/terminos-condiciones' state={{ from }}>TyC</Link>
         </div>
 
     )
