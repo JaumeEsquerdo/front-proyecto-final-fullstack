@@ -127,7 +127,7 @@
     padding: 0.4rem;
     width: 38px;
     cursor: pointer;
-    background-color: var(--white);
+    background-color: var(--color-bg-blueSoft);
     transition: background-color 0.3s ease-in-out;
 }
 
