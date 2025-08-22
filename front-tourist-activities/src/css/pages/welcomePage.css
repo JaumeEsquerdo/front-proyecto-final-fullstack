@@ -10,7 +10,7 @@
 
 .WelcomePage-header {
     position: relative;
-    padding: 0 12px;
+    padding: 0 0.875rem;
     margin-top: 26px;
     width: 100%;
     display: flex;
