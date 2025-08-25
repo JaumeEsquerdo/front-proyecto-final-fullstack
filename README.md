@@ -4,12 +4,12 @@ Frontend de la app `Turistea Villajoyosa`, entregada como proyecto final del mó
 
 Demo: https://front-proyecto-final-fullstack.vercel.app/
 
-Repo: https://github.com/JaumeEsquerdo/front-proyecto-final-fullstack
+Repo Frontend: https://github.com/JaumeEsquerdo/front-proyecto-final-fullstack
 
 - API:
-Despliegue: https://backend-proyecto-final-fullstack.vercel.app
+Despliegue API: https://backend-proyecto-final-fullstack.vercel.app
 
-Repo: https://github.com/JaumeEsquerdo/backend-proyecto-final-fullstack
+Repo Backend: https://github.com/JaumeEsquerdo/backend-proyecto-final-fullstack
 
 ## 📖 Descripción
 
@@ -30,7 +30,7 @@ Front: React + CSS
 Back: Node.js + Express + MongoDB (API)
 
 
-## ⚙️ Funcionalidad clave
+## ⚙️ Funcionalidades extra
 
 Rutas con autenticación de admin, para gestionar actividades recomendadas y packs disponibles en la app.
 
