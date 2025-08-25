@@ -7,7 +7,7 @@ Demo: https://front-proyecto-final-fullstack.vercel.app/
 Repo Frontend: https://github.com/JaumeEsquerdo/front-proyecto-final-fullstack
 
 - API:
-Despliegue API: https://backend-proyecto-final-fullstack.vercel.app
+Despliegue: https://backend-proyecto-final-fullstack.vercel.app
 
 Repo Backend: https://github.com/JaumeEsquerdo/backend-proyecto-final-fullstack
 
@@ -41,7 +41,7 @@ iconos para actividades sueltas : https://www.flaticon.es/resultados?word=playa&
 iconos para los packs: https://www.svgrepo.com/collection/travel-theme-candy-vectors/
 
 
-## FIGMA DEL PROYECTO!
+## Figma del proyecto
 
 [FIGMA](https://www.figma.com/design/Qo6Jr7O0xUuxmZzhrlkCfL/PROYECTO-FINAL-BACKEND?node-id=0-1&p=f&t=zRk69933bAcFhLtx-0)
 
