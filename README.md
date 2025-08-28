@@ -26,7 +26,7 @@ Login / Register: registro con nombre, email, contraseña (mínimo 6 caracteres)
 
 ## 🧱 Tech stack
 
-Front: React + CSS
+Front: React + Vite + CSS
 Back: Node.js + Express + MongoDB (API)
 
 
