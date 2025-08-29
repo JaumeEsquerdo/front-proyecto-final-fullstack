@@ -26,7 +26,7 @@ Login / Register: registro con nombre, email, contraseña (mínimo 6 caracteres)
 
 ## 🧱 Tech stack
 
-Front: React + Vite + CSS + React Router Dom
+Front: React + Node.js + Vite + CSS + React Router Dom
 Back: Node.js + Express + MongoDB/Mongoose (API) + JWT  Multer + Dotenv + CORS
 
 
