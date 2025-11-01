@@ -166,10 +166,10 @@
   color: var(--color-text-p);
   text-align: center;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.9rem;
   height: 58px;
   border-radius: 10px;
-  background-color: rgb(103, 156, 139);
+  /* background-color: rgb(103, 156, 139); */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border: 3px solid rgba(0, 0, 0, 0.08);
   cursor: pointer;

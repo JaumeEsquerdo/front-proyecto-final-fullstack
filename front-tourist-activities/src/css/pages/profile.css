@@ -242,7 +242,7 @@
 }
 
 .Profile-logout:hover {
-  color: #5b9df9;
+  color: var(--color-text-s);
 }
 
 .Policy-links {

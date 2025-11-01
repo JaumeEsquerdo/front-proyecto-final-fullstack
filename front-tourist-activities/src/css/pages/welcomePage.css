@@ -117,6 +117,7 @@
   background: white;
   color: var(--brand);
   border-color: white;
+  box-shadow: 0 4px 2px white;
 }
 
 .WelcomePage-btn--white:hover {
@@ -133,6 +134,7 @@
   background: var(--btn-onboarding);
   color: white;
   border-color: var(--btn-onboarding--hover);
+  box-shadow: 0 4px 2px var(--btn-onboarding--hover);
 }
 
 .WelcomePage-btn--color:hover {
