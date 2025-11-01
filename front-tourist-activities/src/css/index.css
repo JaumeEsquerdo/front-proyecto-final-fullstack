@@ -1,29 +1,32 @@
 :root {
-  --color-text-p: #333;
-  --color-text-s: #666;
-  --color-text-t: #999;
+  --color-text-p: #412525;
+  --color-text-s: #421f1f;
+  --color-text-t: #4d3b3b;
+  --color-text-intense: #550e03;
 
-  --font-main: 'Nunito', sans-serif;
-  --font-logo: 'Quicksand', sans-serif;
-  --font-onboarding: 'Playfair Display', serif;
-  --color-bg: linear-gradient(0deg, #68bedb8e, #d4e4ef00);
-  --color-bg-blueSoft: #f5f9fc;
+  --font-main: "Nunito", sans-serif;
+  --font-logo: "Quicksand", sans-serif;
+  --font-onboarding: "Playfair Display", serif;
+  --color-bg: #f9e2cc;
+  --color-bg-entering: #ffeaea;
+  --color-bg-calendar: #f9dfee;
 
   --btn-padding: 0.75rem 1rem;
   --btn-radius: 18px;
 
   --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 
-  --btn-bg-color: linear-gradient(135deg, #4cd5c7, #38b2ac);
+  --btn-bg-color: #f9b2a7;
+  --btn-bg-color-intense: #f49587;
   --btn-text-light: #fff;
 
-  --color-act-pronto: #f1ef86;
-  --color-act-pasada: #f38989;
-  --color-act-futura: #b2f493;
+  --color-act-pronto: #f7f59a;
+  --color-act-pasada: #f7a3a3;
+  --color-act-futura: #c1faa7;
 
   /* gradiantes olas */
   --grad-start: #ee622a;
-  --grad-end: #FF4D84;
+  --grad-end: #ff4d84;
   --grad-alt: #e86ede;
 
   --color-btn-login: #dc5830;
@@ -33,9 +36,8 @@
   --brand-700: #c21805;
   --btn-onboarding: #8f1616ee;
   --btn-onboarding--hover: #740505f1;
-  --white: #fff;
+  --box-activities: #fcecdd;
 }
-
 
 .Root {
   display: flex;
@@ -66,13 +68,11 @@ a {
 .react-calendar__navigation button,
 .react-calendar__year-view .react-calendar__tile {
   border-radius: 24px;
-
 }
 
 .react-calendar__navigation button:hover {
   border-radius: 24px;
   border: 0.2px solid rgb(78, 77, 77);
-
 }
 
 /* button{
@@ -101,9 +101,7 @@ button:active{
   scrollbar-width: none;
   /* ocultar en firefox */
   font-family: var(--font-main);
-
 }
-
 
 .Body::-webkit-scrollbar,
 html::-webkit-scrollbar {
@@ -124,7 +122,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .OutletWrapper {
@@ -159,7 +156,10 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
 
+.OutletWrapper--calendario {
+  background-color: var(--color-bg-calendar);
 }
 
 .Error-link {
@@ -173,7 +173,6 @@ html {
 }
 
 @media (min-width: 768px) {
-
   .react-calendar {
     min-width: 500px;
     margin: 30px 0;

@@ -1,576 +1,562 @@
 .Home {
-    min-width: 100%;
-    max-width: 100vw;
-    max-width: 100dvw;
-    /* overflow-x: auto ; */
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    flex: 1;
-    justify-content: space-around;
-    align-items: center;
+  min-width: 100%;
+  max-width: 100vw;
+  max-width: 100dvw;
+  /* overflow-x: auto ; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .Home-h1 {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    margin: 24px auto;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  margin: 24px auto;
+  color: var(--color-text-p);
 }
-
-
 
 /* Packs recomendadoss */
 
 .Act-section {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: flex-start;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-start;
+  margin-bottom: 20px;
 }
 
 .Act-h2,
 .Act-p {
-    width: 95%;
-    /* pongo un 95% junto con margin left auto para igualar con el resto de la pagina que mantien el 90% width, y necesito poner ese 95% para que el contenido del slider tenga su 100%*/
-    padding: 2px 0px;
-    margin-left: auto;
+  width: 95%;
+  /* pongo un 95% junto con margin left auto para igualar con el resto de la pagina que mantien el 90% width, y necesito poner ese 95% para que el contenido del slider tenga su 100%*/
+  padding: 2px 0px;
+  margin-left: auto;
 }
 
 .Act-cardScroll {
-    display: flex;
-    overflow-x: auto;
-    /* -webkit-overflow-scrolling: touch; para safari y iOS smooth scroll */
-    gap: 20px;
-    padding-left: 1rem;
-    scroll-behavior: smooth;
-    /*suavidad al scroll */
-    scrollbar-width: none;
-    max-width: 100vw;
-    max-width: 100dvw;
-    box-sizing: border-box;
-    padding: 1.5rem 1rem;
-
+  display: flex;
+  overflow-x: auto;
+  /* -webkit-overflow-scrolling: touch; para safari y iOS smooth scroll */
+  gap: 20px;
+  padding-left: 1rem;
+  scroll-behavior: smooth;
+  /*suavidad al scroll */
+  scrollbar-width: none;
+  max-width: 100vw;
+  max-width: 100dvw;
+  box-sizing: border-box;
+  padding: 1.5rem 1rem;
 }
 
 .Pack-icono {
-    width: 60px;
+  width: 60px;
 }
 
 .Pack-h3 {
-    font-size: 1.2rem;
-    color: white;
-    font-weight: 700
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--color-text-intense);
+  font-weight: 700;
 }
 
 .Pack-p {
-    color: white;
+  color: var(--color-text-intense);
 }
 
 /* LIGHTBOX PACKS */
 
 .Pack-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    width: 100dvw;
-    height: 100vh; /* fallback */
-    height: 100dvh; /* para nav modernos con cambios de barra dinamicos */
-    z-index: 30;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(200, 242, 244, 0.729);
-    backdrop-filter: blur(3px);
-    padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh; /* fallback */
+  height: 100dvh; /* para nav modernos con cambios de barra dinamicos */
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(200, 242, 244, 0.729);
+  backdrop-filter: blur(3px);
+  padding: 1rem;
 }
 
 .Pack-cerrar {
-    position: absolute;
-    top: -1rem;
-    right: 1rem;
-    z-index: 31;
-    font-size: 1.5rem;
-    background-color: var(--white);
-    border: none;
-    border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #333;
-    transition: background-color 1s ease-in-out;
+  position: absolute;
+  top: -1rem;
+  right: 1rem;
+  z-index: 31;
+  font-size: 1.5rem;
+  background-color: var(--box-activities);
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  transition: background-color 1s ease-in-out;
 }
 
 .Pack-cerrar:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .Pack-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 .Pack-detalles {
-    position: relative;
-    background-color: rgb(255, 255, 255);
-    border-radius: 1.5rem;
-    padding: 1.2rem;
-    width: 90%;
-    height: auto;
-    max-width: 700px;
-    max-height: 100vh;
-    max-height: 100dvh; /* por si cambia en movil el calculo con barras de navegador modernas */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  border-radius: 1.5rem;
+  padding: 1.2rem;
+  width: 90%;
+  height: auto;
+  max-width: 700px;
+  max-height: 100vh;
+  max-height: 100dvh; /* por si cambia en movil el calculo con barras de navegador modernas */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 /* actividades */
 .Pack-activity {
-    height: auto;
-    width: 80%;
-    background-color: #f8f9fa;
-    border-radius: 1rem;
-    padding: 0.2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  height: auto;
+  width: 80%;
+  background-color: var(--box-activities);
+  border-radius: 1rem;
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    justify-content: space-between;
-    gap: 0.4rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  justify-content: space-between;
+  gap: 0.4rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .Activity {
-    height: 100%;
-    position: relative;
-    width: 220px;
-    max-height: 160px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow-y: auto;
-    stroke-width: none;
-    /*ocultar scroll para firefox */
+  height: 100%;
+  position: relative;
+  width: 220px;
+  max-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+  stroke-width: none;
+  /*ocultar scroll para firefox */
 }
 
 .Activity::-webkit-scrollbar {
-    display: none;
-    /* ocultar en chrome */
+  display: none;
+  /* ocultar en chrome */
 }
 
 .Activity-h3 {
-    display: flex;
-    justify-content: center;
-    font-size: 1rem;
-    color: #333;
-    /* word-break: break-word; cortar palabras ssi son largas */
-    margin: 0;
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  color: #333;
+  /* word-break: break-word; cortar palabras ssi son largas */
+  margin: 0;
 }
 
 .Activity-p {
-    display: -webkit-box;
-    /*para tener un box para saltar lineas */
-    -webkit-line-clamp: 3;
-    /* máximo 3 líneas antes de cortar y poner puntos suspensivs */
-    -webkit-box-orient: vertical;
-    /* en modo vertical  */
-    line-clamp: 3;
-    margin: 0.3rem 0;
-    font-size: 0.85rem;
-    color: #666;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    max-width: 300px;
+  display: -webkit-box;
+  /*para tener un box para saltar lineas */
+  -webkit-line-clamp: 3;
+  /* máximo 3 líneas antes de cortar y poner puntos suspensivs */
+  -webkit-box-orient: vertical;
+  /* en modo vertical  */
+  line-clamp: 3;
+  margin: 0.3rem 0;
+  font-size: 0.85rem;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 300px;
 }
 
-
-
 .Activities-more {
-    font-weight: 600;
-    font-size: 1rem;
-    color: #4b5bb2;
-    width: fit-content;
-    margin-bottom: 20px;
-    transition: color 0.5s ease-in-out;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text-intense);
+  width: fit-content;
+  margin-bottom: 20px;
+  transition: color 0.5s ease-in-out;
 }
 
 .Activities-more:hover {
-
-    color: #5c6ab4;
-    text-decoration: underline;
+  color: var(--color-text-t);
+  text-decoration: underline;
 }
 
 /* botones */
 .Activity-link {
-    font-weight: 600;
-    background: var(--btn-bg-color);
-    color: var(--btn-text-light);
-    border: 4px solid #3ab5ae;
-    border-radius: var(--btn-radius);
-    padding: var(--btn-padding);
-    cursor: pointer;
-    font-size: 0.9rem;
-    width: auto;
-    height: auto;
-    transition: background-color 0.5s ease-in-out;
+  font-weight: 600;
+  background: var(--btn-bg-color);
+  color: var(--color-text-t);
+  border: 4px solid var(--btn-bg-color-intense);
+  border-radius: var(--btn-radius);
+  padding: var(--btn-padding);
+  cursor: pointer;
+  font-size: 0.9rem;
+  width: auto;
+  height: auto;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .Activity-link--pack {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 38px;
-    font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  font-size: 0.9rem;
 }
 
 .Activity-link:hover {
-    background-color: #7bd7dc;
+  background-color: var(--btn-bg-color-intense);
 }
 
 .Act-card {
-    min-width: 220px;
-    width: auto;
-    height: auto;
-    min-height: 210px;
-    padding: 1rem;
-    /* border-radius: 30px; */
-    border-radius: 67px 55px 33px 40px;
-    flex-shrink: 0;
-    color: rgb(0, 0, 0);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    cursor: pointer;
+  max-width: 220px;
+  min-width: 220px;
+  width: auto;
+  height: auto;
+  min-height: 210px;
+  padding: 1rem;
+  /* border-radius: 30px; */
+  border-radius: 67px 55px 33px 40px;
+  flex-shrink: 0;
+  color: rgb(0, 0, 0);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
 }
 
 .Act-card.orange {
-    border: 4px solid #f3bc8c;
-    background: linear-gradient(135deg, #ff9941, #f3bc8c);
-    box-shadow: 0px 10px 20px hsla(28, 76%, 82%, 0.6);
+  border: 4px solid #f3bc8c;
+  background: linear-gradient(135deg, #fcaf6b, #f5c398);
+  box-shadow: 0px 10px 20px hsla(28, 76%, 82%, 0.6);
 }
 
 .Pack-detalles.orange {
-    background-color: #f3bc8c;
+  background-color: #f3bc8c;
 }
 
 .Act-card.blue {
-    border: 4px solid #8ae2e8;
-    background: linear-gradient(135deg, #3bdae3, #8ae2e8);
-    box-shadow: 0px 10px 20px hsla(183, 63%, 78%, 0.4);
+  border: 4px solid #8ae2e8;
+  background: linear-gradient(135deg, #bdf4f7, #a6eef3);
+  box-shadow: 0px 10px 20px hsla(183, 63%, 78%, 0.4);
 }
 
 .Pack-detalles.blue {
-    background-color: #8ae2e8;
+  background-color: #8ae2e8;
 }
 
 .Act-card.yellow {
-    border: 4px solid #fae17c;
+  border: 4px solid #fae17c;
 
-    background: linear-gradient(135deg, #f6d543, #fae17c);
-    box-shadow: 0px 10px 20px hsla(49, 69%, 80%, 0.4);
+  background: linear-gradient(135deg, #ffeea4, #f3de8b);
+  box-shadow: 0px 10px 20px hsla(49, 69%, 80%, 0.4);
 }
 
 .Pack-detalles.yellow {
-    background-color: #fae17c;
+  background-color: #fae17c;
 }
 
 .Act-card.green {
-    border: 4px solid #b6e497;
+  border: 4px solid #b6e497;
 
-    background: linear-gradient(135deg, #9ad058, #b6e497);
-    box-shadow: 0px 10px 20px hsla(110, 69%, 80%, 0.4);
+  background: linear-gradient(135deg, #c6f78a, #c6f5a6);
+  box-shadow: 0px 10px 20px hsla(110, 69%, 80%, 0.4);
 }
 
 .Pack-detalles.green {
-    background-color: #b6e497;
+  background-color: #b6e497;
 }
 
 .Act-card.red {
-    border: 4px solid #d28d8d;
-    background: linear-gradient(135deg, #d05c58, #d28d8d);
-    box-shadow: 0px 10px 20px hsla(0, 69%, 80%, 0.4);
+  border: 4px solid #d28d8d;
+  background: linear-gradient(135deg, #f99995, #f5b3b3);
+  box-shadow: 0px 10px 20px hsla(0, 69%, 80%, 0.4);
 }
 
 .Pack-detalles.red {
-    background-color: #d28d8d;
+  background-color: #d28d8d;
 }
 
 .Act-card.purple {
-    border: 4px solid #ae92d7;
-    background: linear-gradient(135deg, #7b5cb0, #ae92d7);
-    box-shadow: 0px 10px 20px hsla(260, 45%, 80%, 0.4);
+  border: 4px solid #ae92d7;
+  background: linear-gradient(135deg, #b995f7, #d1b4fd);
+  box-shadow: 0px 10px 20px hsla(260, 45%, 80%, 0.4);
 }
 
 .Pack-detalles.purple {
-    background-color: #ae92d7;
+  background-color: #ae92d7;
 }
 
 .Act-card.brown {
-    border: 4px solid #cda98d;
-    background: linear-gradient(135deg, #a97b5c, #cda98d);
-    box-shadow: 0px 10px 20px hsla(25, 45%, 80%, 0.4);
+  border: 4px solid #cda98d;
+  background: linear-gradient(135deg, #a97b5c, #cda98d);
+  box-shadow: 0px 10px 20px hsla(25, 45%, 80%, 0.4);
 }
 
 .Pack-detalles.brown {
-    background-color: #cda98d;
+  background-color: #cda98d;
 }
 
 .Act-card.pink {
-    border: 4px solid #de9eac;
-    background: linear-gradient(135deg, #e86a88, #de9eac);
-    box-shadow: 0px 10px 20px hsla(0, 69%, 80%, 0.4);
+  border: 4px solid #de9eac;
+  background: linear-gradient(135deg, #e86a88, #de9eac);
+  box-shadow: 0px 10px 20px hsla(0, 69%, 80%, 0.4);
 }
 
 .Pack-detalles.pink {
-    background-color: #de9eac;
+  background-color: #de9eac;
 }
 
 /* Act pendientes */
 
 .Activities {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
-
 .Activities-titles {
-    width: 100%;
-    align-self: stretch;
-    /* strecth para sobreescribir el align center de Activities (el padre) */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
+  width: 100%;
+  align-self: stretch;
+  /* strecth para sobreescribir el align center de Activities (el padre) */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .Activities-title,
 .Activities-all {
-    padding: 2px 0px;
+  padding: 2px 0px;
 }
 
 .Activities-all {
-    color: #9468f3;
+  color: #9468f3;
 }
 
 .Activities-layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .Activities-act {
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: var(--white);
-    border-radius: 20px;
-    padding: 0.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 8px 0;
-    width: 350px;
-    height: 150px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: var(--box-activities);
+  border-radius: 20px;
+  padding: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 8px 0;
+  width: 350px;
+  height: 150px;
 }
 
 .Activities-icondiv {
-    position: absolute;
-    top: 0.8rem;
-    left: 0.8rem;
-    background-color: #f0b3b7;
-    border-radius: 50%;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 43px;
-    height: 43px;
-
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  background-color: #f0b3b7;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 43px;
+  height: 43px;
 }
 
 .Activities-icon {
-    filter: brightness(0) invert(1);
-    /*con esto cambio el color negro de los svg a blanco */
-    width: 22px;
-    height: 22px;
+  filter: brightness(0) invert(1);
+  /*con esto cambio el color negro de los svg a blanco */
+  width: 22px;
+  height: 22px;
 }
 
 .Actividades-filtros {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-    margin: 1.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
 }
 
 .Actividad-filtro {
-    padding: var(--btn-padding);
-    border-radius: var(--btn-radius);
-    font-size: 16px;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-    color: white;
-    background-color: transparent;
-    border: 2px solid transparent;
-    color: var(--color-text-s);
+  padding: var(--btn-padding);
+  border-radius: var(--btn-radius);
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-intense);
+  background-color: transparent;
+  border: 2px solid transparent;
+  color: var(--color-text-s);
 }
 
 .Actividad-filtro.activo {
-    background: linear-gradient(45deg, #f06b6b, #ff7f50);
-    color: white;
-    border: 3px solid #ff7f50;
-    box-shadow: var(--box-shadow);
+  background: linear-gradient(45deg, #f06b6b, #ff7f50);
+  color: var(--color-text-intense);
+  border: 3px solid #ff7f50;
+  box-shadow: var(--box-shadow);
 }
 
 .Actividad-filtro:not(.activo) {
-    background-color: transparent;
-    border-color: rgba(0, 0, 0, 0.1);
-    opacity: 0.7;
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.1);
+  opacity: 0.7;
 }
 
 .Actividad-filtro:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 @media (min-width: 768px) {
-    .Act-section {
-        width: 80%;
-        margin: 20px 0;
-    }
+  .Act-section {
+    width: 80%;
+    margin: 20px 0;
+  }
 
+  .Act-cardScroll {
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+    justify-items: center;
+  }
 
-    .Act-cardScroll {
-        flex-wrap: wrap;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.4rem;
-        justify-items: center;
-    }
+  .Activities {
+    width: 80%;
+    margin: 20px 0;
+  }
 
-    .Activities {
-        width: 80%;
-        margin: 20px 0;
+  .Act-h2,
+  .Act-p {
+    margin: 0;
+  }
 
+  .Activities-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    justify-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
 
-    }
+  .Activity-link--abierto {
+    width: 250px;
+  }
 
-    .Act-h2,
-    .Act-p {
-        margin: 0;
-    }
+  .Activity--abierto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+  }
 
-    .Activities-layout {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        justify-content: center;
-        justify-items: center;
-        gap: 1rem;
-        flex-wrap: wrap;
+  .Activity-p--abierto {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    font-size: 0.9rem;
+  }
 
-    }
-
-    .Activity-link--abierto {
-        width: 250px;
-    }
-
-    .Activity--abierto {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 500px;
-    }
-
-    .Activity-p--abierto {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        max-width: 500px;
-        font-size: 0.9rem;
-    }
-
-    .Pack-activity--abierto {
-        padding: 0.6rem;
-    }
+  .Pack-activity--abierto {
+    padding: 0.6rem;
+  }
 }
 
 @media (min-width: 1024px) {
-    .Activity-h3 {
-        font-size: 1.1rem;
-    }
+  .Activity-h3 {
+    font-size: 1.1rem;
+  }
 
-    .Act-section {
-        margin: 40px 0;
-    }
+  .Act-section {
+    margin: 40px 0;
+  }
 
-    .Activities {
-        margin: 40px 0;
-    }
+  .Activities {
+    margin: 40px 0;
+  }
 
-    .Activities-layout {
-        width: 100%;
+  .Activities-layout {
+    width: 100%;
+  }
 
-    }
+  .Act-h2,
+  .Act-p {
+    margin: 5px 0;
+  }
 
-    .Act-h2,
-    .Act-p {
-        margin: 5px 0;
-    }
+  .Actividades-filtros {
+    gap: 1rem;
+  }
 
-    .Actividades-filtros {
-        gap: 1rem;
-    }
+  .Act-cardScroll {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-items: center;
+  }
 
-    .Act-cardScroll {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-        justify-items: center;
+  .Activities-layout {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-    }
+  .Act-card {
+    max-width: 280px;
+  }
 
-    .Activities-layout {
+  .Activity--abierto {
+    width: 600px;
+  }
 
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .Activity-p--abierto {
+    max-width: 600px;
+  }
 
-    .Act-card {
-        max-width: 280px;
-    }
-
-    .Activity--abierto {
-        width: 600px;
-    }
-
-    .Activity-p--abierto {
-        max-width: 600px;
-    }
-
-    .Pack-cerrar {
-        top: -1rem;
-        right: 20%;
-    }
+  .Pack-cerrar {
+    top: -1rem;
+    right: 20%;
+  }
 }

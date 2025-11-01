@@ -1,335 +1,323 @@
 .Profile {
-    height: 100vh;
-    /* fallback */
-    height: 100dvh;
-    /* para nav modernos con cambios de barra dinamicos */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 2rem;
-    max-height: 100vh;
-    /* fallback */
-    max-height: 100dvh;
-    /* para nav modernos con cambios de barra dinamicos */
-    width: 100vw;
-    width: 100dvw;
-    position: relative;
-    /*overflow: hidden;*/
-    /* background-color: #f4f6f8; */
+  height: 100vh;
+  /* fallback */
+  height: 100dvh;
+  /* para nav modernos con cambios de barra dinamicos */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  max-height: 100vh;
+  /* fallback */
+  max-height: 100dvh;
+  /* para nav modernos con cambios de barra dinamicos */
+  width: 100vw;
+  width: 100dvw;
+  position: relative;
+  /*overflow: hidden;*/
+  /* background-color: #f4f6f8; */
 }
 
 .Profile-bg {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg,
-            var(--grad-start),
-            var(--grad-end) 50%,
-            /* El segundo color se ancla al 50%:
-- Sin este % apenas tendría presencia, porque los colores intermedios en un gradiente sirven solo de transición.
-- Con el 50% se ve coral puro en la mitad del gradiente.
-- A partir de ahí empieza a mezclarse con el siguiente color. */
-            var(--grad-alt));
-    z-index: -2;
+  position: absolute;
+  inset: 0;
+  background: var(--color-bg);
+  z-index: -2;
 }
 
 .Profile-bg::after {
-    /* ::after genera una capa extra encima del fondo */
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: #ffffff93;
-    /* capa blanca con opacidad para q no sea muy chillón los colores */
-    backdrop-filter: blur(20px);
-    z-index: -1;
+  /* ::after genera una capa extra encima del fondo */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ffffff93;
+  /* capa blanca con opacidad para q no sea muy chillón los colores */
+  backdrop-filter: blur(20px);
+  z-index: -1;
 }
 
 /* Olas */
 .Wave {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    left: 0;
-    z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  left: 0;
+  z-index: -1;
 }
 
 .Wave--top {
-    top: 0;
+  top: 0;
 }
 
 .Wave--bottom {
-    bottom: 0;
+  bottom: 0;
 }
 
 .Wave path {
-    fill: #fff;
-    fill-opacity: 0.18;
-    /* translúcido, para dejar ver el gradiente de detrás y queda sensación de ola */
+  fill: #fff;
+  fill-opacity: 0.18;
+  /* translúcido, para dejar ver el gradiente de detrás y queda sensación de ola */
 }
 
-
 .Profile-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: var(--color-bg-blueSoft);
-    padding: 1rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-    min-height: 550px;
-    /* overflow-y: auto; */
-    transition: box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--color-bg);
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  min-height: 550px;
+  /* overflow-y: auto; */
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .Profile-card:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-
 .Profile-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: var(--color-text-p);
-    text-align: center;
-    font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-p);
+  text-align: center;
+  font-weight: 600;
 }
 
 .Profile-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .Profile-nav {
-    width: fit-content;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: flex-start;
-    position: absolute;
-    top: 4%;
-    left: 8%;
-    z-index: 10;
+  width: fit-content;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  top: 4%;
+  left: 8%;
+  z-index: 10;
 }
 
 .Profile-link {
-    display: flex;
-    border: 1.4px solid #ccc;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    padding: 0.4rem;
-    width: 38px;
-    cursor: pointer;
-    background-color: var(--color-bg-blueSoft);
-    transition: background-color 0.3s ease-in-out;
+  display: flex;
+  border: 1.4px solid #ccc;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  padding: 0.4rem;
+  width: 38px;
+  cursor: pointer;
+  background-color: var(--color-bg-blueSoft);
+  transition: background-color 0.3s ease-in-out;
 }
 
 .Profile-link:hover {
-    background-color: #f1f1f1;
+  background-color: #f1f1f1;
 }
 
 .Profile-label {
-    display: flex;
-    flex-direction: column;
-    color: var(--color-text-s);
-    margin-bottom: 0.3rem;
-    font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-text-s);
+  margin-bottom: 0.3rem;
+  font-weight: 500;
 }
 
 .Profile-input {
-    font-size: 1rem;
-    padding: 0.75rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: border 0.3s ease-in-out;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-
 .Profile-input:focus {
-    border-color: #5b9df9;
-    box-shadow: var(--box-shadow);
+  border-color: var(--color-bg);
+  box-shadow: var(--box-shadow);
 }
 
 .Profile-button {
-    font-size: 1rem;
-    padding: var(--btn-padding);
-    background-color: #5ca0f4;
-    width: 100%;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    border: 2px solid #458ef5;
-    box-shadow: 0 4px 12px #69a9f84d;
-    transition: background-color 0.3s ease-in-out;
+  font-size: 1rem;
+  padding: var(--btn-padding);
+  background-color: var(--btn-bg-color);
+  width: 100%;
+  color: var(--color-text-p);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid var(--btn-bg-color-intense);
+  box-shadow: 0 4px 2px var(--btn-bg-color-intense);
+  transition: background-color 0.3s ease-in-out;
 }
 
 .Profile-button:hover {
-    background-color: #458ef5;
+  background-color: var(--btn-bg-color-intense);
 }
 
 .Profile-button--cancel {
-    background-color: #f48c8c;
-    border: 2px solid #e97b7b;
-    color: white;
-    box-shadow: 0 4px 12px rgba(1244, 140, 140, 0.1);
+  background-color: #f48c8c;
+  border: 2px solid #e97b7b;
+  color: var(--color-text-p);
+  box-shadow: 0 4px 2px #e97b7b;
 
-    transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .Profile-button--cancel:hover {
-    background-color: #e97b7b;
+  background-color: #e97b7b;
 }
 
 .Profile-adminLinks {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .Profile-button--admin {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #212121;
-    border: black;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #212121;
+  border: black;
+  box-shadow: 0 4px 2px #212121c6;
 }
 
 .Profile-button--admin:hover {
-    background-color: #212121c6;
+  background-color: #212121c6;
 }
 
 .Profile-button--pass {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    background-color: #f39b43;
-    border: 2px solid #f3882b;
-    color: var(--white);
-    width: 100%;
-    box-shadow: 0 4px 12px rgba(244, 173, 104, 0.1);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #f8b36d;
+  border: 2px solid #f3882b;
+  color: var(--white);
+  width: 100%;
+  box-shadow: 0 4px 2px #f3882b;
 
-    transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .Profile-button--pass:hover {
-    background-color: #f3882b;
+  background-color: #f3882b;
 }
 
 .Profile-button--passConfirm {
-    /* margin-top: 1rem; */
-    background-color: #41baa2;
-    border: 2px solid #19ad92;
-    color: var(--white);
-    width: 100%;
-    box-shadow: 0 4px 12px rgba(190, 196, 174, 0.1);
+  /* margin-top: 1rem; */
+  background-color: #41baa2;
+  border: 2px solid #19ad92;
+  color: var(--white);
+  width: 100%;
+  box-shadow: 0 4px 2px #19ad92;
 
-    transition: background-color 0.3s ease-in-out;
-
+  transition: background-color 0.3s ease-in-out;
 }
 
 .Profile-button--passConfirm:hover {
-    background-color: #19ad92;
+  background-color: #19ad92;
 }
 
 .Profile-logout {
-    margin-top: 1rem;
-    background: none;
-    border: none;
-    color: var(--color-text-p);
-    cursor: pointer;
-    text-align: center;
-    font-size: 1rem;
-    transition: color 0.2s ease-out;
-    padding: 0.8rem 1.2rem;
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  color: var(--color-text-p);
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  transition: color 0.2s ease-out;
+  padding: 0.8rem 1.2rem;
 }
 
 .Profile-logout:hover {
-    color: #5b9df9;
+  color: #5b9df9;
 }
 
 .Policy-links {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    margin-top: auto;
-    padding: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: auto;
+  padding: 16px;
 }
 
 .Policy-link {
-    color: var(--color-text-s);
-    font-size: 1rem;
-    font-weight: 500;
-    transition: color 0.2s ease-out;
+  color: var(--color-text-s);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease-out;
 }
 
 .Policy-link:hover {
-    color: var(--grad-start);
+  color: var(--grad-start);
 }
 
 .Profile-error {
-    color: #f44336;
-    font-size: 1rem;
-    margin-top: 1rem;
-    text-align: center;
+  color: #f44336;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
 }
 
 .Profile-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    color: var(--color-text-p);
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--color-text-p);
+  width: 100%;
 }
 
 .Profile-name,
 .Profile-email {
-    background-color: #f9f9f9;
-    padding: var(--btn-padding);
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    font-weight: 500;
-
+  background-color: #f9f9f9;
+  padding: var(--btn-padding);
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  font-weight: 500;
 }
 
 .Profile-name strong,
 .Profile-email strong {
-    font-weight: 700;
-    margin-right: 0.5rem;
-    color: var(--color-text-s);
+  font-weight: 700;
+  margin-right: 0.5rem;
+  color: var(--color-text-s);
 }
 
 .Profile-btnsChange {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 @media (min-width: 768px) {
-    .Profile-nav {
-        top: 10%;
-        left: 10%;
-    }
+  .Profile-nav {
+    top: 10%;
+    left: 10%;
+  }
 
-    .Profile-card {
-        padding: 1.2rem;
-    }
+  .Profile-card {
+    padding: 1.2rem;
+  }
 }
 
 @media (min-width: 1024px) {
-    .Profile-card {
-        padding: 1.4rem;
-    }
+  .Profile-card {
+    padding: 1.4rem;
+  }
 }

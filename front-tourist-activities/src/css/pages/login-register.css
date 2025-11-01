@@ -1,240 +1,228 @@
 .Login,
 .Register {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh; /* fallback */
-    min-height: 100dvh; /* por si cambia en movil el calculo con barras de navegador modernas */
-    background-color: var(--color-bg-blueSoft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* fallback */
+  min-height: 100dvh; /* por si cambia en movil el calculo con barras de navegador modernas */
+  background-color: var(--color-bg-entering);
 }
 
 .Login-container,
 .Register-container {
-    padding: 0 0.875rem;
-    /* padding-top: 20px; */
-    width: 100vw;
-    width: 100dvw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    border-radius: 25px;
-    flex: 1;
+  padding: 0 0.875rem;
+  /* padding-top: 20px; */
+  width: 100vw;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  border-radius: 25px;
+  flex: 1;
 }
 
 .Login-img {
-    width: 100%;
-    max-height: 300px;
-    object-fit: contain;
-    object-position: center;
-    display: block;
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
 }
 
 .Login-form,
 .Register-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 14px;
 }
 
 .Login-title {
-    padding: 20px 12px 12px 12px;
-    font-size: 1.75rem;
-    font-weight: bold;
-    background: linear-gradient(90deg, #f26483, #faa536);
-    /* para que solo coja las letras */
-    -webkit-background-clip: text;
-    /* define solo el background q le pones el color */
-    background-clip: text; /* estandar futuro */
-    color: transparent;
-    /* se le quita el color normal del texto */
-    pointer-events: none;
-    font-family: var(--font-logo);
-    display: flex;
-    justify-content: center;
+  padding: 20px 12px 12px 12px;
+  font-size: 1.75rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #f26483, #faa536);
+  /* para que solo coja las letras */
+  -webkit-background-clip: text;
+  /* define solo el background q le pones el color */
+  background-clip: text; /* estandar futuro */
+  color: transparent;
+  /* se le quita el color normal del texto */
+  pointer-events: none;
+  font-family: var(--font-logo);
+  display: flex;
+  justify-content: center;
 }
 
 .Login-h1,
 .Register-h1 {
-    margin-bottom: 8px;
-    font-size: 1.5rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    color: var(--color-text-p);
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: var(--color-text-p);
 }
 
 .Login-divForm,
 .Register-divForm {
-    width: 100%;
+  width: 100%;
 }
 
 .Login-label,
 .Register-label {
-    margin-top:14px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-text-s);
+  margin-top: 14px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-s);
 }
 
 .Login-inputTitle,
 .Register-inputTitle {
-    margin: 0 0 8px 8px;
-    font-weight: 500;
-    color: var(--color-text-p);
+  margin: 0 0 8px 8px;
+  font-weight: 500;
+  color: var(--color-text-p);
 }
-
 
 .Login-input,
 .Register-input {
-    height: 45px;
-    border-radius: var(--btn-radius);
-    border: 1px solid #c2d4e5;
-    font-size: 0.875rem;
-    box-shadow: var(--box-shadow);
-    padding: 0 16px;
+  height: 45px;
+  border-radius: var(--btn-radius);
+  border: 1px solid #c2d4e5;
+  font-size: 0.875rem;
+  box-shadow: var(--box-shadow);
+  padding: 0 16px;
 }
 
 .Login-input {
-    background-color: #f9f5f3;
-
+  background-color: #f9f5f3;
 }
 
 .Register-input {
-    background-color: #f9f5f3;
-
+  background-color: #f9f5f3;
 }
 
 .Login-input:focus {
-    outline: none;
-    border: 2px solid var(--grad-start);
+  outline: none;
+  border: 2px solid var(--grad-start);
 }
 
 .Register-input:focus {
-    outline: none;
-    border: 2px solid var(--grad-start);
+  outline: none;
+  border: 2px solid var(--grad-start);
 }
 
 .Login-btn,
 .Register-btn {
-    margin-top: 14px;
-    height: 50px;
-    width: 100%;
-    color: #fff;
-    font-weight: 600;
-    border-radius: var(--btn-radius);
-    box-shadow: var(--box-shadow);
-    font-size: 1rem;
-    transition: background-color 0.6s ease-in-out;
-    cursor: pointer;
-    border: 4px solid var(--grad-start);
-    background-color: var(--color-btn-login);
+  margin-top: 14px;
+  height: 50px;
+  width: 100%;
+  color: #fff;
+  font-weight: 600;
+  border-radius: var(--btn-radius);
+  box-shadow: var(--box-shadow);
+  font-size: 1rem;
+  transition: background-color 0.6s ease-in-out;
+  cursor: pointer;
+  border: 4px solid var(--grad-start);
+  background-color: var(--color-btn-login);
 }
 
-
 .Login-btn:hover {
-    background-color: var(--grad-start);
+  background-color: var(--grad-start);
 }
 
 .Register-btn:hover {
-    background-color: var(--grad-start);
-
+  background-color: var(--grad-start);
 }
-
 
 .Login-divLogin,
 .Register-divLogin {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 20px 10px;
-    font-size: 14px;
-    gap: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 10px;
+  font-size: 14px;
+  gap: 20px;
 }
 
 .Login-textRegister {
-    color: var(--color-text-s);
+  color: var(--color-text-s);
 }
 
 .Register-textLogin {
-    color: var(--color-text-s);
+  color: var(--color-text-s);
 }
 
 .Register-linkLogin {
-    color: var(--brand);
-    font-weight: 700;
-    transition: color 0.2s ease-out;
-
+  color: var(--brand);
+  font-weight: 700;
+  transition: color 0.2s ease-out;
 }
 
 .Register-linkLogin:hover {
-    color: var(--brand-700);
+  color: var(--brand-700);
 }
 
-
 .Login-linkRegister {
-
-    color: var(--brand);
-    font-weight: 700;
-    transition: color 0.2s ease-out;
+  color: var(--brand);
+  font-weight: 700;
+  transition: color 0.2s ease-out;
 }
 
 .Login-linkRegister:hover {
-    color: var(--brand-700);
+  color: var(--brand-700);
 }
 
 .Login-error {
-    margin: 8px;
-    font-size: 1rem;
-    color: rgb(108, 5, 5);
+  margin: 8px;
+  font-size: 1rem;
+  color: rgb(108, 5, 5);
 }
 
 @media (min-width: 768px) {
+  .Login-divForm,
+  .Register-divForm {
+    width: 80%;
+  }
 
-    .Login-divForm,
-    .Register-divForm {
-        width: 80%;
-    }
-
-    .Login-container,
-    .Register-container {
-        border-radius: 60px 60px 0 0;
-    }
-
-
+  .Login-container,
+  .Register-container {
+    border-radius: 60px 60px 0 0;
+  }
 }
 
 @media (min-width: 1024px) {
-    .Login-title{
-        font-size: 2.25rem;
-    }
-    .Login-divForm,
-    .Register-divForm {
-        width: 70%;
-    }
+  .Login-title {
+    font-size: 2.25rem;
+  }
+  .Login-divForm,
+  .Register-divForm {
+    width: 70%;
+  }
 
-    .Login-img{
-        max-height: 340px;
-    }
+  .Login-img {
+    max-height: 340px;
+  }
 
-    .Login-container,
-    .Register-container {
-        border-radius: 100px 100px 0 0;
-    }
+  .Login-container,
+  .Register-container {
+    border-radius: 100px 100px 0 0;
+  }
 
-    .Login-btn,
-    .Register-btn {
-        font-size: 1.125rem;
-    }
+  .Login-btn,
+  .Register-btn {
+    font-size: 1.125rem;
+  }
 
-    .Login-input,
-    .Register-input {
-        font-size: 1.1rem;
-    }
+  .Login-input,
+  .Register-input {
+    font-size: 1.1rem;
+  }
 }

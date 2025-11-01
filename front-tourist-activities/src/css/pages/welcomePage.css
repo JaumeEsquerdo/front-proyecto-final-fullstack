@@ -1,180 +1,174 @@
 .WelcomePage {
-    position: relative;
-    height: 100vh; /* fallback */
-    height: 100dvh; /* navs modernos x cambio de valores si hay barras dinamicas */
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    background-color: var(--color-bg-blueSoft);
+  position: relative;
+  height: 100vh; /* fallback */
+  height: 100dvh; /* navs modernos x cambio de valores si hay barras dinamicas */
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  background-color: var(--color-bg-entering);
 }
 
 .WelcomePage-header {
-    position: relative;
-    padding: 0 0.875rem;
-    margin-top: 26px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    gap: 34px;
-
+  position: relative;
+  padding: 0 0.875rem;
+  margin-top: 26px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 34px;
 }
 
 .WelcomePage-img {
-    height: 280px;
-    min-height: 100px;
-    width: auto;
+  height: 280px;
+  min-height: 100px;
+  width: auto;
 }
 
 .WelcomePage-description {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    justify-content: center;
-    align-items: start;
-
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: start;
 }
 
 .WelcomePage-title {
-    font-size: 2.25rem;
-    font-weight: bold;
-    /* Fallback: color si no hay soporte */
-    color: #f26483;
+  font-size: 2.25rem;
+  font-weight: bold;
+  /* Fallback: color si no hay soporte */
+  color: #f26483;
 
-    /* gradiente en texto */
-    background: linear-gradient(90deg, #f26483, #faa536);
-    /* para que solo coja las letras */
-    background-clip: text;
-    /* propiedad estandar */
-    -webkit-background-clip: text;
-    /* hace que el color normal del texto sea transparente, lo q hace q solo se vea el color del bakground */
-    color: transparent;
+  /* gradiente en texto */
+  background: linear-gradient(90deg, #f26483, #faa536);
+  /* para que solo coja las letras */
+  background-clip: text;
+  /* propiedad estandar */
+  -webkit-background-clip: text;
+  /* hace que el color normal del texto sea transparente, lo q hace q solo se vea el color del bakground */
+  color: transparent;
 
-    pointer-events: none;
-    font-family: var(--font-logo);
+  pointer-events: none;
+  font-family: var(--font-logo);
 }
 
 .WelcomePage-subtitle {
-    text-align: center;
-    font-size: 1.2rem;
-    color: var(--color-text-p);
-    font-family: var(--font-main);
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--color-text-p);
+  font-family: var(--font-main);
 }
 
 .WelcomePage-bottom {
-    position: relative;
-    height: 55vh;
-    min-height: 220px;
-    width: 100%;
-    overflow: hidden;
-
+  position: relative;
+  height: 55vh;
+  min-height: 220px;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* olas ui parte footer */
 .WelcomePage-waves {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    z-index: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
 }
 
 .WelcomePage-wave--back {
-    bottom: 12%;
+  bottom: 12%;
 }
 
 .WelcomePage-wave--front {
-    bottom: 0;
+  bottom: 0;
 }
 
 .WelcomePage-actions {
-    position: absolute;
-    bottom: 40px;
-    right: 50%;
-    transform: translateX(50%);
-    display: flex;
-    gap: 20px;
-    z-index: 2;
+  position: absolute;
+  bottom: 40px;
+  right: 50%;
+  transform: translateX(50%);
+  display: flex;
+  gap: 20px;
+  z-index: 2;
 }
 
 .WelcomePage-btn {
-    display: inline-flex;
-    align-items: center;
-    font-weight: 600;
-    justify-content: center;
-    min-width: 142px;
-    padding: 12px 18px;
-    border-radius: 14px;
-    border: 2px solid transparent;
-    transition: background-color .2s ease-out, color .2s ease-out;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  justify-content: center;
+  min-width: 142px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 2px solid transparent;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
 }
 
 .WelcomePage-btn:focus-visible {
-    outline: 0;
+  outline: 0;
 }
 
 .WelcomePage-btn--white {
-    background: var(--white);
-    color: var(--brand);
-    border-color: var(--white);
+  background: white;
+  color: var(--brand);
+  border-color: white;
 }
 
 .WelcomePage-btn--white:hover {
-    background: #f1f1f1;
-    border-color: #f1f1f1;
+  background: #f1f1f1;
+  border-color: #f1f1f1;
 }
 
 .WelcomePage-btn--white:active {
-    background: #f7f7f7;
-    color: var(--brand-700);
+  background: #f7f7f7;
+  color: var(--brand-700);
 }
 
-
 .WelcomePage-btn--color {
-    background: var(--btn-onboarding);
-    color: var(--white);
-    border-color: var(--btn-onboarding--hover);
+  background: var(--btn-onboarding);
+  color: white;
+  border-color: var(--btn-onboarding--hover);
 }
 
 .WelcomePage-btn--color:hover {
-    background: var(--btn-onboarding--hover);
-    border-color: var(--btn-onboarding--hover);
+  background: var(--btn-onboarding--hover);
+  border-color: var(--btn-onboarding--hover);
 }
 
 @media (min-width: 768px) {
-    .WelcomePage-title {
-        font-size: 2.625rem;
-    }
+  .WelcomePage-title {
+    font-size: 2.625rem;
+  }
 
-    .WelcomePage-logo {
-        width: 280px;
-    }
+  .WelcomePage-logo {
+    width: 280px;
+  }
 
-    .WelcomePage-description {
-        align-items: center;
-        width: 70%;
-    }
+  .WelcomePage-description {
+    align-items: center;
+    width: 70%;
+  }
 
-    .WelcomePage-actions {
-        gap: 28px;
-    }
-
+  .WelcomePage-actions {
+    gap: 28px;
+  }
 }
 
 @media (min-width: 1024px) {
-    .WelcomePage-title {
-        font-size: 5rem;
-    }
+  .WelcomePage-title {
+    font-size: 5rem;
+  }
 
-    .WelcomePage-img {
-        height: 360px;
-    }
+  .WelcomePage-img {
+    height: 360px;
+  }
 
-    .WelcomePage-actions {
-        gap: 40px;
-    }
-
-
+  .WelcomePage-actions {
+    gap: 40px;
+  }
 }
