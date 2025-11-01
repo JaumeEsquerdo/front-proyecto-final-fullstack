@@ -31,6 +31,7 @@
 
 .Act-h2,
 .Act-p {
+  color: var(--color-text-s);
   width: 95%;
   /* pongo un 95% junto con margin left auto para igualar con el resto de la pagina que mantien el 90% width, y necesito poner ese 95% para que el contenido del slider tenga su 100%*/
   padding: 2px 0px;
@@ -216,7 +217,8 @@
   font-weight: 600;
   background: var(--btn-bg-color);
   color: var(--color-text-t);
-  border: 4px solid var(--btn-bg-color-intense);
+  border: 2px solid var(--btn-bg-color-intense);
+  box-shadow: 0 4px 2px var(--btn-bg-color-intense);
   border-radius: var(--btn-radius);
   padding: var(--btn-padding);
   cursor: pointer;
@@ -260,83 +262,90 @@
 .Act-card.orange {
   border: 4px solid #f3bc8c;
   background: linear-gradient(135deg, #fcaf6b, #f5c398);
-  box-shadow: 0px 10px 20px hsla(28, 76%, 82%, 0.6);
+  box-shadow: 0px 4px 2px #f3bc8c;
 }
 
 .Pack-detalles.orange {
   background-color: #f3bc8c;
+  box-shadow: 0px 4px 2px #cda98d;
 }
 
 .Act-card.blue {
   border: 4px solid #8ae2e8;
   background: linear-gradient(135deg, #bdf4f7, #a6eef3);
-  box-shadow: 0px 10px 20px hsla(183, 63%, 78%, 0.4);
+  box-shadow: 0px 4px 2px #8ae2e8;
 }
 
 .Pack-detalles.blue {
   background-color: #8ae2e8;
+  box-shadow: 0px 4px 2px #8ae2e8;
 }
 
 .Act-card.yellow {
   border: 4px solid #fae17c;
-
   background: linear-gradient(135deg, #ffeea4, #f3de8b);
-  box-shadow: 0px 10px 20px hsla(49, 69%, 80%, 0.4);
+  box-shadow: 0px 4px 2px #fae17c;
 }
 
 .Pack-detalles.yellow {
   background-color: #fae17c;
+  box-shadow: 0px 4px 2px #fae17c;
 }
 
 .Act-card.green {
   border: 4px solid #b6e497;
 
   background: linear-gradient(135deg, #c6f78a, #c6f5a6);
-  box-shadow: 0px 10px 20px hsla(110, 69%, 80%, 0.4);
+  box-shadow: 0px 4px 2px #b6e497;
 }
 
 .Pack-detalles.green {
   background-color: #b6e497;
+  box-shadow: 0px 4px 2px #b6e497;
 }
 
 .Act-card.red {
   border: 4px solid #d28d8d;
   background: linear-gradient(135deg, #f99995, #f5b3b3);
-  box-shadow: 0px 10px 20px hsla(0, 69%, 80%, 0.4);
+  box-shadow: 0px 4px 2px #d28d8d;
 }
 
 .Pack-detalles.red {
   background-color: #d28d8d;
+  box-shadow: 0px 4px 2px #d28d8d;
 }
 
 .Act-card.purple {
   border: 4px solid #ae92d7;
   background: linear-gradient(135deg, #b995f7, #d1b4fd);
-  box-shadow: 0px 10px 20px hsla(260, 45%, 80%, 0.4);
+  box-shadow: 0px 4px 2px #ae92d7;
 }
 
 .Pack-detalles.purple {
   background-color: #ae92d7;
+  box-shadow: 0px 4px 2px #ae92d7;
 }
 
 .Act-card.brown {
   border: 4px solid #cda98d;
   background: linear-gradient(135deg, #a97b5c, #cda98d);
-  box-shadow: 0px 10px 20px hsla(25, 45%, 80%, 0.4);
+  box-shadow: 0px 4px 2px #cda98d;
 }
 
 .Pack-detalles.brown {
   background-color: #cda98d;
+  box-shadow: 0px 4px 2px #cda98d;
 }
 
 .Act-card.pink {
   border: 4px solid #de9eac;
   background: linear-gradient(135deg, #e86a88, #de9eac);
-  box-shadow: 0px 10px 20px hsla(0, 69%, 80%, 0.4);
+  box-shadow: 0px 4px 2px #de9eac;
 }
 
 .Pack-detalles.pink {
   background-color: #de9eac;
+  box-shadow: 0px 4px 2px #de9eac;
 }
 
 /* Act pendientes */
@@ -350,6 +359,7 @@
 }
 
 .Activities-titles {
+  color: var(--color-text-s);
   width: 100%;
   align-self: stretch;
   /* strecth para sobreescribir el align center de Activities (el padre) */
@@ -383,7 +393,7 @@
   justify-content: space-evenly;
   background-color: var(--box-activities);
   border-radius: 20px;
-  padding: 0.5rem;
+  padding: 0.8rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin: 8px 0;
   width: 350px;
@@ -394,7 +404,7 @@
   position: absolute;
   top: 0.8rem;
   left: 0.8rem;
-  background-color: #f0b3b7;
+  background-color: var(--btn-bg-color-intense);
   border-radius: 50%;
   padding: 10px;
   display: flex;
@@ -433,9 +443,9 @@
 }
 
 .Actividad-filtro.activo {
-  background: linear-gradient(45deg, #f06b6b, #ff7f50);
+  background: linear-gradient(45deg, #ec8484, #f39370);
   color: var(--color-text-intense);
-  border: 3px solid #ff7f50;
+  border: 3px solid #f39370;
   box-shadow: var(--box-shadow);
 }
 

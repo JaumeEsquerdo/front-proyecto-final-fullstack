@@ -48,7 +48,7 @@ export const Footer = memo(() => {
       </nav>
 
       <div className="Footer-divBtn" onClick={handleAddClick}>
-        <span class="material-symbols-rounded Add-symbol">add</span>
+        <span className="material-symbols-rounded Add-symbol">add</span>
       </div>
     </footer>
   );
