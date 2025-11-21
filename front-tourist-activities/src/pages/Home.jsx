@@ -183,7 +183,11 @@ const Home = () => {
         {/* sección act recomendadas */}
         <section className="Act-section">
           <h2 className="Act-h2">Packs de recomendaciones</h2>
-          <p className="Act-p">{listaDePacks.length} packs</p>
+          {listaDePacks.length == 0 ? (
+            <p className="Act-p">Cargando packs...</p>
+          ) : (
+            <p className="Act-p">{listaDePacks.length} packs</p>
+          )}
 
           <div className="Act-cardScroll">
             {loadingPack
