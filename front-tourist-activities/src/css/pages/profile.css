@@ -117,12 +117,12 @@
   padding: 0.4rem;
   width: 38px;
   cursor: pointer;
-  background-color: var(--color-bg-blueSoft);
-  transition: background-color 0.3s ease-in-out;
+  background-color: transparent;
+  transition: background-color 0.3s ease-out;
 }
 
 .Profile-link:hover {
-  background-color: #f1f1f1;
+  background-color: var(--color-bg);
 }
 
 .Profile-label {
