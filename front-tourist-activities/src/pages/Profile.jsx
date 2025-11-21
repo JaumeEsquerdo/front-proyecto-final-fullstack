@@ -55,13 +55,15 @@ const Profile = () => {
           return;
         }
 
-        if (data.data && data.data._id) {
-          setUser({ ...data.data, id: data.data._id }); // renombro id porq me da error si pongo user._id en el fetch de update
-          setNewName(data.data.name);
-          setNewEmail(data.data.email);
-        } else {
-          setError("Error: id de usuario no valido");
-        }
+        setTimeout(() => {
+          if (data.data && data.data._id) {
+            setUser({ ...data.data, id: data.data._id }); // renombro id porq me da error si pongo user._id en el fetch de update
+            setNewName(data.data.name);
+            setNewEmail(data.data.email);
+          } else {
+            setError("Error: id de usuario no valido");
+          }
+        }, 2000);
       } catch (e) {
         console.error("Error en el fetch de usuario", e);
         setError("Error en la conexión del servidor");
@@ -212,76 +214,90 @@ const Profile = () => {
         </div>
 
         <ProfileHeader handleBack={handleBack} />
-        {user ? (
-          <div className="Profile-card">
-            <h2 className="Profile-title">Tu Perfil</h2>
 
-            {isEditing ? (
-              <ProfileForm
-                newName={newName}
-                newEmail={newEmail}
-                setNewEmail={setNewEmail}
-                setNewName={setNewName}
-                handleUpdateProfile={handleUpdateProfile}
-                setIsEditing={setIsEditing}
-              />
-            ) : (
-              <ProfileInfo user={user} setIsEditing={setIsEditing} />
-            )}
+        <div className="Profile-wrapperSkeleton">
+          <div
+            className="Profile-card"
+            style={{
+              opacity: user ? 1 : 0,
+              transition: "opacity 0.3s ease-out",
+            }}
+          >
+            {user && (
+              <>
+                <h2 className="Profile-title">Tu Perfil</h2>
 
-            <button
-              className="Profile-button Profile-button--pass"
-              onClick={handleTogglePasswordForm}
-            >
-              {showPasswordForm
-                ? "Cancelar cambio de contraseña"
-                : "Cambiar contraseña"}
-            </button>
+                {isEditing ? (
+                  <ProfileForm
+                    newName={newName}
+                    newEmail={newEmail}
+                    setNewEmail={setNewEmail}
+                    setNewName={setNewName}
+                    handleUpdateProfile={handleUpdateProfile}
+                    setIsEditing={setIsEditing}
+                  />
+                ) : (
+                  <ProfileInfo user={user} setIsEditing={setIsEditing} />
+                )}
 
-            {showPasswordForm && (
-              <PasswordChangeForm
-                currentPassword={currentPassword}
-                setCurrentPassword={setCurrentPassword}
-                newPassword={newPassword}
-                setNewPassword={setNewPassword}
-                handleUpdatePassword={handleUpdatePassword}
-              />
-            )}
-
-            {user?.role === "admin" && (
-              <div className="Profile-adminLinks">
-                <Link
-                  to="/agregar-actividad"
-                  className="Profile-button Profile-button--admin"
+                <button
+                  className="Profile-button Profile-button--pass"
+                  onClick={handleTogglePasswordForm}
                 >
-                  Subir actividad
-                </Link>
-                <Link
-                  to="/agregar-packs"
-                  className="Profile-button Profile-button--admin"
-                >
-                  Subir pack
-                </Link>
-              </div>
+                  {showPasswordForm
+                    ? "Cancelar cambio de contraseña"
+                    : "Cambiar contraseña"}
+                </button>
+
+                {showPasswordForm && (
+                  <PasswordChangeForm
+                    currentPassword={currentPassword}
+                    setCurrentPassword={setCurrentPassword}
+                    newPassword={newPassword}
+                    setNewPassword={setNewPassword}
+                    handleUpdatePassword={handleUpdatePassword}
+                  />
+                )}
+
+                {user?.role === "admin" && (
+                  <div className="Profile-adminLinks">
+                    <Link
+                      to="/agregar-actividad"
+                      className="Profile-button Profile-button--admin"
+                    >
+                      Subir actividad
+                    </Link>
+                    <Link
+                      to="/agregar-packs"
+                      className="Profile-button Profile-button--admin"
+                    >
+                      Subir pack
+                    </Link>
+                  </div>
+                )}
+
+                {error && <div className="Profile-error">{error}</div>}
+
+                <button onClick={handleLogout} className="Profile-logout">
+                  Cerrar sesión
+                </button>
+                <PolicyLinks from="perfil" />
+                {/* se pasa la page de donde llega con from para q sepa como volver a atrás al entrar en los links  */}
+              </>
             )}
-
-            {error && <div className="Profile-error">{error}</div>}
-
-            <button onClick={handleLogout} className="Profile-logout">
-              Cerrar sesión
-            </button>
-            <PolicyLinks from="perfil" />
-            {/* se pasa la page de donde llega con from para q sepa como volver a atrás al entrar en los links  */}
           </div>
-        ) : (
-          <Skeleton
-            width={340}
-            height={550}
-            baseColor="#fff9e6"
-            highlightColor="#fffce8"
-            style={{ borderRadius: "16px" }}
-          />
-        )}
+          {!user ? (
+            <div className="Profile-skeleton">
+              <Skeleton
+                width="100%"
+                height="100%"
+                baseColor="#fff9e6"
+                highlightColor="#fffce8"
+                style={{ borderRadius: "16px" }}
+              />
+            </div>
+          ) : null}
+        </div>
       </div>
     </>
   );
