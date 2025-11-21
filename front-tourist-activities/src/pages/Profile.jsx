@@ -55,15 +55,13 @@ const Profile = () => {
           return;
         }
 
-        setTimeout(() => {
-          if (data.data && data.data._id) {
-            setUser({ ...data.data, id: data.data._id }); // renombro id porq me da error si pongo user._id en el fetch de update
-            setNewName(data.data.name);
-            setNewEmail(data.data.email);
-          } else {
-            setError("Error: id de usuario no valido");
-          }
-        }, 2000);
+        if (data.data && data.data._id) {
+          setUser({ ...data.data, id: data.data._id }); // renombro id porq me da error si pongo user._id en el fetch de update
+          setNewName(data.data.name);
+          setNewEmail(data.data.email);
+        } else {
+          setError("Error: id de usuario no valido");
+        }
       } catch (e) {
         console.error("Error en el fetch de usuario", e);
         setError("Error en la conexión del servidor");
@@ -291,8 +289,8 @@ const Profile = () => {
               <Skeleton
                 width="100%"
                 height="100%"
-                baseColor="#fff9e6"
-                highlightColor="#fffce8"
+                baseColor="#FFEDC4"
+                highlightColor="#FFE5B0"
                 style={{ borderRadius: "16px" }}
               />
             </div>
