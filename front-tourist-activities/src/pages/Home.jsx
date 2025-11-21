@@ -116,11 +116,11 @@ const Home = () => {
         });
 
         const data = await res.json();
-
         if (!res.ok) {
           setErrorPacks(data.msg || " error al obtener los packs");
           return;
         }
+
         setListaDePacks(data.data);
       } catch (e) {
         if (e.name === "AbortError") return; // 👈 Silenciar abort
@@ -183,18 +183,7 @@ const Home = () => {
         {/* sección act recomendadas */}
         <section className="Act-section">
           <h2 className="Act-h2">Packs de recomendaciones</h2>
-          {!listaDePacks.length ? (
-            <div className="Act-p">
-              <Skeleton
-                width={30}
-                height={12}
-                baseColor="#fff9e6"
-                highlightColor="#fffce8"
-              />
-            </div>
-          ) : (
-            <p className="Act-p">{listaDePacks.length} packs</p>
-          )}
+          <p className="Act-p">{listaDePacks.length} packs</p>
 
           <div className="Act-cardScroll">
             {loadingPack
@@ -204,8 +193,8 @@ const Home = () => {
                     width={220}
                     height={220}
                     borderRadius={20}
-                    baseColor="#fff9e6"
-                    highlightColor="#fffce8"
+                    baseColor="#FFEDC4"
+                    highlightColor="#FFE5B0"
                   />
                 ))
               : listaDePacks.map((pack, i) => (
@@ -232,20 +221,11 @@ const Home = () => {
         <section className="Activities">
           <div className="Activities-titles">
             <h2 className="Activities-title">Más actividades recomendadas</h2>
-            {actividadesMostradas.length ? (
-              <p style={{ marginLeft: "0" }} className="Act-p">
-                {actividadesMostradas.length} actividades
-              </p>
-            ) : (
-              <div className="Act-p">
-                <Skeleton
-                  width={30}
-                  height={12}
-                  baseColor="#fff9e6"
-                  highlightColor="#fffce8"
-                />
-              </div>
-            )}
+
+            <p style={{ marginLeft: "0" }} className="Act-p">
+              {actividadesMostradas.length} actividades
+            </p>
+
             <Link className="Activities-more" onClick={handleActividades}>
               {verTodas ? "Ver menos" : "Ver todas"}
             </Link>
@@ -260,13 +240,26 @@ const Home = () => {
           )}
 
           <div className="Activities-layout">
-            {actividadesFiltradas.map((actividad) => (
-              <ActivityCard
-                key={actividad._id}
-                actividad={actividad}
-                handleAgregarACalendario={handleAgregarACalendario}
-              />
-            ))}
+            {loadingAct
+              ? Array.from({ length: 6 }).map((_, i) => (
+                  <div className="Activity-skeleton">
+                    <Skeleton
+                      key={i}
+                      width="100%"
+                      height="100%"
+                      //   borderRadius={20}
+                      baseColor="#FFEDC4"
+                      highlightColor="#FFE5B0"
+                    />
+                  </div>
+                ))
+              : actividadesFiltradas.map((actividad) => (
+                  <ActivityCard
+                    key={actividad._id}
+                    actividad={actividad}
+                    handleAgregarACalendario={handleAgregarACalendario}
+                  />
+                ))}
           </div>
         </section>
       </div>
