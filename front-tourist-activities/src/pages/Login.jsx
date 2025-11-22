@@ -67,7 +67,6 @@ const Login = () => {
           className="Login-img"
           src="/img/map.webp"
           alt="Personaje con un mapa"
-          loading="lazy"
         />
         <div className="Login-container">
           <h1 className="Login-h1">Accede a tu cuenta</h1>
