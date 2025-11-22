@@ -61,42 +61,39 @@ const Login = () => {
 
   return (
     <>
-      <div className="Login-fadeIn">
-        <div className="Login">
-          <h1 className="Login-title">Turistea Villajoyosa</h1>
-          <img
-            className="Login-img"
-            src="/img/map.png"
-            alt="Personaje con un mapa"
-          />
-          <div className="Login-container">
-            <h1 className="Login-h1">Accede a tu cuenta</h1>
-            <p className="Login-demoText">
-              Credenciales de demostración cargadas para probar la app
-            </p>
-            <div className="Login-divForm">
-              <LoginForm
-                email={email}
-                password={password}
-                setEmail={setEmail}
-                setPassword={setPassword}
-                handleLogin={handleLogin}
-              />
-              {error && <div className="Login-error">{error}</div>}
+      <div className="Login">
+        <h1 className="Login-title">Turistea Villajoyosa</h1>
+        <img
+          className="Login-img"
+          src="/img/map.png"
+          alt="Personaje con un mapa"
+          loading="lazy"
+        />
+        <div className="Login-container">
+          <h1 className="Login-h1">Accede a tu cuenta</h1>
+          <p className="Login-demoText">
+            Credenciales de demostración cargadas para probar la app
+          </p>
+          <div className="Login-divForm">
+            <LoginForm
+              email={email}
+              password={password}
+              setEmail={setEmail}
+              setPassword={setPassword}
+              handleLogin={handleLogin}
+            />
+            {error && <div className="Login-error">{error}</div>}
 
-              <div className="Login-divLogin">
-                <span className="Login-textRegister">
-                  No tienes cuenta aún?{" "}
-                </span>
-                <Link className="Login-linkRegister" to="/registro">
-                  Regístrate aquí
-                </Link>
-              </div>
+            <div className="Login-divLogin">
+              <span className="Login-textRegister">No tienes cuenta aún? </span>
+              <Link className="Login-linkRegister" to="/registro">
+                Regístrate aquí
+              </Link>
             </div>
           </div>
-          <PolicyLinks from="login" />
-          {/* se pasa la page de donde llega con from para q sepa como volver a atrás al entrar en los links  */}
         </div>
+        <PolicyLinks from="login" />
+        {/* se pasa la page de donde llega con from para q sepa como volver a atrás al entrar en los links  */}
       </div>
     </>
   );
