@@ -2,8 +2,15 @@ import { Link } from "react-router";
 
 import "@/css/pages/welcomePage.css";
 import "@/css/index.css";
+import { useEffect } from "react";
 
 const Welcome = () => {
+  //precarga de imagen de la página de Login para que al navegar no petardee y ya esté en caché
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/img/map.webp";
+  }, []);
+
   return (
     <>
       <main className="WelcomePage">
