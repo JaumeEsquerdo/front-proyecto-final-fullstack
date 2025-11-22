@@ -65,7 +65,7 @@ const Login = () => {
         <h1 className="Login-title">Turistea Villajoyosa</h1>
         <img
           className="Login-img"
-          src="/img/map.png"
+          src="/img/map.webp"
           alt="Personaje con un mapa"
           loading="lazy"
         />
