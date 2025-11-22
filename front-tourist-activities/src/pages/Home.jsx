@@ -1,9 +1,8 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import "@/css/pages/home.css";
 import { useEffect, useState } from "react";
 // import { color } from "framer-motion";
 import { useActivity } from "@/context/ActivityContext";
-import { useNavigate } from "react-router";
 import {
   ActivityCard,
   ActivityFilters,
@@ -28,7 +27,7 @@ const Home = () => {
   const [loadingAct, setLoadingAct] = useState(true); // loding para act
   const [loadingPack, setLoadingPack] = useState(true); // loading para pack
   const [errorAct, setErrorAct] = useState(null); // para errores de acts
-  const [errorPack, setErrorPacks] = useState(null); // para errores de packs
+  const [errorPacks, setErrorPacks] = useState(null); // para errores de packs
   const navigate = useNavigate();
 
   const tipos = [
@@ -64,6 +63,13 @@ const Home = () => {
 
   // useEffect para traer todas las actividades recomendadas
   useEffect(() => {
+    const cachedActividades = localStorage.getItem("actividades");
+    if (cachedActividades) {
+      setActividades(JSON.parse(cachedActividades));
+      setLoadingAct(false);
+      return;
+    }
+
     const fetchActividades = async () => {
       if (!token) return;
       try {
@@ -85,6 +91,9 @@ const Home = () => {
         }
 
         setActividades(data.data);
+
+        // las guardo en cache para no tener que volver a pedirlas al cambiar de pagina
+        localStorage.setItem("actividades", JSON.stringify(data.data));
       } catch (e) {
         console.error("error en el fetch de actividades en home", e);
         setErrorAct("error en la conexión del servidor");
@@ -102,6 +111,13 @@ const Home = () => {
 
   //useEffect para la API de packs de acts recomendadas
   useEffect(() => {
+    const cachedPacks = localStorage.getItem("packs");
+    if (cachedPacks) {
+      setListaDePacks(JSON.parse(cachedPacks));
+      setLoadingPack(false);
+      return;
+    }
+
     const controller = new AbortController();
     const signal = controller.signal;
 
@@ -123,6 +139,9 @@ const Home = () => {
         }
 
         setListaDePacks(data.data);
+
+        //guardar en cache los packs
+        localStorage.setItem("packs", JSON.stringify(data.data));
       } catch (e) {
         if (e.name === "AbortError") return; // 👈 Silenciar abort
         console.error("error en el fetch de packs en home", e);
@@ -174,7 +193,7 @@ const Home = () => {
   //   if (loadingPack) return <SkeletonPack />;
   //   if (loadingAct) return <SkeletonActivity />;
   if (errorAct) return <p>Error en actividades : {errorAct}</p>;
-  if (errorPack) return <p>Error en packs : {errorPack}</p>;
+  if (errorPacks) return <p>Error en packs : {errorPacks}</p>;
 
   return (
     <>

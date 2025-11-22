@@ -38,6 +38,15 @@ const Profile = () => {
 
   /* obtener perfil */
   useEffect(() => {
+    const cachedUser = localStorage.getItem("user");
+    if (cachedUser) {
+      const parsed = JSON.parse(cachedUser);
+      setUser(parsed);
+      setNewName(parsed.name);
+      setNewEmail(parsed.email);
+      return; // si ya hay usuario en caché no hace falta volver a fechear
+    }
+
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem("token");
