@@ -12,6 +12,7 @@ import {
 } from "@/components/home/HomeSections";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { motion, AnimatePresence } from "framer-motion";
 //import { preload } from "react-dom";
 // import { verificarLogin } from "@/components/utiles/Auth";
 
@@ -190,25 +191,46 @@ const Home = () => {
           )}
 
           <div className="Act-cardScroll">
-            {loadingPack
-              ? Array.from({ length: 6 }).map((_, i) => (
-                  <Skeleton
-                    key={i}
-                    width={220}
-                    height={220}
-                    borderRadius={20}
-                    baseColor="#FFEDC4"
-                    highlightColor="#FFE5B0"
-                  />
-                ))
-              : listaDePacks.map((pack, i) => (
-                  <PackCard
-                    i={i}
-                    key={pack._id}
-                    pack={pack}
-                    handleAbrirPack={handleAbrirPack}
-                  />
-                ))}
+            <AnimatePresence>
+              {loadingPack
+                ? Array.from({ length: 6 }).map((_, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      style={{
+                        width: "220px",
+                        maxWidth: "220px",
+                        height: "220px",
+                      }}
+                    >
+                      <Skeleton
+                        width="100%"
+                        height="100%"
+                        baseColor="#FFEDC4"
+                        highlightColor="#FFE5B0"
+                        style={{ borderRadius: "67px 55px 33px 40px" }}
+                      />
+                    </motion.div>
+                  ))
+                : listaDePacks.map((pack, i) => (
+                    <motion.div
+                      key={pack._id}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <PackCard
+                        i={i}
+                        pack={pack}
+                        handleAbrirPack={handleAbrirPack}
+                      />
+                    </motion.div>
+                  ))}
+            </AnimatePresence>
 
             {packAbierto !== null && (
               <PackDetails
@@ -244,26 +266,44 @@ const Home = () => {
           )}
 
           <div className="Activities-layout">
-            {loadingAct
-              ? Array.from({ length: 6 }).map((_, i) => (
-                  <div className="Activity-skeleton">
-                    <Skeleton
+            <AnimatePresence>
+              {loadingAct
+                ? Array.from({ length: 6 }).map((_, i) => (
+                    <motion.div
                       key={i}
-                      width="100%"
-                      height="100%"
-                      //   borderRadius={20}
-                      baseColor="#FFEDC4"
-                      highlightColor="#FFE5B0"
-                    />
-                  </div>
-                ))
-              : actividadesFiltradas.map((actividad) => (
-                  <ActivityCard
-                    key={actividad._id}
-                    actividad={actividad}
-                    handleAgregarACalendario={handleAgregarACalendario}
-                  />
-                ))}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      style={{
+                        height: "150px",
+                        width: "350px",
+                      }}
+                    >
+                      <Skeleton
+                        width="100%"
+                        height="100%"
+                        baseColor="#FFEDC4"
+                        highlightColor="#FFE5B0"
+                        style={{ borderRadius: "20px" }}
+                      />
+                    </motion.div>
+                  ))
+                : actividadesFiltradas.map((actividad) => (
+                    <motion.div
+                      key={actividad._id}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ActivityCard
+                        actividad={actividad}
+                        handleAgregarACalendario={handleAgregarACalendario}
+                      />
+                    </motion.div>
+                  ))}
+            </AnimatePresence>
           </div>
         </section>
       </div>

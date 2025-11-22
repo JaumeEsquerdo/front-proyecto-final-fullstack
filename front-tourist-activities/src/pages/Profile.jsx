@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { SkeletonWrapper } from "@/components/SkeletonWrapper";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -218,7 +219,7 @@ const Profile = () => {
             className="Profile-card"
             style={{
               opacity: user ? 1 : 0,
-              transition: "opacity 0.3s ease-out",
+              transition: "opacity 0.3s ease-out, box-shadow 0.3s ease-out",
             }}
           >
             {user && (
@@ -285,7 +286,14 @@ const Profile = () => {
             )}
           </div>
           {!user ? (
-            <div className="Profile-skeleton">
+            <SkeletonWrapper
+              className="SkeletonWrapper"
+              height="550px"
+              width="100%"
+              maxWidth="420px"
+              borderRadius="16px"
+              boxShadow="0 10px 20px rgba(0, 0, 0, 0.08)"
+            >
               <Skeleton
                 width="100%"
                 height="100%"
@@ -293,7 +301,7 @@ const Profile = () => {
                 highlightColor="#FFE5B0"
                 style={{ borderRadius: "16px" }}
               />
-            </div>
+            </SkeletonWrapper>
           ) : null}
         </div>
       </div>

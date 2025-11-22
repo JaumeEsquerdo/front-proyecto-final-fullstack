@@ -385,21 +385,17 @@
   width: 100%;
 }
 
-.Activity-skeleton,
-.Activities-act {
-  border-radius: 20px;
-  padding: 0.8rem;
-  margin: 8px 0;
-  width: 350px;
-  height: 150px;
-}
-
 .Activities-act {
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
+  border-radius: 20px;
+  padding: 0.8rem;
+  margin: 8px 0;
+  width: 350px;
+  height: 150px;
   background-color: var(--box-activities);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
