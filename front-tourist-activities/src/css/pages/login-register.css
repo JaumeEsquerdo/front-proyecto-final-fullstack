@@ -57,6 +57,13 @@
   justify-content: center;
 }
 
+.Login-demmoText {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.85rem;
+  font-style: italic;
+}
+
 .Login-h1,
 .Register-h1 {
   margin-bottom: 8px;
