@@ -184,9 +184,7 @@
 }
 
 .Profile-button:disabled:hover {
-  transform: none;
   background-color: var(--btn-bg-color);
-  box-shadow: none;
 }
 
 .Profile-button--cancel {
