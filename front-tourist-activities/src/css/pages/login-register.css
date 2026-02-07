@@ -196,26 +196,24 @@
 
 /* spinner overlay de carga al entrar */
 
-.Login-overlay {
+.Loading-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  /* background: var(--color-bg-entering); */
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--color-bg-entering);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
 }
 
-.Login-spinner {
+.Loading-spinner {
   border: 3px solid rgba(0, 0, 0, 0.1);
-  border-left-color: var(--color-btn-login);
+  border-left-color: var(--btn-bg-color);
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
+  width: 44px;
+  height: 44px;
   animation: spin 1s linear infinite;
 }
 
