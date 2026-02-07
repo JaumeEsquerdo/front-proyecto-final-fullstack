@@ -7,6 +7,7 @@ import {
 } from "@/components/login-register-profile/LoginSections";
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("cuenta@demostracion.es");
   const [password, setPassword] = useState("CuentaDemo");
   const [error, setError] = useState("");
@@ -21,10 +22,12 @@ const Login = () => {
 
     if (!email.includes("@") || password.length < 6) {
       setError(
-        "Introduce un email válido y una contraseña con al menos 6 carácteres"
+        "Introduce un email válido y una contraseña con al menos 6 carácteres",
       );
       return;
     }
+
+    setLoading(true);
 
     try {
       const res = await fetch(`${API_URL}${API_ROUTER}${API_AUTH_LOGIN}`, {
@@ -56,6 +59,8 @@ const Login = () => {
     } catch (e) {
       console.error("Error en el fetch del login", e);
       setError("Error en la conexión del servidor");
+    } finally {
+      setLoading(false); //para terminar el spinner de carga
     }
   };
 
@@ -75,6 +80,7 @@ const Login = () => {
           </p>
           <div className="Login-divForm">
             <LoginForm
+              loading={loading}
               email={email}
               password={password}
               setEmail={setEmail}
@@ -93,6 +99,11 @@ const Login = () => {
         </div>
         <PolicyLinks from="login" />
         {/* se pasa la page de donde llega con from para q sepa como volver a atrás al entrar en los links  */}
+
+        {/* spinner overlay para cuando cargue al entrar sesión */}
+        <div className="Loading-overlay">
+          <div className="Loading-spinner"></div>
+        </div>
       </div>
     </>
   );

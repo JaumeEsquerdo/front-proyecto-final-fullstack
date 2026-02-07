@@ -194,6 +194,37 @@
   color: rgb(108, 5, 5);
 }
 
+/* spinner overlay de carga al entrar */
+
+.Login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* background: var(--color-bg-entering); */
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.Login-spinner {
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--color-btn-login);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (min-width: 768px) {
   .Login-divForm,
   .Register-divForm {
