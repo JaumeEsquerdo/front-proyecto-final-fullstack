@@ -55,12 +55,12 @@ const Login = () => {
         navigate("/home");
       } else {
         setError("No ha llegado el token");
+        setLoading(false);
       }
     } catch (e) {
       console.error("Error en el fetch del login", e);
       setError("Error en la conexión del servidor");
-    } finally {
-      setLoading(false); //para terminar el spinner de carga
+      setLoading(false);
     }
   };
 
