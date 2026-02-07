@@ -359,7 +359,7 @@
 
 .ActividadSeleccionada-btn--edit {
   background-color: #5c6ab4;
-  color: var(--white);
+  color: white;
 }
 
 .ActividadSeleccionada-btn--edit:hover {

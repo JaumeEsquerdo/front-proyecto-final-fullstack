@@ -167,7 +167,7 @@ const Profile = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(updateData),
-        }
+        },
       );
 
       const data = await res.json();
@@ -199,28 +199,6 @@ const Profile = () => {
   return (
     <>
       <div className="Profile">
-        <div className="Profile-bg">
-          {/* Ola superior */}
-          <svg
-            className="Wave Wave--top"
-            viewBox="0 0 1440 240"
-            preserveAspectRatio="none"
-          >
-            {/* - El viewBox marca el lienzo(altura y ancho),
-- El path marca la forma dentro del lienzo. */}
-            <path d="M0,80 C240,120 480,10 720,50 C960,90 1200,60 1440,100 L1440,0 L0,0 Z"></path>
-          </svg>
-
-          {/* Ola inferior */}
-          <svg
-            className="Wave Wave--bottom"
-            viewBox="0 0 1440 240"
-            preserveAspectRatio="none"
-          >
-            <path d="M0,200 C220,160 520,240 760,200 C1040,150 1260,190 1440,160 L1440,240 L0,240 Z"></path>
-          </svg>
-        </div>
-
         <ProfileHeader handleBack={handleBack} />
 
         <div className="Profile-wrapperSkeleton">
@@ -251,6 +229,7 @@ const Profile = () => {
                 <button
                   className="Profile-button Profile-button--pass"
                   onClick={handleTogglePasswordForm}
+                  disabled={user.email === "cuenta@demostracion.es"}
                 >
                   {showPasswordForm
                     ? "Cancelar cambio de contraseña"

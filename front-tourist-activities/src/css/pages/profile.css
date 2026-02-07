@@ -148,7 +148,9 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   transition: border 0.3s ease-in-out;
-  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition:
+    border-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
 }
 
 .Profile-input:focus {
@@ -172,6 +174,16 @@
 
 .Profile-button:hover {
   background-color: var(--btn-bg-color-intense);
+}
+
+.Profile-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.Profile-button:disabled:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 .Profile-button--cancel {
