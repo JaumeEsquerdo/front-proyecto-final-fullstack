@@ -53,6 +53,7 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(data.data.user));
 
         navigate("/home");
+        return;
       } else {
         setError("No ha llegado el token");
         setLoading(false);
