@@ -179,10 +179,12 @@
 .Profile-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  background-color: var(--btn-bg-color);
 }
 
 .Profile-button:disabled:hover {
   transform: none;
+  background-color: var(--btn-bg-color);
   box-shadow: none;
 }
 
