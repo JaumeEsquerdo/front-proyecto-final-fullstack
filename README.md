@@ -2,6 +2,8 @@
 
 Frontend de la app `Turistea Villajoyosa`, entregada como proyecto final del módulo FullStack en CEI Valencia. La aplicación permite descubrir actividades recomendadas en Villajoyosa y gestionar un calendario personalizado con eventos propios.
 
+Turistea Villajoyosa es una solución integral diseñada para mejorar la experiencia del visitante en Villajoyosa. Como proyecto final del Máster en Desarrollo Web y Diseño de CEI Valencia, este desarrollo une la potencia de un stack MERN con un enfoque centrado en el usuario (UX).
+
 Demo: https://front-proyecto-final-fullstack.vercel.app/
 
 Repo Frontend: https://github.com/JaumeEsquerdo/front-proyecto-final-fullstack
@@ -11,7 +13,11 @@ Despliegue: https://backend-proyecto-final-fullstack.vercel.app
 
 Repo Backend: https://github.com/JaumeEsquerdo/backend-proyecto-final-fullstack
 
-## 📖 Descripción
+## El reto:
+
+El objetivo era crear una plataforma que no solo listara puntos de interés, sino que permitiera una planificación real y personalizada. El mayor desafío técnico fue gestionar la persistencia de datos entre las actividades recomendadas por la app y las creadas por el usuario en un calendario interactivo.
+
+## Descripción de rutas
 
 Página de bienvenida con CTA para iniciar sesión o registrarse.
 
