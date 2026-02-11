@@ -83,9 +83,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(200, 242, 244, 0.729);
-  backdrop-filter: blur(3px);
+  background-color: #f9e2cc65;
+  /* backdrop-filter: blur(3px); */
   padding: 1rem;
+  overflow: hidden;
+}
+
+.Pack-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  z-index: 0;
 }
 
 .Pack-cerrar {
@@ -105,11 +117,11 @@
   align-items: center;
   justify-content: center;
   color: #333;
-  transition: background-color 1s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .Pack-cerrar:hover {
-  background-color: #f0f0f0;
+  background-color: var(--btn-bg-color);
 }
 
 .Pack-header {

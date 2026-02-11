@@ -220,6 +220,7 @@
   padding: var(--btn-padding);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   overflow-y: auto;
+  font-weight: 500;
   appearance: none;
   /* <- Esto desactiva el estilo nativo */
 }
@@ -277,7 +278,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   padding: 2rem;
   margin: 2rem auto;
-  border: 1px solid #f0f0f0;
+  border: 2px solid var(--box-activities);
   width: 90%;
   height: auto;
 }
@@ -288,7 +289,7 @@
   right: 1rem;
   z-index: 3;
   font-size: 1.5rem;
-  background-color: #f0f0f0;
+  background-color: var(--box-activities);
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -303,7 +304,7 @@
 }
 
 .ActividadSeleccionada-close:hover {
-  background-color: var(--white);
+  background-color: var(--btn-bg-color);
 }
 
 .ActividadSeleccionada-h3 {
@@ -351,7 +352,7 @@
   flex: 1;
   padding: var(--btn-padding);
   border-radius: var(--btn-radius);
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   border: none;
   transition: background-color 0.8s ease-in-out;
