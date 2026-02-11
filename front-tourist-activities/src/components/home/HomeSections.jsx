@@ -40,6 +40,8 @@ export const PackDetails = ({
             className="Pack-icono"
             src={`/img/pack-recom/${listaDePacks[packAbierto].tipo}.svg`}
             alt="Icono pack"
+            width="60"
+            height="60"
           />
           <h3 className="Pack-h3">{listaDePacks[packAbierto].nombre}</h3>
         </div>
@@ -47,7 +49,7 @@ export const PackDetails = ({
         {/* filter para devolver las actividades completas q estan dentro del pack concreto, segun su id */}
         {actividades
           .filter((actividad) =>
-            listaDePacks[packAbierto].actividades.includes(actividad._id)
+            listaDePacks[packAbierto].actividades.includes(actividad._id),
           )
           .map((actividad) => (
             <div
