@@ -21,9 +21,11 @@
 }
 
 .WelcomePage-img {
+  width: 100%;
   height: 280px;
   min-height: 100px;
-  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .WelcomePage-description {

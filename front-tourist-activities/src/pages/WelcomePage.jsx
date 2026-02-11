@@ -20,6 +20,8 @@ const Welcome = () => {
             className="WelcomePage-img"
             src="/img/bycicle.webp"
             alt="Mujer parada en bici viendo el móvil"
+            width="1200"
+            height="300"
           />
           <div className="WelcomePage-description">
             <h2 className="WelcomePage-subtitle">
