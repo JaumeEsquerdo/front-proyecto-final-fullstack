@@ -355,7 +355,7 @@
   font-weight: 700;
   cursor: pointer;
   border: none;
-  transition: background-color 0.8s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .ActividadSeleccionada-btn--edit {
