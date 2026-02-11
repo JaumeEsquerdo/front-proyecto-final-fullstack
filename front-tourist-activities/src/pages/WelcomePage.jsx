@@ -84,6 +84,10 @@ const Welcome = () => {
               Iniciar sesión
             </Link>
           </div>
+          <p className="Login-demoText Welcome-credenciales">
+            En 'Iniciar sesión' están puestas unas credenciales de demostración
+            para probar la app
+          </p>
         </div>
       </main>
     </>

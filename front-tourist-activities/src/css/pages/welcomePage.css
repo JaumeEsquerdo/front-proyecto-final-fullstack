@@ -90,7 +90,7 @@
 
 .WelcomePage-actions {
   position: absolute;
-  bottom: 40px;
+  bottom: 64px;
   right: 50%;
   transform: translateX(50%);
   display: flex;
@@ -144,6 +144,13 @@
   border-color: var(--btn-onboarding--hover);
 }
 
+.Welcome-credenciales {
+  position: fixed;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @media (min-width: 768px) {
   .WelcomePage-title {
     font-size: 2.625rem;
@@ -174,5 +181,16 @@
 
   .WelcomePage-actions {
     gap: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .Welcome-credenciales {
+    width: 360px;
+    text-align: center;
+  }
+
+  .WelcomePage-actions {
+    bottom: 92px;
   }
 }
