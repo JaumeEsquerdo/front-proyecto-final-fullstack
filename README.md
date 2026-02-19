@@ -1,4 +1,4 @@
-# Proyecto Final Fullstack CEI — Frontend
+# TURISTEA - Proyecto Final Fullstack CEI — Frontend
 
 Frontend de la app `Turistea Villajoyosa`, entregada como proyecto final del módulo FullStack en CEI Valencia. La aplicación permite descubrir actividades recomendadas en Villajoyosa y gestionar un calendario personalizado con eventos propios.
 
